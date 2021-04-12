@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * from https://github.com/dxstiny/cs-imageTools
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;

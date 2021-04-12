@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * not working yet, may be used in a future version
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -18,7 +22,7 @@ namespace reAudioPlayerML
             int w = bmap.Width, h = bmap.Height;
 
             Bitmap bmapcrp = cropImage(bmap, new Rectangle(3 * w / 20, 2 * h / 3, 6 * w / 10, h / 6)) as Bitmap;
-            bmapcrp.Save(@"C:\Users\David\Desktop\example-crp.png");
+            bmapcrp.Save("example-crp.png");
 
             bmap.Dispose();
 
