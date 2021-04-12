@@ -12,3 +12,4 @@ Now also open source
 - QRCode Generator - [QRCoder](https://github.com/codebude/QRCoder)
 - Spotify API - [SpotifyAPI-NET](https://github.com/JohnnyCrazy/SpotifyAPI-NET)
 - IDv3 Tag R/W - [Taglib-Sharp](https://github.com/mono/taglib-sharp)
+- GameSharing API - [Created & Maintaned by Claythve](https://github.com/Claythve)
