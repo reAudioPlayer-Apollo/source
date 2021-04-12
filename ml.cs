@@ -104,8 +104,6 @@ namespace reAudioPlayerML
 
         private void launcher_Load(object sender, EventArgs e)
         {
-            //var dir = @"C:\Users\David\Music\09 Future Bounce";
-
             imgQR.Image = QRCodeForWebClient.getImage();
 
             string dir = "";

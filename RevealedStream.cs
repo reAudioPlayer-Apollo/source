@@ -69,8 +69,6 @@ namespace reAudioPlayerML
                 var w = bmp.Width;
                 var h = bmp.Height;
 
-                //bmp.Save(@"C:\Users\David\Desktop\example.png");
-                //bmp.Save("ressources/cover.jpg");
                 PlayerManager.cover = bmp.Clone() as Image;
                 bmp.Dispose();
             }

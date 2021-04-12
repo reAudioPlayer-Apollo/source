@@ -14,9 +14,7 @@ namespace reAudioPlayerML
     {
         public ImageToText()
         {
-            File.Copy(@"C:\Users\David\Desktop\example.png", @"C:\Users\David\Desktop\$example.png", true);
-            Bitmap bmap = (Bitmap)Image.FromFile(@"C:\Users\David\Desktop\$example.png");
-
+            Bitmap bmap = new Bitmap("any file");
             int w = bmap.Width, h = bmap.Height;
 
             Bitmap bmapcrp = cropImage(bmap, new Rectangle(3 * w / 20, 2 * h / 3, 6 * w / 10, h / 6)) as Bitmap;

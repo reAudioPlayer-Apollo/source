@@ -30,12 +30,7 @@ namespace reAudioPlayerML
 
         private void txtLink_ButtonClick(object sender, EventArgs e)
         {
-            //Process.Start("https://music.youtube.com/");
-            Search.Youtube yt = new Search.Youtube();
-            var v = new Google.Apis.YouTube.v3.Data.Video();
-            var t = yt.hasChapters(v).Result;
-            OptimizeDL optimiser = new OptimizeDL();
-            optimiser.splitByChapter(new FileInfo(@"C:\Users\David\Desktop\t\download\Best of Future House Mix 2020 by Jay Eskar.mp3"), v);
+            Process.Start("https://music.youtube.com/");
         }
 
         private void txtDirectory_ButtonClick(object sender, EventArgs e)
