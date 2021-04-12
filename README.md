@@ -30,7 +30,7 @@ reAudioPlayer collects and stores locally in "%localappdata%\reAudioPlayer":
 - playlists (folders) you have played, in order to use them in "Apollo On Air" (PLMLib.list)
 - played songs as a look up table for the csv (described below) (SMLib.list)
 - order of songs played for the recommendation algorithm (using SMLib.list) (SMLT.csv)
-- songs played while playing a game, usde for the playlist recommendation algorithm (featured in Apollo On Air) (using SMLib.list) (GMLT.csv)
+- songs played while playing a game, used for the playlist recommendation algorithm (featured in Apollo On Air) (using SMLib.list) (GMLT.csv)
 - Move Actions, source / target for 'move' actions for the recommendation algorithm (MVMLT.csv)
 - YT-Sync Jobs (job description + archive) (Syncs/*)
 
@@ -38,4 +38,4 @@ reAudioPlayer collects and stores anonymously on an external server, only access
 - [install directory]/ressources/games.json is being synchronised to the cloud
 
 reAudioPlayer collects and temporary stores anonymously on an external server, only accessible through the audio player with an automatically generated key:
-- game library, used to share your games, generated key can be shared to friends
+- game library, used to share your games, generated key can be shared to friends, expires one day after creation
