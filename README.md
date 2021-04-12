@@ -13,3 +13,23 @@ Now also open source
 - Spotify API - [SpotifyAPI-NET](https://github.com/JohnnyCrazy/SpotifyAPI-NET)
 - IDv3 Tag R/W - [Taglib-Sharp](https://github.com/mono/taglib-sharp)
 - GameSharing API - [Created & Maintaned by Claythve](https://github.com/Claythve)
+
+## Installation
+
+Download the "Source Code" and execute Updater.exe. https://github.com/reAudioPlayer-Apollo/installer
+
+Alternatively, clone the project:
+
+```
+git clone https://github.com/reAudioPlayer-Apollo/installer.git
+```
+
+## Local Storage & Collected Data
+
+reAudioPlayer collects and stores locally in "%localappdata%\reAudioPlayer":
+- playlists (folders) you have played, in order to use them in "Apollo On Air" (PLMLib.list)
+- played songs as a look up table for the csv (described below) (SMLib.list)
+- order of songs played for the recommendation algorithm (using SMLib.list) (SMLT.csv)
+- songs played while playing a game, usde for the playlist recommendation algorithm (featured in Apollo On Air) (using SMLib.list) (GMLT.csv)
+- Move Actions, source / target for 'move' actions for the recommendation algorithm (MVMLT.csv)
+- YT-Sync Jobs (job description + archive) (Syncs/*)
