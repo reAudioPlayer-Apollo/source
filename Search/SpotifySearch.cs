@@ -7,12 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SpotifyAPI.Web;
-using SpotifyAPI.Web.Auth;
-
 using System.Collections.Specialized;
-using System.Security.Policy;
 using System.Diagnostics;
-using System.Net.Http;
 using RestSharp;
 using Newtonsoft.Json.Linq;
 using System.Windows.Forms;

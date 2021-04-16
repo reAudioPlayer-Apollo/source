@@ -1,8 +1,6 @@
-﻿using Microsoft.WindowsAPICodePack.Taskbar;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -35,7 +33,8 @@ namespace reAudioPlayerML
 
             InitializeComponent();
 
-            // taskbar buttons
+            // taskbar buttons (not working as admin)
+            /*
             ThumbnailToolBarButton buttonFirst = new ThumbnailToolBarButton(Properties.Resources.last1, "Last");
             buttonFirst.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(playPause);
             buttonFirst.Visible = buttonFirst.Enabled = true;
@@ -49,6 +48,7 @@ namespace reAudioPlayerML
             buttonLast.Visible = buttonLast.Enabled = true;
 
             TaskbarManager.Instance.ThumbnailToolBars.AddButtons(Handle, buttonFirst, buttonMiddle, buttonLast);
+            */
 
             PlayerManager.mediaPlayer = mediaPlayer = new MediaPlayer(logger, notifyIcon);
 
@@ -218,7 +218,12 @@ namespace reAudioPlayerML
 
         private void btnWebsite_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://localhost:8080/");
+            var ps = new ProcessStartInfo("http://localhost:8080/")
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            System.Diagnostics.Process.Start(ps);
         }
 
         private void btnLoadPlaylist_Click(object sender, EventArgs e)

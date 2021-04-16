@@ -1,27 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Net;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Windows.Forms;
-using Anna;
 using System.Threading.Tasks;
 using System.Drawing;
 using Newtonsoft.Json;
+using EmbedIO;
+using EmbedIO.WebApi;
+using EmbedIO.Actions;
+using EmbedIO.Routing;
+using System.ComponentModel;
 
 namespace reAudioPlayerML
 {
     public class HttpWebServer
     {
-        HttpServer server;
+        WebServer eserver;
         MediaPlayer mediaPlayer;
         MetroFramework.Controls.MetroTrackBar prgVolume;
         //public GameLauncher gameLauncher;
-        public Dictionary<string, bool> users = new Dictionary<string, bool>();
+        public static Dictionary<string, bool> users = new Dictionary<string, bool>();
 
         private static Random random = new Random();
         private static string RandomString(int length)
@@ -54,8 +56,12 @@ namespace reAudioPlayerML
 
         private async Task init(Logger logger, int port = 8080)
         {
-            server = new Anna.HttpServer("http://*:" + port.ToString() + "/");
-            await initEndpoints(logger);
+            //server = new Anna.HttpServer("http://*:" + port.ToString() + "/");
+            //await initEndpoints(logger);
+
+            var url = "http://localhost:8080/";
+            eserver = CreateWebServer(url);
+            eserver.RunAsync();
         }
 
         string getStream(Image image)
@@ -110,26 +116,36 @@ namespace reAudioPlayerML
             }
         }
 
+        // Create and configure our web server.
+        private static WebServer CreateWebServer(string url)
+        {
+            var server = new WebServer(o => o
+                    .WithUrlPrefix(url)
+                    .WithMode(HttpListenerMode.EmbedIO))
+                // First, we will configure our web server by adding Modules.
+                .WithLocalSessionManager()
+                .WithWebApi("/api", m => m
+                    .WithController<APIController>())
+                .WithStaticFolder("/", "ressources/www/", true)
+                .WithModule(new ActionModule("/", HttpVerbs.Any, ctx => ctx.SendDataAsync(new { Message = "Error" })));
+
+            // Listen for state changes.
+            //server.StateChanged += (s, e) => $"WebServer New State - {e.NewState}".Info();
+
+            return server;
+        }
+
         private async Task initEndpoints(Logger logger)
         {
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("contentType", "images/jpeg");
             Dictionary<string, string> jsonHeaders = new Dictionary<string, string>();
             jsonHeaders.Add("contentType", "application/json");
-
+            /*
             server.GET("/favicon.ico")
                     .Subscribe(ctx => ctx.Respond(getStream("ressources/faviconApollo.png")));
 
-            /* Pages */
-
-            server.GET("/")
-                .Subscribe(ctx => ctx.Respond(File.ReadAllText("ressources/landingPage.html")));
-
-            server.GET("/control")
-                .Subscribe(ctx => ctx.Respond(File.ReadAllText("ressources/coverSwipe.html")));
-
-            server.GET("/playlists")
-                .Subscribe(ctx => ctx.Respond(File.ReadAllText("ressources/playlistStack.html")));
+            /* Pages *
 
             server.GET("/cover")
                 .Subscribe(ctx => ctx.Respond(getStream(PlayerManager.cover), statusCode: 200, headers: headers));
@@ -137,24 +153,7 @@ namespace reAudioPlayerML
             server.GET("/radio")
                 .Subscribe(ctx => ctx.Respond(File.ReadAllText("ressources/radio.html")));
 
-            server.GET("/games")
-                .Subscribe(ctx => ctx.Respond(File.ReadAllText("ressources/games.html")));
-
-            server.GET("/games/validate-user/{user}")
-                .Subscribe(ctx =>
-                {
-                    string user = ctx.Request.UriArguments.user;
-
-                    if (user == "null" || !users.ContainsKey(user))
-                    {
-                        user = RandomString(6);
-                        users.Add(user, false);
-                    }
-
-                    ctx.Respond(user);
-                });
-
-            /* now playing data */
+            /* now playing data *
 
             server.GET("/version")
                     .Subscribe(ctx => ctx.Respond("reAudioPlayer Apollo"));
@@ -171,7 +170,7 @@ namespace reAudioPlayerML
                     ctx.Respond(prgVolume.Value.ToString());
                     });
 
-                /* controls */
+                /* controls *
 
             server.GET("/control/playPause")
                 .Subscribe(ctx =>
@@ -227,21 +226,7 @@ namespace reAudioPlayerML
                     ctx.Respond("OK");
                 });
 
-            server.GET("/games/launch/{igdbId}&{user}")
-                .Subscribe(ctx =>
-                {
-                    bool success = GameLibraryManager.launchGameByIGDBId(Convert.ToInt32(ctx.Request.UriArguments.igdbId), ctx.Request.UriArguments.user);
-                    if (success)
-                    {
-                        ctx.Respond("OK");
-                    }
-                    else
-                    {
-                        ctx.Respond("You have been temporarily blocked!", 401);
-                    }
-                });
-
-            /* playlist data */
+            /* playlist data *
 
             server.GET("/data/playlists") // deprecated
                 .Subscribe(ctx =>
@@ -249,12 +234,6 @@ namespace reAudioPlayerML
                     Debug.WriteLine("data/playlists called but deprecated");
                     var playlists = PlaylistManager.getPlaylistNamesAsStrings();
                     ctx.Respond( JsonConvert.SerializeObject(playlists) );
-                });
-
-            server.GET("/data/games")
-                .Subscribe(ctx =>
-                {
-                    ctx.Respond(GameLibraryManager.getInstalledGamesAsJSON());
                 });
 
             server.GET("data/radio")
@@ -297,14 +276,100 @@ namespace reAudioPlayerML
                     }
 
                     ctx.Respond(JsonConvert.SerializeObject(playlist));
-                });
+                });*/
         }
 
         public static void RestartAsAdmin(string dir = "")
         {
+            MessageBox.Show("restaresasd");
+            ShowElevatedProcessTaskDialog();
+            /*
             var startInfo = new ProcessStartInfo("reAudioPlayer Apollo.exe") { Verb = "runas", Arguments = dir};
             Process.Start(startInfo);
-            Environment.Exit(0);
+            Environment.Exit(0);*/
+        }
+
+        // tmp
+        private static void ShowElevatedProcessTaskDialog()
+        {
+            var page = new TaskDialogPage()
+            {
+                Heading = "Settings saved - Service Restart required",
+                Text = "The service needs to be restarted to apply the changes.",
+                Icon = TaskDialogIcon.ShieldSuccessGreenBar,
+                Buttons =
+                {
+                    TaskDialogButton.Close
+                }
+            };
+
+            var restartNowButton = new TaskDialogCommandLinkButton("&Restart now");
+            page.Buttons.Add(restartNowButton);
+
+            restartNowButton.ShowShieldIcon = true;
+            restartNowButton.Click += (s, e) =>
+            {
+                restartNowButton.AllowCloseDialog = true;
+                restartNowButton.Enabled = false;
+
+                // Try to start an elevated cmd.exe.
+                var psi = new ProcessStartInfo("cmd.exe", "/k echo Hi, this is an elevated command prompt.")
+                {
+                    UseShellExecute = true,
+                    Verb = "runas"
+                };
+
+                try
+                {
+                    Process.Start(psi)?.Dispose();
+                }
+                catch (Win32Exception ex) when (ex.NativeErrorCode == 1223)
+                {
+                    // The user canceled the UAC prompt, so don't close the dialog and
+                    // re-enable the restart button.
+                    restartNowButton.AllowCloseDialog = false;
+                    restartNowButton.Enabled = true;
+                    return;
+                }
+            };
+
+            TaskDialog.ShowDialog(page);
+        }
+
+        internal class APIController : WebApiController
+        {
+            [Route(HttpVerbs.Get, "/games/validate-user/{user}")]
+            public async Task validateUser(string user)
+            {
+                if (user == "null" || !users.ContainsKey(user))
+                {
+                    user = RandomString(6);
+                    users.Add(user, false);
+                }
+
+                await HttpContext.SendDataAsync(user);
+            }
+
+            [Route(HttpVerbs.Get, "/data/games")]
+            public async Task getGames()
+            {
+                await HttpContext.SendDataAsync(GameLibraryManager.getInstalledGamesAsJSON());
+            }
+
+            [Route(HttpVerbs.Get, "/games/launch/{id}&{user}")]
+            public async Task launchGame(int id, string user)
+            {
+                bool success = GameLibraryManager.launchGameByIGDBId(id, user);
+
+                if (success)
+                {
+                    await HttpContext.SendDataAsync("OK");
+                }
+                else
+                {
+                    await HttpContext.SendDataAsync("You have been temporarily blocked!");
+                }
+            }
         }
     }
 }

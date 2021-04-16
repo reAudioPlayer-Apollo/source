@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -198,7 +197,7 @@ namespace reAudioPlayerML
             {
                 string displayname = listBox1.SelectedItem.ToString();
 
-                launchGameByName(displayname);
+                //launchGameByName(displayname);
             }
         }
 
@@ -219,12 +218,13 @@ namespace reAudioPlayerML
             Process.Start("explorer", "/select," + game);
         }
 
+        [Obsolete("class is deprecated, use GameLibraryManager instead.", true)]
         public bool launchGameByIGDBId(int igdbId, string source = "local")
         {
             var games = GameChecker.loadJson();
             var t = games.Where(x => x.igdbId == igdbId).FirstOrDefault();
 
-            bool isBlocked = webServer.users[source];
+            bool isBlocked = HttpWebServer.users[source];
 
             if (t == null || isBlocked)
                 return false;
@@ -233,15 +233,26 @@ namespace reAudioPlayerML
             return true;
         }
 
+        [Obsolete("class is deprecated, use GameLibraryManager instead.", true)]
         public void launchGameByName(string name, string source = "local", bool fromWeb=false)
         {
             if (fromWeb)
             {
-                if (MessageBox.Show($"It was requested to launch {name}. Do you want to allow this?", "Game Launch Requested", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                TaskDialogPage t = new TaskDialogPage();
+                t.Verification.Text = "block user if declined";
+                t.Buttons.Add(TaskDialogButton.Yes);
+                t.Buttons.Add(TaskDialogButton.No);
+                t.DefaultButton = TaskDialogButton.Yes;
+                t.Caption = "Game Launch Requested";
+                t.Heading = name;
+                t.Text = $"Do you want to launch {name} as requested?";
+                t.Icon = TaskDialogIcon.ShieldBlueBar;
+
+                if (TaskDialog.ShowDialog(t) == TaskDialogButton.No)
                 {
-                    if (MessageBox.Show("Do you want to block this user for this session?", "Prevent Spam?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (t.Verification.Checked)
                     {
-                        webServer.users[source] = true;
+                        HttpWebServer.users[source] = true;
                     }
 
                     return;

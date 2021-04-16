@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,8 @@ namespace reAudioPlayerML
                     returnItems.Add(item);
             }
 
-            return JsonConvert.SerializeObject(returnItems);
+            string v = JsonConvert.SerializeObject(returnItems);
+            return v;
         }
 
         public class GameStartInfo
@@ -125,7 +127,7 @@ namespace reAudioPlayerML
             var games = GameChecker.loadJson();
             var t = games.Where(x => x.igdbId == igdbId).FirstOrDefault();
 
-            bool isBlocked = webServer.users[source];
+            bool isBlocked = HttpWebServer.users[source];
 
             if (t == null || isBlocked)
                 return false;
@@ -138,11 +140,21 @@ namespace reAudioPlayerML
         {
             if (fromWeb)
             {
-                if (MessageBox.Show($"It was requested to launch {name}. Do you want to allow this?", "Game Launch Requested", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                TaskDialogPage t = new TaskDialogPage();
+                t.Verification.Text = "block user if declined";
+                t.Buttons.Add(TaskDialogButton.Yes);
+                t.Buttons.Add(TaskDialogButton.No);
+                t.DefaultButton = TaskDialogButton.Yes;
+                t.Caption = "Game Launch Requested";
+                t.Heading = name;
+                t.Text = $"Do you want to launch {name} as requested?";
+                t.Icon = new TaskDialogIcon(SystemIcons.Question);
+
+                if (TaskDialog.ShowDialog(t) == TaskDialogButton.No)
                 {
-                    if (MessageBox.Show("Do you want to block this user for this session?", "Prevent Spam?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (t.Verification.Checked)
                     {
-                        webServer.users[source] = true;
+                        HttpWebServer.users[source] = true;
                     }
 
                     return;

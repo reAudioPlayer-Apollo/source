@@ -9,7 +9,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tesseract;
 using System.IO;
 
 namespace reAudioPlayerML
@@ -39,10 +38,11 @@ namespace reAudioPlayerML
 
         public string GetText(Bitmap imgsource)
         {
+            /*
             var ocrtext = string.Empty;
             using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
             {
-                using (var img = PixConverter.ToPix(imgsource))
+                /*using (var img = PixConverter.ToPix(imgsource))
                 {
                     using (var page = engine.Process(img))
                     {
@@ -51,7 +51,9 @@ namespace reAudioPlayerML
                 }
             }
 
-            return ocrtext;
+            return ocrtext;*/
+
+            return null;
         }
     }
 }
