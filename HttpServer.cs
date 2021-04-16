@@ -14,6 +14,7 @@ using EmbedIO.WebApi;
 using EmbedIO.Actions;
 using EmbedIO.Routing;
 using System.ComponentModel;
+using EmbedIO.WebSockets;
 
 namespace reAudioPlayerML
 {
@@ -42,29 +43,28 @@ namespace reAudioPlayerML
             {
                 init(logger).Wait();
             }
-            catch
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message);
+
                 if (!forceServer)
                     return;
 
-                if (args.Length > 0)
+                /*if (args.Length > 0)
                     RestartAsAdmin('"' + args[0] + '"');
                 else
-                    RestartAsAdmin();
+                    RestartAsAdmin();*/
             }
         }
 
         private async Task init(Logger logger, int port = 8080)
         {
-            //server = new Anna.HttpServer("http://*:" + port.ToString() + "/");
-            //await initEndpoints(logger);
-
-            var url = "http://localhost:8080/";
+            var url = "http://*:8080/";
             eserver = CreateWebServer(url);
             eserver.RunAsync();
         }
 
-        string getStream(Image image)
+        static string GetStream(Image image)
         {
             if (image is null)
                 return "";
@@ -89,7 +89,7 @@ namespace reAudioPlayerML
             }
         }
 
-        string getStream(string path)
+        static string GetStream(string path)
         {
             using (Image image = Image.FromFile(path))
             {
@@ -112,20 +112,31 @@ namespace reAudioPlayerML
             using (var ms = new MemoryStream())
             {
                 icon.Save(ms);
-                return Convert.ToBase64String( ms.ToArray() );
+                return Convert.ToBase64String(ms.ToArray());
             }
         }
 
         // Create and configure our web server.
-        private static WebServer CreateWebServer(string url)
+        private WebServer CreateWebServer(string url)
         {
             var server = new WebServer(o => o
                     .WithUrlPrefix(url)
                     .WithMode(HttpListenerMode.EmbedIO))
+                .WithCors()
                 // First, we will configure our web server by adding Modules.
                 .WithLocalSessionManager()
+
+                .WithWebApi("/api/control", m => m
+                    .WithController<ControlController>())
+                .WithWebApi("/api/data", m => m
+                    .WithController<DataController>())
+                .WithWebApi("/api/games", m => m
+                    .WithController<GameController>())
                 .WithWebApi("/api", m => m
-                    .WithController<APIController>())
+                    .WithController<GeneralController>())
+
+                .WithModule(new WebSocketsChatServer("/chat"))
+
                 .WithStaticFolder("/", "ressources/www/", true)
                 .WithModule(new ActionModule("/", HttpVerbs.Any, ctx => ctx.SendDataAsync(new { Message = "Error" })));
 
@@ -135,158 +146,26 @@ namespace reAudioPlayerML
             return server;
         }
 
-        private async Task initEndpoints(Logger logger)
-        {
-            Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add("contentType", "images/jpeg");
-            Dictionary<string, string> jsonHeaders = new Dictionary<string, string>();
-            jsonHeaders.Add("contentType", "application/json");
-            /*
-            server.GET("/favicon.ico")
-                    .Subscribe(ctx => ctx.Respond(getStream("ressources/faviconApollo.png")));
-
-            /* Pages *
-
-            server.GET("/cover")
-                .Subscribe(ctx => ctx.Respond(getStream(PlayerManager.cover), statusCode: 200, headers: headers));
-
-            server.GET("/radio")
-                .Subscribe(ctx => ctx.Respond(File.ReadAllText("ressources/radio.html")));
-
-            /* now playing data *
-
-            server.GET("/version")
-                    .Subscribe(ctx => ctx.Respond("reAudioPlayer Apollo"));
-
-            server.GET("/accent")
-            .Subscribe(ctx => ctx.Respond(ColorTranslator.ToHtml( mediaPlayer.accentColour )));
-
-            server.GET("/displayname")
-                .Subscribe(ctx => ctx.Respond(PlayerManager.displayName)); // TODO
-
-            server.GET("/get/volume")
-                .Subscribe(ctx =>
-                {
-                    ctx.Respond(prgVolume.Value.ToString());
-                    });
-
-                /* controls *
-
-            server.GET("/control/playPause")
-                .Subscribe(ctx =>
-                {
-                    PlayerManager.playPause();
-                    if (PlayerManager.isPlaying)
-                    {
-                        ctx.Respond(getStream("ressources/controls/webPlay.png"));
-                    }
-                    else
-                    {
-                        ctx.Respond(getStream("ressources/controls/webPause.png"));
-                    }
-                });
-
-            server.GET("/control/next")
-                .Subscribe(ctx =>
-                {
-                    PlayerManager.next();
-                    ctx.Respond("OK");
-                });
-
-            server.GET("/control/last")
-                .Subscribe(ctx =>
-                {
-                    PlayerManager.last();
-                    ctx.Respond("OK");
-                });
-
-            server.GET("/control/load/playlist/{index}")
-                .Subscribe(ctx =>
-                {
-                    var playlists = File.ReadAllLines(logger.playlistLib);
-                    int index = Convert.ToInt32(ctx.Request.UriArguments.index);
-                    mediaPlayer.loadPlaylist(playlists[index]);
-                    ctx.Respond("OK");
-                });
-
-            server.GET("/control/load/{index}")
-                .Subscribe(ctx =>
-                {
-                    mediaPlayer.loadSong(Convert.ToInt32(ctx.Request.UriArguments.index));
-                    ctx.Respond("OK");
-                });
-
-            server.GET("/control/volume/{value}")
-                .Subscribe(ctx =>
-                {
-                    prgVolume.Invoke(new Action(() =>
-                    {
-                        prgVolume.Value = Convert.ToInt32(ctx.Request.UriArguments.value);
-                    }));
-                    ctx.Respond("OK");
-                });
-
-            /* playlist data *
-
-            server.GET("/data/playlists") // deprecated
-                .Subscribe(ctx =>
-                {
-                    Debug.WriteLine("data/playlists called but deprecated");
-                    var playlists = PlaylistManager.getPlaylistNamesAsStrings();
-                    ctx.Respond( JsonConvert.SerializeObject(playlists) );
-                });
-
-            server.GET("data/radio")
-                .Subscribe(ctx =>
-                {
-                    var programmes = PlayerManager.getRadioProgrammes();
-
-                    ctx.Respond(programmes);
-                });
-
-            server.GET("v2/data/playlists")
-                .Subscribe(ctx =>
-                {
-                    ctx.Respond(JsonConvert.SerializeObject(PlaylistManager.getDetailedPlaylists()));
-                });
-
-            server.GET("data/playlist")
-                .Subscribe(ctx =>
-                {
-                    List<Dictionary<string, string>> playlist = new List<Dictionary<string, string>>();
-                    Dictionary<string, string> temp = new Dictionary<string, string>();
-
-                    var songs = mediaPlayer.playlist;
-
-                    if (songs is null)
-                    {
-                        ctx.Respond(statusCode: 404);
-                        return;
-                    }
-
-                    foreach (var song in songs)
-                    {
-                        temp = new Dictionary<string, string>();
-                        temp.Add("Number", songs.IndexOf(song).ToString());
-                        temp.Add("Title", song.title);
-                        temp.Add("Artist", song.artist);
-                        temp.Add("Album", song.album);
-                        temp.Add("Duration", "N/A");
-                        playlist.Add(temp);
-                    }
-
-                    ctx.Respond(JsonConvert.SerializeObject(playlist));
-                });*/
-        }
-
         public static void RestartAsAdmin(string dir = "")
         {
+            /*
             MessageBox.Show("restaresasd");
             ShowElevatedProcessTaskDialog();
-            /*
+            
             var startInfo = new ProcessStartInfo("reAudioPlayer Apollo.exe") { Verb = "runas", Arguments = dir};
             Process.Start(startInfo);
             Environment.Exit(0);*/
+        }
+
+        private class StaticVars
+        {
+            public static async Task SendStringAsync(IHttpContext context, string content, 
+                string contentType = "text/html", Encoding encoding = null)
+            {
+                encoding = encoding is null ? Encoding.Latin1 : encoding;
+
+                await context.SendStringAsync(content, contentType, encoding);
+            }
         }
 
         // tmp
@@ -336,9 +215,108 @@ namespace reAudioPlayerML
             TaskDialog.ShowDialog(page);
         }
 
-        internal class APIController : WebApiController
+        internal class GeneralController : WebApiController
         {
-            [Route(HttpVerbs.Get, "/games/validate-user/{user}")]
+            [Route(HttpVerbs.Get, "/version")]
+            public async Task getVersion(string user)
+            {
+                await StaticVars.SendStringAsync(HttpContext, "reAudioPlayer Apollo .5");
+            }
+        }
+
+        internal class DataController : WebApiController
+        {
+            [Route(HttpVerbs.Get, "/displayname")]
+            public async Task getVersion()
+            {
+                await StaticVars.SendStringAsync(HttpContext, PlayerManager.displayName);
+            }
+
+            [Route(HttpVerbs.Get, "/playlists")]
+            public async Task getPlaylists()
+            {
+                await StaticVars.SendStringAsync(HttpContext,
+                    JsonConvert.SerializeObject(PlaylistManager.getDetailedPlaylists()));
+            }
+
+            [Route(HttpVerbs.Get, "/volume")]
+            public async Task getVolume()
+            {
+                await StaticVars.SendStringAsync(HttpContext, PlayerManager.volume.ToString());
+            }
+
+            [Route(HttpVerbs.Get, "/cover")]
+            public async Task getCover()
+            {
+                await StaticVars.SendStringAsync(HttpContext, GetStream(PlayerManager.cover), "images/jpeg");
+            }
+
+            [Route(HttpVerbs.Get, "/radioProgramme")]
+            public async Task getProgramme()
+            {
+                var programmes = PlayerManager.getRadioProgrammes();
+                await StaticVars.SendStringAsync(HttpContext, programmes);
+            }
+
+            [Route(HttpVerbs.Get, "/accentColour")]
+            public async Task getAccentColour()
+            {
+                await StaticVars.SendStringAsync(HttpContext, ColorTranslator.ToHtml(PlayerManager.accentColour));
+            }
+        }
+
+        internal class ControlController : WebApiController
+        {
+            [Route(HttpVerbs.Get, "/next")]
+            public async Task next()
+            {
+                PlayerManager.next();
+            }
+
+            [Route(HttpVerbs.Get, "/last")]
+            public async Task last()
+            {
+                PlayerManager.last();
+            }
+
+            [Route(HttpVerbs.Get, "/volume/{value}")]
+            public async Task setVolume(int value)
+            {
+                PlayerManager.volume = value;
+            }
+
+            [Route(HttpVerbs.Get, "/playPause")]
+            public async Task playPause(int value)
+            {
+                PlayerManager.playPause();
+                if (PlayerManager.isPlaying)
+                {
+                    //return GetStream("ressources/controls/webPlay.png");
+                    await StaticVars.SendStringAsync(HttpContext, GetStream("ressources/controls/webPlay.png"), "images/jpeg");
+                }
+                else
+                {
+                    //return GetStream("ressources/controls/webPause.png");
+                    await StaticVars.SendStringAsync(HttpContext, GetStream("ressources/controls/webPause.png"), "images/jpeg");
+                }
+            }
+
+            [Route(HttpVerbs.Get, "/load/playlist/{index}")]
+            public async Task loadPlaylist(int index)
+            {
+                PlayerManager.loadPlaylist(index);
+            }
+
+            [Route(HttpVerbs.Get, "/load/{index}")]
+            public async Task loadSong(int index)
+            {
+                PlayerManager.load(index);
+            }
+        }
+
+        internal class GameController : WebApiController
+        {
+            [Route(HttpVerbs.Get, "/validate-user/{user}")]
             public async Task validateUser(string user)
             {
                 if (user == "null" || !users.ContainsKey(user))
@@ -347,29 +325,61 @@ namespace reAudioPlayerML
                     users.Add(user, false);
                 }
 
-                await HttpContext.SendDataAsync(user);
+                await StaticVars.SendStringAsync(HttpContext, user);
             }
 
-            [Route(HttpVerbs.Get, "/data/games")]
+            [Route(HttpVerbs.Get, "/library")]
             public async Task getGames()
             {
-                await HttpContext.SendDataAsync(GameLibraryManager.getInstalledGamesAsJSON());
+                await StaticVars.SendStringAsync(HttpContext, GameLibraryManager.getInstalledGamesAsJSON());
             }
 
-            [Route(HttpVerbs.Get, "/games/launch/{id}&{user}")]
+            [Route(HttpVerbs.Get, "/launch/{id}&{user}")]
             public async Task launchGame(int id, string user)
             {
                 bool success = GameLibraryManager.launchGameByIGDBId(id, user);
 
                 if (success)
                 {
-                    await HttpContext.SendDataAsync("OK");
+                    await StaticVars.SendStringAsync(HttpContext, "OK");
                 }
                 else
                 {
-                    await HttpContext.SendDataAsync("You have been temporarily blocked!");
+                    await StaticVars.SendStringAsync(HttpContext, "You have been temporarily blocked!");
                 }
             }
+        }
+
+        /// <summary>
+        /// Defines a very simple chat server.
+        /// </summary>
+        public class WebSocketsChatServer : WebSocketModule
+        {
+            public WebSocketsChatServer(string urlPath)
+                : base(urlPath, true)
+            {
+                // placeholder
+            }
+
+            /// <inheritdoc />
+            protected override Task OnMessageReceivedAsync(
+                IWebSocketContext context,
+                byte[] rxBuffer,
+                IWebSocketReceiveResult rxResult)
+                => SendToOthersAsync(context, Encoding.GetString(rxBuffer));
+
+            /// <inheritdoc />
+            protected override Task OnClientConnectedAsync(IWebSocketContext context)
+                => Task.WhenAll(
+                    SendAsync(context, "Welcome to the chat room!"),
+                    SendToOthersAsync(context, "Someone joined the chat room."));
+
+            /// <inheritdoc />
+            protected override Task OnClientDisconnectedAsync(IWebSocketContext context)
+                => SendToOthersAsync(context, "Someone left the chat room.");
+
+            private Task SendToOthersAsync(IWebSocketContext context, string payload)
+                => BroadcastAsync(payload, c => c != context);
         }
     }
 }

@@ -23,6 +23,22 @@ namespace reAudioPlayerML
 
         public string displayname { get { return $"{lblTitle.Text} ({lblProgramme.Text})"; } }
 
+        public int volume
+        {
+            get
+            {
+                return prgVolume.Value;
+            }
+
+            set
+            {
+                prgVolume.Invoke(new Action(() =>
+                {
+                    prgVolume.Value = value;
+                }));
+            }
+        }
+
         public void playPause()
         {
             player.Dispatcher.Invoke(new Action(() =>

@@ -56,6 +56,43 @@ namespace reAudioPlayerML
             }
         }
 
+        public static int volume
+        {
+            get
+            {
+                switch (activePlayer)
+                {
+                    case ActivePlayer.ApolloOnAir:
+                        return radio.volume;
+
+                    case ActivePlayer.RevealedStream:
+                        return 50;
+
+                    case ActivePlayer.Playlist:
+                    default:
+                        return mediaPlayer.volume;
+                }
+            }
+
+            set
+            {
+                switch (activePlayer)
+                {
+                    case ActivePlayer.ApolloOnAir:
+                        radio.volume = value;
+                        return;
+
+                    case ActivePlayer.RevealedStream:
+                        return;
+
+                    case ActivePlayer.Playlist:
+                    default:
+                        mediaPlayer.volume = value;
+                        return;
+                }
+            }
+        }
+
         public static bool isPlaying
         {
             get
@@ -72,6 +109,64 @@ namespace reAudioPlayerML
                     default:
                         return mediaPlayer.isPlaying;
                 }
+            }
+        }
+
+        public static Color accentColour
+        {
+            get
+            {
+                switch (activePlayer)
+                {
+                    case ActivePlayer.ApolloOnAir:
+                        return Color.White;
+
+                    case ActivePlayer.RevealedStream:
+                        return Color.White;
+
+                    case ActivePlayer.Playlist:
+                    default:
+                        return mediaPlayer.accentColour;
+                }
+            }
+        }
+
+        public static void load(int index)
+        {
+            switch (activePlayer)
+            {
+                case ActivePlayer.ApolloOnAir:
+                    //  nothing
+                    return;
+
+                case ActivePlayer.RevealedStream:
+                    // nothing
+                    return;
+
+                case ActivePlayer.Playlist:
+                default:
+                    mediaPlayer.loadSong(index);
+                    return;
+            }
+        }
+
+        public static void loadPlaylist(int index) // here?
+        {
+            switch (activePlayer)
+            {
+                case ActivePlayer.ApolloOnAir:
+                    //  nothing
+                    return;
+
+                case ActivePlayer.RevealedStream:
+                    // nothing
+                    return;
+
+                case ActivePlayer.Playlist:
+                default:
+                    var playlists = File.ReadAllLines(logger.playlistLib);
+                    mediaPlayer.loadPlaylist(playlists[index]);
+                    return;
             }
         }
 

@@ -38,6 +38,21 @@ namespace reAudioPlayerML
 
         public Color accentColour = new System.Drawing.Color();
 
+        public int volume
+        {
+            get
+            {
+                return volumeBar.Value;
+            }
+            set
+            {
+                volumeBar.Invoke(new Action(() =>
+                {
+                    volumeBar.Value = value;
+                }));
+            }
+        }
+
         public bool isPlaying
         { get; private set; }
 
