@@ -4,7 +4,7 @@ Now also open source
 
 ## Dependencies
 
-- Webserver - [Anna Rx](https://github.com/Anna-Rx/Anna)
+- Webserver - [EmbedIO](https://github.com/unosquare/embedio)
 - Youtube API - [Google API](https://github.com/googleapis/google-api-dotnet-client)
 - Updater - [LibGit2Sharp](https://github.com/libgit2/libgit2sharp)
 - Youtube Download - [NYoutubeDL](http://gitlab.com/rgunti/nyoutubedl)
