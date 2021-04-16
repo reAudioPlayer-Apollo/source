@@ -14,7 +14,7 @@ namespace reAudioPlayerML
     public static class GameLibraryManager
     {
         static GameChecker gameChecker;
-        static HttpWebServer webServer;
+        static HttpServer.HttpWebServer webServer;
         static int activeScannings = 0;
         static FolderBrowserDialog fbd;
         public static string steamLocation;
@@ -46,7 +46,7 @@ namespace reAudioPlayerML
             }
         }
 
-        public static void Initialise(GameChecker gc, HttpWebServer hs)
+        public static void Initialise(GameChecker gc, HttpServer.HttpWebServer hs)
         {
             gameChecker = gc;
             webServer = hs;
@@ -127,7 +127,7 @@ namespace reAudioPlayerML
             var games = GameChecker.loadJson();
             var t = games.Where(x => x.igdbId == igdbId).FirstOrDefault();
 
-            bool isBlocked = HttpWebServer.users[source];
+            bool isBlocked = HttpServer.HttpWebServer.users[source];
 
             if (t == null || isBlocked)
                 return false;
@@ -154,7 +154,7 @@ namespace reAudioPlayerML
                 {
                     if (t.Verification.Checked)
                     {
-                        HttpWebServer.users[source] = true;
+                        HttpServer.HttpWebServer.users[source] = true;
                     }
 
                     return;

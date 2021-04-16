@@ -17,7 +17,7 @@ namespace reAudioPlayerML
     public partial class GameLauncher : Form
     {
         GameChecker gameChecker;
-        HttpWebServer webServer;
+        HttpServer.HttpWebServer webServer;
         int activeScannings = 0;
         FolderBrowserDialog fbd;
         Dictionary<string, GameStartInfo> installedGames = new Dictionary<string, GameStartInfo>();
@@ -48,7 +48,7 @@ namespace reAudioPlayerML
             }
         }
 
-        public GameLauncher(GameChecker gc, HttpWebServer hs)
+        public GameLauncher(GameChecker gc, HttpServer.HttpWebServer hs)
         {
             InitializeComponent();
             gameChecker = gc;
@@ -224,7 +224,7 @@ namespace reAudioPlayerML
             var games = GameChecker.loadJson();
             var t = games.Where(x => x.igdbId == igdbId).FirstOrDefault();
 
-            bool isBlocked = HttpWebServer.users[source];
+            bool isBlocked = HttpServer.HttpWebServer.users[source];
 
             if (t == null || isBlocked)
                 return false;
@@ -252,7 +252,7 @@ namespace reAudioPlayerML
                 {
                     if (t.Verification.Checked)
                     {
-                        HttpWebServer.users[source] = true;
+                        HttpServer.HttpWebServer.users[source] = true;
                     }
 
                     return;

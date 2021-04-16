@@ -36,7 +36,7 @@ namespace reAudioPlayerML
 
         private readonly AccentColour.Finder finder = new AccentColour.Finder();
 
-        public Color accentColour = new System.Drawing.Color();
+        public Color accentColour = Color.White;
 
         public int volume
         {
@@ -361,8 +361,6 @@ namespace reAudioPlayerML
             mayCancelLoad = true;
 
             while (cancelLoad) ;
-
-            
 
             Task.Run(() => loadCovers());
             loadSong(0, autoplay);

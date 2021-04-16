@@ -18,7 +18,7 @@ namespace reAudioPlayerML
         MediaPlayer mediaPlayer;
         YoutubeSyncer youtubeSyncer = new YoutubeSyncer();
         HotkeyManager hotkeyManager;
-        HttpWebServer server;
+        HttpServer.HttpWebServer server;
         Search.Spotify spotify;
         RevealedStream revealedStream;
         Radio radio;
@@ -63,7 +63,7 @@ namespace reAudioPlayerML
             
             tbControl.SelectTab(1);
 
-            server = new HttpWebServer(mediaPlayer, logger, prgVolume, args, forceServer: true);
+            server = new HttpServer.HttpWebServer(mediaPlayer, logger, prgVolume, args, forceServer: true);
 
             spotify = new Search.Spotify(listView1, spotifyContextMenu, notifyIcon, mediaPlayer);
             spotify.authorizeUser();

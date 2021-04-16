@@ -150,23 +150,23 @@ namespace reAudioPlayerML
             }
         }
 
-        public static void loadPlaylist(int index) // here?
+        public static string loadPlaylist(int index) // here?
         {
             switch (activePlayer)
             {
                 case ActivePlayer.ApolloOnAir:
                     //  nothing
-                    return;
+                    return "N/A";
 
                 case ActivePlayer.RevealedStream:
                     // nothing
-                    return;
+                    return "N/A";
 
                 case ActivePlayer.Playlist:
                 default:
                     var playlists = File.ReadAllLines(logger.playlistLib);
                     mediaPlayer.loadPlaylist(playlists[index]);
-                    return;
+                    return new DirectoryInfo(playlists[index]).Name;
             }
         }
 
