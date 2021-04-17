@@ -208,6 +208,7 @@
             this.prgVolume.Text = "metroTrackBar2";
             this.prgVolume.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.prgVolume.UseCustomBackColor = true;
+            this.prgVolume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.prgVolume_Scroll);
             // 
             // prgTimeDone
             // 

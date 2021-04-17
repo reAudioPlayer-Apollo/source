@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,7 +17,19 @@ namespace reAudioPlayerML
         static RevealedStream revealedStream;
         static Radio radio;
         static string revealedLink = RevealedStream.defaultLink;
-        public static Image cover;
+        public static HttpServer.Modules.WebSocket webSocket;
+        private static Image _cover;
+        public static Image cover
+        {
+            get { return _cover; }
+            set
+            {
+                _cover = value;
+                Debug.WriteLine("Broadcast");
+                webSocket?.broadCastCover();
+                webSocket?.broadCastDisplayname();
+            }
+        }
 
         public static ActivePlayer activePlayer
         {
@@ -76,6 +89,8 @@ namespace reAudioPlayerML
 
             set
             {
+                webSocket.broadCastVolume(value);
+
                 switch (activePlayer)
                 {
                     case ActivePlayer.ApolloOnAir:

@@ -11,44 +11,104 @@ using System.Threading.Tasks;
 
 namespace reAudioPlayerML.HttpServer.API
 {
-    class DataAPI: WebApiController
+    class DataAPI : WebApiController
     {
         [Route(HttpVerbs.Get, "/displayname")]
-        public async Task getVersion()
+        public async Task RGetDisplayname()
         {
-            await Static.SendStringAsync(HttpContext, PlayerManager.displayName);
+            await Static.SendStringAsync(HttpContext, displayname());
+        }
+
+        public string displayname()
+        {
+            return PlayerManager.displayName;
         }
 
         [Route(HttpVerbs.Get, "/playlists")]
-        public async Task getPlaylists()
+        public async Task RGetPlaylists()
         {
-            await Static.SendStringAsync(HttpContext,
-                JsonConvert.SerializeObject(PlaylistManager.getDetailedPlaylists()));
+            await Static.SendStringAsync(HttpContext, playlists());
+        }
+
+        public string playlists()
+        {
+            return JsonConvert.SerializeObject(PlaylistManager.getDetailedPlaylists());
         }
 
         [Route(HttpVerbs.Get, "/volume")]
-        public async Task getVolume()
+        public async Task RGetVolume()
         {
-            await Static.SendStringAsync(HttpContext, PlayerManager.volume.ToString());
+            await Static.SendStringAsync(HttpContext, volume());
+        }
+
+        public string volume()
+        {
+            return PlayerManager.volume.ToString();
         }
 
         [Route(HttpVerbs.Get, "/cover")]
-        public async Task getCover()
+        public async Task RGetCover()
         {
-            await Static.SendStringAsync(HttpContext, Static.GetStream(PlayerManager.cover), "images/jpeg");
+            await Static.SendStringAsync(HttpContext, cover());
+        }
+        public string cover()
+        {
+            return Static.GetStream(PlayerManager.cover);
         }
 
         [Route(HttpVerbs.Get, "/radioProgramme")]
-        public async Task getProgramme()
+        public async Task RGetProgramme()
         {
-            var programmes = PlayerManager.getRadioProgrammes();
-            await Static.SendStringAsync(HttpContext, programmes);
+            await Static.SendStringAsync(HttpContext, radioProgramme());
+        }
+        public string radioProgramme()
+        {
+            return PlayerManager.getRadioProgrammes();
         }
 
         [Route(HttpVerbs.Get, "/accentColour")]
         public async Task getAccentColour()
         {
-            await Static.SendStringAsync(HttpContext, ColorTranslator.ToHtml(PlayerManager.accentColour));
+            await Static.SendStringAsync(HttpContext, accentColour());
+        }
+
+        public string accentColour()
+        {
+            return ColorTranslator.ToHtml(PlayerManager.accentColour);
+        }
+
+        public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)
+        {
+            switch (msg.endpoint)
+            {
+                case "displayname":
+                    msg.data = displayname();
+                    break;
+
+                case "playlists":
+                    msg.data = playlists();
+                    break;
+
+                case "volume":
+                    msg.data = volume();
+                    break;
+
+                case "cover":
+                    msg.data = cover();
+                    break;
+
+                case "radioProgramme":
+                    msg.data = radioProgramme();
+                    break;
+
+                case "accentColour":
+                    msg.data = accentColour();
+                    break;
+
+                default:
+                    msg.data = "404";
+                    break;
+            }
         }
     }
 }

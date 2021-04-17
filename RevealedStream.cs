@@ -63,6 +63,11 @@ namespace reAudioPlayerML
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (PlayerManager.activePlayer != PlayerManager.ActivePlayer.RevealedStream)
+            {
+                return;
+            }
+
             using (var bmp = ControlExtensions.DrawToImage(webBrowser1))
             {
                 var w = bmp.Width;

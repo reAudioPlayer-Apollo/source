@@ -323,5 +323,10 @@ namespace reAudioPlayerML
                 Process.Start(updater);
             }
         }
+
+        private void prgVolume_Scroll(object sender, ScrollEventArgs e)
+        {
+            PlayerManager.volume = e.NewValue;
+        }
     }
 }

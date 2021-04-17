@@ -124,6 +124,9 @@ namespace reAudioPlayerML
 
         public static bool launchGameByIGDBId(int igdbId, string source = "local")
         {
+            if (source is null)
+                return false;
+
             var games = GameChecker.loadJson();
             var t = games.Where(x => x.igdbId == igdbId).FirstOrDefault();
 

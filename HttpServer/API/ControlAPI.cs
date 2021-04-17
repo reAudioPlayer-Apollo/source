@@ -12,49 +12,115 @@ namespace reAudioPlayerML.HttpServer.API
     public class ControlAPI: WebApiController
     {
         [Route(HttpVerbs.Get, "/next")]
-        public async Task next()
+        public async Task RNext()
+        {
+            next();
+        }
+
+        public string next()
         {
             PlayerManager.next();
+            return null;
         }
 
         [Route(HttpVerbs.Get, "/last")]
-        public async Task last()
+        public async Task RLast()
+        {
+            last();
+        }
+        public string last()
         {
             PlayerManager.last();
+            return null;
         }
 
         [Route(HttpVerbs.Get, "/volume/{value}")]
-        public async Task setVolume(int value)
+        public async Task RSetVolume(int value)
+        {
+            volume(value);
+        }
+        public string volume(int value)
         {
             PlayerManager.volume = value;
+            return value.ToString();
         }
 
         [Route(HttpVerbs.Get, "/playPause")]
-        public async Task playPause(int value)
+        public async Task RPlayPause(int value)
+        {
+            await Static.SendStringAsync(HttpContext, playPause());
+        }
+        public string playPause()
         {
             PlayerManager.playPause();
             if (PlayerManager.isPlaying)
             {
                 //return GetStream("ressources/controls/webPlay.png");
-                await Static.SendStringAsync(HttpContext, Static.GetStream("ressources/controls/webPlay.png"), "images/jpeg");
+                return Static.GetStream("ressources/controls/webPlay.png");
             }
             else
             {
                 //return GetStream("ressources/controls/webPause.png");
-                await Static.SendStringAsync(HttpContext, Static.GetStream("ressources/controls/webPause.png"), "images/jpeg");
+                return Static.GetStream("ressources/controls/webPause.png");
             }
         }
 
         [Route(HttpVerbs.Get, "/load/playlist/{index}")]
-        public async Task<string> loadPlaylist(int index)
+        public async Task<string> RLoadPlaylist(int index)
+        {
+            return loadPlaylist(index);
+        }
+        public string loadPlaylist(int index)
         {
             return PlayerManager.loadPlaylist(index);
         }
 
         [Route(HttpVerbs.Get, "/load/{index}")]
-        public async Task loadSong(int index)
+        public async Task RLoadSong(int index)
+        {
+            loadSong(index);
+        }
+        public string loadSong(int index)
         {
             PlayerManager.load(index);
+            return null;
+        }
+
+        public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)
+        {
+            int value = 0;
+            bool isInt = int.TryParse(msg.data, out value);
+
+            switch (msg.endpoint)
+            {
+                case "next":
+                    msg.data = next();
+                    break;
+
+                case "last":
+                    msg.data = last();
+                    break;
+
+                case "volume":
+                    msg.data = isInt ? volume(value) : null;
+                    break;
+
+                case "playPause":
+                    msg.data = playPause();
+                    break;
+
+                case "load/playlist":
+                    msg.data = isInt ? loadPlaylist(value) : null;
+                    break;
+
+                case "load":
+                    msg.data = isInt ? loadSong(value) : null;
+                    break;
+
+                default:
+                    msg.data = "404";
+                    break;
+            }
         }
     }
 }

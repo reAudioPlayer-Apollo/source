@@ -66,9 +66,28 @@ namespace reAudioPlayerML.HttpServer.API
     class GeneralAPI: WebApiController
     {
         [Route(HttpVerbs.Get, "/version")]
-        public async Task getVersion(string user)
+        public async Task RGetVersion(string user)
         {
-            await Static.SendStringAsync(HttpContext, "reAudioPlayer Apollo .5");
+            await Static.SendStringAsync(HttpContext, version());
+        }
+
+        public string version()
+        {
+            return "reAudioPlayer Apollo .5";
+        }
+
+        public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)
+        {
+            switch (msg.endpoint)
+            {
+                case "version":
+                    msg.data = version();
+                    break;
+
+                default:
+                    msg.data = "404";
+                    break;
+            }
         }
     }
 }
