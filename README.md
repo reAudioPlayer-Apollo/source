@@ -1,6 +1,12 @@
 # reAudioPlayer Apollo
 
-Now also open source
+.NET 5 Standard version not fully tested for stability yet.
+
+This programme has been migrated from .NET Framework 4.7.2 to .NET 5 as .NET Framework will be the last .NET Framework version.
+.NET 5 also adds new possibilities (eg. TaskDialog) and further improves performance and stability.
+
+Due to the fact that our first web server library does not support .NET Core and therefore .NET 5 Standard, we also decided to use EmbedIO as our new web server library.
+EmbedIO also provides an easy way to add websocket servers, which we did in one of our recent updates. Note that the http endpoints will still be available as a description in the wiki. The websocket servers only serve as a more convenient, reliable and smooth wrapper of our API.
 
 ## Dependencies
 
