@@ -68,6 +68,15 @@ namespace reAudioPlayerML
                 return;
             }
 
+            setAsCover();
+
+            //Debug.WriteLine("bitmap saved");
+
+            //ImageToText imageToText = new ImageToText();
+        }
+
+        public void setAsCover()
+        {
             using (var bmp = ControlExtensions.DrawToImage(webBrowser1))
             {
                 var w = bmp.Width;
@@ -76,10 +85,6 @@ namespace reAudioPlayerML
                 PlayerManager.cover = bmp.Clone() as Image;
                 bmp.Dispose();
             }
-
-            //Debug.WriteLine("bitmap saved");
-
-            //ImageToText imageToText = new ImageToText();
         }
     }
 }

@@ -13,7 +13,8 @@ namespace reAudioPlayerML.Search
     public class SpotifyPreview
     {
         MediaPlayer player;
-        SimpleTrack preview;
+        SimpleTrack previewS;
+        FullTrack previewF;
         string filename;
 
         public SpotifyPreview(MediaPlayer mediaPlayer)
@@ -28,6 +29,13 @@ namespace reAudioPlayerML.Search
             playPreview();
         }
 
+        public SpotifyPreview(MediaPlayer mediaPlayer, FullTrack track)
+        {
+            player = mediaPlayer;
+            downloadPreview(track);
+            playPreview();
+        }
+
         public void playPreview()
         {
             if (!File.Exists(filename))
@@ -35,15 +43,41 @@ namespace reAudioPlayerML.Search
                 return;
             }
 
-            var artists = preview.Artists.Select(s => s.Name);
-            player.playIndependent(filename, preview.Name, string.Join(" x ", artists));
+            if (previewS is null)
+            {
+                var preview = previewF;
+                var artists = preview.Artists.Select(s => s.Name);
+                player.playIndependent(filename, preview.Name, string.Join(" x ", artists));
+            }
+            else
+            {
+                var preview = previewS;
+                var artists = preview.Artists.Select(s => s.Name);
+                player.playIndependent(filename, preview.Name, string.Join(" x ", artists));
+            }
         }
 
         public void downloadPreview(SimpleTrack track)
         {
-            filename = AppContext.BaseDirectory + "spotify\\" + track.Name + ".mp3";
+            downloadPreview(track.Name, track.PreviewUrl);
+            previewS = track;
+        }
 
-            preview = track;
+        public void downloadPreview(FullTrack track)
+        {
+            downloadPreview(track.Name, track?.PreviewUrl);
+            previewF = track;
+        }
+
+        public void downloadPreview(string name, string preview)
+        {
+            if (preview is null)
+            {
+                MessageBox.Show("Spotify messed up");
+                return;
+            }
+
+            filename = AppContext.BaseDirectory + "spotify\\" + name + ".mp3";
 
             if (File.Exists(filename))
                 return;
@@ -52,7 +86,7 @@ namespace reAudioPlayerML.Search
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadFile(track.PreviewUrl + ".mp3", filename);
+                    client.DownloadFile(preview + ".mp3", filename);
                 }
             }
             catch (System.Net.WebException e)

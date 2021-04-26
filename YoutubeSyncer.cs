@@ -67,7 +67,7 @@ namespace reAudioPlayerML
 
                 if (video.acrop)
                 {
-                    Debug.WriteLine(optimiser.acrop(new FileInfo(e.FullPath)));
+                    MessageBox.Show(optimiser.acrop(new FileInfo(e.FullPath)).ToString(), "acrop");
                 }
                 if (video.splitChapters &&
                     MessageBox.Show("this video appears to have chapters, do you want to split into chapters?", "Apollo Downloader", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

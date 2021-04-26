@@ -353,6 +353,7 @@ namespace reAudioPlayerML
             foreach (var f in pl)
             {
                 playlist.Add(getSong(f));
+                logger.addSongToDB(f);
             }
 
             playlistCount = playlist.Count;

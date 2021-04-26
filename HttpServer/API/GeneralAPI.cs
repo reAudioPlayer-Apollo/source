@@ -4,6 +4,7 @@ using EmbedIO.WebApi;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace reAudioPlayerML.HttpServer.API
 
                 using (MemoryStream m = new MemoryStream())
                 {
-                    image.Save(m, i.RawFormat);
+                    image.Save(m, ImageFormat.Bmp);
                     byte[] imageBytes = m.ToArray();
 
                     // Convert byte[] to Base64 String
@@ -32,9 +33,9 @@ namespace reAudioPlayerML.HttpServer.API
                     return base64String;
                 }
             }
-            catch
+            catch (Exception e)
             {
-                return "";
+                return e.Message;
             }
         }
 

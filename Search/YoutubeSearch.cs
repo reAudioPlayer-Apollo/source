@@ -16,6 +16,8 @@ namespace reAudioPlayerML.Search
 {
     public class Youtube
     {
+        string apiKey = Settings.APIKeys.youtubeKey;
+
         public enum type
         {
             Video, Channel, Playlist, All
@@ -25,7 +27,7 @@ namespace reAudioPlayerML.Search
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyBSFxNBKeB-vPSUz7yZFONWZq6_fHsXUHM",
+                ApiKey = apiKey,
                 ApplicationName = this.GetType().ToString()
             });
 
@@ -43,7 +45,7 @@ namespace reAudioPlayerML.Search
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyBSFxNBKeB-vPSUz7yZFONWZq6_fHsXUHM",
+                ApiKey = apiKey,
                 ApplicationName = this.GetType().ToString()
             });
 
@@ -130,7 +132,7 @@ namespace reAudioPlayerML.Search
 
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyBSFxNBKeB-vPSUz7yZFONWZq6_fHsXUHM",
+                ApiKey = apiKey,
                 ApplicationName = this.GetType().ToString()
             });
 

@@ -70,9 +70,51 @@
             this.searchOnYoutubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pgSpotifySync = new System.Windows.Forms.TabPage();
+            this.lviewSpotifySync = new System.Windows.Forms.ListView();
+            this.clmnSpotify = new System.Windows.Forms.ColumnHeader();
+            this.clmnLocal = new System.Windows.Forms.ColumnHeader();
+            this.spotifySyncContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemPreviewSpotify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemPreviewLocal = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemOpenSpotify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSyncProgress = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSyncAutomate = new System.Windows.Forms.Button();
+            this.btnSyncExport = new System.Windows.Forms.Button();
+            this.txtSyncOut = new System.Windows.Forms.TextBox();
+            this.txtLocalInput = new System.Windows.Forms.TextBox();
+            this.cmbLocalInput = new System.Windows.Forms.ComboBox();
+            this.btnSyncAnalyse = new System.Windows.Forms.Button();
+            this.cmbSyncPlaylist = new System.Windows.Forms.ComboBox();
             this.pgSettings = new MetroFramework.Controls.MetroTabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.keyTMDB = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.keyIGDBSecret = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.keyIGDBId = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.keySpotifySecret = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.keySpotifyID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.keyYoutube = new System.Windows.Forms.TextBox();
             this.tmrAccentColour = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.pnlHead.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -87,6 +129,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgCover)).BeginInit();
             this.pgConnectSpotify.SuspendLayout();
             this.spotifyContextMenu.SuspendLayout();
+            this.pgSpotifySync.SuspendLayout();
+            this.spotifySyncContextMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.pgSettings.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHead
@@ -281,13 +328,14 @@
             this.tbControl.Controls.Add(this.pgQuickAccess);
             this.tbControl.Controls.Add(this.pgPlay);
             this.tbControl.Controls.Add(this.pgConnectSpotify);
+            this.tbControl.Controls.Add(this.pgSpotifySync);
             this.tbControl.Controls.Add(this.pgSettings);
             this.tbControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbControl.Location = new System.Drawing.Point(0, 82);
             this.tbControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbControl.Name = "tbControl";
             this.tbControl.Padding = new System.Drawing.Point(6, 8);
-            this.tbControl.SelectedIndex = 2;
+            this.tbControl.SelectedIndex = 0;
             this.tbControl.Size = new System.Drawing.Size(663, 424);
             this.tbControl.Style = MetroFramework.MetroColorStyle.Silver;
             this.tbControl.TabIndex = 3;
@@ -597,9 +645,247 @@
             this.previewToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.previewToolStripMenuItem.Text = "Preview";
             // 
+            // pgSpotifySync
+            // 
+            this.pgSpotifySync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.pgSpotifySync.Controls.Add(this.lviewSpotifySync);
+            this.pgSpotifySync.Controls.Add(this.panel1);
+            this.pgSpotifySync.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.pgSpotifySync.Location = new System.Drawing.Point(4, 38);
+            this.pgSpotifySync.Name = "pgSpotifySync";
+            this.pgSpotifySync.Size = new System.Drawing.Size(655, 382);
+            this.pgSpotifySync.TabIndex = 5;
+            this.pgSpotifySync.Text = "Spotify Sync";
+            // 
+            // lviewSpotifySync
+            // 
+            this.lviewSpotifySync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lviewSpotifySync.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lviewSpotifySync.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmnSpotify,
+            this.clmnLocal});
+            this.lviewSpotifySync.ContextMenuStrip = this.spotifySyncContextMenu;
+            this.lviewSpotifySync.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lviewSpotifySync.ForeColor = System.Drawing.Color.White;
+            this.lviewSpotifySync.FullRowSelect = true;
+            this.lviewSpotifySync.HideSelection = false;
+            this.lviewSpotifySync.Location = new System.Drawing.Point(0, 123);
+            this.lviewSpotifySync.Name = "lviewSpotifySync";
+            this.lviewSpotifySync.Size = new System.Drawing.Size(655, 259);
+            this.lviewSpotifySync.TabIndex = 2;
+            this.lviewSpotifySync.UseCompatibleStateImageBehavior = false;
+            this.lviewSpotifySync.View = System.Windows.Forms.View.Details;
+            // 
+            // clmnSpotify
+            // 
+            this.clmnSpotify.Text = "Spotify";
+            // 
+            // clmnLocal
+            // 
+            this.clmnLocal.Text = "Local File";
+            // 
+            // spotifySyncContextMenu
+            // 
+            this.spotifySyncContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemPreviewSpotify,
+            this.toolStripMenuItemPreviewLocal,
+            this.toolStripSeparator3,
+            this.toolStripMenuItemOpenSpotify,
+            this.toolStripMenuItemShowInExplorer});
+            this.spotifySyncContextMenu.Name = "spotifySyncContextMenu";
+            this.spotifySyncContextMenu.Size = new System.Drawing.Size(163, 98);
+            // 
+            // toolStripMenuItemPreviewSpotify
+            // 
+            this.toolStripMenuItemPreviewSpotify.Name = "toolStripMenuItemPreviewSpotify";
+            this.toolStripMenuItemPreviewSpotify.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemPreviewSpotify.Text = "Preview Spotify";
+            // 
+            // toolStripMenuItemPreviewLocal
+            // 
+            this.toolStripMenuItemPreviewLocal.Name = "toolStripMenuItemPreviewLocal";
+            this.toolStripMenuItemPreviewLocal.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemPreviewLocal.Text = "Preview Local";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(159, 6);
+            // 
+            // toolStripMenuItemOpenSpotify
+            // 
+            this.toolStripMenuItemOpenSpotify.Name = "toolStripMenuItemOpenSpotify";
+            this.toolStripMenuItemOpenSpotify.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemOpenSpotify.Text = "Open On Spotify";
+            // 
+            // toolStripMenuItemShowInExplorer
+            // 
+            this.toolStripMenuItemShowInExplorer.Name = "toolStripMenuItemShowInExplorer";
+            this.toolStripMenuItemShowInExplorer.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemShowInExplorer.Text = "Show In Explorer";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblSyncProgress);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnSyncAutomate);
+            this.panel1.Controls.Add(this.btnSyncExport);
+            this.panel1.Controls.Add(this.txtSyncOut);
+            this.panel1.Controls.Add(this.txtLocalInput);
+            this.panel1.Controls.Add(this.cmbLocalInput);
+            this.panel1.Controls.Add(this.btnSyncAnalyse);
+            this.panel1.Controls.Add(this.cmbSyncPlaylist);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(655, 123);
+            this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblSyncProgress
+            // 
+            this.lblSyncProgress.Location = new System.Drawing.Point(342, 105);
+            this.lblSyncProgress.Name = "lblSyncProgress";
+            this.lblSyncProgress.Size = new System.Drawing.Size(310, 15);
+            this.lblSyncProgress.TabIndex = 11;
+            this.lblSyncProgress.Text = "No Playlist Selected";
+            this.lblSyncProgress.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(342, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Output Folder";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(342, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 15);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Input Folder";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(170, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 15);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Local Input";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 15);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Playlist";
+            // 
+            // btnSyncAutomate
+            // 
+            this.btnSyncAutomate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnSyncAutomate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSyncAutomate.Location = new System.Drawing.Point(256, 70);
+            this.btnSyncAutomate.Name = "btnSyncAutomate";
+            this.btnSyncAutomate.Size = new System.Drawing.Size(80, 29);
+            this.btnSyncAutomate.TabIndex = 6;
+            this.btnSyncAutomate.Text = "Create Task";
+            this.btnSyncAutomate.UseVisualStyleBackColor = false;
+            // 
+            // btnSyncExport
+            // 
+            this.btnSyncExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnSyncExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSyncExport.Location = new System.Drawing.Point(170, 70);
+            this.btnSyncExport.Name = "btnSyncExport";
+            this.btnSyncExport.Size = new System.Drawing.Size(80, 29);
+            this.btnSyncExport.TabIndex = 5;
+            this.btnSyncExport.Text = "Export";
+            this.btnSyncExport.UseVisualStyleBackColor = false;
+            this.btnSyncExport.Click += new System.EventHandler(this.btnSyncExport_Click);
+            // 
+            // txtSyncOut
+            // 
+            this.txtSyncOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtSyncOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSyncOut.ForeColor = System.Drawing.Color.White;
+            this.txtSyncOut.Location = new System.Drawing.Point(342, 74);
+            this.txtSyncOut.Name = "txtSyncOut";
+            this.txtSyncOut.Size = new System.Drawing.Size(310, 23);
+            this.txtSyncOut.TabIndex = 4;
+            // 
+            // txtLocalInput
+            // 
+            this.txtLocalInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtLocalInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLocalInput.ForeColor = System.Drawing.Color.White;
+            this.txtLocalInput.Location = new System.Drawing.Point(342, 29);
+            this.txtLocalInput.Name = "txtLocalInput";
+            this.txtLocalInput.Size = new System.Drawing.Size(310, 23);
+            this.txtLocalInput.TabIndex = 3;
+            // 
+            // cmbLocalInput
+            // 
+            this.cmbLocalInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cmbLocalInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLocalInput.ForeColor = System.Drawing.Color.White;
+            this.cmbLocalInput.FormattingEnabled = true;
+            this.cmbLocalInput.Items.AddRange(new object[] {
+            "Entire Library",
+            "One Folder",
+            "[Ask Every Time]"});
+            this.cmbLocalInput.Location = new System.Drawing.Point(170, 29);
+            this.cmbLocalInput.Name = "cmbLocalInput";
+            this.cmbLocalInput.Size = new System.Drawing.Size(166, 23);
+            this.cmbLocalInput.TabIndex = 2;
+            // 
+            // btnSyncAnalyse
+            // 
+            this.btnSyncAnalyse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnSyncAnalyse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSyncAnalyse.Location = new System.Drawing.Point(8, 70);
+            this.btnSyncAnalyse.Name = "btnSyncAnalyse";
+            this.btnSyncAnalyse.Size = new System.Drawing.Size(156, 29);
+            this.btnSyncAnalyse.TabIndex = 1;
+            this.btnSyncAnalyse.Text = "Analyse";
+            this.btnSyncAnalyse.UseVisualStyleBackColor = false;
+            this.btnSyncAnalyse.Click += new System.EventHandler(this.btnSyncAnalyse_Click);
+            // 
+            // cmbSyncPlaylist
+            // 
+            this.cmbSyncPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cmbSyncPlaylist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSyncPlaylist.ForeColor = System.Drawing.Color.White;
+            this.cmbSyncPlaylist.FormattingEnabled = true;
+            this.cmbSyncPlaylist.Location = new System.Drawing.Point(8, 29);
+            this.cmbSyncPlaylist.Name = "cmbSyncPlaylist";
+            this.cmbSyncPlaylist.Size = new System.Drawing.Size(156, 23);
+            this.cmbSyncPlaylist.TabIndex = 0;
+            // 
             // pgSettings
             // 
             this.pgSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.pgSettings.Controls.Add(this.label8);
+            this.pgSettings.Controls.Add(this.keyTMDB);
+            this.pgSettings.Controls.Add(this.label9);
+            this.pgSettings.Controls.Add(this.keyIGDBSecret);
+            this.pgSettings.Controls.Add(this.label10);
+            this.pgSettings.Controls.Add(this.keyIGDBId);
+            this.pgSettings.Controls.Add(this.label7);
+            this.pgSettings.Controls.Add(this.keySpotifySecret);
+            this.pgSettings.Controls.Add(this.label6);
+            this.pgSettings.Controls.Add(this.keySpotifyID);
+            this.pgSettings.Controls.Add(this.label5);
+            this.pgSettings.Controls.Add(this.keyYoutube);
             this.pgSettings.HorizontalScrollbarBarColor = true;
             this.pgSettings.HorizontalScrollbarHighlightOnWheel = false;
             this.pgSettings.HorizontalScrollbarSize = 12;
@@ -616,6 +902,132 @@
             this.pgSettings.VerticalScrollbarSize = 12;
             this.pgSettings.Visible = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(3, 252);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(163, 15);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "TMDB API Key [coming soon]";
+            // 
+            // keyTMDB
+            // 
+            this.keyTMDB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keyTMDB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keyTMDB.ForeColor = System.Drawing.Color.White;
+            this.keyTMDB.Location = new System.Drawing.Point(3, 270);
+            this.keyTMDB.Name = "keyTMDB";
+            this.keyTMDB.Size = new System.Drawing.Size(231, 23);
+            this.keyTMDB.TabIndex = 12;
+            this.keyTMDB.TextChanged += new System.EventHandler(this.keyTMDB_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(3, 204);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 15);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "IGDB API Secret";
+            // 
+            // keyIGDBSecret
+            // 
+            this.keyIGDBSecret.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keyIGDBSecret.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keyIGDBSecret.ForeColor = System.Drawing.Color.White;
+            this.keyIGDBSecret.Location = new System.Drawing.Point(3, 222);
+            this.keyIGDBSecret.Name = "keyIGDBSecret";
+            this.keyIGDBSecret.Size = new System.Drawing.Size(231, 23);
+            this.keyIGDBSecret.TabIndex = 10;
+            this.keyIGDBSecret.TextChanged += new System.EventHandler(this.keyIGDBSecret_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(3, 156);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(67, 15);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "IGDB API Id";
+            // 
+            // keyIGDBId
+            // 
+            this.keyIGDBId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keyIGDBId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keyIGDBId.ForeColor = System.Drawing.Color.White;
+            this.keyIGDBId.Location = new System.Drawing.Point(3, 174);
+            this.keyIGDBId.Name = "keyIGDBId";
+            this.keyIGDBId.Size = new System.Drawing.Size(231, 23);
+            this.keyIGDBId.TabIndex = 8;
+            this.keyIGDBId.TextChanged += new System.EventHandler(this.keyIGDBId_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(3, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 15);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Spotify API Secret";
+            // 
+            // keySpotifySecret
+            // 
+            this.keySpotifySecret.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keySpotifySecret.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keySpotifySecret.ForeColor = System.Drawing.Color.White;
+            this.keySpotifySecret.Location = new System.Drawing.Point(3, 126);
+            this.keySpotifySecret.Name = "keySpotifySecret";
+            this.keySpotifySecret.Size = new System.Drawing.Size(231, 23);
+            this.keySpotifySecret.TabIndex = 6;
+            this.keySpotifySecret.TextChanged += new System.EventHandler(this.keySpotifySecret_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 15);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Spotify API Id";
+            // 
+            // keySpotifyID
+            // 
+            this.keySpotifyID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keySpotifyID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keySpotifyID.ForeColor = System.Drawing.Color.White;
+            this.keySpotifyID.Location = new System.Drawing.Point(3, 78);
+            this.keySpotifyID.Name = "keySpotifyID";
+            this.keySpotifyID.Size = new System.Drawing.Size(231, 23);
+            this.keySpotifyID.TabIndex = 4;
+            this.keySpotifyID.TextChanged += new System.EventHandler(this.keySpotifyID_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(3, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 15);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Youtube API Key";
+            // 
+            // keyYoutube
+            // 
+            this.keyYoutube.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keyYoutube.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keyYoutube.ForeColor = System.Drawing.Color.White;
+            this.keyYoutube.Location = new System.Drawing.Point(3, 30);
+            this.keyYoutube.Name = "keyYoutube";
+            this.keyYoutube.Size = new System.Drawing.Size(231, 23);
+            this.keyYoutube.TabIndex = 2;
+            this.keyYoutube.TextChanged += new System.EventHandler(this.keyYoutube_TextChanged);
+            // 
             // tmrAccentColour
             // 
             this.tmrAccentColour.Enabled = true;
@@ -627,6 +1039,75 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "reAudioPlayer Apollo";
             this.notifyIcon.Visible = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.comboBox4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(655, 198);
+            this.panel2.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(170, 64);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 29);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Export";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(332, 29);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(320, 23);
+            this.textBox2.TabIndex = 3;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Entire Library",
+            "One Folder",
+            "[Ask Every Time]"});
+            this.comboBox3.Location = new System.Drawing.Point(170, 29);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(156, 23);
+            this.comboBox3.TabIndex = 2;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(8, 64);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(126, 29);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Analyse";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(8, 29);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(156, 23);
+            this.comboBox4.TabIndex = 0;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(332, 70);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(320, 23);
+            this.textBox3.TabIndex = 5;
             // 
             // ml
             // 
@@ -664,6 +1145,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgCover)).EndInit();
             this.pgConnectSpotify.ResumeLayout(false);
             this.spotifyContextMenu.ResumeLayout(false);
+            this.pgSpotifySync.ResumeLayout(false);
+            this.spotifySyncContextMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.pgSettings.ResumeLayout(false);
+            this.pgSettings.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -713,6 +1202,49 @@
         private System.Windows.Forms.Button btnSync;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
+        private System.Windows.Forms.TabPage pgSpotifySync;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListView lviewSpotifySync;
+        private System.Windows.Forms.Button btnSyncAnalyse;
+        private System.Windows.Forms.ComboBox cmbSyncPlaylist;
+        private System.Windows.Forms.ComboBox cmbLocalInput;
+        private System.Windows.Forms.TextBox txtLocalInput;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnSyncExport;
+        private System.Windows.Forms.TextBox txtSyncOut;
+        private System.Windows.Forms.Button btnSyncAutomate;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ColumnHeader clmnSpotify;
+        private System.Windows.Forms.ColumnHeader clmnLocal;
+        private System.Windows.Forms.Label lblSyncProgress;
+        private System.Windows.Forms.ContextMenuStrip spotifySyncContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPreviewSpotify;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPreviewLocal;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpenSpotify;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemShowInExplorer;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox keyYoutube;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox keySpotifySecret;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox keySpotifyID;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox keyTMDB;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox keyIGDBSecret;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox keyIGDBId;
+        private System.Windows.Forms.TextBox yYo;
     }
 }
 

@@ -68,6 +68,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TextTemplate.ico" />
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Update="ressources\games.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -116,6 +120,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.2" />
     <PackageReference Include="EmbedIO" Version="3.4.3" />
     <PackageReference Include="Google.Apis" Version="1.51.0" />
     <PackageReference Include="Google.Apis.Auth" Version="1.51.0" />
@@ -135,6 +140,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NHotkey" Version="2.1.0" />
     <PackageReference Include="NHotkey.WindowsForms" Version="2.1.0" />
+    <PackageReference Include="nulastudio.NetCoreBeauty" Version="1.2.9.2" />
+    <PackageReference Include="Phonix" Version="1.0.2" />
     <PackageReference Include="QRCoder" Version="1.4.1" />
     <PackageReference Include="RestSharp" Version="106.11.7" />
     <PackageReference Include="SpotifyAPI.Web" Version="6.1.0" />
@@ -150,7 +157,13 @@
       <HintPath>..\..\reAudioPlayerML\packages\Unosquare.Swan.Lite.3.0.0\lib\netstandard2.0\Swan.Lite.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <Import Project="..\packages\Tesseract.4.1.1\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.4.1.1\build\Tesseract.targets')" />
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
   <Import Project="..\packages\Microsoft.ML.OnnxRuntime.Managed.1.4.0\build\netstandard1.1\Microsoft.ML.OnnxRuntime.Managed.targets" Condition="Exists('..\packages\Microsoft.ML.OnnxRuntime.Managed.1.4.0\build\netstandard1.1\Microsoft.ML.OnnxRuntime.Managed.targets')" />
   <Import Project="..\packages\Microsoft.ML.OnnxRuntime.1.4.0\build\netstandard1.1\Microsoft.ML.OnnxRuntime.targets" Condition="Exists('..\packages\Microsoft.ML.OnnxRuntime.1.4.0\build\netstandard1.1\Microsoft.ML.OnnxRuntime.targets')" />
 </Project>

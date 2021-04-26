@@ -21,7 +21,15 @@ namespace reAudioPlayerML
         private static Image _cover;
         public static Image cover
         {
-            get { return _cover; }
+            get
+            {
+                if (activePlayer == ActivePlayer.RevealedStream)
+                {
+                    //revealedStream.setAsCover();
+                }
+
+                return _cover;
+            }
             set
             {
                 _cover = value;

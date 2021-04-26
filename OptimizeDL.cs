@@ -49,7 +49,7 @@ namespace reAudioPlayerML
             if (todo.Count == 0)
                 return (-20);
 
-            if (!File.Exists(AppContext.BaseDirectory + "ressources\ffmpeg.exe"))
+            if (!File.Exists(AppContext.BaseDirectory + "ressources\\ffmpeg.exe"))
                 return -30;
 
             string workingPictureFormat = "jpg";
@@ -63,7 +63,7 @@ namespace reAudioPlayerML
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.UseShellExecute = false;
             startInfo.CreateNoWindow = true;
-            startInfo.FileName = AppContext.BaseDirectory + "ressources\ffmpeg.exe";
+            startInfo.FileName = AppContext.BaseDirectory + "ressources\\ffmpeg.exe";
             string name = Path.GetFileNameWithoutExtension(startInfo.FileName);
 
             startInfo.Arguments = $"-y -i \"{file.FullName}\" \"{baseFile}.old.{workingPictureFormat}\"";
@@ -136,13 +136,13 @@ namespace reAudioPlayerML
 
         private void split(string input, TimeSpan start, TimeSpan end, string output)
         {
-            if (!File.Exists(AppContext.BaseDirectory + "ressources\ffmpeg.exe"))
+            if (!File.Exists(AppContext.BaseDirectory + "ressources\\ffmpeg.exe"))
                 return;
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.UseShellExecute = false;
             startInfo.CreateNoWindow = true;
-            startInfo.FileName = AppContext.BaseDirectory + "ressources\ffmpeg.exe";
+            startInfo.FileName = AppContext.BaseDirectory + "ressources\\ffmpeg.exe";
             string name = Path.GetFileNameWithoutExtension(startInfo.FileName);
 
             input = input.Replace("\\", "/");
@@ -157,13 +157,13 @@ namespace reAudioPlayerML
 
         private void split(string input, TimeSpan start, string output)
         {
-            if (!File.Exists(AppContext.BaseDirectory + "ressources\ffmpeg.exe"))
+            if (!File.Exists(AppContext.BaseDirectory + "ressources\\ffmpeg.exe"))
                 return;
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.UseShellExecute = false;
             startInfo.CreateNoWindow = true;
-            startInfo.FileName = AppContext.BaseDirectory + "ressources\ffmpeg.exe";
+            startInfo.FileName = AppContext.BaseDirectory + "ressources\\ffmpeg.exe";
             string name = Path.GetFileNameWithoutExtension(startInfo.FileName);
 
             input = input.Replace("\\", "/");

@@ -65,8 +65,13 @@ namespace reAudioPlayerML
 
             server = new HttpServer.HttpWebServer(mediaPlayer, logger, prgVolume, args, forceServer: true);
 
-            spotify = new Search.Spotify(listView1, spotifyContextMenu, notifyIcon, mediaPlayer);
-            spotify.authorizeUser();
+            spotify = new Search.Spotify(listView1, lviewSpotifySync, spotifyContextMenu, spotifySyncContextMenu, notifyIcon, mediaPlayer, logger);
+            spotify.lblSyncProgress = lblSyncProgress;
+            spotify.txtSyncIn = txtLocalInput;
+            spotify.txtSyncOut = txtSyncOut;
+            spotify.cmbSyncPlaylist = cmbSyncPlaylist;
+
+            spotify.authoriseUser();
             PlayerManager.logger = PlaylistManager.logger = logger;
             PlaylistManager.AutoPlaylists.updateSpecialPlaylists();
 
@@ -74,6 +79,13 @@ namespace reAudioPlayerML
             GameLibraryManager.Initialise(gameChecker, server);
 
             Task.Factory.StartNew(() => updateUpdater());
+
+            keyYoutube.Text = Settings.APIKeys.youtubeKey;
+            keyIGDBId.Text = Settings.APIKeys.igdbId;
+            keyIGDBSecret.Text = Settings.APIKeys.igdbSecret;
+            keySpotifyID.Text = Settings.APIKeys.spotifyId;
+            keySpotifySecret.Text = Settings.APIKeys.spotifySecret;
+            keyTMDB.Text = Settings.APIKeys.tmdbKey;
         }
 
         private void updateUpdater()
@@ -190,6 +202,9 @@ namespace reAudioPlayerML
         private void tmrAccentColour_Tick(object sender, EventArgs e)
         {
             btnRevealedRadio.FlatAppearance.BorderColor =
+                btnSyncAnalyse.FlatAppearance.BorderColor =
+                btnSyncExport.FlatAppearance.BorderColor =
+                btnSyncAutomate.FlatAppearance.BorderColor =
                 btnSync.FlatAppearance.BorderColor =
                 btnAddGame.FlatAppearance.BorderColor =
                 btnApolloOnAir.FlatAppearance.BorderColor =
@@ -199,6 +214,9 @@ namespace reAudioPlayerML
                 btnMove.FlatAppearance.BorderColor =
                 mediaPlayer.accentColour;
             btnRevealedRadio.FlatAppearance.MouseDownBackColor =
+                btnSyncAnalyse.FlatAppearance.MouseDownBackColor =
+                btnSyncExport.FlatAppearance.MouseDownBackColor =
+                btnSyncAutomate.FlatAppearance.MouseDownBackColor =
                 btnSync.FlatAppearance.MouseDownBackColor =
                 btnAddGame.FlatAppearance.MouseDownBackColor =
                 btnApolloOnAir.FlatAppearance.MouseDownBackColor =
@@ -327,6 +345,52 @@ namespace reAudioPlayerML
         private void prgVolume_Scroll(object sender, ScrollEventArgs e)
         {
             PlayerManager.volume = e.NewValue;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSyncAnalyse_Click(object sender, EventArgs e)
+        {
+            var playlist = cmbSyncPlaylist.Text;
+            Task.Factory.StartNew(() => spotify.syncPlaylistByName(playlist));
+        }
+
+        private void btnSyncExport_Click(object sender, EventArgs e)
+        {
+            spotify.export();
+        }
+
+        private void keyYoutube_TextChanged(object sender, EventArgs e)
+        {
+            Settings.APIKeys.youtubeKey = keyYoutube.Text;
+        }
+
+        private void keySpotifyID_TextChanged(object sender, EventArgs e)
+        {
+            Settings.APIKeys.spotifyId = keySpotifyID.Text;
+        }
+
+        private void keySpotifySecret_TextChanged(object sender, EventArgs e)
+        {
+            Settings.APIKeys.spotifySecret = keySpotifySecret.Text;
+        }
+
+        private void keyIGDBId_TextChanged(object sender, EventArgs e)
+        {
+            Settings.APIKeys.igdbId = keyIGDBId.Text;
+        }
+
+        private void keyIGDBSecret_TextChanged(object sender, EventArgs e)
+        {
+            Settings.APIKeys.igdbSecret = keyIGDBSecret.Text;
+        }
+
+        private void keyTMDB_TextChanged(object sender, EventArgs e)
+        {
+            Settings.APIKeys.tmdbKey = keyTMDB.Text;
         }
     }
 }

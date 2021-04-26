@@ -173,7 +173,7 @@ namespace reAudioPlayerML
             return lib.IndexOf(filename);
         }
 
-        private void addSongToDB(string filename)
+        public void addSongToDB(string filename)
         {
             var lib = new List<string>(File.ReadAllLines(songLib));
 

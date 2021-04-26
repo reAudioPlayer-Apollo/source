@@ -9,7 +9,7 @@ namespace reAudioPlayerML.Search
 {
     public class Movie
     {
-        TMDbLib.Client.TMDbClient client = new TMDbLib.Client.TMDbClient("1a2d47541ead989eb6d53222b31d11dc");
+        TMDbLib.Client.TMDbClient client = new TMDbLib.Client.TMDbClient(Settings.APIKeys.tmdbKey);
 
         public async void byQuery(string title)
         {
