@@ -35,9 +35,11 @@ namespace reAudioPlayerML.Search
         private readonly NotifyIcon notifyIcon;
         private readonly MediaPlayer player;
         private readonly Logger logger;
+
         public TextBox txtSyncIn;
         public TextBox txtSyncOut;
         public ComboBox cmbSyncPlaylist;
+        public ComboBox cmbLocalInput;
         public Label lblSyncProgress;
 
         private Dictionary<string, object> spotifyCache
@@ -268,18 +270,69 @@ namespace reAudioPlayerML.Search
 
         public void syncPlaylistByName(string name)
         {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             string i = spotifyPlaylists.Find(x => x.Name == name).Id;
             syncPlaylistById(i);
+            sw.Stop();
+
+            lblSyncProgress.Invoke(new Action(() => lblSyncProgress.Text = $"{syncPlaylist.Count} songs analysed in {sw.Elapsed.ToString()}"));
         }
 
         public void syncPlaylistById(string id)
         {
-            List<string> lib = new List<string>(File.ReadAllLines(logger.songLib));
+            List<string> lib;
+            string dir;
+            int index = -1;
+
+            cmbLocalInput.Invoke(new Action(() =>
+            {
+                index = cmbLocalInput.SelectedIndex;
+            }));
+
+            switch (index)
+            {
+                case 0:
+                    lib = new List<string>(File.ReadAllLines(logger.songLib));
+                    break;
+
+                case 1:
+                    dir = "";
+
+                    txtSyncIn.Invoke(new Action(() =>
+                    {
+                        dir = txtSyncIn.Text;
+
+                        if (!Directory.Exists(dir))
+                        {
+                            FolderBrowserDialog fbd = new FolderBrowserDialog();
+                            fbd.ShowNewFolderButton = true;
+
+                            if (fbd.ShowDialog() == DialogResult.Cancel)
+                                return;
+
+                            dir = txtSyncIn.Text = fbd.SelectedPath;
+                        }
+                    }));
+
+                    if (dir == "")
+                    {
+                        return;
+                    }
+
+                    lib = Directory.GetFiles(dir, "*.mp3").ToList();
+                    break;
+
+                default:
+                    return;
+            }
 
             if (spotifyPlaylists.FindIndex(x => x.Id == id) < 0)
             {
                 return;
             }
+
+            syncView.Invoke(new Action(() => syncView.Items.Clear()));
 
             FullPlaylist tracks = client.Playlists.Get(id).Result;
             IList<PlaylistTrack<IPlayableItem>> test = client.PaginateAll(tracks.Tracks).Result;
@@ -291,7 +344,7 @@ namespace reAudioPlayerML.Search
 
                 string displayname = getDisplayName(track);
 
-                string localFile = getMatchingLocalSong(track, lib.ToArray());
+                string localFile = getMatchingLocalSong(ref track, ref lib);
 
                 syncView.Invoke(new Action(() =>
                 {
@@ -455,6 +508,7 @@ namespace reAudioPlayerML.Search
             if (localCache.ContainsKey(id))
             {
                 localCache[id] = file;
+                spotifyLinkCache = localCache;
                 return;
             }
 
@@ -462,7 +516,7 @@ namespace reAudioPlayerML.Search
             spotifyLinkCache = localCache;
         }
 
-        private string getMatchingLocalSong(FullTrack track, string[] lib)
+        private string getMatchingLocalSong(ref FullTrack track, ref List<string> lib)
         {
             Dictionary<string, string> localCache = spotifyLinkCache is null ? new Dictionary<string, string>() : spotifyLinkCache;
 
@@ -470,7 +524,7 @@ namespace reAudioPlayerML.Search
             {
                 string file = localCache[track.Id];
 
-                if (File.Exists(file))
+                if (File.Exists(file) && lib.Contains(file))
                 {
                     return file;
                 }

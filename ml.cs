@@ -70,6 +70,8 @@ namespace reAudioPlayerML
             spotify.txtSyncIn = txtLocalInput;
             spotify.txtSyncOut = txtSyncOut;
             spotify.cmbSyncPlaylist = cmbSyncPlaylist;
+            spotify.cmbLocalInput = cmbLocalInput;
+            cmbLocalInput.SelectedIndex = 0;
 
             spotify.authoriseUser();
             PlayerManager.logger = PlaylistManager.logger = logger;
