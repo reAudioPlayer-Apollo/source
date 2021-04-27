@@ -1,6 +1,6 @@
 # reAudioPlayer Apollo
 
-.NET 5 Standard version not fully tested for stability yet.
+.NET 5 version not fully tested for stability yet.
 
 This programme has been migrated from .NET Framework 4.7.2 to .NET 5 as .NET Framework will be the last .NET Framework version.
 .NET 5 also adds new possibilities (eg. TaskDialog) and further improves performance and stability.
