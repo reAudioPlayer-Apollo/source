@@ -16,7 +16,7 @@ namespace reAudioPlayerML.Search
 {
     public class Youtube
     {
-        string apiKey = Settings.APIKeys.youtubeKey;
+        string apiKey = Settings.APIKeys.youtube;
 
         public enum type
         {

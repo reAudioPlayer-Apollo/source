@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using LibGit2Sharp;
+using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibGit2Sharp;
 
 namespace reAudioPlayerML
 {
     public partial class ml : Form
     {
-        Logger logger = new Logger();
-        MediaPlayer mediaPlayer;
-        YoutubeSyncer youtubeSyncer = new YoutubeSyncer();
-        HotkeyManager hotkeyManager;
-        HttpServer.HttpWebServer server;
-        Search.Spotify spotify;
-        RevealedStream revealedStream;
-        Radio radio;
-
-        string[] args;
+        private readonly Logger logger = new Logger();
+        private readonly MediaPlayer mediaPlayer;
+        private readonly YoutubeSyncer youtubeSyncer = new YoutubeSyncer();
+        private readonly HotkeyManager hotkeyManager;
+        private readonly HttpServer.HttpWebServer server;
+        private readonly Search.Spotify spotify;
+        private readonly RevealedStream revealedStream;
+        private readonly Radio radio;
+        private readonly string[] args;
 
         public ml(string[] iArgs)
         {
@@ -65,15 +59,26 @@ namespace reAudioPlayerML
 
             server = new HttpServer.HttpWebServer(mediaPlayer, logger, prgVolume, args, forceServer: true);
 
-            spotify = new Search.Spotify(listView1, lviewSpotifySync, spotifyContextMenu, spotifySyncContextMenu, notifyIcon, mediaPlayer, logger);
-            spotify.lblSyncProgress = lblSyncProgress;
-            spotify.txtSyncIn = txtLocalInput;
-            spotify.txtSyncOut = txtSyncOut;
-            spotify.cmbSyncPlaylist = cmbSyncPlaylist;
-            spotify.cmbLocalInput = cmbLocalInput;
-            cmbLocalInput.SelectedIndex = 0;
+            if (!Settings.APIKeys.spotify.isSet)
+            {
+                spotify = new Search.Spotify(listView1,
+                    lviewSpotifySync,
+                    spotifyContextMenu,
+                    spotifySyncContextMenu,
+                    txtLocalInput,
+                    txtSyncOut,
+                    cmbSyncPlaylist,
+                    cmbLocalInput,
+                    lblSyncProgress,
+                    notifyIcon,
+                    mediaPlayer,
+                    logger);
 
-            spotify.authoriseUser();
+                cmbLocalInput.SelectedIndex = 0; // default value
+
+                spotify.authoriseUser();
+            }
+
             PlayerManager.logger = PlaylistManager.logger = logger;
             PlaylistManager.AutoPlaylists.updateSpecialPlaylists();
 
@@ -82,25 +87,25 @@ namespace reAudioPlayerML
 
             Task.Factory.StartNew(() => updateUpdater());
 
-            keyYoutube.Text = Settings.APIKeys.youtubeKey;
-            keyIGDBId.Text = Settings.APIKeys.igdbId;
-            keyIGDBSecret.Text = Settings.APIKeys.igdbSecret;
-            keySpotifyID.Text = Settings.APIKeys.spotifyId;
-            keySpotifySecret.Text = Settings.APIKeys.spotifySecret;
-            keyTMDB.Text = Settings.APIKeys.tmdbKey;
+            keyYoutube.Text = Settings.APIKeys.youtube;
+            keyIGDBId.Text = Settings.APIKeys.igdb.id;
+            keyIGDBSecret.Text = Settings.APIKeys.igdb.secret;
+            keySpotifyID.Text = Settings.APIKeys.spotify.id;
+            keySpotifySecret.Text = Settings.APIKeys.spotify.secret;
+            keyTMDB.Text = Settings.APIKeys.tmdb;
         }
 
         private void updateUpdater()
         {
-            var loc = AppDomain.CurrentDomain.BaseDirectory;
-            var parent = new DirectoryInfo(loc).Parent.Name;
+            string loc = AppDomain.CurrentDomain.BaseDirectory;
+            string parent = new DirectoryInfo(loc).Parent.Name;
 
             if (parent == "reAudioPlayer Apollo")
             {
-                using (var repo = new Repository("../Updater"))
+                using (Repository repo = new Repository("../Updater"))
                 {
-                    var sig = new Signature("test", "test@test.com", new DateTimeOffset(DateTime.Now));
-                    var opt = new PullOptions();
+                    Signature sig = new Signature("test", "test@test.com", new DateTimeOffset(DateTime.Now));
+                    PullOptions opt = new PullOptions();
                     opt.MergeOptions = new MergeOptions();
                     opt.MergeOptions.FileConflictStrategy = CheckoutFileConflictStrategy.Theirs;
                     opt.MergeOptions.MergeFileFavor = MergeFileFavor.Theirs;
@@ -179,23 +184,29 @@ namespace reAudioPlayerML
             ofd.Title = "choose the song you want to move";
 
             if (!(ofd.ShowDialog() == DialogResult.OK))
+            {
                 return;
+            }
 
             SaveFileDialog sfd= new SaveFileDialog();
             sfd.FileName = Path.GetFileName( ofd.FileName );
             sfd.InitialDirectory = ofd.InitialDirectory;
 
-            var key = Path.GetDirectoryName(ofd.FileName).Replace(@"\\", @"\");
+            string key = Path.GetDirectoryName(ofd.FileName).Replace(@"\\", @"\");
 
             if (logger.moveTrainerDictionary.ContainsKey(key))
+            {
                 sfd.InitialDirectory = logger.moveTrainerDictionary[Path.GetDirectoryName(ofd.FileName)];
+            }
 
             sfd.Title = "choose the new location";
-            var ext = Path.GetExtension(ofd.FileName);
+            string ext = Path.GetExtension(ofd.FileName);
             sfd.Filter = $"{ext.Replace(".", "")} files (*{ext})|*{ext}";
 
             if (!(sfd.ShowDialog() == DialogResult.OK))
+            {
                 return;
+            }
 
             logger.addFileMove(Path.GetDirectoryName(ofd.FileName), Path.GetDirectoryName(sfd.FileName));
             File.Move(ofd.FileName, sfd.FileName);
@@ -238,7 +249,7 @@ namespace reAudioPlayerML
 
         private void btnWebsite_Click(object sender, EventArgs e)
         {
-            var ps = new ProcessStartInfo("http://localhost:8080/")
+            ProcessStartInfo ps = new ProcessStartInfo("http://localhost:8080/")
             {
                 UseShellExecute = true,
                 Verb = "open"
@@ -266,10 +277,12 @@ namespace reAudioPlayerML
         private void ml_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            var dir = files[0];
+            string dir = files[0];
 
             if (File.Exists(dir))
+            {
                 dir = Path.GetDirectoryName(dir);
+            }
 
             mediaPlayer.loadPlaylist(dir);
         }
@@ -311,10 +324,12 @@ namespace reAudioPlayerML
                 gameAdder.Show();
             }
 
-            /*GameChecker gameChecker = new GameChecker();
-
+            /*
+            for testing purpose
+            GameChecker gameChecker = new GameChecker();
             GameLauncher gameLauncher = new GameLauncher(gameChecker, server);
-            gameLauncher.Show();*/
+            gameLauncher.Show();
+            */
         }
 
         private void btnSync_Click(object sender, EventArgs e)
@@ -334,8 +349,8 @@ namespace reAudioPlayerML
         {
             cleanUp();
 
-            var loc = AppDomain.CurrentDomain.BaseDirectory;
-            var parent = new DirectoryInfo(loc).Parent;
+            string loc = AppDomain.CurrentDomain.BaseDirectory;
+            DirectoryInfo parent = new DirectoryInfo(loc).Parent;
 
             if (parent.Name == "reAudioPlayer Apollo")
             {
@@ -356,43 +371,40 @@ namespace reAudioPlayerML
 
         private void btnSyncAnalyse_Click(object sender, EventArgs e)
         {
-            var playlist = cmbSyncPlaylist.Text;
+            string playlist = cmbSyncPlaylist.Text;
             Task.Factory.StartNew(() => spotify.syncPlaylistByName(playlist));
         }
 
-        private void btnSyncExport_Click(object sender, EventArgs e)
-        {
-            spotify.export();
-        }
+        private void btnSyncExport_Click(object sender, EventArgs e) { spotify.exportSyncedPlaylist(); }
 
         private void keyYoutube_TextChanged(object sender, EventArgs e)
         {
-            Settings.APIKeys.youtubeKey = keyYoutube.Text;
+            Settings.APIKeys.youtube = keyYoutube.Text;
         }
 
         private void keySpotifyID_TextChanged(object sender, EventArgs e)
         {
-            Settings.APIKeys.spotifyId = keySpotifyID.Text;
+            Settings.APIKeys.spotify.id = keySpotifyID.Text;
         }
 
         private void keySpotifySecret_TextChanged(object sender, EventArgs e)
         {
-            Settings.APIKeys.spotifySecret = keySpotifySecret.Text;
+            Settings.APIKeys.spotify.secret = keySpotifySecret.Text;
         }
 
         private void keyIGDBId_TextChanged(object sender, EventArgs e)
         {
-            Settings.APIKeys.igdbId = keyIGDBId.Text;
+            Settings.APIKeys.igdb.id = keyIGDBId.Text;
         }
 
         private void keyIGDBSecret_TextChanged(object sender, EventArgs e)
         {
-            Settings.APIKeys.igdbSecret = keyIGDBSecret.Text;
+            Settings.APIKeys.igdb.secret = keyIGDBSecret.Text;
         }
 
         private void keyTMDB_TextChanged(object sender, EventArgs e)
         {
-            Settings.APIKeys.tmdbKey = keyTMDB.Text;
+            Settings.APIKeys.tmdb = keyTMDB.Text;
         }
     }
 }

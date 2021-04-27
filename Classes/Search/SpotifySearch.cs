@@ -19,8 +19,8 @@ namespace reAudioPlayerML.Search
     internal class Spotify
     {
         public SpotifyClient client;
-        private readonly string clientid = Settings.APIKeys.spotifyId;
-        private readonly string clientsecret = Settings.APIKeys.spotifySecret;
+        private readonly string clientid = Settings.APIKeys.spotify.id;
+        private readonly string clientsecret = Settings.APIKeys.spotify.secret;
         private readonly string redirectUri = "http://reap.ml/callback/";
         public bool ready { get; private set; }
 
@@ -36,11 +36,11 @@ namespace reAudioPlayerML.Search
         private readonly MediaPlayer player;
         private readonly Logger logger;
 
-        public TextBox txtSyncIn;
-        public TextBox txtSyncOut;
-        public ComboBox cmbSyncPlaylist;
-        public ComboBox cmbLocalInput;
-        public Label lblSyncProgress;
+        private TextBox txtSyncIn;
+        private TextBox txtSyncOut;
+        private ComboBox cmbSyncPlaylist;
+        private ComboBox cmbLocalInput;
+        private Label lblSyncProgress;
 
         private Dictionary<string, object> spotifyCache
         {
@@ -84,23 +84,48 @@ namespace reAudioPlayerML.Search
         private List<PlaylistTrack<IPlayableItem>> syncPlaylist;
         private readonly Dictionary<string, int> selectedIndex = new Dictionary<string, int>();
 
-        public Spotify(ListView lView, ListView syncView, ContextMenuStrip ctxMenu, ContextMenuStrip ctxMenuSync, NotifyIcon notify, MediaPlayer mediaPlayer, Logger logger)
+        public Spotify(ListView listView, 
+            ListView syncView,
+            ContextMenuStrip contextMenu,
+            ContextMenuStrip contextMenuSync,
+            TextBox txtSyncIn,
+            TextBox txtSyncOut,
+            ComboBox cmbSyncPlaylist,
+            ComboBox cmbLocalInput,
+            Label lblSyncProgress,
+            NotifyIcon notifyIcon,
+            MediaPlayer player,
+            Logger logger)
         {
-            //var token = GetAccessToken();
-
-            //client = new SpotifyClient(token);
             ready = false;
-            listView = lView;
-            contextMenu = ctxMenu;
-            contextMenuSync = ctxMenuSync;
-            notifyIcon = notify;
-            player = mediaPlayer;
+
+            this.listView = listView;
+            this.contextMenu = contextMenu;
+            this.contextMenuSync = contextMenuSync;
+            this.notifyIcon = notifyIcon;
+            this.player = player;
             this.logger = logger;
             this.syncView = syncView;
+            this.txtSyncIn = txtSyncIn;
+            this.txtSyncOut = txtSyncOut;
+            this.cmbSyncPlaylist = cmbSyncPlaylist;
+            this.cmbLocalInput = cmbLocalInput;
+            this.cmbSyncPlaylist = cmbSyncPlaylist;
+            this.lblSyncProgress = lblSyncProgress;
+
+            this.listView
+                .GetType()
+                .GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                .SetValue(this.listView, true, null);
+
+            this.syncView
+                .GetType()
+                .GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                .SetValue(this.syncView, true, null);
 
             listView.SelectedIndexChanged += ListView_SelectedIndexChanged;
             syncView.SelectedIndexChanged += ListView_SelectedIndexChanged;
-            lView.DoubleClick += Preview_Click;
+            listView.DoubleClick += Preview_Click;
 
             selectedIndex.Add(listView.Name, -1);
             selectedIndex.Add(syncView.Name, -1);
@@ -187,24 +212,27 @@ namespace reAudioPlayerML.Search
 
         private void Preview_Click(object sender, EventArgs e)
         {
-            if ((sender as ToolStripMenuItem).Name == "toolStripMenuItemPreviewSpotify")
+            if (sender is ToolStripMenuItem)
             {
-                new SpotifyPreview(player, syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack);
-                return;
-            }
-            else if ((sender as ToolStripMenuItem).Name == "toolStripMenuItemPreviewLocal")
-            {
-                string filename = syncView.Items[selectedIndex[listView.Name]].SubItems[1].Text;
-
-                if (filename == "N/A")
+                if ((sender as ToolStripMenuItem).Name == "toolStripMenuItemPreviewSpotify")
                 {
-                    MessageBox.Show("no local equivalent has been found :/");
+                    new SpotifyPreview(player, syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack);
                     return;
                 }
+                else if ((sender as ToolStripMenuItem).Name == "toolStripMenuItemPreviewLocal")
+                {
+                    string filename = syncView.Items[selectedIndex[listView.Name]].SubItems[1].Text;
 
-                string displayname = getDisplayName(new FileInfo(filename));
-                player.playIndependent(filename, displayname.Split('-')[1].Trim(), displayname.Split('-')[0].Trim());
-                return;
+                    if (filename == "N/A")
+                    {
+                        MessageBox.Show("no local equivalent has been found :/");
+                        return;
+                    }
+
+                    string displayname = getDisplayName(new FileInfo(filename));
+                    player.playIndependent(filename, displayname.Split('-')[1].Trim(), displayname.Split('-')[0].Trim());
+                    return;
+                }
             }
 
             Release album = getSelectedRelease();
@@ -215,6 +243,7 @@ namespace reAudioPlayerML.Search
         private void Button_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
+            OpenFileDialog ofd;
 
             Release album;
 
@@ -259,6 +288,18 @@ namespace reAudioPlayerML.Search
                     ps.Arguments = "/select," + syncView.Items[selectedIndex[listView.Name]].SubItems[1].Text;
                     Process.Start(ps);
                     break;
+                case "toolStripMenuItemChangeFile":
+                    ofd = new OpenFileDialog();
+                    ofd.Title = $"Searching for '{syncView.Items[selectedIndex[listView.Name]].Text}'";
+                    ofd.Filter = "MP3 Songs|*.mp3";
+                    if (ofd.ShowDialog() == DialogResult.Cancel)
+                    {
+                        break;
+                    }
+                    logger.addSongToDB(ofd.FileName);
+                    addOrReplace((syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack).Id, ofd.FileName);
+                    syncView.Items[selectedIndex[listView.Name]].SubItems[1].Text = ofd.FileName;
+                    break;
             }
         }
 
@@ -273,7 +314,14 @@ namespace reAudioPlayerML.Search
             Stopwatch sw = new Stopwatch();
             sw.Start();
             string i = spotifyPlaylists.Find(x => x.Name == name).Id;
-            syncPlaylistById(i);
+            try
+            {
+                syncPlaylistById(i);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
             sw.Stop();
 
             lblSyncProgress.Invoke(new Action(() => lblSyncProgress.Text = $"{syncPlaylist.Count} songs analysed in {sw.Elapsed.ToString()}"));
@@ -357,7 +405,7 @@ namespace reAudioPlayerML.Search
             }
         }
 
-        public void export()
+        public void exportSyncedPlaylist()
         {
             if (string.IsNullOrEmpty(txtSyncOut.Text))
             {
@@ -377,6 +425,7 @@ namespace reAudioPlayerML.Search
             bool fetchMetadata = TaskDialog.ShowDialog(td) == TaskDialogButton.Yes;
             Dictionary<string, TrackAudioFeatures> featureCache = spotifyFeatureCache is null ? new Dictionary<string, TrackAudioFeatures>() : spotifyFeatureCache;
 
+            // get features ?
             if (fetchMetadata)
             {
                 List<string> missingIds = new List<string>();
@@ -404,8 +453,9 @@ namespace reAudioPlayerML.Search
 
                     spotifyFeatureCache = featureCache;
                 }
-            }
+            } 
 
+            // actually exporting
             foreach (ListViewItem item in syncView.Items)
             {
                 string file = item.SubItems[1].Text;
@@ -431,7 +481,7 @@ namespace reAudioPlayerML.Search
                         tag.Tag.Album = ft.Album.Name;
                         tag.Tag.BeatsPerMinute = (uint)Math.Round(featureCache[ft.Id].Tempo);
 
-                        if (ft.Album.Images.Count > 0)
+                        if (ft.Album.Images.Count > 0) // fetch album cover
                         {
                             WebClient wc = new WebClient();
                             byte[] bytes = wc.DownloadData(ft.Album.Images[0].Url);
@@ -449,22 +499,6 @@ namespace reAudioPlayerML.Search
                         }
 
                         tag.Save();
-
-                        /*
-                         * {
-                         * energy: 74,
-                         * danceability: 21,
-                         * happiness: 231,
-                         * loudness: -5,
-                         * accousticness: 21,
-                         * instrumentalness: 12,
-                         * liveness: 2,
-                         * speechiness: 29,
-                         * key: c#,
-                         * camelot: 5B,
-                         * releaseDate: 2021-12-02
-                         * }
-                         */
                     }
                 }
             }
@@ -646,7 +680,7 @@ namespace reAudioPlayerML.Search
             public Paging<SimpleTrack> tracks;
         }
 
-        public void getPlaylists()
+        private void getPlaylists()
         {
             spotifyPlaylists = client.Playlists.CurrentUsers().Result.Items;
 
@@ -679,7 +713,7 @@ namespace reAudioPlayerML.Search
             return albums[dates.IndexOf(dates.Max())];
         }
 
-        public void initClient(string accessToken)
+        private void initClient(string accessToken)
         {
             try
             {
@@ -799,15 +833,13 @@ namespace reAudioPlayerML.Search
 
         public void authoriseUser(string scope = "user-follow-read playlist-modify-public")
         {
-            string url5 = $"https://accounts.spotify.com/authorize?client_id={clientid}&response_type=code&redirect_uri={redirectUri}&scope={scope}";
+            string url = $"https://accounts.spotify.com/authorize?client_id={clientid}&response_type=code&redirect_uri={redirectUri}&scope={scope}";
 
-            //"https://accounts.spotify.com/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09"
-
-            spotifyLinker = new SpotifyLinker(new Uri(url5));
-            spotifyLinker.onNavigateComplete += webBrowserNavigated;
+            spotifyLinker = new SpotifyLinker(new Uri(url));
+            spotifyLinker.onNavigateComplete += handleAuthorisationResponse;
         }
 
-        private async void webBrowserNavigated(object sender, Uri url)
+        private async void handleAuthorisationResponse(object sender, Uri url)
         {
             if (url.Host.Contains("accounts.spotify.com"))
             {
@@ -815,27 +847,16 @@ namespace reAudioPlayerML.Search
                 return;
             }
 
-            Task.Factory.StartNew(new Action(() => WebBrowser_Navigated(url.AbsoluteUri)));
+            Task.Factory.StartNew(new Action(() => handleAuthorisationComplete(url.AbsoluteUri)));
 
             spotifyLinker.Close();
         }
 
-        private async void WebBrowser_Navigated(string uri)
+        private async void handleAuthorisationComplete(string uri)
         {
             string code = parseRedirect(uri);
 
-            Dictionary<string, string> values = new Dictionary<string, string>
-            {
-                { "grant_type", "authorization_code" },
-                { "code", code },
-                { "redirect_uri", redirectUri },
-                { "client_id", clientid },
-                { "client_secret", clientsecret },
-                { "Content-Type", "application/json"}
-            };
-
             RestClient client = new RestClient("https://accounts.spotify.com/");
-            // client.Authenticator = new HttpBasicAuthenticator(username, password);
             RestRequest request = new RestRequest("/api/token", Method.POST);
 
             request.AddParameter("grant_type", "authorization_code");
@@ -861,11 +882,11 @@ namespace reAudioPlayerML.Search
             return location.Replace("http://reap.ml/callback/?code=", "");
         }
 
-        public string GetAccessToken()
+        [Obsolete("GetAccessToken is deprecated, kept here to check if completely redundant")]
+        private string GetAccessToken()
         {
             string url5 = "https://accounts.spotify.com/api/token";
 
-            //request to get the access token
             string encode_clientid_clientsecret = Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("{0}:{1}", clientid, clientsecret)));
 
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url5);
@@ -898,6 +919,7 @@ namespace reAudioPlayerML.Search
             return json.Split('"')[3];
         }
 
+        /* for matchingLocalSong */
         private static class LevenshteinDistance
         {
             public static int Compute(string s, string t)

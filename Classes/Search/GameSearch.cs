@@ -14,8 +14,8 @@ namespace reAudioPlayerML.Search
     {
         IGDBClient igdb = new IGDBClient(
           // Found in Twitch Developer portal for your app
-          Settings.APIKeys.igdbId,
-          Settings.APIKeys.igdbSecret
+          Settings.APIKeys.igdb.id,
+          Settings.APIKeys.igdb.secret
         );
 
         public async Task<IGDB.Models.Game> byQuery(string name)

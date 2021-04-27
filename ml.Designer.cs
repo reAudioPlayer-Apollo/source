@@ -55,6 +55,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemOpenSpotify = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemChangeFile = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSyncProgress = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -391,38 +393,51 @@
             this.toolStripMenuItemPreviewLocal,
             this.toolStripSeparator3,
             this.toolStripMenuItemOpenSpotify,
-            this.toolStripMenuItemShowInExplorer});
+            this.toolStripMenuItemShowInExplorer,
+            this.toolStripSeparator4,
+            this.toolStripMenuItemChangeFile});
             this.spotifySyncContextMenu.Name = "spotifySyncContextMenu";
-            this.spotifySyncContextMenu.Size = new System.Drawing.Size(163, 98);
+            this.spotifySyncContextMenu.Size = new System.Drawing.Size(168, 126);
             // 
             // toolStripMenuItemPreviewSpotify
             // 
             this.toolStripMenuItemPreviewSpotify.Name = "toolStripMenuItemPreviewSpotify";
-            this.toolStripMenuItemPreviewSpotify.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemPreviewSpotify.Size = new System.Drawing.Size(167, 22);
             this.toolStripMenuItemPreviewSpotify.Text = "Preview Spotify";
             // 
             // toolStripMenuItemPreviewLocal
             // 
             this.toolStripMenuItemPreviewLocal.Name = "toolStripMenuItemPreviewLocal";
-            this.toolStripMenuItemPreviewLocal.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemPreviewLocal.Size = new System.Drawing.Size(167, 22);
             this.toolStripMenuItemPreviewLocal.Text = "Preview Local";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(164, 6);
             // 
             // toolStripMenuItemOpenSpotify
             // 
             this.toolStripMenuItemOpenSpotify.Name = "toolStripMenuItemOpenSpotify";
-            this.toolStripMenuItemOpenSpotify.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemOpenSpotify.Size = new System.Drawing.Size(167, 22);
             this.toolStripMenuItemOpenSpotify.Text = "Open On Spotify";
             // 
             // toolStripMenuItemShowInExplorer
             // 
             this.toolStripMenuItemShowInExplorer.Name = "toolStripMenuItemShowInExplorer";
-            this.toolStripMenuItemShowInExplorer.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemShowInExplorer.Size = new System.Drawing.Size(167, 22);
             this.toolStripMenuItemShowInExplorer.Text = "Show In Explorer";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(164, 6);
+            // 
+            // toolStripMenuItemChangeFile
+            // 
+            this.toolStripMenuItemChangeFile.Name = "toolStripMenuItemChangeFile";
+            this.toolStripMenuItemChangeFile.Size = new System.Drawing.Size(167, 22);
+            this.toolStripMenuItemChangeFile.Text = "Change Local File";
             // 
             // panel1
             // 
@@ -1245,6 +1260,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox keyIGDBId;
         private System.Windows.Forms.TextBox yYo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemChangeFile;
     }
 }
 
