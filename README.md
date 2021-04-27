@@ -8,6 +8,8 @@ This programme has been migrated from .NET Framework 4.7.2 to .NET 5 as .NET Fra
 Due to the fact that our first web server library does not support .NET Core and therefore .NET 5 Standard, we also decided to use EmbedIO as our new web server library.
 EmbedIO also provides an easy way to add websocket servers, which we did in one of our recent updates. Note that the http endpoints will still be available as a description in the wiki. The websocket servers only serve as a more convenient, reliable and smooth wrapper of our API.
 
+In case you encounter bugs or issues or simply want to request a feature, check the [Known Issues page]() and if not already noted, create an issue (or even better: a pull request)
+
 ## Dependencies
 
 - Webserver - [EmbedIO](https://github.com/unosquare/embedio)
