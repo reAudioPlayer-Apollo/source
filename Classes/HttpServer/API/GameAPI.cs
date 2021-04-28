@@ -3,14 +3,12 @@ using EmbedIO.Routing;
 using EmbedIO.WebApi;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace reAudioPlayerML.HttpServer.API
 {
-    class GameAPI : WebApiController
+    internal class GameAPI : WebApiController
     {
         [Route(HttpVerbs.Get, "/validate-user/{user}")]
         public async Task RValidateUser(string user)
@@ -57,7 +55,7 @@ namespace reAudioPlayerML.HttpServer.API
             }
         }
 
-        private static Random random = new Random();
+        private static readonly Random random = new Random();
         private static string RandomString(int length)
         {
             const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

@@ -67,13 +67,13 @@ namespace reAudioPlayerML
 
                 if (video.acrop)
                 {
-                    MessageBox.Show(optimiser.acrop(new FileInfo(e.FullPath)).ToString(), "acrop");
+                    optimiser.acrop(new FileInfo(e.FullPath));
                 }
-                if (video.splitChapters &&
+                /*if (video.splitChapters &&
                     MessageBox.Show("this video appears to have chapters, do you want to split into chapters?", "Apollo Downloader", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Debug.WriteLine(optimiser.splitByChapter(new FileInfo(e.FullPath), video.video));
-                }
+                }*/
             }
         }
 
@@ -195,6 +195,72 @@ namespace reAudioPlayerML
             {
                 impLogs.Add(e.Split(":".ToCharArray(), count: 2)[1].Trim());
             }
+        }
+
+        public NYoutubeDL.YoutubeDL createDownloader(string link, string output, bool noPlaylist = false)
+        {
+            var dl = new NYoutubeDL.YoutubeDL();
+            dl.YoutubeDlPath = AppContext.BaseDirectory + "ressources\\youtube-dl.exe";
+            dl.Options.FilesystemOptions.Continue = true;
+            dl.Options.GeneralOptions.IgnoreErrors = true;
+            dl.Options.FilesystemOptions.NoOverwrites = true;
+            dl.Options.PostProcessingOptions.AddMetadata = true;
+            dl.Options.PostProcessingOptions.ExtractAudio = true;
+            dl.Options.PostProcessingOptions.AudioFormat = NYoutubeDL.Helpers.Enums.AudioFormat.mp3;
+            dl.Options.FilesystemOptions.Output = output + "\\%(title)s.%(ext)s";
+            dl.VideoUrl = link;
+            dl.Options.GeneralOptions.Update = true;
+            dl.Options.VideoSelectionOptions.NoPlaylist = noPlaylist;
+            dl.StandardOutputEvent += Dl_StandardOutputEvent;
+            dl.StandardErrorEvent += Dl_StandardErrorEvent;
+            addOptimiseWatcher(output);
+
+            if (dl.Options.VideoSelectionOptions.NoPlaylist)
+            {
+                var arg = dl.VideoUrl.Split('?')[1].Split('&')[0];
+                dl.VideoUrl = dl.VideoUrl.Split('?')[0] + "?" + arg;
+            }
+
+            return dl;
+        }
+
+        public void createAndDownload(string link, string output, bool noPlaylist = false, bool sync = false)
+        {
+            if (sync)
+            {
+                createSyncJob(link, output);
+                return;
+            }
+
+            var dl = createDownloader(link, output, noPlaylist);
+            dl.DownloadAsync();
+        }
+
+        public void createSyncJob(string link, string output)
+        {
+            if (!output.Contains("%(title)s.%(ext)s"))
+            {
+                output += "\\%(title)s.%(ext)s";
+            }
+
+            string[] args = link.Split('?')[1].Split('&'); // url parameters
+
+            string filename = "";
+
+            foreach (var arg in args)
+            {
+                if (arg.Contains("list="))
+                    filename = arg;
+            }
+
+            filename = Path.Combine(docs, filename + ".conf");
+
+            File.WriteAllText(filename, $"-ciw --add-metadata --embed-thumbnail -x --audio-format mp3 -o \"{output}\"");
+
+            if (!File.Exists(filename.Replace(".conf", ".arch")))
+                File.Create(filename.Replace(".conf", ".arch"));
+
+            sync();
         }
 
         private class VideoDownload

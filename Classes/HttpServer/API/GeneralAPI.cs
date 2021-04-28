@@ -14,6 +14,8 @@ namespace reAudioPlayerML.HttpServer.API
 {
     class Static
     {
+        public static YoutubeSyncer syncer;
+
         public static string GetStream(Image image)
         {
             if (image is null)

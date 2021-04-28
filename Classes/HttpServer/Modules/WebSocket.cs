@@ -47,6 +47,10 @@ namespace reAudioPlayerML.HttpServer.Modules
                     new API.GameAPI().handleWebsocket(ref jMessage);
                     break;
 
+                case "youtube":
+                    new API.YoutubeAPI().handleWebsocket(ref jMessage);
+                    break;
+
                 default:
                     jMessage.data = "404";
                     break;

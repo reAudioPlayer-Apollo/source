@@ -135,6 +135,7 @@ namespace reAudioPlayerML
             }
 
             youtubeSyncer.sync();
+            HttpServer.API.Static.syncer = youtubeSyncer;
             cleanUp();
             Directory.CreateDirectory(AppContext.BaseDirectory + "spotify");
         }

@@ -6,9 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace reAudioPlayerML
 {
@@ -40,23 +38,29 @@ namespace reAudioPlayerML
 
             List<FileInfo> todo = new List<FileInfo>();
 
-            foreach (var supportedFormat in supportedFormats)
+            foreach (string supportedFormat in supportedFormats)
             {
                 if (file.FullName.Contains($".{supportedFormat}"))
+                {
                     todo.Add(file);
+                }
             }
             
             if (todo.Count == 0)
+            {
                 return (-20);
+            }
 
             if (!File.Exists(AppContext.BaseDirectory + "ressources\\ffmpeg.exe"))
+            {
                 return -30;
+            }
 
             string workingPictureFormat = "jpg";
 
-            var t = file.FullName.Split('.');
+            string[] t = file.FullName.Split('.');
 
-            var baseFile = file.FullName.Remove(file.FullName.Length - (t[t.Length - 1].Length + 1));
+            string baseFile = file.FullName.Remove(file.FullName.Length - (t[t.Length - 1].Length + 1));
 
             /* extract thumbnail */
 
@@ -68,26 +72,31 @@ namespace reAudioPlayerML
 
             startInfo.Arguments = $"-y -i \"{file.FullName}\" \"{baseFile}.old.{workingPictureFormat}\"";
 
-            var test = Process.Start(startInfo);
+            Process test = Process.Start(startInfo);
 
-            while (!test.HasExited) ;
+            while (!test.HasExited) { Thread.Sleep(100); }
 
             /* crop thumbnail */
             startInfo.Arguments = $"-i \"{baseFile}.old.{workingPictureFormat}\" -filter:v \"crop={width_new}:{height}:{x_offset}:{y_offset}\" \"{baseFile}.new.{workingPictureFormat}\"";
 
             test = Process.Start(startInfo);
 
-            while (!test.HasExited) ;
+            while (!test.HasExited) { Thread.Sleep(100); }
 
             /* merge */
             startInfo.Arguments = $"-i \"{file.FullName}\" -i \"{baseFile}.new.{workingPictureFormat}\" -map 0:0 -map 1:0 -c copy -id3v2_version 3 -metadata:s:v title=\"Album cover\" -metadata:s:v comment=\"Cover (front)\" \"{baseFile}.temp.mp3\"";
 
             test = Process.Start(startInfo);
 
-            while (!test.HasExited) ;
+            while (!test.HasExited) { Thread.Sleep(100); }
 
-            File.Delete($"{baseFile}.old.{workingPictureFormat}");
-            File.Delete($"{baseFile}.new.{workingPictureFormat}");
+            Thread.Sleep(100);
+
+            try
+            {
+                File.Delete($"{baseFile}.old.{workingPictureFormat}");
+                File.Delete($"{baseFile}.new.{workingPictureFormat}");
+            } catch { }
 
             if (File.Exists($"{baseFile}.temp.mp3"))
             {
@@ -102,9 +111,9 @@ namespace reAudioPlayerML
         {
             Search.Youtube yt = new Search.Youtube();
             List<string> chapters = yt.getChapters(video).Result;
-            var stamps = yt.chapterStamps;
+            List<TimeSpan> stamps = yt.chapterStamps;
 
-            var outputFolder = Path.GetDirectoryName(file.FullName) + $"\\{Path.GetFileNameWithoutExtension(file.FullName)}";
+            string outputFolder = Path.GetDirectoryName(file.FullName) + $"\\{Path.GetFileNameWithoutExtension(file.FullName)}";
 
             if (!Directory.Exists(outputFolder))
             {
@@ -137,7 +146,9 @@ namespace reAudioPlayerML
         private void split(string input, TimeSpan start, TimeSpan end, string output)
         {
             if (!File.Exists(AppContext.BaseDirectory + "ressources\\ffmpeg.exe"))
+            {
                 return;
+            }
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -150,15 +161,20 @@ namespace reAudioPlayerML
 
             startInfo.Arguments = $"-y -i \"{input}\" -ss {start.TotalSeconds} -to {end.TotalSeconds} \"{output}\"";
 
-            var test = Process.Start(startInfo);
+            Process test = Process.Start(startInfo);
 
-            while (!test.HasExited) ;
+            while (!test.HasExited)
+            {
+                ;
+            }
         }
 
         private void split(string input, TimeSpan start, string output)
         {
             if (!File.Exists(AppContext.BaseDirectory + "ressources\\ffmpeg.exe"))
+            {
                 return;
+            }
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -171,9 +187,12 @@ namespace reAudioPlayerML
 
             startInfo.Arguments = $"-y -i \"{input}\" -ss {start.TotalSeconds} \"{output}\"";
 
-            var test = Process.Start(startInfo);
+            Process test = Process.Start(startInfo);
 
-            while (!test.HasExited) ;
+            while (!test.HasExited)
+            {
+                ;
+            }
         }
     }
 }
