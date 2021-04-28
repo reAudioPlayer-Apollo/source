@@ -15,5 +15,5 @@
 - acrop for custom files
 - asplit for custom files (requires yt link or plain-description as input)
 - File Converter
-- Chrome Extension (BETA, coming soon to github)
+- [Chrome Extension](https://github.com/reAudioPlayer-Apollo/chrome-extension) (BETA already out)
 - [internal] split www/ html files into *.js, *.css, etc., since it is more readable
