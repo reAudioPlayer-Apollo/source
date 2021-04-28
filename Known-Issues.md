@@ -16,3 +16,4 @@
 - asplit for custom files (requires yt link or plain-description as input)
 - File Converter
 - Chrome Extension (BETA, coming soon to github)
+- [internal] split www/ html files into *.js, *.css, etc., since it is more readable
