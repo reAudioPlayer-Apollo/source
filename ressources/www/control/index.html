@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+  <title>Playlists</title>
+
+  <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+  <link rel="stylesheet" href="/control/style.css">
+
+  <script src="/control/control.js"></script>
+  <script src="/websocket/websocket.js"></script>
+</head>
+
+<body>
+  <div id="back" class="bg-image"></div>
+
+  <div class="bg-text" id="cover">
+    <img id="ccover" width="600">
+    <div id="accent" class="slidecontainer">
+      <input class="slider" id="volumeBar" type="range" min="1" max="100" onchange="setVolume(this.value)">
+    </div>
+    <img id="playPause" width="600">
+  </div>
+</body>
+
+</html>

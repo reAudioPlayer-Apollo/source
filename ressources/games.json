@@ -1,0 +1,132 @@
+﻿[{
+	name: "Assassin's Creed Valhalla",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"ACValhalla.exe",
+		"ACValhalla_Plus.exe"
+	]
+},
+{
+	name: "Assassin's Creed: Odyssey",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"ACOdyssey.exe"
+	]
+},{
+	name: "Assassin's Creed",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"AssassinsCreed_Dx9.exe",
+		"AssassinsCreed_Dx10.exe",
+		"AssassinsCreed_Game.exe"
+	]
+},{
+	name: "Starlink - Battle for Atlas",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"Starlink.exe",
+		"Starlink_Plus.exe"
+	]
+},{
+	name: "Space Engineers",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"SpaceEngineers.exe"
+	]
+},{
+	name: "Destiny 2",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"destiny2.exe"
+	]
+},{
+	name: "Titanfall 2",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"Titanfall2.exe"
+	]
+},{
+	name: "Borderlands 2",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"Borderlands2.exe"
+	]
+},{
+	name: "RAGE 2",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"RAGE2.exe"
+	]
+},{
+	name: "Anthem",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"Anthem.exe"
+	]
+},{
+	name: "STAR WARS Battlefront II",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"starwarsbattlefrontii.exe"
+	]
+},{
+	name: "Tom Clancy's The Division",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"TheDivision.exe"
+	]
+},{
+	name: "Rocket League",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"RocketLeague.exe"
+	]
+},{
+	name: "Planet Coaster",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"PlanetCoaster.exe"
+	]
+},{
+	name: "The Witcher 3: Wild Hunt",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"witcher3.exe"
+	]
+},{
+	name: "Assassin's Creed Chronicles China",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"ACCGame-Win32-Shipping.exe"
+	]
+},{
+	name: "Watch_Dogs 2",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"WatchDogs2.exe"
+	]
+},{
+	name: "Jurassic World Evolution",
+	cover: "",
+	igdbId: -1,
+	exe: [
+		"JWE.exe"
+	]
+}]

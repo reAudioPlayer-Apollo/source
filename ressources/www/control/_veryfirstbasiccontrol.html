@@ -1,0 +1,732 @@
+<title>reAudioPlayer ML</title>
+<meta name="viewport" content="user-scalable=no" />
+
+<body>
+    <button onclick="last()">Last</button>
+    <br>
+    <button onclick="playPause()">Play / Pause</button>
+    <br>
+    <button onclick="next()">Next</button>
+    <br>
+    <input id="volumeBar" type="range" min="1" max="100" value="50" onchange="setVolume(this.value)">
+</body>
+
+<script>
+    function setVolume(value) {
+        httpGet(window.location.href + "volume/" + value)
+    }
+
+    function last() {
+        httpGet(window.location.href + "control/last")
+    }
+
+    function playPause() {
+        httpGet(window.location.href + "control/playPause")
+    }
+
+    function next() {
+        httpGet(window.location.href + "control/next")
+    }
+
+    function httpGet(theUrl) {
+        console.log(theUrl)
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+    }
+
+    var gesture = {
+            x: [],
+            y: [],
+            match: ''
+        },
+            tolerance = 100;
+        window.addEventListener('touchstart', capture)
+        window.addEventListener('mousedown', start)
+        window.addEventListener('touchmove', capture)
+        window.addEventListener('mousemove', capture)
+        function start(e) {
+            gesture.x = []
+            gesture.y = []
+        }
+        function capture(e) {
+            e.preventDefault()
+
+            try {
+                gesture.x.push(e.touches[0].clientX)
+                gesture.y.push(e.touches[0].clientY)
+            }
+            catch
+            {
+                gesture.x.push(e.clientX)
+                gesture.y.push(e.clientY)
+            }
+        }
+        window.addEventListener('touchend', compute)
+        window.addEventListener('mouseup', compute)
+        function compute(e) {
+            var xStart = gesture.x[0],
+                yStart = gesture.y[0],
+                xEnd = gesture.x.pop(),
+                yEnd = gesture.y.pop(),
+                xTravel = xEnd - xStart,
+                yTravel = yEnd - yStart;
+            if (xTravel < tolerance && xTravel > -tolerance && yTravel < -tolerance) {
+                gesture.match = 'Swiped Up'
+                value = parseInt(document.getElementById("volumeBar").value)
+                document.getElementById("volumeBar").value = value + 10
+                setVolume(document.getElementById("volumeBar").value)
+            }
+            if (xTravel < tolerance && xTravel > -tolerance && yTravel > tolerance) {
+                gesture.match = 'Swiped Down'
+                document.getElementById("volumeBar").value -= 10
+                setVolume(document.getElementById("volumeBar").value)
+            }
+            if (yTravel < tolerance && yTravel > -tolerance && xTravel < -tolerance) {
+                gesture.match = 'Swiped Left'
+                next()
+            }
+            if (yTravel < tolerance && yTravel > -tolerance && xTravel > tolerance) {
+                gesture.match = 'Swiped Right'
+                last()
+            }
+            if (gesture.match !== '') {
+                console.log(gesture.match)
+            }
+            gesture.x = []
+            gesture.y = []
+            gesture.match = xTravel = yTravel = ''
+        }
+    </script>
+
+<style>
+    body {
+        /*transform: scale(6);
+        transform-origin: 0 0;*/
+    }
+
+    html {
+        overflow: hidden;
+    }
+
+    body {
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<script>
+    /* accordion class (acc-expander to be exact) */
+
+    var acc = document.getElementsByClassName("acc-expander");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+
+    // example json object
+
+    var jdata = {
+        "name": "John",
+        "age": 50,
+        "married": true,
+        "kids": ['Peter', 'Mary']
+    }
+
+    var sdata = JSON.stringify(jdata, null, 4)
+    sdata = "var x = " + sdata
+
+    document.getElementById('json-1').innerHTML = syntaxHighlight(sdata)
+
+    window.addEventListener('load', function () {
+
+        /* foreach table */
+        var tables = document.getElementsByTagName("table")
+
+        for (var i = 0, table; table = tables[i]; i++) {
+            table.addEventListener('click', function () { tableSorter() }, false);
+        }
+    })
+
+    function tableSorter() {
+        var col = window.event.target.cellIndex;
+        var row = window.event.target.parentNode.rowIndex;
+        var table = window.event.target.parentNode.parentNode.parentNode.id
+
+        if (row === 0 && row === 0) {
+            _sortDetailsTable(table, col)
+        }
+    }
+
+    /* syntax highlighting e.g. for json files */
+    function syntaxHighlight(string) {
+        string = string.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+        return string.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(if|else|const|let|function|var|true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            var cls = 'number'
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key'
+                }
+                else {
+                    cls = 'string'
+                }
+            }
+            else if (/null|var|let|function|const|true|false/.test(match)) {
+                cls = 'define';
+            }
+            else if (/if|else/.test(match)) {
+                cls = 'ifelse'
+            }
+
+
+            return '<span class="' + cls + '">' + match + '</span>'
+        });
+    }
+
+    function _sortDetailsTable(id, n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0
+        table = document.getElementById(id)
+        switching = true
+        dir = "asc"
+
+        while (switching) {
+            switching = false
+            rows = table.rows
+
+            for (i = 1; i < rows.length - 1; i++) {
+                shouldSwitch = false
+
+                x = rows[i].getElementsByTagName("TD")[n]
+                y = rows[i + 1].getElementsByTagName("TD")[n]
+
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
+                switching = true
+                switchcount++
+            }
+            else {
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc"
+                    switching = true
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    :root {
+        --background-1: #212121;
+        --background-2: #444;
+        --background-3: #555;
+        --background-4: #777;
+
+        --foreground-1: whitesmoke;
+
+        --accent-1: red;
+        --accent-2: cyan;
+        --accent-3: #32CD32;
+
+        --highlight: rgba(0, 255, 255, 0.2);
+
+        --glow: var(--accent-1);
+    }
+
+    /* syntax highlighting */
+    .string {
+        color: #f8aa75;
+    }
+
+    .number {
+        color: #8fd88f;
+    }
+
+    .define {
+        color: #1584d3;
+    }
+
+    .ifelse {
+        color: #FF84d3;
+    }
+
+    .key {
+        color: #92d2ff;
+    }
+
+    body,
+    button {
+        background-color: var(--background-1);
+    }
+
+    * {
+        color: var(--foreground-1);
+        font-family: 'Segoe UI', 'Tahoma', Geneva, Verdana, sans-serif;
+    }
+
+    details,
+    summary {
+        margin: 0px;
+        font-size: 16px;
+        transition: 0.4s;
+        outline: None;
+    }
+
+    summary {
+        padding: 18px;
+        background-color: var(--background-1);
+        cursor: pointer;
+    }
+
+    details:not(.onetimeuse)>p {
+        padding: 18px;
+        margin: 0px;
+        background-color: var(--background-2);
+    }
+
+    summary:hover,
+    details[open] summary {
+        background-color: var(--background-3);
+    }
+
+    summary:hover {
+        font-weight: bold;
+    }
+
+    details.onetimeuse[open] summary {
+        text-transform: uppercase;
+        display: none;
+    }
+
+    h1,
+    label,
+    button {
+        text-transform: uppercase;
+    }
+
+    p,
+    td,
+    th,
+    button,
+    a {
+        font-size: 16px;
+        margin: 15px;
+    }
+
+    a button,
+    .acc-expander,
+    .acc-link,
+    .acc-a {
+        margin: 0px;
+    }
+
+    /* buttons */
+
+    button {
+        border: 1px solid;
+        border-color: var(--accent-1);
+        letter-spacing: 1px;
+
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    button:hover {
+        cursor: pointer;
+        border-color: var(--accent-2);
+        background-color: var(--background-2);
+        font-weight: bold;
+    }
+
+    /* links */
+
+    /* (un)visited link */
+    a:link,
+    a:visited {
+        color: var(--accent-1);
+    }
+
+    /* mouse over link, selected link */
+    a:hover,
+    a:active {
+        color: var(--accent-2);
+        font-weight: bold;
+    }
+
+    /* tables */
+
+    table {
+        border-collapse: collapse;
+        border-style: hidden;
+        overflow: hidden;
+        border-spacing: 0;
+    }
+
+    th,
+    td {
+        border: 1px solid var(--foreground-1);
+        padding: 10px;
+        text-align: left;
+        position: relative;
+    }
+
+    table.highlight tr:hover {
+        background-color: var(--highlight);
+    }
+
+    table.highlight td:hover {
+        font-weight: bold;
+    }
+
+    table.highlight td:hover::after,
+    table.highlight th:hover::after {
+        background-color: var(--highlight);
+        content: '\00a0';
+        height: 200vh;
+        left: 0;
+        position: absolute;
+        top: -100vh;
+        width: 100%;
+    }
+
+    /* accordion */
+
+    .acc-expander,
+    .acc-link {
+        background-color: var(--background-1);
+        color: var(--foreground-1);
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+
+    .acc-link:after {
+        content: '\1F517';
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active,
+    .acc-expander:hover,
+    .acc-link:hover {
+        /* expander */
+        background-color: var(--background-3);
+    }
+
+    .acc-expander:after {
+        /* sign */
+        content: '\002B';
+        /* + */
+        color: var(--background-4);
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:after {
+        content: "\2212";
+        /* - */
+    }
+
+    .acc-panel {
+        padding: 0 18px;
+        background-color: var(--background-2);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    /* two column layout */
+
+    .column {
+        float: left;
+        width: 50%;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* fancy tooltip */
+
+    .item-hints {
+        height: 500px;
+        width: 500px;
+        margin: 250px auto;
+    }
+
+    .item-hints .hint {
+        width: 60px;
+        height: 60px;
+        margin: 150px auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .item-hints .hint::before {
+        /* //rotated squre */
+        background-color: #fff;
+        width: 8px;
+        height: 8px;
+        z-index: 2;
+        -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .item-hints .hint::after {
+        /* //green glow */
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        width: 2px;
+        height: 2px;
+        z-index: 1;
+        -webkit-box-shadow: 0 0 50px 30px rgba(72, 170, 72, .3);
+        box-shadow: 0 0 50px 30px rgba(72, 170, 72, .3);
+        -webkit-animation: home_hero_item_hints_glow 2s cubic-bezier(.25, .1, .2, 1) infinite;
+        animation: home_hero_item_hints_glow 2s cubic-bezier(.25, .1, .2, 1) infinite;
+        -webkit-transition: opacity .5s ease;
+        transition: opacity .5s ease;
+    }
+
+    @-webkit-keyframes home_hero_item_hints_glow {
+        0% {
+            -webkit-box-shadow: 0 0 30px 5px var(--glow);
+            box-shadow: 0 0 30px 5px var(--glow)
+        }
+
+        70% {
+            -webkit-box-shadow: 0 0 70px 50px rgba(72, 170, 72, 0);
+            box-shadow: 0 0 70px 50px rgba(72, 170, 72, 0)
+        }
+
+        100% {
+            -webkit-box-shadow: 0 0 0 50px rgba(72, 170, 72, 0);
+            box-shadow: 0 0 0 50px rgba(72, 170, 72, 0)
+        }
+    }
+
+    @keyframes home_hero_item_hints_glow {
+        0% {
+            -webkit-box-shadow: 0 0 30px 5px var(--glow);
+            box-shadow: 0 0 30px 5px var(--glow)
+        }
+
+        70% {
+            -webkit-box-shadow: 0 0 70px 50px rgba(72, 170, 72, 0);
+            box-shadow: 0 0 70px 50px rgba(72, 170, 72, 0)
+        }
+
+        100% {
+            -webkit-box-shadow: 0 0 0 50px rgba(72, 170, 72, 0);
+            box-shadow: 0 0 0 50px rgba(72, 170, 72, 0)
+        }
+    }
+
+    .item-hints .hint-dot {
+        z-index: 3;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: block;
+        -webkit-transform: translate(-0%, -0%) scale(.95);
+        transform: translate(-0%, -0%) scale(.95);
+        -webkit-animation: home_hero_item_hints_border 2s linear infinite;
+        animation: home_hero_item_hints_border 2s linear infinite;
+        margin: auto;
+    }
+
+    @-webkit-keyframes home_hero_item_hints_border {
+
+        0%,
+        100% {
+            border-color: rgba(255, 255, 255, .6);
+            -webkit-transform: translate(-50%, -50%) scale(.95);
+            transform: translate(-0%, -0%) scale(.95)
+        }
+
+        50% {
+            border-color: rgba(255, 255, 255, .3);
+            -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-0%, -0%) scale(1)
+        }
+    }
+
+    @keyframes home_hero_item_hints_border {
+
+        0%,
+        100% {
+            border-color: rgba(255, 255, 255, .6);
+            -webkit-transform: translate(-50%, -50%) scale(.95);
+            transform: translate(-0%, -0%) scale(.95)
+        }
+
+        50% {
+            border-color: rgba(255, 255, 255, .3);
+            -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-0%, -0%) scale(1)
+        }
+    }
+
+    .item-hints .hint-radius {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -125px 0 0 -125px;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition-property: background-color, opacity, visibility, -webkit-transform;
+        transition-property: background-color, opacity, visibility, -webkit-transform;
+        transition-property: background-color, opacity, visibility, transform;
+        transition-property: background-color, opacity, visibility, transform, -webkit-transform;
+        -webkit-transition-duration: .5s;
+        transition-duration: .5s;
+        -webkit-transition-timing-function: ease, ease, ease, cubic-bezier(.5, 0, 0, 1);
+        transition-timing-function: ease, ease, ease, cubic-bezier(.5, 0, 0, 1);
+    }
+
+    .item-hints .hint:hover .hint-radius {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: scale(0.65);
+        transform: scale(0.65);
+    }
+
+    .item-hints .hint[data-position="1"] .hint-content {
+        top: 85px;
+        left: 50%;
+        margin-left: 56px;
+    }
+
+    .item-hints .hint-content {
+        color: #fff;
+        width: 300px;
+        position: absolute;
+        z-index: 5;
+        padding: 12px 0;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: opacity .7s ease, visibility .7s ease;
+        transition: opacity .7s ease, visibility .7s ease;
+        pointer-events: none;
+        color: #fff;
+        visibility: hidden;
+        pointer-events: none
+    }
+
+    .item-hints .hint:hover .hint-content {
+        color: #fff;
+        width: 300px;
+        position: absolute;
+        z-index: 5;
+        padding: 12px 0;
+        opacity: 1;
+        visibility: visible !important;
+        -webkit-transition: opacity .7s ease, visibility .7s ease;
+        transition: opacity .7s ease, visibility .7s ease;
+        pointer-events: none;
+        color: #fff;
+        visibility: hidden;
+        pointer-events: none
+    }
+
+    .item-hints .hint-content::before {
+        width: 0px;
+        bottom: 0;
+        left: 0;
+        content: '';
+        background-color: #fff;
+        height: 1px;
+        position: absolute;
+        transition: width 0.4s;
+    }
+
+    .item-hints .hint:hover .hint-content::before {
+        width: 180px;
+        transition: width 0.4s;
+    }
+
+    .item-hints .hint-content::after {
+        -webkit-transform-origin: 0 50%;
+        transform-origin: 0 50%;
+        -webkit-transform: rotate(-225deg);
+        transform: rotate(-225deg);
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        content: '';
+        background-color: #fff;
+        height: 1px;
+        position: absolute;
+        opacity: 1;
+        -webkit-transition: opacity .5s ease;
+        transition: opacity .5s ease;
+        transition-delay: 0s;
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
+    }
+
+    .item-hints .hint:hover .hint-content::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .item-hints .hint[data-position="4"] .hint-content {
+        bottom: 85px;
+        left: 50%;
+        margin-left: 56px;
+    }
+</style>

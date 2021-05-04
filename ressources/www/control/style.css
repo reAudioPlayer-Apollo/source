@@ -1,0 +1,157 @@
+#playPause {
+    position: absolute;
+    z-index: 3;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    pointer-events: none;
+    animation-timing-function: linear;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 0px;
+    background: whitesmoke;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    vertical-align: middle;
+    display: flex;
+    margin: 0;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: whitesmoke;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: whitesmoke;
+    cursor: pointer;
+}
+
+.slidecontainer {
+    background-color: black;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    margin: 0;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-image {
+    /* Add the blur effect */
+    filter: blur(30px);
+    -webkit-filter: blur(30px);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    margin: 0;
+    text-align: center;
+}
+
+/**********************/
+
+.bg-text {
+    margin-left: 0;
+}
+
+@keyframes animBigFadeInOut {
+    0% {
+        transform: scale(0.25);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.75);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes animBigFadeInOut {
+    0% {
+        -webkit-transform: scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        -webkit-transform: scale(1.0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes animSwipeLeft {
+    from {
+        left: 50%;
+        opacity: 1.0;
+    }
+
+    to {
+        left: 0%;
+        opacity: 0.0;
+    }
+}
+
+@-webkit-keyframes animSwipeRight {
+    from {
+        left: 50%;
+        opacity: 1.0;
+    }
+
+    to {
+        left: 100%;
+        opacity: 0.0;
+    }
+}

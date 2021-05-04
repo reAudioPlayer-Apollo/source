@@ -15,8 +15,6 @@ namespace reAudioPlayerML
         private readonly HotkeyManager hotkeyManager;
         private readonly HttpServer.HttpWebServer server;
         private readonly Search.Spotify spotify;
-        private readonly RevealedStream revealedStream;
-        private readonly Radio radio;
         private readonly string[] args;
 
         public ml(string[] iArgs)
@@ -406,6 +404,19 @@ namespace reAudioPlayerML
         private void keyTMDB_TextChanged(object sender, EventArgs e)
         {
             Settings.APIKeys.tmdb = keyTMDB.Text;
+        }
+
+        private void btnManualAcrop_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "MP3 Files|*.mp3";
+
+            if (ofd.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            new OptimizeDL().acrop(new FileInfo(ofd.FileName));
         }
     }
 }

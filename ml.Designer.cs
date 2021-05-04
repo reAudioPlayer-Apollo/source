@@ -45,6 +45,32 @@
             this.btnLast = new System.Windows.Forms.PictureBox();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.tbControl = new MetroFramework.Controls.MetroTabControl();
+            this.pgQuickAccess = new MetroFramework.Controls.MetroTabPage();
+            this.btnManualAcrop = new System.Windows.Forms.Button();
+            this.btnSync = new System.Windows.Forms.Button();
+            this.imgQR = new System.Windows.Forms.PictureBox();
+            this.btnAddGame = new System.Windows.Forms.Button();
+            this.btnDownload = new System.Windows.Forms.Button();
+            this.btnApolloOnAir = new System.Windows.Forms.Button();
+            this.btnRevealedRadio = new System.Windows.Forms.Button();
+            this.btnLoadPlaylist = new System.Windows.Forms.Button();
+            this.btnWebsite = new System.Windows.Forms.Button();
+            this.btnMove = new System.Windows.Forms.Button();
+            this.pgPlay = new MetroFramework.Controls.MetroTabPage();
+            this.imgCover = new System.Windows.Forms.PictureBox();
+            this.pgConnectSpotify = new MetroFramework.Controls.MetroTabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.artist = new System.Windows.Forms.ColumnHeader();
+            this.album = new System.Windows.Forms.ColumnHeader();
+            this.date = new System.Windows.Forms.ColumnHeader();
+            this.spotifyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openOnSpotifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddToPlaylist = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToPlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.searchOnYoutubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pgSpotifySync = new System.Windows.Forms.TabPage();
             this.lviewSpotifySync = new System.Windows.Forms.ListView();
             this.clmnSpotify = new System.Windows.Forms.ColumnHeader();
@@ -70,31 +96,6 @@
             this.cmbLocalInput = new System.Windows.Forms.ComboBox();
             this.btnSyncAnalyse = new System.Windows.Forms.Button();
             this.cmbSyncPlaylist = new System.Windows.Forms.ComboBox();
-            this.pgQuickAccess = new MetroFramework.Controls.MetroTabPage();
-            this.btnSync = new System.Windows.Forms.Button();
-            this.imgQR = new System.Windows.Forms.PictureBox();
-            this.btnAddGame = new System.Windows.Forms.Button();
-            this.btnDownload = new System.Windows.Forms.Button();
-            this.btnApolloOnAir = new System.Windows.Forms.Button();
-            this.btnRevealedRadio = new System.Windows.Forms.Button();
-            this.btnLoadPlaylist = new System.Windows.Forms.Button();
-            this.btnWebsite = new System.Windows.Forms.Button();
-            this.btnMove = new System.Windows.Forms.Button();
-            this.pgPlay = new MetroFramework.Controls.MetroTabPage();
-            this.imgCover = new System.Windows.Forms.PictureBox();
-            this.pgConnectSpotify = new MetroFramework.Controls.MetroTabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.artist = new System.Windows.Forms.ColumnHeader();
-            this.album = new System.Windows.Forms.ColumnHeader();
-            this.date = new System.Windows.Forms.ColumnHeader();
-            this.spotifyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.openOnSpotifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAddToPlaylist = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToPlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.searchOnYoutubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pgSettings = new MetroFramework.Controls.MetroTabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.keyTMDB = new System.Windows.Forms.TextBox();
@@ -125,15 +126,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLast)).BeginInit();
             this.tbControl.SuspendLayout();
-            this.pgSpotifySync.SuspendLayout();
-            this.spotifySyncContextMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.pgQuickAccess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).BeginInit();
             this.pgPlay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCover)).BeginInit();
             this.pgConnectSpotify.SuspendLayout();
             this.spotifyContextMenu.SuspendLayout();
+            this.pgSpotifySync.SuspendLayout();
+            this.spotifySyncContextMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pgSettings.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -327,10 +328,10 @@
             // tbControl
             // 
             this.tbControl.AllowDrop = true;
-            this.tbControl.Controls.Add(this.pgSpotifySync);
             this.tbControl.Controls.Add(this.pgQuickAccess);
             this.tbControl.Controls.Add(this.pgPlay);
             this.tbControl.Controls.Add(this.pgConnectSpotify);
+            this.tbControl.Controls.Add(this.pgSpotifySync);
             this.tbControl.Controls.Add(this.pgSettings);
             this.tbControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbControl.Location = new System.Drawing.Point(0, 82);
@@ -346,6 +347,322 @@
             this.tbControl.SelectedIndexChanged += new System.EventHandler(this.tbControl_SelectedIndexChanged);
             this.tbControl.DragDrop += new System.Windows.Forms.DragEventHandler(this.ml_DragDrop);
             this.tbControl.DragEnter += new System.Windows.Forms.DragEventHandler(this.ml_DragEnter);
+            // 
+            // pgQuickAccess
+            // 
+            this.pgQuickAccess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.pgQuickAccess.Controls.Add(this.btnManualAcrop);
+            this.pgQuickAccess.Controls.Add(this.btnSync);
+            this.pgQuickAccess.Controls.Add(this.imgQR);
+            this.pgQuickAccess.Controls.Add(this.btnAddGame);
+            this.pgQuickAccess.Controls.Add(this.btnDownload);
+            this.pgQuickAccess.Controls.Add(this.btnApolloOnAir);
+            this.pgQuickAccess.Controls.Add(this.btnRevealedRadio);
+            this.pgQuickAccess.Controls.Add(this.btnLoadPlaylist);
+            this.pgQuickAccess.Controls.Add(this.btnWebsite);
+            this.pgQuickAccess.Controls.Add(this.btnMove);
+            this.pgQuickAccess.HorizontalScrollbarBarColor = true;
+            this.pgQuickAccess.HorizontalScrollbarHighlightOnWheel = false;
+            this.pgQuickAccess.HorizontalScrollbarSize = 12;
+            this.pgQuickAccess.Location = new System.Drawing.Point(4, 38);
+            this.pgQuickAccess.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pgQuickAccess.Name = "pgQuickAccess";
+            this.pgQuickAccess.Size = new System.Drawing.Size(655, 382);
+            this.pgQuickAccess.TabIndex = 0;
+            this.pgQuickAccess.Text = "Quick Access";
+            this.pgQuickAccess.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pgQuickAccess.UseCustomBackColor = true;
+            this.pgQuickAccess.VerticalScrollbarBarColor = true;
+            this.pgQuickAccess.VerticalScrollbarHighlightOnWheel = false;
+            this.pgQuickAccess.VerticalScrollbarSize = 12;
+            // 
+            // btnManualAcrop
+            // 
+            this.btnManualAcrop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnManualAcrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManualAcrop.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnManualAcrop.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnManualAcrop.Location = new System.Drawing.Point(9, 139);
+            this.btnManualAcrop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnManualAcrop.Name = "btnManualAcrop";
+            this.btnManualAcrop.Size = new System.Drawing.Size(147, 27);
+            this.btnManualAcrop.TabIndex = 11;
+            this.btnManualAcrop.Text = "aCrop a Song";
+            this.btnManualAcrop.UseVisualStyleBackColor = false;
+            this.btnManualAcrop.Click += new System.EventHandler(this.btnManualAcrop_Click);
+            // 
+            // btnSync
+            // 
+            this.btnSync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSync.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSync.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSync.Location = new System.Drawing.Point(319, 48);
+            this.btnSync.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSync.Name = "btnSync";
+            this.btnSync.Size = new System.Drawing.Size(147, 27);
+            this.btnSync.TabIndex = 10;
+            this.btnSync.Text = "Youtube-Sync Now";
+            this.btnSync.UseVisualStyleBackColor = false;
+            this.btnSync.Click += new System.EventHandler(this.btnSync_Click);
+            // 
+            // imgQR
+            // 
+            this.imgQR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgQR.Location = new System.Drawing.Point(522, 15);
+            this.imgQR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.imgQR.Name = "imgQR";
+            this.imgQR.Size = new System.Drawing.Size(117, 115);
+            this.imgQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgQR.TabIndex = 9;
+            this.imgQR.TabStop = false;
+            // 
+            // btnAddGame
+            // 
+            this.btnAddGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnAddGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddGame.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddGame.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAddGame.Location = new System.Drawing.Point(9, 82);
+            this.btnAddGame.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAddGame.Name = "btnAddGame";
+            this.btnAddGame.Size = new System.Drawing.Size(147, 27);
+            this.btnAddGame.TabIndex = 8;
+            this.btnAddGame.Text = "Add Game to Database";
+            this.btnAddGame.UseVisualStyleBackColor = false;
+            this.btnAddGame.Click += new System.EventHandler(this.btnGameLauncher_Click);
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDownload.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDownload.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDownload.Location = new System.Drawing.Point(9, 15);
+            this.btnDownload.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(147, 27);
+            this.btnDownload.TabIndex = 7;
+            this.btnDownload.Text = "Download From Youtube";
+            this.btnDownload.UseVisualStyleBackColor = false;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
+            // btnApolloOnAir
+            // 
+            this.btnApolloOnAir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnApolloOnAir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApolloOnAir.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnApolloOnAir.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnApolloOnAir.Location = new System.Drawing.Point(164, 49);
+            this.btnApolloOnAir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnApolloOnAir.Name = "btnApolloOnAir";
+            this.btnApolloOnAir.Size = new System.Drawing.Size(147, 27);
+            this.btnApolloOnAir.TabIndex = 6;
+            this.btnApolloOnAir.Text = "Launch Apollo On Air";
+            this.btnApolloOnAir.UseVisualStyleBackColor = false;
+            this.btnApolloOnAir.Click += new System.EventHandler(this.btnApolloOnAir_Click);
+            // 
+            // btnRevealedRadio
+            // 
+            this.btnRevealedRadio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnRevealedRadio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRevealedRadio.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRevealedRadio.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRevealedRadio.Location = new System.Drawing.Point(164, 15);
+            this.btnRevealedRadio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRevealedRadio.Name = "btnRevealedRadio";
+            this.btnRevealedRadio.Size = new System.Drawing.Size(147, 27);
+            this.btnRevealedRadio.TabIndex = 5;
+            this.btnRevealedRadio.Text = "Stream Revealed Radio";
+            this.btnRevealedRadio.UseVisualStyleBackColor = false;
+            this.btnRevealedRadio.Click += new System.EventHandler(this.btnRevealedRadio_Click);
+            // 
+            // btnLoadPlaylist
+            // 
+            this.btnLoadPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnLoadPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadPlaylist.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLoadPlaylist.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLoadPlaylist.Location = new System.Drawing.Point(319, 15);
+            this.btnLoadPlaylist.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnLoadPlaylist.Name = "btnLoadPlaylist";
+            this.btnLoadPlaylist.Size = new System.Drawing.Size(147, 27);
+            this.btnLoadPlaylist.TabIndex = 4;
+            this.btnLoadPlaylist.Text = "Load Playlist";
+            this.btnLoadPlaylist.UseVisualStyleBackColor = false;
+            this.btnLoadPlaylist.Click += new System.EventHandler(this.btnLoadPlaylist_Click);
+            // 
+            // btnWebsite
+            // 
+            this.btnWebsite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnWebsite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWebsite.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnWebsite.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnWebsite.Location = new System.Drawing.Point(164, 82);
+            this.btnWebsite.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnWebsite.Name = "btnWebsite";
+            this.btnWebsite.Size = new System.Drawing.Size(147, 27);
+            this.btnWebsite.TabIndex = 3;
+            this.btnWebsite.Text = "Open WebClient";
+            this.btnWebsite.UseVisualStyleBackColor = false;
+            this.btnWebsite.Click += new System.EventHandler(this.btnWebsite_Click);
+            // 
+            // btnMove
+            // 
+            this.btnMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMove.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMove.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnMove.Location = new System.Drawing.Point(9, 48);
+            this.btnMove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnMove.Name = "btnMove";
+            this.btnMove.Size = new System.Drawing.Size(147, 27);
+            this.btnMove.TabIndex = 2;
+            this.btnMove.Text = "Move a Song";
+            this.btnMove.UseVisualStyleBackColor = false;
+            this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
+            // 
+            // pgPlay
+            // 
+            this.pgPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.pgPlay.Controls.Add(this.imgCover);
+            this.pgPlay.HorizontalScrollbarBarColor = true;
+            this.pgPlay.HorizontalScrollbarHighlightOnWheel = false;
+            this.pgPlay.HorizontalScrollbarSize = 12;
+            this.pgPlay.Location = new System.Drawing.Point(4, 38);
+            this.pgPlay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pgPlay.Name = "pgPlay";
+            this.pgPlay.Size = new System.Drawing.Size(655, 382);
+            this.pgPlay.TabIndex = 1;
+            this.pgPlay.Text = "Play";
+            this.pgPlay.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pgPlay.VerticalScrollbarBarColor = true;
+            this.pgPlay.VerticalScrollbarHighlightOnWheel = false;
+            this.pgPlay.VerticalScrollbarSize = 12;
+            this.pgPlay.Visible = false;
+            // 
+            // imgCover
+            // 
+            this.imgCover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.imgCover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgCover.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgCover.Location = new System.Drawing.Point(0, 0);
+            this.imgCover.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.imgCover.Name = "imgCover";
+            this.imgCover.Size = new System.Drawing.Size(655, 382);
+            this.imgCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgCover.TabIndex = 2;
+            this.imgCover.TabStop = false;
+            // 
+            // pgConnectSpotify
+            // 
+            this.pgConnectSpotify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.pgConnectSpotify.Controls.Add(this.listView1);
+            this.pgConnectSpotify.HorizontalScrollbarBarColor = true;
+            this.pgConnectSpotify.HorizontalScrollbarHighlightOnWheel = false;
+            this.pgConnectSpotify.HorizontalScrollbarSize = 12;
+            this.pgConnectSpotify.Location = new System.Drawing.Point(4, 38);
+            this.pgConnectSpotify.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pgConnectSpotify.Name = "pgConnectSpotify";
+            this.pgConnectSpotify.Size = new System.Drawing.Size(655, 382);
+            this.pgConnectSpotify.TabIndex = 4;
+            this.pgConnectSpotify.Text = "Spotify Releases";
+            this.pgConnectSpotify.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pgConnectSpotify.VerticalScrollbarBarColor = true;
+            this.pgConnectSpotify.VerticalScrollbarHighlightOnWheel = false;
+            this.pgConnectSpotify.VerticalScrollbarSize = 12;
+            this.pgConnectSpotify.Visible = false;
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.artist,
+            this.album,
+            this.date});
+            this.listView1.ContextMenuStrip = this.spotifyContextMenu;
+            this.listView1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listView1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.listView1.FullRowSelect = true;
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(655, 382);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // artist
+            // 
+            this.artist.Text = "Artist";
+            // 
+            // album
+            // 
+            this.album.Text = "Album";
+            // 
+            // date
+            // 
+            this.date.Text = "Release Date";
+            // 
+            // spotifyContextMenu
+            // 
+            this.spotifyContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openOnSpotifyToolStripMenuItem,
+            this.btnAddToPlaylist,
+            this.toolStripSeparator1,
+            this.searchOnYoutubeToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.previewToolStripMenuItem});
+            this.spotifyContextMenu.Name = "spotifyContextMenu";
+            this.spotifyContextMenu.Size = new System.Drawing.Size(174, 104);
+            // 
+            // openOnSpotifyToolStripMenuItem
+            // 
+            this.openOnSpotifyToolStripMenuItem.Name = "openOnSpotifyToolStripMenuItem";
+            this.openOnSpotifyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.openOnSpotifyToolStripMenuItem.Text = "Open on Spotify";
+            // 
+            // btnAddToPlaylist
+            // 
+            this.btnAddToPlaylist.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToPlaylistToolStripMenuItem});
+            this.btnAddToPlaylist.Name = "btnAddToPlaylist";
+            this.btnAddToPlaylist.Size = new System.Drawing.Size(173, 22);
+            this.btnAddToPlaylist.Text = "Add to Playlist";
+            // 
+            // addToPlaylistToolStripMenuItem
+            // 
+            this.addToPlaylistToolStripMenuItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.addToPlaylistToolStripMenuItem.Name = "addToPlaylistToolStripMenuItem";
+            this.addToPlaylistToolStripMenuItem.Size = new System.Drawing.Size(180, 23);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
+            // 
+            // searchOnYoutubeToolStripMenuItem
+            // 
+            this.searchOnYoutubeToolStripMenuItem.Name = "searchOnYoutubeToolStripMenuItem";
+            this.searchOnYoutubeToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.searchOnYoutubeToolStripMenuItem.Text = "Search on Youtube";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(170, 6);
+            // 
+            // previewToolStripMenuItem
+            // 
+            this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
+            this.previewToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.previewToolStripMenuItem.Text = "Preview";
             // 
             // pgSpotifySync
             // 
@@ -508,6 +825,7 @@
             // btnSyncAutomate
             // 
             this.btnSyncAutomate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnSyncAutomate.Enabled = false;
             this.btnSyncAutomate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSyncAutomate.Location = new System.Drawing.Point(256, 70);
             this.btnSyncAutomate.Name = "btnSyncAutomate";
@@ -585,306 +903,6 @@
             this.cmbSyncPlaylist.Name = "cmbSyncPlaylist";
             this.cmbSyncPlaylist.Size = new System.Drawing.Size(156, 23);
             this.cmbSyncPlaylist.TabIndex = 0;
-            // 
-            // pgQuickAccess
-            // 
-            this.pgQuickAccess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.pgQuickAccess.Controls.Add(this.btnSync);
-            this.pgQuickAccess.Controls.Add(this.imgQR);
-            this.pgQuickAccess.Controls.Add(this.btnAddGame);
-            this.pgQuickAccess.Controls.Add(this.btnDownload);
-            this.pgQuickAccess.Controls.Add(this.btnApolloOnAir);
-            this.pgQuickAccess.Controls.Add(this.btnRevealedRadio);
-            this.pgQuickAccess.Controls.Add(this.btnLoadPlaylist);
-            this.pgQuickAccess.Controls.Add(this.btnWebsite);
-            this.pgQuickAccess.Controls.Add(this.btnMove);
-            this.pgQuickAccess.HorizontalScrollbarBarColor = true;
-            this.pgQuickAccess.HorizontalScrollbarHighlightOnWheel = false;
-            this.pgQuickAccess.HorizontalScrollbarSize = 12;
-            this.pgQuickAccess.Location = new System.Drawing.Point(4, 38);
-            this.pgQuickAccess.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pgQuickAccess.Name = "pgQuickAccess";
-            this.pgQuickAccess.Size = new System.Drawing.Size(655, 382);
-            this.pgQuickAccess.TabIndex = 0;
-            this.pgQuickAccess.Text = "Quick Access";
-            this.pgQuickAccess.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pgQuickAccess.UseCustomBackColor = true;
-            this.pgQuickAccess.VerticalScrollbarBarColor = true;
-            this.pgQuickAccess.VerticalScrollbarHighlightOnWheel = false;
-            this.pgQuickAccess.VerticalScrollbarSize = 12;
-            // 
-            // btnSync
-            // 
-            this.btnSync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSync.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSync.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSync.Location = new System.Drawing.Point(9, 249);
-            this.btnSync.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSync.Name = "btnSync";
-            this.btnSync.Size = new System.Drawing.Size(147, 27);
-            this.btnSync.TabIndex = 10;
-            this.btnSync.Text = "Sync Now!";
-            this.btnSync.UseVisualStyleBackColor = false;
-            this.btnSync.Click += new System.EventHandler(this.btnSync_Click);
-            // 
-            // imgQR
-            // 
-            this.imgQR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgQR.Location = new System.Drawing.Point(522, 15);
-            this.imgQR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.imgQR.Name = "imgQR";
-            this.imgQR.Size = new System.Drawing.Size(117, 115);
-            this.imgQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgQR.TabIndex = 9;
-            this.imgQR.TabStop = false;
-            // 
-            // btnAddGame
-            // 
-            this.btnAddGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnAddGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddGame.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddGame.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddGame.Location = new System.Drawing.Point(9, 216);
-            this.btnAddGame.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnAddGame.Name = "btnAddGame";
-            this.btnAddGame.Size = new System.Drawing.Size(147, 27);
-            this.btnAddGame.TabIndex = 8;
-            this.btnAddGame.Text = "Add New Game";
-            this.btnAddGame.UseVisualStyleBackColor = false;
-            this.btnAddGame.Click += new System.EventHandler(this.btnGameLauncher_Click);
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDownload.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDownload.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDownload.Location = new System.Drawing.Point(9, 82);
-            this.btnDownload.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(147, 27);
-            this.btnDownload.TabIndex = 7;
-            this.btnDownload.Text = "Download";
-            this.btnDownload.UseVisualStyleBackColor = false;
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // btnApolloOnAir
-            // 
-            this.btnApolloOnAir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnApolloOnAir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApolloOnAir.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnApolloOnAir.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnApolloOnAir.Location = new System.Drawing.Point(9, 149);
-            this.btnApolloOnAir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnApolloOnAir.Name = "btnApolloOnAir";
-            this.btnApolloOnAir.Size = new System.Drawing.Size(147, 27);
-            this.btnApolloOnAir.TabIndex = 6;
-            this.btnApolloOnAir.Text = "Apollo On Air";
-            this.btnApolloOnAir.UseVisualStyleBackColor = false;
-            this.btnApolloOnAir.Click += new System.EventHandler(this.btnApolloOnAir_Click);
-            // 
-            // btnRevealedRadio
-            // 
-            this.btnRevealedRadio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnRevealedRadio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRevealedRadio.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRevealedRadio.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRevealedRadio.Location = new System.Drawing.Point(9, 115);
-            this.btnRevealedRadio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnRevealedRadio.Name = "btnRevealedRadio";
-            this.btnRevealedRadio.Size = new System.Drawing.Size(147, 27);
-            this.btnRevealedRadio.TabIndex = 5;
-            this.btnRevealedRadio.Text = "Revealed Radio";
-            this.btnRevealedRadio.UseVisualStyleBackColor = false;
-            this.btnRevealedRadio.Click += new System.EventHandler(this.btnRevealedRadio_Click);
-            // 
-            // btnLoadPlaylist
-            // 
-            this.btnLoadPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnLoadPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadPlaylist.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLoadPlaylist.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLoadPlaylist.Location = new System.Drawing.Point(9, 15);
-            this.btnLoadPlaylist.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnLoadPlaylist.Name = "btnLoadPlaylist";
-            this.btnLoadPlaylist.Size = new System.Drawing.Size(147, 27);
-            this.btnLoadPlaylist.TabIndex = 4;
-            this.btnLoadPlaylist.Text = "Load Playlist";
-            this.btnLoadPlaylist.UseVisualStyleBackColor = false;
-            this.btnLoadPlaylist.Click += new System.EventHandler(this.btnLoadPlaylist_Click);
-            // 
-            // btnWebsite
-            // 
-            this.btnWebsite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnWebsite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWebsite.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWebsite.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnWebsite.Location = new System.Drawing.Point(9, 48);
-            this.btnWebsite.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnWebsite.Name = "btnWebsite";
-            this.btnWebsite.Size = new System.Drawing.Size(147, 27);
-            this.btnWebsite.TabIndex = 3;
-            this.btnWebsite.Text = "WebClient";
-            this.btnWebsite.UseVisualStyleBackColor = false;
-            this.btnWebsite.Click += new System.EventHandler(this.btnWebsite_Click);
-            // 
-            // btnMove
-            // 
-            this.btnMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMove.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMove.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMove.Location = new System.Drawing.Point(9, 182);
-            this.btnMove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnMove.Name = "btnMove";
-            this.btnMove.Size = new System.Drawing.Size(147, 27);
-            this.btnMove.TabIndex = 2;
-            this.btnMove.Text = "Move";
-            this.btnMove.UseVisualStyleBackColor = false;
-            this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
-            // 
-            // pgPlay
-            // 
-            this.pgPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.pgPlay.Controls.Add(this.imgCover);
-            this.pgPlay.HorizontalScrollbarBarColor = true;
-            this.pgPlay.HorizontalScrollbarHighlightOnWheel = false;
-            this.pgPlay.HorizontalScrollbarSize = 12;
-            this.pgPlay.Location = new System.Drawing.Point(4, 38);
-            this.pgPlay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pgPlay.Name = "pgPlay";
-            this.pgPlay.Size = new System.Drawing.Size(655, 382);
-            this.pgPlay.TabIndex = 1;
-            this.pgPlay.Text = "Play";
-            this.pgPlay.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pgPlay.VerticalScrollbarBarColor = true;
-            this.pgPlay.VerticalScrollbarHighlightOnWheel = false;
-            this.pgPlay.VerticalScrollbarSize = 12;
-            this.pgPlay.Visible = false;
-            // 
-            // imgCover
-            // 
-            this.imgCover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.imgCover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgCover.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgCover.Location = new System.Drawing.Point(0, 0);
-            this.imgCover.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.imgCover.Name = "imgCover";
-            this.imgCover.Size = new System.Drawing.Size(655, 382);
-            this.imgCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgCover.TabIndex = 2;
-            this.imgCover.TabStop = false;
-            // 
-            // pgConnectSpotify
-            // 
-            this.pgConnectSpotify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.pgConnectSpotify.Controls.Add(this.listView1);
-            this.pgConnectSpotify.HorizontalScrollbarBarColor = true;
-            this.pgConnectSpotify.HorizontalScrollbarHighlightOnWheel = false;
-            this.pgConnectSpotify.HorizontalScrollbarSize = 12;
-            this.pgConnectSpotify.Location = new System.Drawing.Point(4, 38);
-            this.pgConnectSpotify.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pgConnectSpotify.Name = "pgConnectSpotify";
-            this.pgConnectSpotify.Size = new System.Drawing.Size(655, 382);
-            this.pgConnectSpotify.TabIndex = 4;
-            this.pgConnectSpotify.Text = "Spotify Releases";
-            this.pgConnectSpotify.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pgConnectSpotify.VerticalScrollbarBarColor = true;
-            this.pgConnectSpotify.VerticalScrollbarHighlightOnWheel = false;
-            this.pgConnectSpotify.VerticalScrollbarSize = 12;
-            this.pgConnectSpotify.Visible = false;
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.artist,
-            this.album,
-            this.date});
-            this.listView1.ContextMenuStrip = this.spotifyContextMenu;
-            this.listView1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listView1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.listView1.FullRowSelect = true;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(655, 382);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // artist
-            // 
-            this.artist.Text = "Artist";
-            // 
-            // album
-            // 
-            this.album.Text = "Album";
-            // 
-            // date
-            // 
-            this.date.Text = "Release Date";
-            // 
-            // spotifyContextMenu
-            // 
-            this.spotifyContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openOnSpotifyToolStripMenuItem,
-            this.btnAddToPlaylist,
-            this.toolStripSeparator1,
-            this.searchOnYoutubeToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.previewToolStripMenuItem});
-            this.spotifyContextMenu.Name = "spotifyContextMenu";
-            this.spotifyContextMenu.Size = new System.Drawing.Size(174, 104);
-            // 
-            // openOnSpotifyToolStripMenuItem
-            // 
-            this.openOnSpotifyToolStripMenuItem.Name = "openOnSpotifyToolStripMenuItem";
-            this.openOnSpotifyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.openOnSpotifyToolStripMenuItem.Text = "Open on Spotify";
-            // 
-            // btnAddToPlaylist
-            // 
-            this.btnAddToPlaylist.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToPlaylistToolStripMenuItem});
-            this.btnAddToPlaylist.Name = "btnAddToPlaylist";
-            this.btnAddToPlaylist.Size = new System.Drawing.Size(173, 22);
-            this.btnAddToPlaylist.Text = "Add to Playlist";
-            // 
-            // addToPlaylistToolStripMenuItem
-            // 
-            this.addToPlaylistToolStripMenuItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.addToPlaylistToolStripMenuItem.Name = "addToPlaylistToolStripMenuItem";
-            this.addToPlaylistToolStripMenuItem.Size = new System.Drawing.Size(180, 23);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
-            // 
-            // searchOnYoutubeToolStripMenuItem
-            // 
-            this.searchOnYoutubeToolStripMenuItem.Name = "searchOnYoutubeToolStripMenuItem";
-            this.searchOnYoutubeToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.searchOnYoutubeToolStripMenuItem.Text = "Search on Youtube";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(170, 6);
-            // 
-            // previewToolStripMenuItem
-            // 
-            this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
-            this.previewToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.previewToolStripMenuItem.Text = "Preview";
             // 
             // pgSettings
             // 
@@ -1154,16 +1172,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLast)).EndInit();
             this.tbControl.ResumeLayout(false);
-            this.pgSpotifySync.ResumeLayout(false);
-            this.spotifySyncContextMenu.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.pgQuickAccess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).EndInit();
             this.pgPlay.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgCover)).EndInit();
             this.pgConnectSpotify.ResumeLayout(false);
             this.spotifyContextMenu.ResumeLayout(false);
+            this.pgSpotifySync.ResumeLayout(false);
+            this.spotifySyncContextMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pgSettings.ResumeLayout(false);
             this.pgSettings.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1262,6 +1280,7 @@
         private System.Windows.Forms.TextBox yYo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemChangeFile;
+        private System.Windows.Forms.Button btnManualAcrop;
     }
 }
 

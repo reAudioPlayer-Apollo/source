@@ -1,0 +1,200 @@
+<head>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+    <title>reAudioPlayer</title>
+</head>
+
+<sidenav>
+    <h3>Playlists</h3>
+    <hr>
+    <div id="playlists"></div>
+    <div class="coverholder"><img id="cover" onclick="colorSwipe()" width="100%"></div>
+</sidenav>
+<main>
+    <table>
+        <col style="width:2%">
+        <col style="width:45%">
+        <col style="width:45%">
+        <col style="width:8%">
+        <tbody id="playlist">
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Album</th>
+                <th>Duration</th>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+<script>
+    function httpGet(theUrl) {
+        console.log(theUrl)
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    }
+
+    function baseGet(endpoint) {
+        var base = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/"
+        httpGet(base + endpoint)
+    }
+
+    window.getSrc = function getSrc(url) {
+        return "data:image/gif;base64," + httpGet(url)
+    }
+
+    window.getImage = function getImage(url) {
+        var pic = getSrc(url)
+        return img = getImageFromSrc(pic)
+    }
+
+    function colorSwipe() {
+        window.open(base + "control", "_blank")
+    }
+
+    var base = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/"
+
+    document.getElementById('cover').src = window.getSrc(base + "api/data/cover")
+    setPlaylists(JSON.parse(httpGet(base + "api/data/playlists")))
+    //setSongs(JSON.parse(httpGet(base + "api/data/playlist")))
+
+    function setPlaylists(playlists) {
+        var lst = document.getElementById("playlists")
+        lst.innerHTML = ""
+        let arr = playlists.autoplaylists.concat(playlists.customplaylists);
+        console.log(playlists, arr);
+
+        arr.forEach(function (entry) {
+            console.log(entry);
+            lst.innerHTML += "<a>" + (entry.name) + "</a><br>";
+        });
+
+        console.log(lst.innerHTML);
+    }
+
+    function setSongs(arr) {
+        var table = document.getElementById("playlist")
+        table.innerHTML =
+            "<tr><th class='center'>#</th><th>Title</th><th>Album</th><th class='right'>Duration</th></tr>"
+        var row = ""
+
+        for (var i = 0; i < arr.length; i++) {
+            var entry = arr[i]
+            row = ""
+            row += "<tr onclick='baseGet(\"api/control/load/" + (i) + "\")'>"
+            row += "<td class='center'>" + (parseInt(entry["Number"]) + 1) + "</td>"
+            row += "<td><div class='title'>" + entry["Title"] + "</div>" + entry["Artist"] + "</td>"
+            row += "<td>" + entry["Album"] + "</td>"
+            row += "<td class='right'>" + entry["Duration"] + "</td>"
+            row += "</tr>"
+            table.innerHTML += row.replaceAll("null", "N/A")
+        }
+    }
+</script>
+
+<style>
+    * {
+        /*background-color: #151515;*/
+        font-family: "Segoe UI", "Tahoma", Geneva, Verdana, sans-serif;
+        font-weight: normal;
+        color: #b3b3b3;
+    }
+
+    body {
+        background-color: #151515;
+    }
+
+    table {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #cover {
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        cursor: pointer;
+    }
+
+    h3,
+    h4,
+    th {
+        text-transform: uppercase;
+        color: #b3b3b3;
+        margin: 0;
+        font-size: 12px;
+        background-color: inherit;
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    main {
+        margin-left: 160px;
+        padding-left: 20px;
+        background-color: #171717;
+    }
+
+    hr {
+        border: 1px solid #777;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    #playlists,
+    a {
+        font-size: 12px;
+        background-color: inherit;
+        color: white;
+    }
+
+    .title {
+        color: whitesmoke;
+        font-size: 16px;
+        background-color: inherit;
+    }
+
+    td {
+        font-size: 12px;
+        color: #b3b3b3;
+    }
+
+    tr:hover td {
+        background-color: #777;
+        cursor: pointer;
+        border-color: #777;
+        border-width: 0px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .right {
+        text-align: right;
+        padding-right: 1%;
+    }
+</style>
