@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ActiveDebugProfile>reAudioPlayerML</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Forms\GameAdder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GameLauncher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Radio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\RevealedStream.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SpotifyLinker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\YoutubeDownloader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

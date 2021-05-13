@@ -4,6 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Reflection;
+using System.Threading;
 
 namespace reAudioPlayerML
 {
@@ -41,6 +44,10 @@ namespace reAudioPlayerML
 
             TaskbarManager.Instance.ThumbnailToolBars.AddButtons(Handle, buttonFirst, buttonMiddle, buttonLast);
             */
+
+            Classes.Localiser.SetCulture("de", Thread.CurrentThread);
+
+            //Classes.Localiser.SetCulture("de");
 
             PlayerManager.mediaPlayer = mediaPlayer = new MediaPlayer(logger, notifyIcon);
 
@@ -417,6 +424,11 @@ namespace reAudioPlayerML
             }
 
             new OptimizeDL().acrop(new FileInfo(ofd.FileName));
+        }
+
+        private void txtCulture_TextChanged(object sender, EventArgs e)
+        {
+            Classes.Localiser.SetCulture(txtCulture.Text, Thread.CurrentThread);
         }
     }
 }
