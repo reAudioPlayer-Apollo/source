@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace reAudioPlayerML.Search
 {
-    internal class Spotify
+    public class Spotify
     {
         public SpotifyClient client;
         private readonly string clientid = Settings.APIKeys.spotify.id;
@@ -29,8 +29,8 @@ namespace reAudioPlayerML.Search
         private SpotifyLinker spotifyLinker;
         private readonly ContextMenuStrip contextMenu;
         private readonly ContextMenuStrip contextMenuSync;
-        private readonly ToolStripComboBox playlists;
-        private List<SimplePlaylist> spotifyPlaylists;
+        public ToolStripComboBox playlists;
+        public List<SimplePlaylist> spotifyPlaylists;
         private List<Release> releases;
         private readonly NotifyIcon notifyIcon;
         private readonly MediaPlayer player;
@@ -68,7 +68,7 @@ namespace reAudioPlayerML.Search
             }
         }
 
-        private Dictionary<string, TrackAudioFeatures> spotifyFeatureCache
+        public Dictionary<string, TrackAudioFeatures> spotifyFeatureCache
         {
             set
             {
@@ -204,8 +204,7 @@ namespace reAudioPlayerML.Search
                 return;
             }
 
-            SimplePlaylist playlist = spotifyPlaylists.Find((x) => x.Name == item.Text);
-            SnapshotResponse tmp = client.Playlists.AddItems(playlist.Id, new PlaylistAddItemsRequest(t)).Result;
+            addToPlaylist(t.ToArray(), item.Text);
 
             MessageBox.Show("Song added!");
         }
@@ -240,7 +239,7 @@ namespace reAudioPlayerML.Search
             new SpotifyPreview(player, album.tracks.Items[0]);
         }
 
-        private void Button_Click(object sender, EventArgs e)
+        private async void Button_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
             OpenFileDialog ofd;
@@ -300,7 +299,41 @@ namespace reAudioPlayerML.Search
                     addOrReplace((syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack).Id, ofd.FileName);
                     syncView.Items[selectedIndex[listView.Name]].SubItems[1].Text = ofd.FileName;
                     break;
+                case "toolStripMenuItemRecommend":
+                    Recommender form = new Recommender(this, player, (syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack));
+                    form.Show();
+                    break;
             }
+        }
+
+        public void openOnSpotify(FullTrack track)
+        {
+            openOnSpotify(track.ExternalUrls.FirstOrDefault().Value);
+        }
+        public void openOnSpotify(SimpleTrack track)
+        {
+            openOnSpotify(track.ExternalUrls.FirstOrDefault().Value);
+        }
+        public void openOnSpotify(string ExternalUrl)
+        {
+            ProcessStartInfo ps = new ProcessStartInfo()
+            {
+                UseShellExecute = true,
+                Verb = "open",
+                FileName = ExternalUrl
+            };
+
+            Process.Start(ps);
+        }
+
+        public void addToPlaylist(string[] Uris, string playlistName)
+        {
+            SimplePlaylist playlist = spotifyPlaylists.Find((x) => x.Name == playlistName);
+            SnapshotResponse tmp = client.Playlists.AddItems(playlist.Id, new PlaylistAddItemsRequest(Uris)).Result;
+        }
+        public void addToPlaylist(string Uri, string playlistName)
+        {
+            addToPlaylist(new string[] { Uri }, playlistName);
         }
 
         public void syncPlaylistByIndex(int index)
@@ -403,6 +436,55 @@ namespace reAudioPlayerML.Search
                     syncView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 }));
             }
+        }
+
+        public TrackAudioFeatures getFeatures(string id)
+        {
+            Dictionary<string, TrackAudioFeatures> featureCache = spotifyFeatureCache is null ? new Dictionary<string, TrackAudioFeatures>() : spotifyFeatureCache;
+            if (!featureCache.ContainsKey(id))
+            {
+                TrackAudioFeatures res = client.Tracks.GetAudioFeatures(id).Result;
+                featureCache.Add(id, res);
+                spotifyFeatureCache = featureCache;
+            }
+            return featureCache[id];
+        }
+
+        public TrackAudioFeatures[] getSeveralFeatures(string[] ids)
+        {
+            Dictionary<string, TrackAudioFeatures> featureCache = spotifyFeatureCache is null ? new Dictionary<string, TrackAudioFeatures>() : spotifyFeatureCache;
+
+            List<string> missingIds = new List<string>();
+
+            foreach (var id in ids)
+            {
+                if (!featureCache.ContainsKey(id))
+                {
+                    missingIds.Add(id);
+                }
+            }
+
+            if (missingIds.Count > 0)
+            {
+                TracksAudioFeaturesRequest req = new TracksAudioFeaturesRequest(missingIds);
+                List<TrackAudioFeatures> res = client.Tracks.GetSeveralAudioFeatures(req).Result.AudioFeatures;
+
+                foreach (TrackAudioFeatures re in res)
+                {
+                    featureCache.Add(re.Id, re);
+                }
+
+                spotifyFeatureCache = featureCache;
+            }
+
+            List<TrackAudioFeatures> ret = new List<TrackAudioFeatures>();
+
+            foreach (var id in ids)
+            {
+                ret.Add(featureCache[id]);
+            }
+
+            return ret.ToArray();
         }
 
         public void exportSyncedPlaylist()

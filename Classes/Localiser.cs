@@ -13,46 +13,30 @@ namespace reAudioPlayerML.Classes
 {
     public static class Localiser
     {
-        public static void SetAppDomainCultures(string name)
+        private static CultureInfo GetCulture(string culture)
         {
-            try
+            switch(culture.ToLower())
             {
-                CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CreateSpecificCulture(name);
-                CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.CreateSpecificCulture(name);
-            }
-            // If an exception occurs, we'll just fall back to the system default.
-            catch (CultureNotFoundException)
-            {
-                return;
-            }
-            catch (ArgumentException)
-            {
-                return;
+                case "deutsch":
+                    return CultureInfo.GetCultureInfo("de");
+                case "français":
+                    return CultureInfo.GetCultureInfo("fr");
+                case "português":
+                    return CultureInfo.GetCultureInfo("pt");
+                default:
+                    return CultureInfo.GetCultureInfo("en");
             }
         }
 
-        public static void SetAppDomainCultures(string[] names)
+        public static void SetCulture(string culture, ml main)
         {
-            SetAppDomainCultures(names[0]);
-        }
+            var cultureInfo = GetCulture(culture);
+            CultureInfo.CurrentCulture = cultureInfo;
+            CultureInfo.CurrentUICulture = cultureInfo;
 
-        public static void SetCulture(string culture, Thread t)
-        {
-            try
-            {
-                var cultureInfo = CultureInfo.GetCultureInfo(culture);
-                Application.CurrentCulture = cultureInfo;
-                t.CurrentCulture = cultureInfo;
-                t.CurrentUICulture = cultureInfo;
-                CultureInfo.CurrentCulture = cultureInfo;
-                CultureInfo.CurrentUICulture = cultureInfo;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-            }
-
-            Debug.WriteLine("test");
+            main.cacheStates();
+            main.Controls.Clear();
+            main.init();
         }
     }
 }

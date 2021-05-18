@@ -45,20 +45,6 @@
             this.btnLast = new System.Windows.Forms.PictureBox();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.tbControl = new MetroFramework.Controls.MetroTabControl();
-            this.pgSettings = new MetroFramework.Controls.MetroTabPage();
-            this.txtCulture = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.keyTMDB = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.keyIGDBSecret = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.keyIGDBId = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.keySpotifySecret = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.keySpotifyID = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.keyYoutube = new System.Windows.Forms.TextBox();
             this.pgQuickAccess = new MetroFramework.Controls.MetroTabPage();
             this.btnManualAcrop = new System.Windows.Forms.Button();
             this.btnSync = new System.Windows.Forms.Button();
@@ -97,6 +83,8 @@
             this.toolStripMenuItemShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemChangeFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemRecommend = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSyncProgress = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -110,6 +98,21 @@
             this.cmbLocalInput = new System.Windows.Forms.ComboBox();
             this.btnSyncAnalyse = new System.Windows.Forms.Button();
             this.cmbSyncPlaylist = new System.Windows.Forms.ComboBox();
+            this.pgSettings = new MetroFramework.Controls.MetroTabPage();
+            this.cmbLanguage = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.keyTMDB = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.keyIGDBSecret = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.keyIGDBId = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.keySpotifySecret = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.keySpotifyID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.keyYoutube = new System.Windows.Forms.TextBox();
             this.tmrAccentColour = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
@@ -127,7 +130,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLast)).BeginInit();
             this.tbControl.SuspendLayout();
-            this.pgSettings.SuspendLayout();
             this.pgQuickAccess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).BeginInit();
             this.pgPlay.SuspendLayout();
@@ -137,14 +139,15 @@
             this.pgSpotifySync.SuspendLayout();
             this.spotifySyncContextMenu.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pgSettings.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHead
             // 
-            resources.ApplyResources(this.pnlHead, "pnlHead");
             this.pnlHead.Controls.Add(this.lblUpNowArtist);
             this.pnlHead.Controls.Add(this.lblUpNowTitle);
+            resources.ApplyResources(this.pnlHead, "pnlHead");
             this.pnlHead.Name = "pnlHead";
             this.pnlHead.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHead_Paint);
             // 
@@ -164,7 +167,6 @@
             // 
             // pnlFooter
             // 
-            resources.ApplyResources(this.pnlFooter, "pnlFooter");
             this.pnlFooter.Controls.Add(this.pictureBox2);
             this.pnlFooter.Controls.Add(this.pictureBox1);
             this.pnlFooter.Controls.Add(this.lblTimeUp);
@@ -174,12 +176,13 @@
             this.pnlFooter.Controls.Add(this.btnNext);
             this.pnlFooter.Controls.Add(this.btnPlayPause);
             this.pnlFooter.Controls.Add(this.btnLast);
+            resources.ApplyResources(this.pnlFooter, "pnlFooter");
             this.pnlFooter.Name = "pnlFooter";
             // 
             // pictureBox2
             // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Image = global::reAudioPlayerML.Properties.Resources.volume_down2;
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
@@ -242,8 +245,8 @@
             // 
             // btnLast
             // 
-            resources.ApplyResources(this.btnLast, "btnLast");
             this.btnLast.Image = global::reAudioPlayerML.Properties.Resources.last;
+            resources.ApplyResources(this.btnLast, "btnLast");
             this.btnLast.Name = "btnLast";
             this.btnLast.TabStop = false;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
@@ -255,13 +258,13 @@
             // 
             // tbControl
             // 
-            resources.ApplyResources(this.tbControl, "tbControl");
             this.tbControl.AllowDrop = true;
-            this.tbControl.Controls.Add(this.pgSettings);
             this.tbControl.Controls.Add(this.pgQuickAccess);
             this.tbControl.Controls.Add(this.pgPlay);
             this.tbControl.Controls.Add(this.pgConnectSpotify);
             this.tbControl.Controls.Add(this.pgSpotifySync);
+            this.tbControl.Controls.Add(this.pgSettings);
+            resources.ApplyResources(this.tbControl, "tbControl");
             this.tbControl.Name = "tbControl";
             this.tbControl.SelectedIndex = 0;
             this.tbControl.Style = MetroFramework.MetroColorStyle.Silver;
@@ -271,135 +274,8 @@
             this.tbControl.DragDrop += new System.Windows.Forms.DragEventHandler(this.ml_DragDrop);
             this.tbControl.DragEnter += new System.Windows.Forms.DragEventHandler(this.ml_DragEnter);
             // 
-            // pgSettings
-            // 
-            resources.ApplyResources(this.pgSettings, "pgSettings");
-            this.pgSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.pgSettings.Controls.Add(this.txtCulture);
-            this.pgSettings.Controls.Add(this.label8);
-            this.pgSettings.Controls.Add(this.keyTMDB);
-            this.pgSettings.Controls.Add(this.label9);
-            this.pgSettings.Controls.Add(this.keyIGDBSecret);
-            this.pgSettings.Controls.Add(this.label10);
-            this.pgSettings.Controls.Add(this.keyIGDBId);
-            this.pgSettings.Controls.Add(this.label7);
-            this.pgSettings.Controls.Add(this.keySpotifySecret);
-            this.pgSettings.Controls.Add(this.label6);
-            this.pgSettings.Controls.Add(this.keySpotifyID);
-            this.pgSettings.Controls.Add(this.label5);
-            this.pgSettings.Controls.Add(this.keyYoutube);
-            this.pgSettings.HorizontalScrollbarBarColor = true;
-            this.pgSettings.HorizontalScrollbarHighlightOnWheel = false;
-            this.pgSettings.HorizontalScrollbarSize = 12;
-            this.pgSettings.Name = "pgSettings";
-            this.pgSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pgSettings.UseCustomBackColor = true;
-            this.pgSettings.VerticalScrollbarBarColor = true;
-            this.pgSettings.VerticalScrollbarHighlightOnWheel = false;
-            this.pgSettings.VerticalScrollbarSize = 12;
-            // 
-            // txtCulture
-            // 
-            resources.ApplyResources(this.txtCulture, "txtCulture");
-            this.txtCulture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.txtCulture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCulture.ForeColor = System.Drawing.Color.White;
-            this.txtCulture.Name = "txtCulture";
-            this.txtCulture.TextChanged += new System.EventHandler(this.txtCulture_TextChanged);
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Name = "label8";
-            // 
-            // keyTMDB
-            // 
-            resources.ApplyResources(this.keyTMDB, "keyTMDB");
-            this.keyTMDB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.keyTMDB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.keyTMDB.ForeColor = System.Drawing.Color.White;
-            this.keyTMDB.Name = "keyTMDB";
-            this.keyTMDB.TextChanged += new System.EventHandler(this.keyTMDB_TextChanged);
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Name = "label9";
-            // 
-            // keyIGDBSecret
-            // 
-            resources.ApplyResources(this.keyIGDBSecret, "keyIGDBSecret");
-            this.keyIGDBSecret.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.keyIGDBSecret.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.keyIGDBSecret.ForeColor = System.Drawing.Color.White;
-            this.keyIGDBSecret.Name = "keyIGDBSecret";
-            this.keyIGDBSecret.TextChanged += new System.EventHandler(this.keyIGDBSecret_TextChanged);
-            // 
-            // label10
-            // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Name = "label10";
-            // 
-            // keyIGDBId
-            // 
-            resources.ApplyResources(this.keyIGDBId, "keyIGDBId");
-            this.keyIGDBId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.keyIGDBId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.keyIGDBId.ForeColor = System.Drawing.Color.White;
-            this.keyIGDBId.Name = "keyIGDBId";
-            this.keyIGDBId.TextChanged += new System.EventHandler(this.keyIGDBId_TextChanged);
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Name = "label7";
-            // 
-            // keySpotifySecret
-            // 
-            resources.ApplyResources(this.keySpotifySecret, "keySpotifySecret");
-            this.keySpotifySecret.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.keySpotifySecret.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.keySpotifySecret.ForeColor = System.Drawing.Color.White;
-            this.keySpotifySecret.Name = "keySpotifySecret";
-            this.keySpotifySecret.TextChanged += new System.EventHandler(this.keySpotifySecret_TextChanged);
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Name = "label6";
-            // 
-            // keySpotifyID
-            // 
-            resources.ApplyResources(this.keySpotifyID, "keySpotifyID");
-            this.keySpotifyID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.keySpotifyID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.keySpotifyID.ForeColor = System.Drawing.Color.White;
-            this.keySpotifyID.Name = "keySpotifyID";
-            this.keySpotifyID.TextChanged += new System.EventHandler(this.keySpotifyID_TextChanged);
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Name = "label5";
-            // 
-            // keyYoutube
-            // 
-            resources.ApplyResources(this.keyYoutube, "keyYoutube");
-            this.keyYoutube.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.keyYoutube.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.keyYoutube.ForeColor = System.Drawing.Color.White;
-            this.keyYoutube.Name = "keyYoutube";
-            this.keyYoutube.TextChanged += new System.EventHandler(this.keyYoutube_TextChanged);
-            // 
             // pgQuickAccess
             // 
-            resources.ApplyResources(this.pgQuickAccess, "pgQuickAccess");
             this.pgQuickAccess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.pgQuickAccess.Controls.Add(this.btnManualAcrop);
             this.pgQuickAccess.Controls.Add(this.btnSync);
@@ -414,6 +290,7 @@
             this.pgQuickAccess.HorizontalScrollbarBarColor = true;
             this.pgQuickAccess.HorizontalScrollbarHighlightOnWheel = false;
             this.pgQuickAccess.HorizontalScrollbarSize = 12;
+            resources.ApplyResources(this.pgQuickAccess, "pgQuickAccess");
             this.pgQuickAccess.Name = "pgQuickAccess";
             this.pgQuickAccess.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.pgQuickAccess.UseCustomBackColor = true;
@@ -423,8 +300,8 @@
             // 
             // btnManualAcrop
             // 
-            resources.ApplyResources(this.btnManualAcrop, "btnManualAcrop");
             this.btnManualAcrop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnManualAcrop, "btnManualAcrop");
             this.btnManualAcrop.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnManualAcrop.Name = "btnManualAcrop";
             this.btnManualAcrop.UseVisualStyleBackColor = false;
@@ -432,8 +309,8 @@
             // 
             // btnSync
             // 
-            resources.ApplyResources(this.btnSync, "btnSync");
             this.btnSync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnSync, "btnSync");
             this.btnSync.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSync.Name = "btnSync";
             this.btnSync.UseVisualStyleBackColor = false;
@@ -447,8 +324,8 @@
             // 
             // btnAddGame
             // 
-            resources.ApplyResources(this.btnAddGame, "btnAddGame");
             this.btnAddGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnAddGame, "btnAddGame");
             this.btnAddGame.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnAddGame.Name = "btnAddGame";
             this.btnAddGame.UseVisualStyleBackColor = false;
@@ -456,8 +333,8 @@
             // 
             // btnDownload
             // 
-            resources.ApplyResources(this.btnDownload, "btnDownload");
             this.btnDownload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnDownload, "btnDownload");
             this.btnDownload.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.UseVisualStyleBackColor = false;
@@ -465,8 +342,8 @@
             // 
             // btnApolloOnAir
             // 
-            resources.ApplyResources(this.btnApolloOnAir, "btnApolloOnAir");
             this.btnApolloOnAir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnApolloOnAir, "btnApolloOnAir");
             this.btnApolloOnAir.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnApolloOnAir.Name = "btnApolloOnAir";
             this.btnApolloOnAir.UseVisualStyleBackColor = false;
@@ -474,8 +351,8 @@
             // 
             // btnRevealedRadio
             // 
-            resources.ApplyResources(this.btnRevealedRadio, "btnRevealedRadio");
             this.btnRevealedRadio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnRevealedRadio, "btnRevealedRadio");
             this.btnRevealedRadio.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnRevealedRadio.Name = "btnRevealedRadio";
             this.btnRevealedRadio.UseVisualStyleBackColor = false;
@@ -483,8 +360,8 @@
             // 
             // btnLoadPlaylist
             // 
-            resources.ApplyResources(this.btnLoadPlaylist, "btnLoadPlaylist");
             this.btnLoadPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnLoadPlaylist, "btnLoadPlaylist");
             this.btnLoadPlaylist.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnLoadPlaylist.Name = "btnLoadPlaylist";
             this.btnLoadPlaylist.UseVisualStyleBackColor = false;
@@ -492,8 +369,8 @@
             // 
             // btnWebsite
             // 
-            resources.ApplyResources(this.btnWebsite, "btnWebsite");
             this.btnWebsite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnWebsite, "btnWebsite");
             this.btnWebsite.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnWebsite.Name = "btnWebsite";
             this.btnWebsite.UseVisualStyleBackColor = false;
@@ -501,8 +378,8 @@
             // 
             // btnMove
             // 
-            resources.ApplyResources(this.btnMove, "btnMove");
             this.btnMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnMove, "btnMove");
             this.btnMove.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnMove.Name = "btnMove";
             this.btnMove.UseVisualStyleBackColor = false;
@@ -510,12 +387,12 @@
             // 
             // pgPlay
             // 
-            resources.ApplyResources(this.pgPlay, "pgPlay");
             this.pgPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.pgPlay.Controls.Add(this.imgCover);
             this.pgPlay.HorizontalScrollbarBarColor = true;
             this.pgPlay.HorizontalScrollbarHighlightOnWheel = false;
             this.pgPlay.HorizontalScrollbarSize = 12;
+            resources.ApplyResources(this.pgPlay, "pgPlay");
             this.pgPlay.Name = "pgPlay";
             this.pgPlay.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.pgPlay.VerticalScrollbarBarColor = true;
@@ -524,19 +401,19 @@
             // 
             // imgCover
             // 
-            resources.ApplyResources(this.imgCover, "imgCover");
             this.imgCover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.imgCover, "imgCover");
             this.imgCover.Name = "imgCover";
             this.imgCover.TabStop = false;
             // 
             // pgConnectSpotify
             // 
-            resources.ApplyResources(this.pgConnectSpotify, "pgConnectSpotify");
             this.pgConnectSpotify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.pgConnectSpotify.Controls.Add(this.listView1);
             this.pgConnectSpotify.HorizontalScrollbarBarColor = true;
             this.pgConnectSpotify.HorizontalScrollbarHighlightOnWheel = false;
             this.pgConnectSpotify.HorizontalScrollbarSize = 12;
+            resources.ApplyResources(this.pgConnectSpotify, "pgConnectSpotify");
             this.pgConnectSpotify.Name = "pgConnectSpotify";
             this.pgConnectSpotify.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.pgConnectSpotify.VerticalScrollbarBarColor = true;
@@ -545,7 +422,6 @@
             // 
             // listView1
             // 
-            resources.ApplyResources(this.listView1, "listView1");
             this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -554,6 +430,7 @@
             this.date});
             this.listView1.ContextMenuStrip = this.spotifyContextMenu;
             this.listView1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            resources.ApplyResources(this.listView1, "listView1");
             this.listView1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.listView1.FullRowSelect = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -577,7 +454,6 @@
             // 
             // spotifyContextMenu
             // 
-            resources.ApplyResources(this.spotifyContextMenu, "spotifyContextMenu");
             this.spotifyContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openOnSpotifyToolStripMenuItem,
             this.btnAddToPlaylist,
@@ -586,63 +462,64 @@
             this.toolStripSeparator2,
             this.previewToolStripMenuItem});
             this.spotifyContextMenu.Name = "spotifyContextMenu";
+            resources.ApplyResources(this.spotifyContextMenu, "spotifyContextMenu");
             // 
             // openOnSpotifyToolStripMenuItem
             // 
-            resources.ApplyResources(this.openOnSpotifyToolStripMenuItem, "openOnSpotifyToolStripMenuItem");
             this.openOnSpotifyToolStripMenuItem.Name = "openOnSpotifyToolStripMenuItem";
+            resources.ApplyResources(this.openOnSpotifyToolStripMenuItem, "openOnSpotifyToolStripMenuItem");
             // 
             // btnAddToPlaylist
             // 
-            resources.ApplyResources(this.btnAddToPlaylist, "btnAddToPlaylist");
             this.btnAddToPlaylist.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToPlaylistToolStripMenuItem});
             this.btnAddToPlaylist.Name = "btnAddToPlaylist";
+            resources.ApplyResources(this.btnAddToPlaylist, "btnAddToPlaylist");
             // 
             // addToPlaylistToolStripMenuItem
             // 
-            resources.ApplyResources(this.addToPlaylistToolStripMenuItem, "addToPlaylistToolStripMenuItem");
             this.addToPlaylistToolStripMenuItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.addToPlaylistToolStripMenuItem.Name = "addToPlaylistToolStripMenuItem";
+            resources.ApplyResources(this.addToPlaylistToolStripMenuItem, "addToPlaylistToolStripMenuItem");
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // searchOnYoutubeToolStripMenuItem
             // 
-            resources.ApplyResources(this.searchOnYoutubeToolStripMenuItem, "searchOnYoutubeToolStripMenuItem");
             this.searchOnYoutubeToolStripMenuItem.Name = "searchOnYoutubeToolStripMenuItem";
+            resources.ApplyResources(this.searchOnYoutubeToolStripMenuItem, "searchOnYoutubeToolStripMenuItem");
             // 
             // toolStripSeparator2
             // 
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // previewToolStripMenuItem
             // 
-            resources.ApplyResources(this.previewToolStripMenuItem, "previewToolStripMenuItem");
             this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
+            resources.ApplyResources(this.previewToolStripMenuItem, "previewToolStripMenuItem");
             // 
             // pgSpotifySync
             // 
-            resources.ApplyResources(this.pgSpotifySync, "pgSpotifySync");
             this.pgSpotifySync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.pgSpotifySync.Controls.Add(this.lviewSpotifySync);
             this.pgSpotifySync.Controls.Add(this.panel1);
             this.pgSpotifySync.ForeColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.pgSpotifySync, "pgSpotifySync");
             this.pgSpotifySync.Name = "pgSpotifySync";
             // 
             // lviewSpotifySync
             // 
-            resources.ApplyResources(this.lviewSpotifySync, "lviewSpotifySync");
             this.lviewSpotifySync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.lviewSpotifySync.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lviewSpotifySync.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmnSpotify,
             this.clmnLocal});
             this.lviewSpotifySync.ContextMenuStrip = this.spotifySyncContextMenu;
+            resources.ApplyResources(this.lviewSpotifySync, "lviewSpotifySync");
             this.lviewSpotifySync.ForeColor = System.Drawing.Color.White;
             this.lviewSpotifySync.FullRowSelect = true;
             this.lviewSpotifySync.HideSelection = false;
@@ -660,7 +537,6 @@
             // 
             // spotifySyncContextMenu
             // 
-            resources.ApplyResources(this.spotifySyncContextMenu, "spotifySyncContextMenu");
             this.spotifySyncContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemPreviewSpotify,
             this.toolStripMenuItemPreviewLocal,
@@ -668,47 +544,59 @@
             this.toolStripMenuItemOpenSpotify,
             this.toolStripMenuItemShowInExplorer,
             this.toolStripSeparator4,
-            this.toolStripMenuItemChangeFile});
+            this.toolStripMenuItemChangeFile,
+            this.toolStripSeparator5,
+            this.toolStripMenuItemRecommend});
             this.spotifySyncContextMenu.Name = "spotifySyncContextMenu";
+            resources.ApplyResources(this.spotifySyncContextMenu, "spotifySyncContextMenu");
             // 
             // toolStripMenuItemPreviewSpotify
             // 
-            resources.ApplyResources(this.toolStripMenuItemPreviewSpotify, "toolStripMenuItemPreviewSpotify");
             this.toolStripMenuItemPreviewSpotify.Name = "toolStripMenuItemPreviewSpotify";
+            resources.ApplyResources(this.toolStripMenuItemPreviewSpotify, "toolStripMenuItemPreviewSpotify");
             // 
             // toolStripMenuItemPreviewLocal
             // 
-            resources.ApplyResources(this.toolStripMenuItemPreviewLocal, "toolStripMenuItemPreviewLocal");
             this.toolStripMenuItemPreviewLocal.Name = "toolStripMenuItemPreviewLocal";
+            resources.ApplyResources(this.toolStripMenuItemPreviewLocal, "toolStripMenuItemPreviewLocal");
             // 
             // toolStripSeparator3
             // 
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // toolStripMenuItemOpenSpotify
             // 
-            resources.ApplyResources(this.toolStripMenuItemOpenSpotify, "toolStripMenuItemOpenSpotify");
             this.toolStripMenuItemOpenSpotify.Name = "toolStripMenuItemOpenSpotify";
+            resources.ApplyResources(this.toolStripMenuItemOpenSpotify, "toolStripMenuItemOpenSpotify");
             // 
             // toolStripMenuItemShowInExplorer
             // 
-            resources.ApplyResources(this.toolStripMenuItemShowInExplorer, "toolStripMenuItemShowInExplorer");
             this.toolStripMenuItemShowInExplorer.Name = "toolStripMenuItemShowInExplorer";
+            resources.ApplyResources(this.toolStripMenuItemShowInExplorer, "toolStripMenuItemShowInExplorer");
             // 
             // toolStripSeparator4
             // 
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // toolStripMenuItemChangeFile
             // 
-            resources.ApplyResources(this.toolStripMenuItemChangeFile, "toolStripMenuItemChangeFile");
             this.toolStripMenuItemChangeFile.Name = "toolStripMenuItemChangeFile";
+            resources.ApplyResources(this.toolStripMenuItemChangeFile, "toolStripMenuItemChangeFile");
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+            // 
+            // toolStripMenuItemRecommend
+            // 
+            this.toolStripMenuItemRecommend.Name = "toolStripMenuItemRecommend";
+            resources.ApplyResources(this.toolStripMenuItemRecommend, "toolStripMenuItemRecommend");
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.lblSyncProgress);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -721,6 +609,7 @@
             this.panel1.Controls.Add(this.cmbLocalInput);
             this.panel1.Controls.Add(this.btnSyncAnalyse);
             this.panel1.Controls.Add(this.cmbSyncPlaylist);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -751,38 +640,37 @@
             // 
             // btnSyncAutomate
             // 
-            resources.ApplyResources(this.btnSyncAutomate, "btnSyncAutomate");
             this.btnSyncAutomate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnSyncAutomate, "btnSyncAutomate");
             this.btnSyncAutomate.Name = "btnSyncAutomate";
             this.btnSyncAutomate.UseVisualStyleBackColor = false;
             // 
             // btnSyncExport
             // 
-            resources.ApplyResources(this.btnSyncExport, "btnSyncExport");
             this.btnSyncExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnSyncExport, "btnSyncExport");
             this.btnSyncExport.Name = "btnSyncExport";
             this.btnSyncExport.UseVisualStyleBackColor = false;
             this.btnSyncExport.Click += new System.EventHandler(this.btnSyncExport_Click);
             // 
             // txtSyncOut
             // 
-            resources.ApplyResources(this.txtSyncOut, "txtSyncOut");
             this.txtSyncOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtSyncOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSyncOut.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtSyncOut, "txtSyncOut");
             this.txtSyncOut.Name = "txtSyncOut";
             // 
             // txtLocalInput
             // 
-            resources.ApplyResources(this.txtLocalInput, "txtLocalInput");
             this.txtLocalInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtLocalInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLocalInput.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtLocalInput, "txtLocalInput");
             this.txtLocalInput.Name = "txtLocalInput";
             // 
             // cmbLocalInput
             // 
-            resources.ApplyResources(this.cmbLocalInput, "cmbLocalInput");
             this.cmbLocalInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cmbLocalInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLocalInput.ForeColor = System.Drawing.Color.White;
@@ -791,24 +679,164 @@
             resources.GetString("cmbLocalInput.Items"),
             resources.GetString("cmbLocalInput.Items1"),
             resources.GetString("cmbLocalInput.Items2")});
+            resources.ApplyResources(this.cmbLocalInput, "cmbLocalInput");
             this.cmbLocalInput.Name = "cmbLocalInput";
             // 
             // btnSyncAnalyse
             // 
-            resources.ApplyResources(this.btnSyncAnalyse, "btnSyncAnalyse");
             this.btnSyncAnalyse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnSyncAnalyse, "btnSyncAnalyse");
             this.btnSyncAnalyse.Name = "btnSyncAnalyse";
             this.btnSyncAnalyse.UseVisualStyleBackColor = false;
             this.btnSyncAnalyse.Click += new System.EventHandler(this.btnSyncAnalyse_Click);
             // 
             // cmbSyncPlaylist
             // 
-            resources.ApplyResources(this.cmbSyncPlaylist, "cmbSyncPlaylist");
             this.cmbSyncPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cmbSyncPlaylist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSyncPlaylist.ForeColor = System.Drawing.Color.White;
             this.cmbSyncPlaylist.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbSyncPlaylist, "cmbSyncPlaylist");
             this.cmbSyncPlaylist.Name = "cmbSyncPlaylist";
+            // 
+            // pgSettings
+            // 
+            this.pgSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.pgSettings.Controls.Add(this.cmbLanguage);
+            this.pgSettings.Controls.Add(this.label11);
+            this.pgSettings.Controls.Add(this.label8);
+            this.pgSettings.Controls.Add(this.keyTMDB);
+            this.pgSettings.Controls.Add(this.label9);
+            this.pgSettings.Controls.Add(this.keyIGDBSecret);
+            this.pgSettings.Controls.Add(this.label10);
+            this.pgSettings.Controls.Add(this.keyIGDBId);
+            this.pgSettings.Controls.Add(this.label7);
+            this.pgSettings.Controls.Add(this.keySpotifySecret);
+            this.pgSettings.Controls.Add(this.label6);
+            this.pgSettings.Controls.Add(this.keySpotifyID);
+            this.pgSettings.Controls.Add(this.label5);
+            this.pgSettings.Controls.Add(this.keyYoutube);
+            this.pgSettings.HorizontalScrollbarBarColor = true;
+            this.pgSettings.HorizontalScrollbarHighlightOnWheel = false;
+            this.pgSettings.HorizontalScrollbarSize = 12;
+            resources.ApplyResources(this.pgSettings, "pgSettings");
+            this.pgSettings.Name = "pgSettings";
+            this.pgSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pgSettings.UseCustomBackColor = true;
+            this.pgSettings.VerticalScrollbarBarColor = true;
+            this.pgSettings.VerticalScrollbarHighlightOnWheel = false;
+            this.pgSettings.VerticalScrollbarSize = 12;
+            // 
+            // cmbLanguage
+            // 
+            this.cmbLanguage.BackColor = System.Drawing.Color.White;
+            this.cmbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLanguage.ForeColor = System.Drawing.Color.Black;
+            this.cmbLanguage.FormattingEnabled = true;
+            this.cmbLanguage.Items.AddRange(new object[] {
+            resources.GetString("cmbLanguage.Items"),
+            resources.GetString("cmbLanguage.Items1"),
+            resources.GetString("cmbLanguage.Items2"),
+            resources.GetString("cmbLanguage.Items3")});
+            resources.ApplyResources(this.cmbLanguage, "cmbLanguage");
+            this.cmbLanguage.Name = "cmbLanguage";
+            this.cmbLanguage.SelectedIndexChanged += new System.EventHandler(this.cmbLanguage_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Name = "label8";
+            // 
+            // keyTMDB
+            // 
+            this.keyTMDB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keyTMDB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keyTMDB.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.keyTMDB, "keyTMDB");
+            this.keyTMDB.Name = "keyTMDB";
+            this.keyTMDB.TextChanged += new System.EventHandler(this.keyTMDB_TextChanged);
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Name = "label9";
+            // 
+            // keyIGDBSecret
+            // 
+            this.keyIGDBSecret.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keyIGDBSecret.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keyIGDBSecret.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.keyIGDBSecret, "keyIGDBSecret");
+            this.keyIGDBSecret.Name = "keyIGDBSecret";
+            this.keyIGDBSecret.TextChanged += new System.EventHandler(this.keyIGDBSecret_TextChanged);
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Name = "label10";
+            // 
+            // keyIGDBId
+            // 
+            this.keyIGDBId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keyIGDBId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keyIGDBId.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.keyIGDBId, "keyIGDBId");
+            this.keyIGDBId.Name = "keyIGDBId";
+            this.keyIGDBId.TextChanged += new System.EventHandler(this.keyIGDBId_TextChanged);
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Name = "label7";
+            // 
+            // keySpotifySecret
+            // 
+            this.keySpotifySecret.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keySpotifySecret.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keySpotifySecret.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.keySpotifySecret, "keySpotifySecret");
+            this.keySpotifySecret.Name = "keySpotifySecret";
+            this.keySpotifySecret.TextChanged += new System.EventHandler(this.keySpotifySecret_TextChanged);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Name = "label6";
+            // 
+            // keySpotifyID
+            // 
+            this.keySpotifyID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keySpotifyID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keySpotifyID.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.keySpotifyID, "keySpotifyID");
+            this.keySpotifyID.Name = "keySpotifyID";
+            this.keySpotifyID.TextChanged += new System.EventHandler(this.keySpotifyID_TextChanged);
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Name = "label5";
+            // 
+            // keyYoutube
+            // 
+            this.keyYoutube.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.keyYoutube.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.keyYoutube.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.keyYoutube, "keyYoutube");
+            this.keyYoutube.Name = "keyYoutube";
+            this.keyYoutube.TextChanged += new System.EventHandler(this.keyYoutube_TextChanged);
             // 
             // tmrAccentColour
             // 
@@ -822,18 +850,18 @@
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.comboBox3);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.comboBox4);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // button2
             // 
-            resources.ApplyResources(this.button2, "button2");
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -844,25 +872,25 @@
             // 
             // comboBox3
             // 
-            resources.ApplyResources(this.comboBox3, "comboBox3");
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             resources.GetString("comboBox3.Items"),
             resources.GetString("comboBox3.Items1"),
             resources.GetString("comboBox3.Items2")});
+            resources.ApplyResources(this.comboBox3, "comboBox3");
             this.comboBox3.Name = "comboBox3";
             // 
             // button3
             // 
-            resources.ApplyResources(this.button3, "button3");
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // comboBox4
             // 
-            resources.ApplyResources(this.comboBox4, "comboBox4");
             this.comboBox4.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox4, "comboBox4");
             this.comboBox4.Name = "comboBox4";
             // 
             // textBox3
@@ -872,8 +900,8 @@
             // 
             // ml
             // 
-            resources.ApplyResources(this, "$this");
             this.AllowDrop = true;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.Controls.Add(this.tbControl);
@@ -896,8 +924,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLast)).EndInit();
             this.tbControl.ResumeLayout(false);
-            this.pgSettings.ResumeLayout(false);
-            this.pgSettings.PerformLayout();
             this.pgQuickAccess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).EndInit();
             this.pgPlay.ResumeLayout(false);
@@ -908,6 +934,8 @@
             this.spotifySyncContextMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pgSettings.ResumeLayout(false);
+            this.pgSettings.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -1005,9 +1033,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemChangeFile;
         private System.Windows.Forms.Button btnManualAcrop;
-        private System.Windows.Forms.ColumnHeader artist;
+        private System.Windows.Forms.ColumnHeader artista;
         private System.Windows.Forms.ColumnHeader date;
-        private System.Windows.Forms.TextBox txtCulture;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbLanguage;
+        private System.Windows.Forms.ColumnHeader artist;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRecommend;
     }
 }
 

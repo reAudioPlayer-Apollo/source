@@ -7,25 +7,34 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Reflection;
 using System.Threading;
+using Newtonsoft.Json;
+using static System.Windows.Forms.ListView;
+using System.Collections.Generic;
 
 namespace reAudioPlayerML
 {
     public partial class ml : Form
     {
         private readonly Logger logger = new Logger();
-        private readonly MediaPlayer mediaPlayer;
+        private MediaPlayer mediaPlayer;
         private readonly YoutubeSyncer youtubeSyncer = new YoutubeSyncer();
-        private readonly HotkeyManager hotkeyManager;
-        private readonly HttpServer.HttpWebServer server;
-        private readonly Search.Spotify spotify;
+        private HotkeyManager hotkeyManager;
+        private HttpServer.HttpWebServer server;
+        private Search.Spotify spotify;
         private readonly string[] args;
 
-        public ml(string[] iArgs)
+        public void cacheStates()
         {
-            //Debugger.Launch();
+            foreach (ListViewItem item in listView1.Items)
+            {
+                spotifyCache.Add(item);
+            }
+        }
 
-            args = iArgs;
+        List<ListViewItem> spotifyCache = new List<ListViewItem>();
 
+        public void init()
+        {
             InitializeComponent();
 
             // taskbar buttons (not working as admin)
@@ -45,11 +54,9 @@ namespace reAudioPlayerML
             TaskbarManager.Instance.ThumbnailToolBars.AddButtons(Handle, buttonFirst, buttonMiddle, buttonLast);
             */
 
-            Classes.Localiser.SetCulture("de", Thread.CurrentThread);
-
             //Classes.Localiser.SetCulture("de");
 
-            PlayerManager.mediaPlayer = mediaPlayer = new MediaPlayer(logger, notifyIcon);
+            tbControl.SelectTab(1);
 
             mediaPlayer.linkVolume(prgVolume);
             mediaPlayer.linkPlayPauseButton(btnPlayPause);
@@ -58,11 +65,46 @@ namespace reAudioPlayerML
             mediaPlayer.linkUpNowLabels(lblUpNowTitle, lblUpNowArtist);
             mediaPlayer.linkCover(imgCover);
 
-            hotkeyManager = new HotkeyManager(mediaPlayer, this.prgVolume);
-            
-            tbControl.SelectTab(1);
+            imgQR.Image = QRCodeForWebClient.getImage();
+
+            if (spotifyCache.Count > 0)
+            {
+                listView1.Items.Clear();
+                foreach (var item in spotifyCache)
+                {
+                    listView1.Items.Add(item.Clone() as ListViewItem);
+                }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            }
+        }
+
+        public ml(string[] iArgs)
+        {
+            //Debugger.Launch();
+
+            args = iArgs;
+
+            PlayerManager.mediaPlayer = mediaPlayer = new MediaPlayer(logger, notifyIcon);
+
+            init();
 
             server = new HttpServer.HttpWebServer(mediaPlayer, logger, prgVolume, args, forceServer: true);
+            hotkeyManager = new HotkeyManager(mediaPlayer, this.prgVolume);
+
+            PlayerManager.logger = PlaylistManager.logger = logger;
+            PlaylistManager.AutoPlaylists.updateSpecialPlaylists();
+
+            GameChecker gameChecker = new GameChecker();
+            GameLibraryManager.Initialise(gameChecker, server);
+
+            Task.Factory.StartNew(() => updateUpdater());
+
+            keyYoutube.Text = Settings.APIKeys.youtube;
+            keyIGDBId.Text = Settings.APIKeys.igdb.id;
+            keyIGDBSecret.Text = Settings.APIKeys.igdb.secret;
+            keySpotifyID.Text = Settings.APIKeys.spotify.id;
+            keySpotifySecret.Text = Settings.APIKeys.spotify.secret;
+            keyTMDB.Text = Settings.APIKeys.tmdb;
 
             if (!Settings.APIKeys.spotify.isSet)
             {
@@ -83,21 +125,6 @@ namespace reAudioPlayerML
 
                 spotify.authoriseUser();
             }
-
-            PlayerManager.logger = PlaylistManager.logger = logger;
-            PlaylistManager.AutoPlaylists.updateSpecialPlaylists();
-
-            GameChecker gameChecker = new GameChecker();
-            GameLibraryManager.Initialise(gameChecker, server);
-
-            Task.Factory.StartNew(() => updateUpdater());
-
-            keyYoutube.Text = Settings.APIKeys.youtube;
-            keyIGDBId.Text = Settings.APIKeys.igdb.id;
-            keyIGDBSecret.Text = Settings.APIKeys.igdb.secret;
-            keySpotifyID.Text = Settings.APIKeys.spotify.id;
-            keySpotifySecret.Text = Settings.APIKeys.spotify.secret;
-            keyTMDB.Text = Settings.APIKeys.tmdb;
         }
 
         private void updateUpdater()
@@ -128,8 +155,6 @@ namespace reAudioPlayerML
 
         private void launcher_Load(object sender, EventArgs e)
         {
-            imgQR.Image = QRCodeForWebClient.getImage();
-
             string dir = "";
 
             if (args.Length > 0)
@@ -426,9 +451,9 @@ namespace reAudioPlayerML
             new OptimizeDL().acrop(new FileInfo(ofd.FileName));
         }
 
-        private void txtCulture_TextChanged(object sender, EventArgs e)
+        private void cmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Classes.Localiser.SetCulture(txtCulture.Text, Thread.CurrentThread);
+            Classes.Localiser.SetCulture(cmbLanguage.Text, this);
         }
     }
 }

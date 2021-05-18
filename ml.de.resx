@@ -57,9 +57,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="pgSettings.Text" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <assembly alias="System.Private.CoreLib" name="System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" />
+  <data name="label11.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txtCulture.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>231, 23</value>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>49, 15</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="cmbLanguage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmbLanguage.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>162, 23</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>170, 15</value>
@@ -67,8 +87,8 @@
   <data name="label8.Text" xml:space="preserve">
     <value>TMDB API Key [bald verfügbar]</value>
   </data>
-  <data name="pgSettings.Text" xml:space="preserve">
-    <value>Einstellungen</value>
+  <data name="pgQuickAccess.Text" xml:space="preserve">
+    <value>Schnellzugriff</value>
   </data>
   <data name="btnManualAcrop.Text" xml:space="preserve">
     <value>aCrop einen Song</value>
@@ -97,9 +117,6 @@
   <data name="btnMove.Text" xml:space="preserve">
     <value>Song verschieben</value>
   </data>
-  <data name="pgQuickAccess.Text" xml:space="preserve">
-    <value>Schnellzugriff</value>
-  </data>
   <data name="pgPlay.Text" xml:space="preserve">
     <value>Abspielen</value>
   </data>
@@ -108,6 +125,9 @@
   </data>
   <data name="date.Text" xml:space="preserve">
     <value>Release Datum</value>
+  </data>
+  <data name="spotifyContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>192, 104</value>
   </data>
   <data name="openOnSpotifyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>191, 22</value>
@@ -139,11 +159,11 @@
   <data name="previewToolStripMenuItem.Text" xml:space="preserve">
     <value>Vorschau</value>
   </data>
-  <data name="spotifyContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>192, 104</value>
-  </data>
   <data name="clmnLocal.Text" xml:space="preserve">
     <value>Lokale Datei</value>
+  </data>
+  <data name="spotifySyncContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>191, 126</value>
   </data>
   <data name="toolStripMenuItemPreviewSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>190, 22</value>
@@ -180,9 +200,6 @@
   </data>
   <data name="toolStripMenuItemChangeFile.Text" xml:space="preserve">
     <value>Lokale Datei wechseln</value>
-  </data>
-  <data name="spotifySyncContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>191, 126</value>
   </data>
   <data name="lblSyncProgress.Text" xml:space="preserve">
     <value>Keine Playlist ausgewählt</value>

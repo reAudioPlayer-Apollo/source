@@ -13,6 +13,9 @@
     <Compile Update="Forms\GameLauncher.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Recommender.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ml.cs">
       <SubType>Form</SubType>
     </Compile>

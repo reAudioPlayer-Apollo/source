@@ -120,6 +120,10 @@ namespace reAudioPlayerML
                     return new string[0];
                 }
             }
+            catch (IOException)
+            {
+                return new string[0];
+            }
         }
 
         public static bool launchGameByIGDBId(int igdbId, string source = "local")
