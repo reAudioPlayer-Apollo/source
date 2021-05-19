@@ -36,6 +36,21 @@ namespace reAudioPlayerML.Search
             playPreview();
         }
 
+        public static void ClearCachedTrack(SimpleTrack track)
+        {
+            if (track is null)
+            {
+                return;
+            }
+
+            var filename = AppContext.BaseDirectory + "spotify\\" + track.Name + ".mp3";
+            
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+        }
+
         public void playPreview()
         {
             if (!File.Exists(filename))

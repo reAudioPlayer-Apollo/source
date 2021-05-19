@@ -39,8 +39,9 @@ namespace reAudioPlayerML.Search
         private TextBox txtSyncIn;
         private TextBox txtSyncOut;
         private ComboBox cmbSyncPlaylist;
-        private ComboBox cmbLocalInput;
         private Label lblSyncProgress;
+
+        List<FullTrack> localPlaylistOnSpotify = new List<FullTrack>();
 
         private Dictionary<string, object> spotifyCache
         {
@@ -84,14 +85,13 @@ namespace reAudioPlayerML.Search
         private List<PlaylistTrack<IPlayableItem>> syncPlaylist;
         private readonly Dictionary<string, int> selectedIndex = new Dictionary<string, int>();
 
-        public Spotify(ListView listView, 
+        public Spotify(ListView listView,
             ListView syncView,
             ContextMenuStrip contextMenu,
             ContextMenuStrip contextMenuSync,
             TextBox txtSyncIn,
             TextBox txtSyncOut,
             ComboBox cmbSyncPlaylist,
-            ComboBox cmbLocalInput,
             Label lblSyncProgress,
             NotifyIcon notifyIcon,
             MediaPlayer player,
@@ -109,7 +109,6 @@ namespace reAudioPlayerML.Search
             this.txtSyncIn = txtSyncIn;
             this.txtSyncOut = txtSyncOut;
             this.cmbSyncPlaylist = cmbSyncPlaylist;
-            this.cmbLocalInput = cmbLocalInput;
             this.cmbSyncPlaylist = cmbSyncPlaylist;
             this.lblSyncProgress = lblSyncProgress;
 
@@ -145,7 +144,7 @@ namespace reAudioPlayerML.Search
 
                 if (item.GetType() == typeof(ToolStripComboBox))
                 {
-                    
+
                 }
                 else if (item.GetType() == typeof(ToolStripMenuItem))
                 {
@@ -299,6 +298,32 @@ namespace reAudioPlayerML.Search
                     addOrReplace((syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack).Id, ofd.FileName);
                     syncView.Items[selectedIndex[listView.Name]].SubItems[1].Text = ofd.FileName;
                     break;
+                case "toolStripMenuItemChangeSpotify":
+                    if (string.IsNullOrEmpty((sender as ToolStripMenuItem).DropDownItems["link"].Text))
+                    {
+                        return;
+                    }
+
+                    var t = syncView.Items[selectedIndex[listView.Name]].SubItems[1].Text;
+
+                    var link = (sender as ToolStripMenuItem).DropDownItems["link"].Text.Split("/");
+                    var trackId = link[link.Length - 1].Split("?")[0];
+                    var slc = spotifyLinkCache;
+                    if (slc.ContainsKey(trackId))
+                    {
+                        slc[trackId] = t;
+                    }
+                    else
+                    {
+                        slc.Add(trackId, t);
+                    }
+                    spotifyLinkCache = slc;
+                    var track = client.Tracks.Get(trackId).Result;
+                    Search.SpotifyPreview.ClearCachedTrack(syncPlaylist[selectedIndex[listView.Name]].Track as SimpleTrack);
+                    syncPlaylist[selectedIndex[listView.Name]].Track = track;
+                    syncView.Items[selectedIndex[listView.Name]].SubItems[0].Text = getDisplayName(track);
+                    (sender as ToolStripMenuItem).DropDownItems["link"].Text = "";
+                    break;
                 case "toolStripMenuItemRecommend":
                     Recommender form = new Recommender(this, player, (syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack));
                     form.Show();
@@ -364,12 +389,7 @@ namespace reAudioPlayerML.Search
         {
             List<string> lib;
             string dir;
-            int index = -1;
-
-            cmbLocalInput.Invoke(new Action(() =>
-            {
-                index = cmbLocalInput.SelectedIndex;
-            }));
+            int index = 0; // default mode
 
             switch (index)
             {
@@ -489,22 +509,44 @@ namespace reAudioPlayerML.Search
 
         public void exportSyncedPlaylist()
         {
+            bool overwrite = false, fetchMetadata = false;
+
             if (string.IsNullOrEmpty(txtSyncOut.Text))
             {
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
                 fbd.ShowNewFolderButton = true;
                 if (fbd.ShowDialog() == DialogResult.Cancel)
                 {
-                    return;
+                    var t = MessageBox.Show("Do you want to apply the metatags to the current files?", "Spotify Sync", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (t == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        overwrite = true;
+                    }
                 }
-                txtSyncOut.Text = fbd.SelectedPath;
+                else
+                {
+                    txtSyncOut.Text = fbd.SelectedPath;
+                }
             }
 
-            TaskDialogPage td = new TaskDialogPage();
-            td.Buttons = new TaskDialogButtonCollection() { TaskDialogButton.Yes, TaskDialogButton.No };
-            td.Text = "Do you want to fetch metadata from spotify?";
-            td.Expander.Text = "Fetches: Artist, Title, Album, BPM, Key, {pop, nrg, loudness, cover, ?}";
-            bool fetchMetadata = TaskDialog.ShowDialog(td) == TaskDialogButton.Yes;
+            if (!overwrite)
+            {
+                TaskDialogPage td = new TaskDialogPage();
+                td.Buttons = new TaskDialogButtonCollection() { TaskDialogButton.Yes, TaskDialogButton.No };
+                td.Text = "Do you want to fetch metadata from spotify?";
+                td.Expander.Text = "Fetches: Artist, Title, Album, BPM, Key, {pop, nrg, loudness, cover, ?}";
+                fetchMetadata = TaskDialog.ShowDialog(td) == TaskDialogButton.Yes;
+            }
+            else
+            {
+                fetchMetadata = true;
+            }
+
             Dictionary<string, TrackAudioFeatures> featureCache = spotifyFeatureCache is null ? new Dictionary<string, TrackAudioFeatures>() : spotifyFeatureCache;
 
             // get features ?
@@ -517,7 +559,7 @@ namespace reAudioPlayerML.Search
                     int index = syncView.Items.IndexOf(item);
                     FullTrack ft = syncPlaylist[index].Track as FullTrack;
 
-                    if (!featureCache.ContainsKey(ft.Id))
+                    if (ft is not null && !featureCache.ContainsKey(ft.Id))
                     {
                         missingIds.Add(ft.Id);
                     }
@@ -535,7 +577,7 @@ namespace reAudioPlayerML.Search
 
                     spotifyFeatureCache = featureCache;
                 }
-            } 
+            }
 
             // actually exporting
             foreach (ListViewItem item in syncView.Items)
@@ -551,39 +593,56 @@ namespace reAudioPlayerML.Search
                     }
                     else
                     {
-                        string output = Path.Combine(txtSyncOut.Text, item.Text + Path.GetExtension(file));
-                        File.Copy(file, output, true);
+                        string output = overwrite ? file : Path.Combine(txtSyncOut.Text, item.Text + Path.GetExtension(file));
+                        
+                        if (!overwrite)
+                        {
+                            File.Copy(file, output, true);
+                        }
+
                         TagLib.File tag = TagLib.File.Create(output);
 
                         FullTrack ft = syncPlaylist[index].Track as FullTrack;
 
-                        tag.Tag.Comment = new SpotifyComment(featureCache[ft.Id], ft.Popularity, ft.Album.ReleaseDate).ToString();
-                        tag.Tag.Title = ft.Name;
-                        tag.Tag.Performers = ft.Artists.Select(x => x.Name).ToArray();
-                        tag.Tag.Album = ft.Album.Name;
-                        tag.Tag.BeatsPerMinute = (uint)Math.Round(featureCache[ft.Id].Tempo);
-
-                        if (ft.Album.Images.Count > 0) // fetch album cover
+                        if (ft is not null)
                         {
-                            WebClient wc = new WebClient();
-                            byte[] bytes = wc.DownloadData(ft.Album.Images[0].Url);
-                            
-                            TagLib.Id3v2.AttachedPictureFrame cover = new TagLib.Id3v2.AttachedPictureFrame
+                            tag.Tag.Comment = new SpotifyComment(featureCache[ft.Id], ft.Popularity, ft.Album.ReleaseDate).ToString();
+                            tag.Tag.Title = ft.Name;
+                            tag.Tag.Performers = ft.Artists.Select(x => x.Name).ToArray();
+                            tag.Tag.Album = ft.Album.Name;
+                            tag.Tag.BeatsPerMinute = (uint)Math.Round(featureCache[ft.Id].Tempo);
+
+                            if (ft.Album.Images.Count > 0) // fetch album cover
                             {
-                                Type = TagLib.PictureType.FrontCover,
-                                Description = "Cover",
-                                MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg,
-                                Data = bytes,
-                                TextEncoding = TagLib.StringType.UTF16
-                            };
+                                WebClient wc = new WebClient();
+                                byte[] bytes = wc.DownloadData(ft.Album.Images[0].Url);
 
-                            tag.Tag.Pictures = new TagLib.IPicture[] { cover };
+                                TagLib.Id3v2.AttachedPictureFrame cover = new TagLib.Id3v2.AttachedPictureFrame
+                                {
+                                    Type = TagLib.PictureType.FrontCover,
+                                    Description = "Cover",
+                                    MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg,
+                                    Data = bytes,
+                                    TextEncoding = TagLib.StringType.UTF16
+                                };
+
+                                tag.Tag.Pictures = new TagLib.IPicture[] { cover };
+                            }
+
+                            try
+                            {
+                                tag.Save();
+                            }
+                            catch
+                            {
+                                MessageBox.Show(file + " couldn't be saved, close it and try again...");
+                            }
                         }
-
-                        tag.Save();
                     }
                 }
             }
+
+            MessageBox.Show("Done");
         }
 
         private class SpotifyComment
@@ -603,7 +662,7 @@ namespace reAudioPlayerML.Search
                 this.releaseDate = releaseDate;
             }
 
-            public string ToString()
+            public override string ToString()
             {
                 return JsonConvert.SerializeObject(this);
             }
@@ -630,6 +689,128 @@ namespace reAudioPlayerML.Search
 
             localCache.Add(id, file);
             spotifyLinkCache = localCache;
+        }
+
+        public void synchroniseLocalToSpotify()
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            try
+            {
+
+                string dir = "";
+
+                txtSyncIn.Invoke(new Action(() =>
+                {
+                    if (!Directory.Exists(txtSyncIn.Text))
+                    {
+                        FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+                        if (fbd.ShowDialog() == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+
+                        txtSyncIn.Text = fbd.SelectedPath;
+                    }
+
+                    dir = txtSyncIn.Text;
+                }));
+
+                var files = Directory.GetFiles(dir, "*.mp3");
+
+                syncPlaylist = new List<PlaylistTrack<IPlayableItem>>();
+
+                syncView.Invoke(new Action(() =>
+                {
+                    syncView.Items.Clear();
+                }));
+
+                for (int i = 0; i < files.Length; i++)
+                {
+                    var spotify = getMatchingSpotifySong(files[i]);
+                    PlaylistTrack<IPlayableItem> t = new PlaylistTrack<IPlayableItem>();
+                    t.Track = spotify;
+                    syncPlaylist.Add(t);
+                }
+
+                var tracks = getAllTracks(syncPlaylist.Where(x => x.Track is not null && (x.Track as FullTrack).Name is null).Select(x => (x.Track as FullTrack).Id).ToList());
+                foreach (var track in tracks)
+                {
+                    var index = syncPlaylist.FindIndex(x => x.Track is not null && (x.Track as FullTrack).Id == track.Id);
+                    syncPlaylist[index] = new PlaylistTrack<IPlayableItem>() { Track = track };
+                }
+
+                for (int i = 0; i < files.Length; i++)
+                {
+                    syncView.Invoke(new Action(() =>
+                    {
+                        lblSyncProgress.Text = $"{i + 1} / {files.Length}";
+                        syncView.Items.Add(getDisplayName(syncPlaylist[i].Track as FullTrack));
+                        syncView.Items[i].SubItems.Add(files[i]);
+
+                        syncView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                    }));
+                }
+
+                sw.Stop();
+
+                lblSyncProgress.Invoke(new Action(() => lblSyncProgress.Text = $"{syncPlaylist.Count} songs analysed in {sw.Elapsed.ToString()}"));
+            }
+            catch (APITooManyRequestsException)
+            {
+                lblSyncProgress.Invoke(new Action(() => lblSyncProgress.Text = "Rate Limit Exceeded"));
+            }
+        }
+
+        private List<FullTrack> getAllTracks(List<string> trackIds)
+        {
+            List<FullTrack> ret = new List<FullTrack>();
+
+            while (trackIds.Count > 0)
+            {
+                ret.AddRange(client.Tracks.GetSeveral(new TracksRequest(trackIds.Take(50).ToList())).Result.Tracks);
+                trackIds.RemoveRange(0, trackIds.Count > 50 ? 50 : trackIds.Count);
+            }
+
+            return ret;
+        }
+
+        private FullTrack getMatchingSpotifySong(string song)
+        {
+            try
+            {
+                Dictionary<string, string> localCache = spotifyLinkCache is null ? new Dictionary<string, string>() : spotifyLinkCache;
+
+                if (localCache.ContainsValue(song))
+                {
+                    string trackId = localCache.Where(x => x.Value == song).FirstOrDefault().Key;
+
+                    return new FullTrack() { Id = trackId };
+                    //return client.Tracks.Get(trackId).Result; // with several
+                }
+
+                var tag = TagLib.File.Create(song);
+                string q = $"{string.Join(" ", tag.Tag.Performers)} {tag.Tag.Title}";
+                var search = client.Search.Item(new SearchRequest(SearchRequest.Types.Track, q)).Result.Tracks;
+                var item = search.Items.FirstOrDefault();
+
+                if (item is null)
+                {
+                    q = Path.GetFileNameWithoutExtension(song).Replace(" & ", " ").Replace(" - ", " ").Replace(" x ", " ").Replace("(Extended Mix)", "");
+                    search = client.Search.Item(new SearchRequest(SearchRequest.Types.Track, q)).Result.Tracks;
+                    item = search.Items.FirstOrDefault();
+                }
+
+                return item;
+            }
+            catch (SpotifyAPI.Web.APITooManyRequestsException)
+            {
+                lblSyncProgress.Invoke(new Action(() => lblSyncProgress.Text = "Rate Limit Exceeded"));
+            }
+
+            return null;
         }
 
         private string getMatchingLocalSong(ref FullTrack track, ref List<string> lib)
@@ -737,6 +918,11 @@ namespace reAudioPlayerML.Search
 
         private string getDisplayName(FullTrack track)
         {
+            if (track is null)
+            {
+                return "N/A";
+            }
+
             string name = track.Artists.FirstOrDefault().Name;
 
             for (int i = 1; i < track.Artists.Count; i++)

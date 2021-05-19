@@ -45,6 +45,33 @@
             this.btnLast = new System.Windows.Forms.PictureBox();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.tbControl = new MetroFramework.Controls.MetroTabControl();
+            this.pgSpotifySync = new System.Windows.Forms.TabPage();
+            this.lviewSpotifySync = new System.Windows.Forms.ListView();
+            this.clmnSpotify = new System.Windows.Forms.ColumnHeader();
+            this.clmnLocal = new System.Windows.Forms.ColumnHeader();
+            this.spotifySyncContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemPreviewSpotify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemPreviewLocal = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemOpenSpotify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemChangeFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemChangeSpotify = new System.Windows.Forms.ToolStripMenuItem();
+            this.link = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemRecommend = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSyncLocalToSpotify = new System.Windows.Forms.Button();
+            this.lblSyncProgress = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSyncExport = new System.Windows.Forms.Button();
+            this.txtSyncOut = new System.Windows.Forms.TextBox();
+            this.txtLocalInput = new System.Windows.Forms.TextBox();
+            this.btnSyncAnalyse = new System.Windows.Forms.Button();
+            this.cmbSyncPlaylist = new System.Windows.Forms.ComboBox();
             this.pgQuickAccess = new MetroFramework.Controls.MetroTabPage();
             this.btnManualAcrop = new System.Windows.Forms.Button();
             this.btnSync = new System.Windows.Forms.Button();
@@ -71,33 +98,6 @@
             this.searchOnYoutubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pgSpotifySync = new System.Windows.Forms.TabPage();
-            this.lviewSpotifySync = new System.Windows.Forms.ListView();
-            this.clmnSpotify = new System.Windows.Forms.ColumnHeader();
-            this.clmnLocal = new System.Windows.Forms.ColumnHeader();
-            this.spotifySyncContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemPreviewSpotify = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemPreviewLocal = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemOpenSpotify = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemChangeFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemRecommend = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblSyncProgress = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSyncAutomate = new System.Windows.Forms.Button();
-            this.btnSyncExport = new System.Windows.Forms.Button();
-            this.txtSyncOut = new System.Windows.Forms.TextBox();
-            this.txtLocalInput = new System.Windows.Forms.TextBox();
-            this.cmbLocalInput = new System.Windows.Forms.ComboBox();
-            this.btnSyncAnalyse = new System.Windows.Forms.Button();
-            this.cmbSyncPlaylist = new System.Windows.Forms.ComboBox();
             this.pgSettings = new MetroFramework.Controls.MetroTabPage();
             this.cmbLanguage = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -130,15 +130,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLast)).BeginInit();
             this.tbControl.SuspendLayout();
+            this.pgSpotifySync.SuspendLayout();
+            this.spotifySyncContextMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pgQuickAccess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).BeginInit();
             this.pgPlay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCover)).BeginInit();
             this.pgConnectSpotify.SuspendLayout();
             this.spotifyContextMenu.SuspendLayout();
-            this.pgSpotifySync.SuspendLayout();
-            this.spotifySyncContextMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.pgSettings.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -259,10 +259,10 @@
             // tbControl
             // 
             this.tbControl.AllowDrop = true;
+            this.tbControl.Controls.Add(this.pgSpotifySync);
             this.tbControl.Controls.Add(this.pgQuickAccess);
             this.tbControl.Controls.Add(this.pgPlay);
             this.tbControl.Controls.Add(this.pgConnectSpotify);
-            this.tbControl.Controls.Add(this.pgSpotifySync);
             this.tbControl.Controls.Add(this.pgSettings);
             resources.ApplyResources(this.tbControl, "tbControl");
             this.tbControl.Name = "tbControl";
@@ -273,6 +273,197 @@
             this.tbControl.SelectedIndexChanged += new System.EventHandler(this.tbControl_SelectedIndexChanged);
             this.tbControl.DragDrop += new System.Windows.Forms.DragEventHandler(this.ml_DragDrop);
             this.tbControl.DragEnter += new System.Windows.Forms.DragEventHandler(this.ml_DragEnter);
+            // 
+            // pgSpotifySync
+            // 
+            this.pgSpotifySync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.pgSpotifySync.Controls.Add(this.lviewSpotifySync);
+            this.pgSpotifySync.Controls.Add(this.panel1);
+            this.pgSpotifySync.ForeColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.pgSpotifySync, "pgSpotifySync");
+            this.pgSpotifySync.Name = "pgSpotifySync";
+            // 
+            // lviewSpotifySync
+            // 
+            this.lviewSpotifySync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lviewSpotifySync.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lviewSpotifySync.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmnSpotify,
+            this.clmnLocal});
+            this.lviewSpotifySync.ContextMenuStrip = this.spotifySyncContextMenu;
+            resources.ApplyResources(this.lviewSpotifySync, "lviewSpotifySync");
+            this.lviewSpotifySync.ForeColor = System.Drawing.Color.White;
+            this.lviewSpotifySync.FullRowSelect = true;
+            this.lviewSpotifySync.HideSelection = false;
+            this.lviewSpotifySync.Name = "lviewSpotifySync";
+            this.lviewSpotifySync.UseCompatibleStateImageBehavior = false;
+            this.lviewSpotifySync.View = System.Windows.Forms.View.Details;
+            // 
+            // clmnSpotify
+            // 
+            resources.ApplyResources(this.clmnSpotify, "clmnSpotify");
+            // 
+            // clmnLocal
+            // 
+            resources.ApplyResources(this.clmnLocal, "clmnLocal");
+            // 
+            // spotifySyncContextMenu
+            // 
+            this.spotifySyncContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemPreviewSpotify,
+            this.toolStripMenuItemPreviewLocal,
+            this.toolStripSeparator3,
+            this.toolStripMenuItemOpenSpotify,
+            this.toolStripMenuItemShowInExplorer,
+            this.toolStripSeparator4,
+            this.toolStripMenuItemChangeFile,
+            this.toolStripMenuItemChangeSpotify,
+            this.toolStripSeparator5,
+            this.toolStripMenuItemRecommend});
+            this.spotifySyncContextMenu.Name = "spotifySyncContextMenu";
+            resources.ApplyResources(this.spotifySyncContextMenu, "spotifySyncContextMenu");
+            // 
+            // toolStripMenuItemPreviewSpotify
+            // 
+            this.toolStripMenuItemPreviewSpotify.Name = "toolStripMenuItemPreviewSpotify";
+            resources.ApplyResources(this.toolStripMenuItemPreviewSpotify, "toolStripMenuItemPreviewSpotify");
+            // 
+            // toolStripMenuItemPreviewLocal
+            // 
+            this.toolStripMenuItemPreviewLocal.Name = "toolStripMenuItemPreviewLocal";
+            resources.ApplyResources(this.toolStripMenuItemPreviewLocal, "toolStripMenuItemPreviewLocal");
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            // 
+            // toolStripMenuItemOpenSpotify
+            // 
+            this.toolStripMenuItemOpenSpotify.Name = "toolStripMenuItemOpenSpotify";
+            resources.ApplyResources(this.toolStripMenuItemOpenSpotify, "toolStripMenuItemOpenSpotify");
+            // 
+            // toolStripMenuItemShowInExplorer
+            // 
+            this.toolStripMenuItemShowInExplorer.Name = "toolStripMenuItemShowInExplorer";
+            resources.ApplyResources(this.toolStripMenuItemShowInExplorer, "toolStripMenuItemShowInExplorer");
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
+            // toolStripMenuItemChangeFile
+            // 
+            this.toolStripMenuItemChangeFile.Name = "toolStripMenuItemChangeFile";
+            resources.ApplyResources(this.toolStripMenuItemChangeFile, "toolStripMenuItemChangeFile");
+            // 
+            // toolStripMenuItemChangeSpotify
+            // 
+            this.toolStripMenuItemChangeSpotify.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.link});
+            this.toolStripMenuItemChangeSpotify.Name = "toolStripMenuItemChangeSpotify";
+            resources.ApplyResources(this.toolStripMenuItemChangeSpotify, "toolStripMenuItemChangeSpotify");
+            // 
+            // link
+            // 
+            this.link.Name = "link";
+            resources.ApplyResources(this.link, "link");
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+            // 
+            // toolStripMenuItemRecommend
+            // 
+            this.toolStripMenuItemRecommend.Name = "toolStripMenuItemRecommend";
+            resources.ApplyResources(this.toolStripMenuItemRecommend, "toolStripMenuItemRecommend");
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnSyncLocalToSpotify);
+            this.panel1.Controls.Add(this.lblSyncProgress);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnSyncExport);
+            this.panel1.Controls.Add(this.txtSyncOut);
+            this.panel1.Controls.Add(this.txtLocalInput);
+            this.panel1.Controls.Add(this.btnSyncAnalyse);
+            this.panel1.Controls.Add(this.cmbSyncPlaylist);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnSyncLocalToSpotify
+            // 
+            this.btnSyncLocalToSpotify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnSyncLocalToSpotify, "btnSyncLocalToSpotify");
+            this.btnSyncLocalToSpotify.Name = "btnSyncLocalToSpotify";
+            this.btnSyncLocalToSpotify.UseVisualStyleBackColor = false;
+            this.btnSyncLocalToSpotify.Click += new System.EventHandler(this.btnSyncLocalToSpotify_Click);
+            // 
+            // lblSyncProgress
+            // 
+            resources.ApplyResources(this.lblSyncProgress, "lblSyncProgress");
+            this.lblSyncProgress.Name = "lblSyncProgress";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // btnSyncExport
+            // 
+            this.btnSyncExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnSyncExport, "btnSyncExport");
+            this.btnSyncExport.Name = "btnSyncExport";
+            this.btnSyncExport.UseVisualStyleBackColor = false;
+            this.btnSyncExport.Click += new System.EventHandler(this.btnSyncExport_Click);
+            // 
+            // txtSyncOut
+            // 
+            this.txtSyncOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtSyncOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSyncOut.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtSyncOut, "txtSyncOut");
+            this.txtSyncOut.Name = "txtSyncOut";
+            // 
+            // txtLocalInput
+            // 
+            this.txtLocalInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtLocalInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLocalInput.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtLocalInput, "txtLocalInput");
+            this.txtLocalInput.Name = "txtLocalInput";
+            // 
+            // btnSyncAnalyse
+            // 
+            this.btnSyncAnalyse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnSyncAnalyse, "btnSyncAnalyse");
+            this.btnSyncAnalyse.Name = "btnSyncAnalyse";
+            this.btnSyncAnalyse.UseVisualStyleBackColor = false;
+            this.btnSyncAnalyse.Click += new System.EventHandler(this.btnSyncAnalyse_Click);
+            // 
+            // cmbSyncPlaylist
+            // 
+            this.cmbSyncPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cmbSyncPlaylist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSyncPlaylist.ForeColor = System.Drawing.Color.White;
+            this.cmbSyncPlaylist.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbSyncPlaylist, "cmbSyncPlaylist");
+            this.cmbSyncPlaylist.Name = "cmbSyncPlaylist";
             // 
             // pgQuickAccess
             // 
@@ -502,203 +693,6 @@
             this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
             resources.ApplyResources(this.previewToolStripMenuItem, "previewToolStripMenuItem");
             // 
-            // pgSpotifySync
-            // 
-            this.pgSpotifySync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.pgSpotifySync.Controls.Add(this.lviewSpotifySync);
-            this.pgSpotifySync.Controls.Add(this.panel1);
-            this.pgSpotifySync.ForeColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.pgSpotifySync, "pgSpotifySync");
-            this.pgSpotifySync.Name = "pgSpotifySync";
-            // 
-            // lviewSpotifySync
-            // 
-            this.lviewSpotifySync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.lviewSpotifySync.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lviewSpotifySync.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clmnSpotify,
-            this.clmnLocal});
-            this.lviewSpotifySync.ContextMenuStrip = this.spotifySyncContextMenu;
-            resources.ApplyResources(this.lviewSpotifySync, "lviewSpotifySync");
-            this.lviewSpotifySync.ForeColor = System.Drawing.Color.White;
-            this.lviewSpotifySync.FullRowSelect = true;
-            this.lviewSpotifySync.HideSelection = false;
-            this.lviewSpotifySync.Name = "lviewSpotifySync";
-            this.lviewSpotifySync.UseCompatibleStateImageBehavior = false;
-            this.lviewSpotifySync.View = System.Windows.Forms.View.Details;
-            // 
-            // clmnSpotify
-            // 
-            resources.ApplyResources(this.clmnSpotify, "clmnSpotify");
-            // 
-            // clmnLocal
-            // 
-            resources.ApplyResources(this.clmnLocal, "clmnLocal");
-            // 
-            // spotifySyncContextMenu
-            // 
-            this.spotifySyncContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemPreviewSpotify,
-            this.toolStripMenuItemPreviewLocal,
-            this.toolStripSeparator3,
-            this.toolStripMenuItemOpenSpotify,
-            this.toolStripMenuItemShowInExplorer,
-            this.toolStripSeparator4,
-            this.toolStripMenuItemChangeFile,
-            this.toolStripSeparator5,
-            this.toolStripMenuItemRecommend});
-            this.spotifySyncContextMenu.Name = "spotifySyncContextMenu";
-            resources.ApplyResources(this.spotifySyncContextMenu, "spotifySyncContextMenu");
-            // 
-            // toolStripMenuItemPreviewSpotify
-            // 
-            this.toolStripMenuItemPreviewSpotify.Name = "toolStripMenuItemPreviewSpotify";
-            resources.ApplyResources(this.toolStripMenuItemPreviewSpotify, "toolStripMenuItemPreviewSpotify");
-            // 
-            // toolStripMenuItemPreviewLocal
-            // 
-            this.toolStripMenuItemPreviewLocal.Name = "toolStripMenuItemPreviewLocal";
-            resources.ApplyResources(this.toolStripMenuItemPreviewLocal, "toolStripMenuItemPreviewLocal");
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
-            // 
-            // toolStripMenuItemOpenSpotify
-            // 
-            this.toolStripMenuItemOpenSpotify.Name = "toolStripMenuItemOpenSpotify";
-            resources.ApplyResources(this.toolStripMenuItemOpenSpotify, "toolStripMenuItemOpenSpotify");
-            // 
-            // toolStripMenuItemShowInExplorer
-            // 
-            this.toolStripMenuItemShowInExplorer.Name = "toolStripMenuItemShowInExplorer";
-            resources.ApplyResources(this.toolStripMenuItemShowInExplorer, "toolStripMenuItemShowInExplorer");
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
-            // 
-            // toolStripMenuItemChangeFile
-            // 
-            this.toolStripMenuItemChangeFile.Name = "toolStripMenuItemChangeFile";
-            resources.ApplyResources(this.toolStripMenuItemChangeFile, "toolStripMenuItemChangeFile");
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
-            // 
-            // toolStripMenuItemRecommend
-            // 
-            this.toolStripMenuItemRecommend.Name = "toolStripMenuItemRecommend";
-            resources.ApplyResources(this.toolStripMenuItemRecommend, "toolStripMenuItemRecommend");
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblSyncProgress);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnSyncAutomate);
-            this.panel1.Controls.Add(this.btnSyncExport);
-            this.panel1.Controls.Add(this.txtSyncOut);
-            this.panel1.Controls.Add(this.txtLocalInput);
-            this.panel1.Controls.Add(this.cmbLocalInput);
-            this.panel1.Controls.Add(this.btnSyncAnalyse);
-            this.panel1.Controls.Add(this.cmbSyncPlaylist);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // lblSyncProgress
-            // 
-            resources.ApplyResources(this.lblSyncProgress, "lblSyncProgress");
-            this.lblSyncProgress.Name = "lblSyncProgress";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // btnSyncAutomate
-            // 
-            this.btnSyncAutomate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            resources.ApplyResources(this.btnSyncAutomate, "btnSyncAutomate");
-            this.btnSyncAutomate.Name = "btnSyncAutomate";
-            this.btnSyncAutomate.UseVisualStyleBackColor = false;
-            // 
-            // btnSyncExport
-            // 
-            this.btnSyncExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            resources.ApplyResources(this.btnSyncExport, "btnSyncExport");
-            this.btnSyncExport.Name = "btnSyncExport";
-            this.btnSyncExport.UseVisualStyleBackColor = false;
-            this.btnSyncExport.Click += new System.EventHandler(this.btnSyncExport_Click);
-            // 
-            // txtSyncOut
-            // 
-            this.txtSyncOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.txtSyncOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSyncOut.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtSyncOut, "txtSyncOut");
-            this.txtSyncOut.Name = "txtSyncOut";
-            // 
-            // txtLocalInput
-            // 
-            this.txtLocalInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.txtLocalInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLocalInput.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtLocalInput, "txtLocalInput");
-            this.txtLocalInput.Name = "txtLocalInput";
-            // 
-            // cmbLocalInput
-            // 
-            this.cmbLocalInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cmbLocalInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLocalInput.ForeColor = System.Drawing.Color.White;
-            this.cmbLocalInput.FormattingEnabled = true;
-            this.cmbLocalInput.Items.AddRange(new object[] {
-            resources.GetString("cmbLocalInput.Items"),
-            resources.GetString("cmbLocalInput.Items1"),
-            resources.GetString("cmbLocalInput.Items2")});
-            resources.ApplyResources(this.cmbLocalInput, "cmbLocalInput");
-            this.cmbLocalInput.Name = "cmbLocalInput";
-            // 
-            // btnSyncAnalyse
-            // 
-            this.btnSyncAnalyse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            resources.ApplyResources(this.btnSyncAnalyse, "btnSyncAnalyse");
-            this.btnSyncAnalyse.Name = "btnSyncAnalyse";
-            this.btnSyncAnalyse.UseVisualStyleBackColor = false;
-            this.btnSyncAnalyse.Click += new System.EventHandler(this.btnSyncAnalyse_Click);
-            // 
-            // cmbSyncPlaylist
-            // 
-            this.cmbSyncPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cmbSyncPlaylist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSyncPlaylist.ForeColor = System.Drawing.Color.White;
-            this.cmbSyncPlaylist.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbSyncPlaylist, "cmbSyncPlaylist");
-            this.cmbSyncPlaylist.Name = "cmbSyncPlaylist";
-            // 
             // pgSettings
             // 
             this.pgSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -924,16 +918,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLast)).EndInit();
             this.tbControl.ResumeLayout(false);
+            this.pgSpotifySync.ResumeLayout(false);
+            this.spotifySyncContextMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pgQuickAccess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).EndInit();
             this.pgPlay.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgCover)).EndInit();
             this.pgConnectSpotify.ResumeLayout(false);
             this.spotifyContextMenu.ResumeLayout(false);
-            this.pgSpotifySync.ResumeLayout(false);
-            this.spotifySyncContextMenu.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.pgSettings.ResumeLayout(false);
             this.pgSettings.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -992,7 +986,6 @@
         private System.Windows.Forms.ListView lviewSpotifySync;
         private System.Windows.Forms.Button btnSyncAnalyse;
         private System.Windows.Forms.ComboBox cmbSyncPlaylist;
-        private System.Windows.Forms.ComboBox cmbLocalInput;
         private System.Windows.Forms.TextBox txtLocalInput;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
@@ -1003,8 +996,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnSyncExport;
         private System.Windows.Forms.TextBox txtSyncOut;
-        private System.Windows.Forms.Button btnSyncAutomate;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -1040,6 +1031,9 @@
         private System.Windows.Forms.ColumnHeader artist;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRecommend;
+        private System.Windows.Forms.Button btnSyncLocalToSpotify;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemChangeSpotify;
+        private System.Windows.Forms.ToolStripTextBox link;
     }
 }
 

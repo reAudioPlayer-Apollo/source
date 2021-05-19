@@ -115,13 +115,10 @@ namespace reAudioPlayerML
                     txtLocalInput,
                     txtSyncOut,
                     cmbSyncPlaylist,
-                    cmbLocalInput,
                     lblSyncProgress,
                     notifyIcon,
                     mediaPlayer,
                     logger);
-
-                cmbLocalInput.SelectedIndex = 0; // default value
 
                 spotify.authoriseUser();
             }
@@ -248,7 +245,6 @@ namespace reAudioPlayerML
             btnRevealedRadio.FlatAppearance.BorderColor =
                 btnSyncAnalyse.FlatAppearance.BorderColor =
                 btnSyncExport.FlatAppearance.BorderColor =
-                btnSyncAutomate.FlatAppearance.BorderColor =
                 btnSync.FlatAppearance.BorderColor =
                 btnAddGame.FlatAppearance.BorderColor =
                 btnApolloOnAir.FlatAppearance.BorderColor =
@@ -260,7 +256,6 @@ namespace reAudioPlayerML
             btnRevealedRadio.FlatAppearance.MouseDownBackColor =
                 btnSyncAnalyse.FlatAppearance.MouseDownBackColor =
                 btnSyncExport.FlatAppearance.MouseDownBackColor =
-                btnSyncAutomate.FlatAppearance.MouseDownBackColor =
                 btnSync.FlatAppearance.MouseDownBackColor =
                 btnAddGame.FlatAppearance.MouseDownBackColor =
                 btnApolloOnAir.FlatAppearance.MouseDownBackColor =
@@ -454,6 +449,11 @@ namespace reAudioPlayerML
         private void cmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             Classes.Localiser.SetCulture(cmbLanguage.Text, this);
+        }
+
+        private void btnSyncLocalToSpotify_Click(object sender, EventArgs e)
+        {
+            Task.Factory.StartNew(() => spotify.synchroniseLocalToSpotify());
         }
     }
 }

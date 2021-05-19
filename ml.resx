@@ -482,6 +482,402 @@
   <data name="&gt;&gt;pnlRight.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="clmnSpotify.Text" xml:space="preserve">
+    <value>Spotify</value>
+  </data>
+  <data name="clmnLocal.Text" xml:space="preserve">
+    <value>Local File</value>
+  </data>
+  <data name="toolStripMenuItemPreviewSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>302, 22</value>
+  </data>
+  <data name="toolStripMenuItemPreviewSpotify.Text" xml:space="preserve">
+    <value>Preview Spotify</value>
+  </data>
+  <data name="toolStripMenuItemPreviewLocal.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>302, 22</value>
+  </data>
+  <data name="toolStripMenuItemPreviewLocal.Text" xml:space="preserve">
+    <value>Preview Local</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>299, 6</value>
+  </data>
+  <data name="toolStripMenuItemOpenSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>302, 22</value>
+  </data>
+  <data name="toolStripMenuItemOpenSpotify.Text" xml:space="preserve">
+    <value>Open On Spotify</value>
+  </data>
+  <data name="toolStripMenuItemShowInExplorer.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>302, 22</value>
+  </data>
+  <data name="toolStripMenuItemShowInExplorer.Text" xml:space="preserve">
+    <value>Show In Explorer</value>
+  </data>
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>299, 6</value>
+  </data>
+  <data name="toolStripMenuItemChangeFile.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>302, 22</value>
+  </data>
+  <data name="toolStripMenuItemChangeFile.Text" xml:space="preserve">
+    <value>Change Local File</value>
+  </data>
+  <data name="link.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>100, 23</value>
+  </data>
+  <data name="toolStripMenuItemChangeSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>302, 22</value>
+  </data>
+  <data name="toolStripMenuItemChangeSpotify.Text" xml:space="preserve">
+    <value>Change Spotify Equal</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>299, 6</value>
+  </data>
+  <data name="toolStripMenuItemRecommend.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>302, 22</value>
+  </data>
+  <data name="toolStripMenuItemRecommend.Text" xml:space="preserve">
+    <value>Get Recommendations Based On This Song</value>
+  </data>
+  <data name="spotifySyncContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>303, 176</value>
+  </data>
+  <data name="&gt;&gt;spotifySyncContextMenu.Name" xml:space="preserve">
+    <value>spotifySyncContextMenu</value>
+  </data>
+  <data name="&gt;&gt;spotifySyncContextMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lviewSpotifySync.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lviewSpotifySync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>0, 123</value>
+  </data>
+  <data name="lviewSpotifySync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 259</value>
+  </data>
+  <data name="lviewSpotifySync.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lviewSpotifySync.Name" xml:space="preserve">
+    <value>lviewSpotifySync</value>
+  </data>
+  <data name="&gt;&gt;lviewSpotifySync.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lviewSpotifySync.Parent" xml:space="preserve">
+    <value>pgSpotifySync</value>
+  </data>
+  <data name="&gt;&gt;lviewSpotifySync.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnSyncLocalToSpotify.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSyncLocalToSpotify.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSyncLocalToSpotify.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>170, 25</value>
+  </data>
+  <data name="btnSyncLocalToSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>156, 29</value>
+  </data>
+  <data name="btnSyncLocalToSpotify.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>12</value>
+  </data>
+  <data name="btnSyncLocalToSpotify.Text" xml:space="preserve">
+    <value>Local To Spotify</value>
+  </data>
+  <data name="&gt;&gt;btnSyncLocalToSpotify.Name" xml:space="preserve">
+    <value>btnSyncLocalToSpotify</value>
+  </data>
+  <data name="&gt;&gt;btnSyncLocalToSpotify.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSyncLocalToSpotify.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnSyncLocalToSpotify.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblSyncProgress.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>342, 105</value>
+  </data>
+  <data name="lblSyncProgress.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>310, 15</value>
+  </data>
+  <data name="lblSyncProgress.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>11</value>
+  </data>
+  <data name="lblSyncProgress.Text" xml:space="preserve">
+    <value>No playlist selected</value>
+  </data>
+  <data name="lblSyncProgress.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;lblSyncProgress.Name" xml:space="preserve">
+    <value>lblSyncProgress</value>
+  </data>
+  <data name="&gt;&gt;lblSyncProgress.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSyncProgress.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;lblSyncProgress.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>332, 56</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>77, 15</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>10</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Export Folder</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>332, 11</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>71, 15</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>9</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Input Folder</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>8, 11</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>44, 15</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>7</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnSyncExport.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSyncExport.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>170, 70</value>
+  </data>
+  <data name="btnSyncExport.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>156, 29</value>
+  </data>
+  <data name="btnSyncExport.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>5</value>
+  </data>
+  <data name="btnSyncExport.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="&gt;&gt;btnSyncExport.Name" xml:space="preserve">
+    <value>btnSyncExport</value>
+  </data>
+  <data name="&gt;&gt;btnSyncExport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSyncExport.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnSyncExport.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtSyncOut.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>332, 74</value>
+  </data>
+  <data name="txtSyncOut.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>320, 23</value>
+  </data>
+  <data name="txtSyncOut.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtSyncOut.Name" xml:space="preserve">
+    <value>txtSyncOut</value>
+  </data>
+  <data name="&gt;&gt;txtSyncOut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSyncOut.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;txtSyncOut.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtLocalInput.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>332, 29</value>
+  </data>
+  <data name="txtLocalInput.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>320, 23</value>
+  </data>
+  <data name="txtLocalInput.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtLocalInput.Name" xml:space="preserve">
+    <value>txtLocalInput</value>
+  </data>
+  <data name="&gt;&gt;txtLocalInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtLocalInput.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;txtLocalInput.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnSyncAnalyse.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSyncAnalyse.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>8, 70</value>
+  </data>
+  <data name="btnSyncAnalyse.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>156, 29</value>
+  </data>
+  <data name="btnSyncAnalyse.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>1</value>
+  </data>
+  <data name="btnSyncAnalyse.Text" xml:space="preserve">
+    <value>Spotify To Local</value>
+  </data>
+  <data name="&gt;&gt;btnSyncAnalyse.Name" xml:space="preserve">
+    <value>btnSyncAnalyse</value>
+  </data>
+  <data name="&gt;&gt;btnSyncAnalyse.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSyncAnalyse.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnSyncAnalyse.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="cmbSyncPlaylist.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>8, 29</value>
+  </data>
+  <data name="cmbSyncPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>156, 23</value>
+  </data>
+  <data name="cmbSyncPlaylist.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cmbSyncPlaylist.Name" xml:space="preserve">
+    <value>cmbSyncPlaylist</value>
+  </data>
+  <data name="&gt;&gt;cmbSyncPlaylist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbSyncPlaylist.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;cmbSyncPlaylist.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 123</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>pgSpotifySync</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pgSpotifySync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>4, 38</value>
+  </data>
+  <data name="pgSpotifySync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
+  </data>
+  <data name="pgSpotifySync.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>5</value>
+  </data>
+  <data name="pgSpotifySync.Text" xml:space="preserve">
+    <value>Spotify Sync</value>
+  </data>
+  <data name="&gt;&gt;pgSpotifySync.Name" xml:space="preserve">
+    <value>pgSpotifySync</value>
+  </data>
+  <data name="&gt;&gt;pgSpotifySync.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pgSpotifySync.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgSpotifySync.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnManualAcrop.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -834,7 +1230,7 @@
     <value>tbControl</value>
   </data>
   <data name="&gt;&gt;pgQuickAccess.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="imgCover.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -897,7 +1293,7 @@
     <value>tbControl</value>
   </data>
   <data name="&gt;&gt;pgPlay.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="artist.Text" xml:space="preserve">
     <value>Artist</value>
@@ -1008,450 +1404,6 @@
     <value>tbControl</value>
   </data>
   <data name="&gt;&gt;pgConnectSpotify.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="clmnSpotify.Text" xml:space="preserve">
-    <value>Spotify</value>
-  </data>
-  <data name="clmnLocal.Text" xml:space="preserve">
-    <value>Local File</value>
-  </data>
-  <data name="toolStripMenuItemPreviewSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>302, 22</value>
-  </data>
-  <data name="toolStripMenuItemPreviewSpotify.Text" xml:space="preserve">
-    <value>Preview Spotify</value>
-  </data>
-  <data name="toolStripMenuItemPreviewLocal.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>302, 22</value>
-  </data>
-  <data name="toolStripMenuItemPreviewLocal.Text" xml:space="preserve">
-    <value>Preview Local</value>
-  </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>299, 6</value>
-  </data>
-  <data name="toolStripMenuItemOpenSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>302, 22</value>
-  </data>
-  <data name="toolStripMenuItemOpenSpotify.Text" xml:space="preserve">
-    <value>Open On Spotify</value>
-  </data>
-  <data name="toolStripMenuItemShowInExplorer.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>302, 22</value>
-  </data>
-  <data name="toolStripMenuItemShowInExplorer.Text" xml:space="preserve">
-    <value>Show In Explorer</value>
-  </data>
-  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>299, 6</value>
-  </data>
-  <data name="toolStripMenuItemChangeFile.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>302, 22</value>
-  </data>
-  <data name="toolStripMenuItemChangeFile.Text" xml:space="preserve">
-    <value>Change Local File</value>
-  </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>299, 6</value>
-  </data>
-  <data name="toolStripMenuItemRecommend.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>302, 22</value>
-  </data>
-  <data name="toolStripMenuItemRecommend.Text" xml:space="preserve">
-    <value>Get Recommendations Based On This Song</value>
-  </data>
-  <data name="spotifySyncContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>303, 154</value>
-  </data>
-  <data name="&gt;&gt;spotifySyncContextMenu.Name" xml:space="preserve">
-    <value>spotifySyncContextMenu</value>
-  </data>
-  <data name="&gt;&gt;spotifySyncContextMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lviewSpotifySync.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lviewSpotifySync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>0, 123</value>
-  </data>
-  <data name="lviewSpotifySync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 259</value>
-  </data>
-  <data name="lviewSpotifySync.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lviewSpotifySync.Name" xml:space="preserve">
-    <value>lviewSpotifySync</value>
-  </data>
-  <data name="&gt;&gt;lviewSpotifySync.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lviewSpotifySync.Parent" xml:space="preserve">
-    <value>pgSpotifySync</value>
-  </data>
-  <data name="&gt;&gt;lviewSpotifySync.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblSyncProgress.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>342, 105</value>
-  </data>
-  <data name="lblSyncProgress.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>310, 15</value>
-  </data>
-  <data name="lblSyncProgress.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>11</value>
-  </data>
-  <data name="lblSyncProgress.Text" xml:space="preserve">
-    <value>No playlist selected</value>
-  </data>
-  <data name="lblSyncProgress.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
-    <value>TopRight</value>
-  </data>
-  <data name="&gt;&gt;lblSyncProgress.Name" xml:space="preserve">
-    <value>lblSyncProgress</value>
-  </data>
-  <data name="&gt;&gt;lblSyncProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSyncProgress.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblSyncProgress.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>342, 56</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>77, 15</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>10</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Export Folder</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>342, 11</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>71, 15</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>9</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Input Folder</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>170, 11</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>93, 15</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>8</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Local Input Type</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>8, 11</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>44, 15</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>7</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Playlist</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnSyncAutomate.Enabled" type="System.Boolean, System.Private.CoreLib">
-    <value>False</value>
-  </data>
-  <data name="btnSyncAutomate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnSyncAutomate.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>256, 70</value>
-  </data>
-  <data name="btnSyncAutomate.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>80, 29</value>
-  </data>
-  <data name="btnSyncAutomate.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>6</value>
-  </data>
-  <data name="btnSyncAutomate.Text" xml:space="preserve">
-    <value>Task</value>
-  </data>
-  <data name="&gt;&gt;btnSyncAutomate.Name" xml:space="preserve">
-    <value>btnSyncAutomate</value>
-  </data>
-  <data name="&gt;&gt;btnSyncAutomate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSyncAutomate.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;btnSyncAutomate.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="btnSyncExport.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnSyncExport.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>170, 70</value>
-  </data>
-  <data name="btnSyncExport.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>80, 29</value>
-  </data>
-  <data name="btnSyncExport.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>5</value>
-  </data>
-  <data name="btnSyncExport.Text" xml:space="preserve">
-    <value>Export</value>
-  </data>
-  <data name="&gt;&gt;btnSyncExport.Name" xml:space="preserve">
-    <value>btnSyncExport</value>
-  </data>
-  <data name="&gt;&gt;btnSyncExport.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSyncExport.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;btnSyncExport.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="txtSyncOut.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>342, 74</value>
-  </data>
-  <data name="txtSyncOut.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>310, 23</value>
-  </data>
-  <data name="txtSyncOut.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;txtSyncOut.Name" xml:space="preserve">
-    <value>txtSyncOut</value>
-  </data>
-  <data name="&gt;&gt;txtSyncOut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtSyncOut.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;txtSyncOut.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="txtLocalInput.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>342, 29</value>
-  </data>
-  <data name="txtLocalInput.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>310, 23</value>
-  </data>
-  <data name="txtLocalInput.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtLocalInput.Name" xml:space="preserve">
-    <value>txtLocalInput</value>
-  </data>
-  <data name="&gt;&gt;txtLocalInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtLocalInput.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;txtLocalInput.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="cmbLocalInput.Items" xml:space="preserve">
-    <value>Entire Library</value>
-  </data>
-  <data name="cmbLocalInput.Items1" xml:space="preserve">
-    <value>One Folder</value>
-  </data>
-  <data name="cmbLocalInput.Items2" xml:space="preserve">
-    <value>[Ask Every Time]</value>
-  </data>
-  <data name="cmbLocalInput.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>170, 29</value>
-  </data>
-  <data name="cmbLocalInput.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>166, 23</value>
-  </data>
-  <data name="cmbLocalInput.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;cmbLocalInput.Name" xml:space="preserve">
-    <value>cmbLocalInput</value>
-  </data>
-  <data name="&gt;&gt;cmbLocalInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbLocalInput.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;cmbLocalInput.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="btnSyncAnalyse.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnSyncAnalyse.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>8, 70</value>
-  </data>
-  <data name="btnSyncAnalyse.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>156, 29</value>
-  </data>
-  <data name="btnSyncAnalyse.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>1</value>
-  </data>
-  <data name="btnSyncAnalyse.Text" xml:space="preserve">
-    <value>Analyse</value>
-  </data>
-  <data name="&gt;&gt;btnSyncAnalyse.Name" xml:space="preserve">
-    <value>btnSyncAnalyse</value>
-  </data>
-  <data name="&gt;&gt;btnSyncAnalyse.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSyncAnalyse.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;btnSyncAnalyse.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="cmbSyncPlaylist.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>8, 29</value>
-  </data>
-  <data name="cmbSyncPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>156, 23</value>
-  </data>
-  <data name="cmbSyncPlaylist.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cmbSyncPlaylist.Name" xml:space="preserve">
-    <value>cmbSyncPlaylist</value>
-  </data>
-  <data name="&gt;&gt;cmbSyncPlaylist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbSyncPlaylist.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;cmbSyncPlaylist.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>0, 0</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 123</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>pgSpotifySync</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pgSpotifySync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>4, 38</value>
-  </data>
-  <data name="pgSpotifySync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 382</value>
-  </data>
-  <data name="pgSpotifySync.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>5</value>
-  </data>
-  <data name="pgSpotifySync.Text" xml:space="preserve">
-    <value>Spotify Sync</value>
-  </data>
-  <data name="&gt;&gt;pgSpotifySync.Name" xml:space="preserve">
-    <value>pgSpotifySync</value>
-  </data>
-  <data name="&gt;&gt;pgSpotifySync.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pgSpotifySync.Parent" xml:space="preserve">
-    <value>tbControl</value>
-  </data>
-  <data name="&gt;&gt;pgSpotifySync.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="cmbLanguage.Items" xml:space="preserve">
@@ -3212,6 +3164,84 @@
   <data name="$this.Text" xml:space="preserve">
     <value>reAudioPlayer Apollo</value>
   </data>
+  <data name="&gt;&gt;clmnSpotify.Name" xml:space="preserve">
+    <value>clmnSpotify</value>
+  </data>
+  <data name="&gt;&gt;clmnSpotify.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;clmnLocal.Name" xml:space="preserve">
+    <value>clmnLocal</value>
+  </data>
+  <data name="&gt;&gt;clmnLocal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemPreviewSpotify.Name" xml:space="preserve">
+    <value>toolStripMenuItemPreviewSpotify</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemPreviewSpotify.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemPreviewLocal.Name" xml:space="preserve">
+    <value>toolStripMenuItemPreviewLocal</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemPreviewLocal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
+    <value>toolStripSeparator3</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemOpenSpotify.Name" xml:space="preserve">
+    <value>toolStripMenuItemOpenSpotify</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemOpenSpotify.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemShowInExplorer.Name" xml:space="preserve">
+    <value>toolStripMenuItemShowInExplorer</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemShowInExplorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemChangeFile.Name" xml:space="preserve">
+    <value>toolStripMenuItemChangeFile</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemChangeFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemChangeSpotify.Name" xml:space="preserve">
+    <value>toolStripMenuItemChangeSpotify</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemChangeSpotify.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;link.Name" xml:space="preserve">
+    <value>link</value>
+  </data>
+  <data name="&gt;&gt;link.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
+    <value>toolStripSeparator5</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemRecommend.Name" xml:space="preserve">
+    <value>toolStripMenuItemRecommend</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemRecommend.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;artist.Name" xml:space="preserve">
     <value>artist</value>
   </data>
@@ -3270,72 +3300,6 @@
     <value>previewToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;previewToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;clmnSpotify.Name" xml:space="preserve">
-    <value>clmnSpotify</value>
-  </data>
-  <data name="&gt;&gt;clmnSpotify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;clmnLocal.Name" xml:space="preserve">
-    <value>clmnLocal</value>
-  </data>
-  <data name="&gt;&gt;clmnLocal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemPreviewSpotify.Name" xml:space="preserve">
-    <value>toolStripMenuItemPreviewSpotify</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemPreviewSpotify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemPreviewLocal.Name" xml:space="preserve">
-    <value>toolStripMenuItemPreviewLocal</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemPreviewLocal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
-    <value>toolStripSeparator3</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemOpenSpotify.Name" xml:space="preserve">
-    <value>toolStripMenuItemOpenSpotify</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemOpenSpotify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemShowInExplorer.Name" xml:space="preserve">
-    <value>toolStripMenuItemShowInExplorer</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemShowInExplorer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
-    <value>toolStripSeparator4</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemChangeFile.Name" xml:space="preserve">
-    <value>toolStripMenuItemChangeFile</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemChangeFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
-    <value>toolStripSeparator5</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemRecommend.Name" xml:space="preserve">
-    <value>toolStripMenuItemRecommend</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemRecommend.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tmrAccentColour.Name" xml:space="preserve">
