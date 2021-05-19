@@ -702,8 +702,6 @@ namespace reAudioPlayerML.Search
                 bool takeDir = true;
                 string[] files = { };
 
-                string dir = "";
-
                 txtSyncIn.Invoke(new Action(() =>
                 {
                     TaskDialogPage tdp = new TaskDialogPage();
@@ -739,6 +737,7 @@ namespace reAudioPlayerML.Search
                             }
 
                             txtSyncIn.Text = fbd.SelectedPath;
+                            files = Directory.GetFiles(txtSyncIn.Text, "*.mp3");
                         }
                     }
                     else
@@ -756,18 +755,11 @@ namespace reAudioPlayerML.Search
 
                         files = ofd.FileNames;
                     }
-
-                    dir = txtSyncIn.Text;
                 }));
 
                 if (files.Length == 0)
                 {
                     return;
-                }
-
-                if (takeDir)
-                {
-                    files = Directory.GetFiles(dir, "*.mp3");
                 }
 
                 syncPlaylist = new List<PlaylistTrack<IPlayableItem>>();
