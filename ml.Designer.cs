@@ -259,10 +259,10 @@
             // tbControl
             // 
             this.tbControl.AllowDrop = true;
-            this.tbControl.Controls.Add(this.pgSpotifySync);
             this.tbControl.Controls.Add(this.pgQuickAccess);
             this.tbControl.Controls.Add(this.pgPlay);
             this.tbControl.Controls.Add(this.pgConnectSpotify);
+            this.tbControl.Controls.Add(this.pgSpotifySync);
             this.tbControl.Controls.Add(this.pgSettings);
             resources.ApplyResources(this.tbControl, "tbControl");
             this.tbControl.Name = "tbControl";

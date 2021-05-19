@@ -511,40 +511,40 @@ namespace reAudioPlayerML.Search
         {
             bool overwrite = false, fetchMetadata = false;
 
+            TaskDialogPage td = new TaskDialogPage();
+            var btnApply = new TaskDialogCommandLinkButton("Apply", "adds spotify metadata to the current local files");
+            var btnCopyApply = new TaskDialogCommandLinkButton("Copy & Apply", "adds spotify metadata to copies of your local files");
+
+            td.Text = "Do you want to fetch metadata from spotify?";
+            td.Expander.Text = "Fetches: Artist, Title, Album, BPM, Key, {pop, nrg, loudness, cover, ?}";
+            td.Buttons = new TaskDialogButtonCollection() { btnApply, btnCopyApply, TaskDialogButton.Cancel };
+            td.Verification = new TaskDialogVerificationCheckBox("don't apply metadata");
+            var mode = TaskDialog.ShowDialog(td);
+
+            if (mode == TaskDialogButton.Cancel)
+            {
+                return;
+            }
+
+            fetchMetadata = !td.Verification.Checked;
+            overwrite = mode == btnApply;
+
             if (string.IsNullOrEmpty(txtSyncOut.Text))
             {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                fbd.ShowNewFolderButton = true;
-                if (fbd.ShowDialog() == DialogResult.Cancel)
+                if (mode == btnCopyApply)
                 {
-                    var t = MessageBox.Show("Do you want to apply the metatags to the current files?", "Spotify Sync", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    FolderBrowserDialog fbd = new FolderBrowserDialog();
+                    fbd.ShowNewFolderButton = true;
 
-                    if (t == DialogResult.No)
+                    if (fbd.ShowDialog() == DialogResult.Cancel)
                     {
-                        return;
+                       return;
                     }
                     else
                     {
-                        overwrite = true;
+                        txtSyncOut.Text = fbd.SelectedPath;
                     }
                 }
-                else
-                {
-                    txtSyncOut.Text = fbd.SelectedPath;
-                }
-            }
-
-            if (!overwrite)
-            {
-                TaskDialogPage td = new TaskDialogPage();
-                td.Buttons = new TaskDialogButtonCollection() { TaskDialogButton.Yes, TaskDialogButton.No };
-                td.Text = "Do you want to fetch metadata from spotify?";
-                td.Expander.Text = "Fetches: Artist, Title, Album, BPM, Key, {pop, nrg, loudness, cover, ?}";
-                fetchMetadata = TaskDialog.ShowDialog(td) == TaskDialogButton.Yes;
-            }
-            else
-            {
-                fetchMetadata = true;
             }
 
             Dictionary<string, TrackAudioFeatures> featureCache = spotifyFeatureCache is null ? new Dictionary<string, TrackAudioFeatures>() : spotifyFeatureCache;
@@ -699,26 +699,76 @@ namespace reAudioPlayerML.Search
             try
             {
 
+                bool takeDir = true;
+                string[] files = { };
+
                 string dir = "";
 
                 txtSyncIn.Invoke(new Action(() =>
                 {
-                    if (!Directory.Exists(txtSyncIn.Text))
-                    {
-                        FolderBrowserDialog fbd = new FolderBrowserDialog();
+                    TaskDialogPage tdp = new TaskDialogPage();
 
-                        if (fbd.ShowDialog() == DialogResult.Cancel)
+                    var btnFolder = new TaskDialogCommandLinkButton("Folder", "all files from this folder will be synchronised");
+                    var btnFiles = new TaskDialogCommandLinkButton("Files", "let me select the one or multiple files to be synchronised");
+
+                    tdp.Caption = "reAudioPlayer Apollo - Spotify Sync";
+                    tdp.Text = "How do you want to select your input?";
+                    tdp.Buttons.Add(btnFolder);
+                    tdp.Buttons.Add(btnFiles);
+                    tdp.Buttons.Add(TaskDialogButton.Cancel);
+                    tdp.Icon = new TaskDialogIcon(SystemIcons.Question);
+
+                    var mode = TaskDialog.ShowDialog(tdp);
+
+                    if (mode == TaskDialogButton.Cancel)
+                    {
+                        return;
+                    }
+
+                    takeDir = mode == btnFolder;
+
+                    if (takeDir)
+                    {
+                        if (!Directory.Exists(txtSyncIn.Text))
+                        {
+                            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+                            if (fbd.ShowDialog() == DialogResult.Cancel)
+                            {
+                                return;
+                            }
+
+                            txtSyncIn.Text = fbd.SelectedPath;
+                        }
+                    }
+                    else
+                    {
+                        OpenFileDialog ofd = new OpenFileDialog()
+                        {
+                            Filter = "mp3 Files (*.mp3)|*.mp3",
+                            Multiselect = true
+                        };
+
+                        if (ofd.ShowDialog() == DialogResult.Cancel)
                         {
                             return;
                         }
 
-                        txtSyncIn.Text = fbd.SelectedPath;
+                        files = ofd.FileNames;
                     }
 
                     dir = txtSyncIn.Text;
                 }));
 
-                var files = Directory.GetFiles(dir, "*.mp3");
+                if (files.Length == 0)
+                {
+                    return;
+                }
+
+                if (takeDir)
+                {
+                    files = Directory.GetFiles(dir, "*.mp3");
+                }
 
                 syncPlaylist = new List<PlaylistTrack<IPlayableItem>>();
 
