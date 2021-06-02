@@ -14,12 +14,10 @@ namespace reAudioPlayerML
 {
     public partial class Recommender : Form
     {
-        private SpotifyClient client;
         private FullTrack trackAv;
         private string[] genresAv;
         private FullArtist[] artistsAv;
-        private Search.Spotify spotify;
-
+        
         private MediaPlayer player;
 
         private List<FullArtist> artists = new List<FullArtist>();
@@ -28,12 +26,10 @@ namespace reAudioPlayerML
 
         private List<SimpleTrack> recommendations = new List<SimpleTrack>();
 
-        public Recommender(Search.Spotify spotify, MediaPlayer player, FullTrack track)
+        public Recommender(FullTrack track, MediaPlayer player = null)
         {
             this.track = this.trackAv = track;
-            this.spotify = spotify;
-            this.client = spotify.client;
-            this.player = player;
+            this.player = player is null ? PlayerManager.mediaPlayer : player;
 
             InitializeComponent();
 
@@ -49,7 +45,7 @@ namespace reAudioPlayerML
             ctxRecommendation.Items["open"].Click += Recommender_Click2;
             cmbPlaylists = (ctxRecommendation.Items["addToPlaylist"] as ToolStripMenuItem).DropDownItems["playlists"] as ToolStripComboBox;
 
-            foreach (var it in spotify.playlists.Items)
+            foreach (var it in Search.Spotify.UIHandler.ctxSyncPlaylists.Items)
             {
                 cmbPlaylists.Items.Add(it);
             }
@@ -58,7 +54,7 @@ namespace reAudioPlayerML
         private void Recommender_Click2(object sender, EventArgs e)
         {
 
-            spotify.openOnSpotify(recommendations[listView1.SelectedIndices[0]]);
+            Search.Spotify.Wrapper.OpenOnSpotify(recommendations[listView1.SelectedIndices[0]]);
         }
 
         private void Recommender_Click1(object sender, EventArgs e)
@@ -71,7 +67,7 @@ namespace reAudioPlayerML
                 return;
             }
 
-            spotify.addToPlaylist(recommendations[listView1.SelectedIndices[0]].Uri, item.Text);
+            Search.Spotify.Wrapper.AddToPlaylist(recommendations[listView1.SelectedIndices[0]].Uri, item.Text);
 
             MessageBox.Show("Song added!");
         }
@@ -81,19 +77,19 @@ namespace reAudioPlayerML
         private void Recommender_Click(object sender, EventArgs e)
         {
             var id = recommendations[listView1.SelectedIndices[0]].Id;
-            var ft = client.Tracks.Get(id).Result;
-            new Search.SpotifyPreview(player, ft);
+            var ft = Search.Spotify.Init.Client.Tracks.Get(id).Result;
+            new Search.SpotifyPreview(ft, player);
         }
 
         private string[] getAssociatedGenresOfTrack(FullTrack track)
         {
             var artists = track.Artists.Select(x => x.Id).ToList();
 
-            var al = client.Artists.GetSeveral(new ArtistsRequest(artists)).Result;
+            var al = Search.Spotify.Init.Client.Artists.GetSeveral(new ArtistsRequest(artists)).Result;
             this.artistsAv = al.Artists.ToArray();
             var genres = al.Artists.SelectMany(x => x.Genres).ToList();
 
-            var ar = client.Albums.Get(track.Album.Id).Result;
+            var ar = Search.Spotify.Init.Client.Albums.Get(track.Album.Id).Result;
             genres.AddRange(ar.Genres);
 
             return genres.ToArray();
@@ -133,7 +129,7 @@ namespace reAudioPlayerML
         {
             RecommendationsRequest rr = new RecommendationsRequest();
             rr.Limit = 100;
-            var features = spotify.getFeatures(track.Id);
+            var features = Search.Spotify.Wrapper.GetFeatures(track.Id);
             rr.Target.Add("key", features.Key.ToString());
             rr.Target.Add("tempo", features.Tempo.ToString());
 
@@ -149,7 +145,7 @@ namespace reAudioPlayerML
                 rr.SeedGenres.Add(genre);
             }
 
-            var recs = client.Browse.GetRecommendations(rr).Result;
+            var recs = Search.Spotify.Init.Client.Browse.GetRecommendations(rr).Result;
 
             recommendations = new List<SimpleTrack>(recs.Tracks);
 

@@ -179,6 +179,7 @@ namespace reAudioPlayerML
         public async void Dl_StandardOutputEvent(object sender, string e)
         {
             logs.Add(e);
+            txtLogger.Invoke(new Action(() => { txtLogger.Text = e + "\r\n" + txtLogger.Text; }));
 
             if (e.Contains("Downloading webpage") && e.Contains("[youtube]"))
             {
@@ -191,11 +192,18 @@ namespace reAudioPlayerML
 
                 downloadedMusic.Add(new VideoDownload(vid, vid.Snippet.Title + ".mp3", acrop, split));
             }
-            if (e.Contains("[ffmpeg] Destination: "))
+            else if (e.Contains("[ffmpeg] Destination: "))
             {
                 impLogs.Add(e.Split(":".ToCharArray(), count: 2)[1].Trim());
             }
+            else if (e.Contains("[download]") && e.Contains("%"))
+            {
+                var progress = e.Split('%')[0];
+                progress = progress.Split(' ')[progress.Split(' ').Length - 1];   
+            }
         }
+
+        public static TextBox txtLogger;
 
         public NYoutubeDL.YoutubeDL createDownloader(string link, string output, bool noPlaylist = false)
         {

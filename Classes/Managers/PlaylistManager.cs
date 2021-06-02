@@ -84,7 +84,13 @@ namespace reAudioPlayerML
 
         public static string getLastWriteDateOfPlaylists(string playlist)
         {
-            FileInfo file = getSongPathsAsFileInfos(playlist).OrderByDescending(f => f.LastWriteTime).First();
+            var songs = getSongPathsAsFileInfos(playlist);
+            if (songs.Count == 0)
+            {
+                var ret = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).ToString("d MM yyyy");
+                return ret;
+            }
+            FileInfo file = songs.OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
             return file.LastWriteTime.ToString("d MMM yyyy");
         }
 

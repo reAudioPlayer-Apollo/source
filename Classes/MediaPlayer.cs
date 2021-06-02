@@ -28,7 +28,7 @@ namespace reAudioPlayerML
         //private List<Image> covers = new List<Image>();
         //private List<Image> backgrounds = new List<Image>();
         //private List<System.Drawing.Color> accentColours = new List<System.Drawing.Color>();
-        private readonly NotifyIcon notifyIcon;
+        private static NotifyIcon notifyIcon;
         private bool mayCancelLoad = false, cancelLoad = false;
         public RevealedStream revealedStream;
 
@@ -403,7 +403,7 @@ namespace reAudioPlayerML
             await t;
 
             mayCancelLoad = false;
-            notifyIcon.ShowBalloonTip(2000, "reAudioPlayer", "Playlist loaded!", ToolTipIcon.Info);
+            notifyIcon?.ShowBalloonTip(2000, "reAudioPlayer", "Playlist loaded!", ToolTipIcon.Info);
         }
 
         private async Task loadBackgrounds()

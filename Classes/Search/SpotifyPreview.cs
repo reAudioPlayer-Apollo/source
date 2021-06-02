@@ -17,20 +17,35 @@ namespace reAudioPlayerML.Search
         FullTrack previewF;
         string filename;
 
-        public SpotifyPreview(MediaPlayer mediaPlayer)
+        public SpotifyPreview(MediaPlayer mediaPlayer = null)
         {
+            if (mediaPlayer is null)
+            {
+                mediaPlayer = PlayerManager.mediaPlayer;
+            }
+
             player = mediaPlayer;
         }
 
-        public SpotifyPreview(MediaPlayer mediaPlayer, SimpleTrack track)
+        public SpotifyPreview(SimpleTrack track, MediaPlayer mediaPlayer = null)
         {
+            if (mediaPlayer is null)
+            {
+                mediaPlayer = PlayerManager.mediaPlayer;
+            }
+
             player = mediaPlayer;
             downloadPreview(track);
             playPreview();
         }
 
-        public SpotifyPreview(MediaPlayer mediaPlayer, FullTrack track)
+        public SpotifyPreview(FullTrack track, MediaPlayer mediaPlayer = null)
         {
+            if (mediaPlayer is null)
+            {
+                mediaPlayer = PlayerManager.mediaPlayer;
+            }
+
             player = mediaPlayer;
             downloadPreview(track);
             playPreview();

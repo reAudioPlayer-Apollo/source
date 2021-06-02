@@ -37,7 +37,7 @@ function receivePlaylists(evt) {
 
     for (let i = 0; i < playlists.customplaylists.length; i++) {
         html += '<article class="card"><header class="card-header"><p>' + playlists.customplaylists[i].date +
-            '</p><h2>' + playlists.customplaylists[i].name + '</h2><p>' + playlists.customplaylists[i]
+            '</p><h2 onclick="ws.control.loadPlaylist(' + i + ')">' + playlists.customplaylists[i].name + '</h2><p>' + playlists.customplaylists[i]
             .description +
             '</p></header><div class="card-author"><div class="author-name">Handpicked</div></div><div class="tags">';
 

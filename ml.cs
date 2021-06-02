@@ -1,15 +1,10 @@
 ﻿using LibGit2Sharp;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
-using System.Reflection;
-using System.Threading;
-using Newtonsoft.Json;
-using static System.Windows.Forms.ListView;
-using System.Collections.Generic;
 
 namespace reAudioPlayerML
 {
@@ -20,7 +15,6 @@ namespace reAudioPlayerML
         private readonly YoutubeSyncer youtubeSyncer = new YoutubeSyncer();
         private HotkeyManager hotkeyManager;
         private HttpServer.HttpWebServer server;
-        private Search.Spotify spotify;
         private readonly string[] args;
 
         public void cacheStates()
@@ -76,6 +70,8 @@ namespace reAudioPlayerML
                 }
                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
+
+            YoutubeSyncer.txtLogger = txtLogs;
         }
 
         public ml(string[] iArgs)
@@ -108,19 +104,26 @@ namespace reAudioPlayerML
 
             if (!Settings.APIKeys.spotify.isSet)
             {
-                spotify = new Search.Spotify(listView1,
-                    lviewSpotifySync,
-                    spotifyContextMenu,
-                    spotifySyncContextMenu,
-                    txtLocalInput,
-                    txtSyncOut,
-                    cmbSyncPlaylist,
-                    lblSyncProgress,
-                    notifyIcon,
-                    mediaPlayer,
-                    logger);
+                Search.Spotify.UIHandler.releaseView = listView1;
+                Search.Spotify.UIHandler.syncView = lviewSpotifySync;
 
-                spotify.authoriseUser();
+                Search.Spotify.UIHandler.ctxRelease = spotifyContextMenu;
+                Search.Spotify.UIHandler.ctxSync = spotifySyncContextMenu;
+
+                Search.Spotify.UIHandler.txtArtistDelimiter = txtExportArtistDelimiter;
+                Search.Spotify.UIHandler.txtSyncIn = txtLocalInput;
+                Search.Spotify.UIHandler.txtSyncOut = txtSyncOut;
+
+                Search.Spotify.UIHandler.cmbSyncPlaylist = cmbSyncPlaylist;
+
+                Search.Spotify.UIHandler.lblSyncProgress = lblSyncProgress;
+
+                Search.Spotify.UIHandler.notifyIcon = notifyIcon;
+                Search.Spotify.UIHandler.SetBuffers();
+
+                Search.Spotify.Init.logger = logger;
+
+                Search.Spotify.Init.AuthoriseUser();
             }
         }
 
@@ -216,8 +219,8 @@ namespace reAudioPlayerML
                 return;
             }
 
-            SaveFileDialog sfd= new SaveFileDialog();
-            sfd.FileName = Path.GetFileName( ofd.FileName );
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = Path.GetFileName(ofd.FileName);
             sfd.InitialDirectory = ofd.InitialDirectory;
 
             string key = Path.GetDirectoryName(ofd.FileName).Replace(@"\\", @"\");
@@ -398,10 +401,10 @@ namespace reAudioPlayerML
         private void btnSyncAnalyse_Click(object sender, EventArgs e)
         {
             string playlist = cmbSyncPlaylist.Text;
-            Task.Factory.StartNew(() => spotify.syncPlaylistByName(playlist));
+            Task.Factory.StartNew(() => Search.Spotify.Synchronise.SpotifyToLocalByName(playlist));
         }
 
-        private void btnSyncExport_Click(object sender, EventArgs e) { spotify.exportSyncedPlaylist(); }
+        private void btnSyncExport_Click(object sender, EventArgs e) { Search.Spotify.Synchronise.ExportSyncedPlaylist(); }
 
         private void keyYoutube_TextChanged(object sender, EventArgs e)
         {
@@ -453,7 +456,7 @@ namespace reAudioPlayerML
 
         private void btnSyncLocalToSpotify_Click(object sender, EventArgs e)
         {
-            Task.Factory.StartNew(() => spotify.synchroniseLocalToSpotify());
+            Task.Factory.StartNew(() => Search.Spotify.Synchronise.LocalToSpotify());
         }
     }
 }

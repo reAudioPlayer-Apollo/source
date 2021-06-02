@@ -587,6 +587,18 @@
   <data name="&gt;&gt;btnLast.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="&gt;&gt;lblBackgroundTasks.Name" xml:space="preserve">
+    <value>lblBackgroundTasks</value>
+  </data>
+  <data name="&gt;&gt;lblBackgroundTasks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblBackgroundTasks.Parent" xml:space="preserve">
+    <value>pnlRight</value>
+  </data>
+  <data name="&gt;&gt;lblBackgroundTasks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="pnlRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
@@ -614,53 +626,32 @@
   <data name="&gt;&gt;pnlRight.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;pgQuickAccess.Name" xml:space="preserve">
-    <value>pgQuickAccess</value>
+  <data name="lblBackgroundTasks.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;pgQuickAccess.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  <data name="lblBackgroundTasks.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>8, 7</value>
   </data>
-  <data name="&gt;&gt;pgQuickAccess.Parent" xml:space="preserve">
-    <value>tbControl</value>
+  <data name="lblBackgroundTasks.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>136, 15</value>
   </data>
-  <data name="&gt;&gt;pgQuickAccess.ZOrder" xml:space="preserve">
+  <data name="lblBackgroundTasks.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;pgPlay.Name" xml:space="preserve">
-    <value>pgPlay</value>
+  <data name="lblBackgroundTasks.Text" xml:space="preserve">
+    <value>Background Tasks: None</value>
   </data>
-  <data name="&gt;&gt;pgPlay.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  <data name="&gt;&gt;lblBackgroundTasks.Name" xml:space="preserve">
+    <value>lblBackgroundTasks</value>
   </data>
-  <data name="&gt;&gt;pgPlay.Parent" xml:space="preserve">
-    <value>tbControl</value>
+  <data name="&gt;&gt;lblBackgroundTasks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pgPlay.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;lblBackgroundTasks.Parent" xml:space="preserve">
+    <value>pnlRight</value>
   </data>
-  <data name="&gt;&gt;pgConnectSpotify.Name" xml:space="preserve">
-    <value>pgConnectSpotify</value>
-  </data>
-  <data name="&gt;&gt;pgConnectSpotify.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;pgConnectSpotify.Parent" xml:space="preserve">
-    <value>tbControl</value>
-  </data>
-  <data name="&gt;&gt;pgConnectSpotify.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pgSpotifySync.Name" xml:space="preserve">
-    <value>pgSpotifySync</value>
-  </data>
-  <data name="&gt;&gt;pgSpotifySync.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pgSpotifySync.Parent" xml:space="preserve">
-    <value>tbControl</value>
-  </data>
-  <data name="&gt;&gt;pgSpotifySync.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lblBackgroundTasks.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;pgSettings.Name" xml:space="preserve">
     <value>pgSettings</value>
@@ -672,7 +663,67 @@
     <value>tbControl</value>
   </data>
   <data name="&gt;&gt;pgSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pgQuickAccess.Name" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;pgQuickAccess.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pgQuickAccess.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgQuickAccess.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pgPlay.Name" xml:space="preserve">
+    <value>pgPlay</value>
+  </data>
+  <data name="&gt;&gt;pgPlay.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pgPlay.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgPlay.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pgConnectSpotify.Name" xml:space="preserve">
+    <value>pgConnectSpotify</value>
+  </data>
+  <data name="&gt;&gt;pgConnectSpotify.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pgConnectSpotify.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgConnectSpotify.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pgSpotifySync.Name" xml:space="preserve">
+    <value>pgSpotifySync</value>
+  </data>
+  <data name="&gt;&gt;pgSpotifySync.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pgSpotifySync.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgSpotifySync.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="&gt;&gt;pgLogs.Name" xml:space="preserve">
+    <value>pgLogs</value>
+  </data>
+  <data name="&gt;&gt;pgLogs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pgLogs.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgLogs.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="tbControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -703,6 +754,1299 @@
   </data>
   <data name="&gt;&gt;tbControl.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtExportArtistDelimiter.Name" xml:space="preserve">
+    <value>txtExportArtistDelimiter</value>
+  </data>
+  <data name="&gt;&gt;txtExportArtistDelimiter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtExportArtistDelimiter.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;txtExportArtistDelimiter.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cmbLanguage.Name" xml:space="preserve">
+    <value>cmbLanguage</value>
+  </data>
+  <data name="&gt;&gt;cmbLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbLanguage.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;cmbLanguage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;keyTMDB.Name" xml:space="preserve">
+    <value>keyTMDB</value>
+  </data>
+  <data name="&gt;&gt;keyTMDB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyTMDB.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keyTMDB.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBSecret.Name" xml:space="preserve">
+    <value>keyIGDBSecret</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBSecret.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBSecret.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBSecret.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBId.Name" xml:space="preserve">
+    <value>keyIGDBId</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBId.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBId.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBId.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;keySpotifySecret.Name" xml:space="preserve">
+    <value>keySpotifySecret</value>
+  </data>
+  <data name="&gt;&gt;keySpotifySecret.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keySpotifySecret.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keySpotifySecret.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;keySpotifyID.Name" xml:space="preserve">
+    <value>keySpotifyID</value>
+  </data>
+  <data name="&gt;&gt;keySpotifyID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keySpotifyID.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keySpotifyID.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;keyYoutube.Name" xml:space="preserve">
+    <value>keyYoutube</value>
+  </data>
+  <data name="&gt;&gt;keyYoutube.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyYoutube.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keyYoutube.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="pgSettings.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>4, 38</value>
+  </data>
+  <data name="pgSettings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pgSettings.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
+  </data>
+  <data name="pgSettings.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>3</value>
+  </data>
+  <data name="pgSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="pgSettings.Visible" type="System.Boolean, System.Private.CoreLib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pgSettings.Name" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;pgSettings.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pgSettings.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>264, 60</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>126, 15</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>17</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Export: Artist Delimiter</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtExportArtistDelimiter.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>264, 78</value>
+  </data>
+  <data name="txtExportArtistDelimiter.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>231, 23</value>
+  </data>
+  <data name="txtExportArtistDelimiter.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>16</value>
+  </data>
+  <data name="txtExportArtistDelimiter.Text" xml:space="preserve">
+    <value>, </value>
+  </data>
+  <data name="&gt;&gt;txtExportArtistDelimiter.Name" xml:space="preserve">
+    <value>txtExportArtistDelimiter</value>
+  </data>
+  <data name="&gt;&gt;txtExportArtistDelimiter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtExportArtistDelimiter.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;txtExportArtistDelimiter.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cmbLanguage.Items" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="cmbLanguage.Items1" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="cmbLanguage.Items2" xml:space="preserve">
+    <value>Português</value>
+  </data>
+  <data name="cmbLanguage.Items3" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="cmbLanguage.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>264, 30</value>
+  </data>
+  <data name="cmbLanguage.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>162, 23</value>
+  </data>
+  <data name="cmbLanguage.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;cmbLanguage.Name" xml:space="preserve">
+    <value>cmbLanguage</value>
+  </data>
+  <data name="&gt;&gt;cmbLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbLanguage.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;cmbLanguage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>264, 12</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>118, 15</value>
+  </data>
+  <data name="label11.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>14</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 252</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>163, 15</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>13</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>TMDB API Key [coming soon]</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="keyTMDB.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 270</value>
+  </data>
+  <data name="keyTMDB.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>231, 23</value>
+  </data>
+  <data name="keyTMDB.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;keyTMDB.Name" xml:space="preserve">
+    <value>keyTMDB</value>
+  </data>
+  <data name="&gt;&gt;keyTMDB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyTMDB.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keyTMDB.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="label9.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 204</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>89, 15</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>11</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>IGDB API Secret</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="keyIGDBSecret.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 222</value>
+  </data>
+  <data name="keyIGDBSecret.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>231, 23</value>
+  </data>
+  <data name="keyIGDBSecret.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBSecret.Name" xml:space="preserve">
+    <value>keyIGDBSecret</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBSecret.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBSecret.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBSecret.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="label10.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 156</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>67, 15</value>
+  </data>
+  <data name="label10.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>9</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>IGDB API Id</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="keyIGDBId.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 174</value>
+  </data>
+  <data name="keyIGDBId.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>231, 23</value>
+  </data>
+  <data name="keyIGDBId.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBId.Name" xml:space="preserve">
+    <value>keyIGDBId</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBId.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBId.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keyIGDBId.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 108</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>100, 15</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>7</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Spotify API Secret</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="keySpotifySecret.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 126</value>
+  </data>
+  <data name="keySpotifySecret.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>231, 23</value>
+  </data>
+  <data name="keySpotifySecret.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;keySpotifySecret.Name" xml:space="preserve">
+    <value>keySpotifySecret</value>
+  </data>
+  <data name="&gt;&gt;keySpotifySecret.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keySpotifySecret.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keySpotifySecret.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 60</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>78, 15</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>5</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Spotify API Id</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="keySpotifyID.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 78</value>
+  </data>
+  <data name="keySpotifyID.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>231, 23</value>
+  </data>
+  <data name="keySpotifyID.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;keySpotifyID.Name" xml:space="preserve">
+    <value>keySpotifyID</value>
+  </data>
+  <data name="&gt;&gt;keySpotifyID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keySpotifyID.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keySpotifyID.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 12</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>94, 15</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>3</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Youtube API Key</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="keyYoutube.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 30</value>
+  </data>
+  <data name="keyYoutube.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>231, 23</value>
+  </data>
+  <data name="keyYoutube.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;keyYoutube.Name" xml:space="preserve">
+    <value>keyYoutube</value>
+  </data>
+  <data name="&gt;&gt;keyYoutube.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyYoutube.Parent" xml:space="preserve">
+    <value>pgSettings</value>
+  </data>
+  <data name="&gt;&gt;keyYoutube.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;btnManualAcrop.Name" xml:space="preserve">
+    <value>btnManualAcrop</value>
+  </data>
+  <data name="&gt;&gt;btnManualAcrop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnManualAcrop.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnManualAcrop.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnSync.Name" xml:space="preserve">
+    <value>btnSync</value>
+  </data>
+  <data name="&gt;&gt;btnSync.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSync.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnSync.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;imgQR.Name" xml:space="preserve">
+    <value>imgQR</value>
+  </data>
+  <data name="&gt;&gt;imgQR.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imgQR.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;imgQR.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnAddGame.Name" xml:space="preserve">
+    <value>btnAddGame</value>
+  </data>
+  <data name="&gt;&gt;btnAddGame.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAddGame.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnAddGame.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btnDownload.Name" xml:space="preserve">
+    <value>btnDownload</value>
+  </data>
+  <data name="&gt;&gt;btnDownload.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDownload.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnDownload.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;btnApolloOnAir.Name" xml:space="preserve">
+    <value>btnApolloOnAir</value>
+  </data>
+  <data name="&gt;&gt;btnApolloOnAir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnApolloOnAir.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnApolloOnAir.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btnRevealedRadio.Name" xml:space="preserve">
+    <value>btnRevealedRadio</value>
+  </data>
+  <data name="&gt;&gt;btnRevealedRadio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRevealedRadio.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnRevealedRadio.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btnLoadPlaylist.Name" xml:space="preserve">
+    <value>btnLoadPlaylist</value>
+  </data>
+  <data name="&gt;&gt;btnLoadPlaylist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnLoadPlaylist.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnLoadPlaylist.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;btnWebsite.Name" xml:space="preserve">
+    <value>btnWebsite</value>
+  </data>
+  <data name="&gt;&gt;btnWebsite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnWebsite.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnWebsite.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;btnMove.Name" xml:space="preserve">
+    <value>btnMove</value>
+  </data>
+  <data name="&gt;&gt;btnMove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnMove.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnMove.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="pgQuickAccess.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>4, 38</value>
+  </data>
+  <data name="pgQuickAccess.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pgQuickAccess.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
+  </data>
+  <data name="pgQuickAccess.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>0</value>
+  </data>
+  <data name="pgQuickAccess.Text" xml:space="preserve">
+    <value>Quick Access</value>
+  </data>
+  <data name="&gt;&gt;pgQuickAccess.Name" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;pgQuickAccess.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pgQuickAccess.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgQuickAccess.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnManualAcrop.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnManualAcrop.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnManualAcrop.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>9, 139</value>
+  </data>
+  <data name="btnManualAcrop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnManualAcrop.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnManualAcrop.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>11</value>
+  </data>
+  <data name="btnManualAcrop.Text" xml:space="preserve">
+    <value>aCrop a Song</value>
+  </data>
+  <data name="&gt;&gt;btnManualAcrop.Name" xml:space="preserve">
+    <value>btnManualAcrop</value>
+  </data>
+  <data name="&gt;&gt;btnManualAcrop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnManualAcrop.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnManualAcrop.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnSync.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSync.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnSync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>319, 48</value>
+  </data>
+  <data name="btnSync.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnSync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnSync.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>10</value>
+  </data>
+  <data name="btnSync.Text" xml:space="preserve">
+    <value>Youtube-Sync Now</value>
+  </data>
+  <data name="&gt;&gt;btnSync.Name" xml:space="preserve">
+    <value>btnSync</value>
+  </data>
+  <data name="&gt;&gt;btnSync.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSync.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnSync.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="imgQR.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="imgQR.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>522, 15</value>
+  </data>
+  <data name="imgQR.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="imgQR.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>117, 115</value>
+  </data>
+  <data name="imgQR.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="imgQR.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;imgQR.Name" xml:space="preserve">
+    <value>imgQR</value>
+  </data>
+  <data name="&gt;&gt;imgQR.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imgQR.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;imgQR.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnAddGame.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnAddGame.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnAddGame.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>9, 82</value>
+  </data>
+  <data name="btnAddGame.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnAddGame.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnAddGame.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>8</value>
+  </data>
+  <data name="btnAddGame.Text" xml:space="preserve">
+    <value>Add Game To Database</value>
+  </data>
+  <data name="&gt;&gt;btnAddGame.Name" xml:space="preserve">
+    <value>btnAddGame</value>
+  </data>
+  <data name="&gt;&gt;btnAddGame.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAddGame.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnAddGame.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnDownload.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnDownload.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnDownload.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>9, 15</value>
+  </data>
+  <data name="btnDownload.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnDownload.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnDownload.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>7</value>
+  </data>
+  <data name="btnDownload.Text" xml:space="preserve">
+    <value>Download From Youtube</value>
+  </data>
+  <data name="&gt;&gt;btnDownload.Name" xml:space="preserve">
+    <value>btnDownload</value>
+  </data>
+  <data name="&gt;&gt;btnDownload.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDownload.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnDownload.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnApolloOnAir.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnApolloOnAir.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnApolloOnAir.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>164, 49</value>
+  </data>
+  <data name="btnApolloOnAir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnApolloOnAir.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnApolloOnAir.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>6</value>
+  </data>
+  <data name="btnApolloOnAir.Text" xml:space="preserve">
+    <value>Launch Apollo On Air</value>
+  </data>
+  <data name="&gt;&gt;btnApolloOnAir.Name" xml:space="preserve">
+    <value>btnApolloOnAir</value>
+  </data>
+  <data name="&gt;&gt;btnApolloOnAir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnApolloOnAir.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnApolloOnAir.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnRevealedRadio.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnRevealedRadio.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnRevealedRadio.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>164, 15</value>
+  </data>
+  <data name="btnRevealedRadio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnRevealedRadio.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnRevealedRadio.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>5</value>
+  </data>
+  <data name="btnRevealedRadio.Text" xml:space="preserve">
+    <value>Stream Revealed Radio</value>
+  </data>
+  <data name="&gt;&gt;btnRevealedRadio.Name" xml:space="preserve">
+    <value>btnRevealedRadio</value>
+  </data>
+  <data name="&gt;&gt;btnRevealedRadio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRevealedRadio.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnRevealedRadio.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnLoadPlaylist.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnLoadPlaylist.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnLoadPlaylist.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>319, 15</value>
+  </data>
+  <data name="btnLoadPlaylist.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnLoadPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnLoadPlaylist.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>4</value>
+  </data>
+  <data name="btnLoadPlaylist.Text" xml:space="preserve">
+    <value>Load Playlist</value>
+  </data>
+  <data name="&gt;&gt;btnLoadPlaylist.Name" xml:space="preserve">
+    <value>btnLoadPlaylist</value>
+  </data>
+  <data name="&gt;&gt;btnLoadPlaylist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnLoadPlaylist.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnLoadPlaylist.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnWebsite.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnWebsite.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnWebsite.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>164, 82</value>
+  </data>
+  <data name="btnWebsite.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnWebsite.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnWebsite.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>3</value>
+  </data>
+  <data name="btnWebsite.Text" xml:space="preserve">
+    <value>Open WebClient</value>
+  </data>
+  <data name="&gt;&gt;btnWebsite.Name" xml:space="preserve">
+    <value>btnWebsite</value>
+  </data>
+  <data name="&gt;&gt;btnWebsite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnWebsite.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnWebsite.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnMove.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnMove.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 8.25pt</value>
+  </data>
+  <data name="btnMove.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>9, 48</value>
+  </data>
+  <data name="btnMove.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnMove.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>147, 27</value>
+  </data>
+  <data name="btnMove.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>2</value>
+  </data>
+  <data name="btnMove.Text" xml:space="preserve">
+    <value>Move Song</value>
+  </data>
+  <data name="&gt;&gt;btnMove.Name" xml:space="preserve">
+    <value>btnMove</value>
+  </data>
+  <data name="&gt;&gt;btnMove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnMove.Parent" xml:space="preserve">
+    <value>pgQuickAccess</value>
+  </data>
+  <data name="&gt;&gt;btnMove.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;imgCover.Name" xml:space="preserve">
+    <value>imgCover</value>
+  </data>
+  <data name="&gt;&gt;imgCover.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imgCover.Parent" xml:space="preserve">
+    <value>pgPlay</value>
+  </data>
+  <data name="&gt;&gt;imgCover.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pgPlay.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>4, 38</value>
+  </data>
+  <data name="pgPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pgPlay.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
+  </data>
+  <data name="pgPlay.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>1</value>
+  </data>
+  <data name="pgPlay.Text" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="pgPlay.Visible" type="System.Boolean, System.Private.CoreLib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pgPlay.Name" xml:space="preserve">
+    <value>pgPlay</value>
+  </data>
+  <data name="&gt;&gt;pgPlay.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pgPlay.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgPlay.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="imgCover.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="imgCover.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="imgCover.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>0, 0</value>
+  </data>
+  <data name="imgCover.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="imgCover.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
+  </data>
+  <data name="imgCover.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="imgCover.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;imgCover.Name" xml:space="preserve">
+    <value>imgCover</value>
+  </data>
+  <data name="&gt;&gt;imgCover.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imgCover.Parent" xml:space="preserve">
+    <value>pgPlay</value>
+  </data>
+  <data name="&gt;&gt;imgCover.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;listView1.Name" xml:space="preserve">
+    <value>listView1</value>
+  </data>
+  <data name="&gt;&gt;listView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listView1.Parent" xml:space="preserve">
+    <value>pgConnectSpotify</value>
+  </data>
+  <data name="&gt;&gt;listView1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pgConnectSpotify.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>4, 38</value>
+  </data>
+  <data name="pgConnectSpotify.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pgConnectSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
+  </data>
+  <data name="pgConnectSpotify.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>4</value>
+  </data>
+  <data name="pgConnectSpotify.Text" xml:space="preserve">
+    <value>Spotify Releases</value>
+  </data>
+  <data name="pgConnectSpotify.Visible" type="System.Boolean, System.Private.CoreLib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pgConnectSpotify.Name" xml:space="preserve">
+    <value>pgConnectSpotify</value>
+  </data>
+  <data name="&gt;&gt;pgConnectSpotify.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pgConnectSpotify.Parent" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;pgConnectSpotify.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="artist.Text" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="album.Text" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="date.Text" xml:space="preserve">
+    <value>Release Date</value>
+  </data>
+  <data name="spotifyContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>174, 104</value>
+  </data>
+  <data name="&gt;&gt;spotifyContextMenu.Name" xml:space="preserve">
+    <value>spotifyContextMenu</value>
+  </data>
+  <data name="&gt;&gt;spotifyContextMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="listView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="listView1.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI Light, 9pt</value>
+  </data>
+  <data name="listView1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>0, 0</value>
+  </data>
+  <data name="listView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="listView1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
+  </data>
+  <data name="listView1.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;listView1.Name" xml:space="preserve">
+    <value>listView1</value>
+  </data>
+  <data name="&gt;&gt;listView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listView1.Parent" xml:space="preserve">
+    <value>pgConnectSpotify</value>
+  </data>
+  <data name="&gt;&gt;listView1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="openOnSpotifyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>173, 22</value>
+  </data>
+  <data name="openOnSpotifyToolStripMenuItem.Text" xml:space="preserve">
+    <value>Open on Spotify</value>
+  </data>
+  <data name="btnAddToPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>173, 22</value>
+  </data>
+  <data name="btnAddToPlaylist.Text" xml:space="preserve">
+    <value>Add to Playlist</value>
+  </data>
+  <data name="addToPlaylistToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>180, 23</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>170, 6</value>
+  </data>
+  <data name="searchOnYoutubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>173, 22</value>
+  </data>
+  <data name="searchOnYoutubeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Search on Youtube</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>170, 6</value>
+  </data>
+  <data name="previewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>173, 22</value>
+  </data>
+  <data name="previewToolStripMenuItem.Text" xml:space="preserve">
+    <value>Preview</value>
   </data>
   <data name="&gt;&gt;lviewSpotifySync.Name" xml:space="preserve">
     <value>lviewSpotifySync</value>
@@ -750,7 +2094,7 @@
     <value>tbControl</value>
   </data>
   <data name="&gt;&gt;pgSpotifySync.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="clmnSpotify.Text" xml:space="preserve">
     <value>Spotify</value>
@@ -1244,1220 +2588,71 @@
   <data name="&gt;&gt;cmbSyncPlaylist.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;btnManualAcrop.Name" xml:space="preserve">
-    <value>btnManualAcrop</value>
+  <data name="&gt;&gt;txtLogs.Name" xml:space="preserve">
+    <value>txtLogs</value>
   </data>
-  <data name="&gt;&gt;btnManualAcrop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtLogs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnManualAcrop.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
+  <data name="&gt;&gt;txtLogs.Parent" xml:space="preserve">
+    <value>pgLogs</value>
   </data>
-  <data name="&gt;&gt;btnManualAcrop.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnSync.Name" xml:space="preserve">
-    <value>btnSync</value>
-  </data>
-  <data name="&gt;&gt;btnSync.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSync.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnSync.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;imgQR.Name" xml:space="preserve">
-    <value>imgQR</value>
-  </data>
-  <data name="&gt;&gt;imgQR.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imgQR.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;imgQR.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btnAddGame.Name" xml:space="preserve">
-    <value>btnAddGame</value>
-  </data>
-  <data name="&gt;&gt;btnAddGame.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddGame.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnAddGame.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;btnDownload.Name" xml:space="preserve">
-    <value>btnDownload</value>
-  </data>
-  <data name="&gt;&gt;btnDownload.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDownload.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnDownload.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;btnApolloOnAir.Name" xml:space="preserve">
-    <value>btnApolloOnAir</value>
-  </data>
-  <data name="&gt;&gt;btnApolloOnAir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnApolloOnAir.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnApolloOnAir.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;btnRevealedRadio.Name" xml:space="preserve">
-    <value>btnRevealedRadio</value>
-  </data>
-  <data name="&gt;&gt;btnRevealedRadio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnRevealedRadio.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnRevealedRadio.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;btnLoadPlaylist.Name" xml:space="preserve">
-    <value>btnLoadPlaylist</value>
-  </data>
-  <data name="&gt;&gt;btnLoadPlaylist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnLoadPlaylist.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnLoadPlaylist.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;btnWebsite.Name" xml:space="preserve">
-    <value>btnWebsite</value>
-  </data>
-  <data name="&gt;&gt;btnWebsite.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnWebsite.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnWebsite.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;btnMove.Name" xml:space="preserve">
-    <value>btnMove</value>
-  </data>
-  <data name="&gt;&gt;btnMove.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnMove.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnMove.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="pgQuickAccess.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>4, 38</value>
-  </data>
-  <data name="pgQuickAccess.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="pgQuickAccess.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 382</value>
-  </data>
-  <data name="pgQuickAccess.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="&gt;&gt;txtLogs.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="pgQuickAccess.Text" xml:space="preserve">
-    <value>Quick Access</value>
+  <data name="pgLogs.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>4, 38</value>
   </data>
-  <data name="&gt;&gt;pgQuickAccess.Name" xml:space="preserve">
-    <value>pgQuickAccess</value>
+  <data name="pgLogs.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
   </data>
-  <data name="&gt;&gt;pgQuickAccess.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  <data name="pgLogs.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;pgQuickAccess.Parent" xml:space="preserve">
+  <data name="pgLogs.Text" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="&gt;&gt;pgLogs.Name" xml:space="preserve">
+    <value>pgLogs</value>
+  </data>
+  <data name="&gt;&gt;pgLogs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pgLogs.Parent" xml:space="preserve">
     <value>tbControl</value>
   </data>
-  <data name="&gt;&gt;pgQuickAccess.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;pgLogs.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtLogs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtLogs.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>0, 0</value>
+  </data>
+  <data name="txtLogs.Multiline" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="txtLogs.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="txtLogs.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>655, 382</value>
+  </data>
+  <data name="txtLogs.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>0</value>
   </data>
-  <data name="btnManualAcrop.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;txtLogs.Name" xml:space="preserve">
+    <value>txtLogs</value>
   </data>
-  <data name="btnManualAcrop.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnManualAcrop.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>9, 139</value>
-  </data>
-  <data name="btnManualAcrop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnManualAcrop.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnManualAcrop.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>11</value>
-  </data>
-  <data name="btnManualAcrop.Text" xml:space="preserve">
-    <value>aCrop a Song</value>
-  </data>
-  <data name="&gt;&gt;btnManualAcrop.Name" xml:space="preserve">
-    <value>btnManualAcrop</value>
-  </data>
-  <data name="&gt;&gt;btnManualAcrop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnManualAcrop.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnManualAcrop.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnSync.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnSync.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnSync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>319, 48</value>
-  </data>
-  <data name="btnSync.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnSync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnSync.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>10</value>
-  </data>
-  <data name="btnSync.Text" xml:space="preserve">
-    <value>Youtube-Sync Now</value>
-  </data>
-  <data name="&gt;&gt;btnSync.Name" xml:space="preserve">
-    <value>btnSync</value>
-  </data>
-  <data name="&gt;&gt;btnSync.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSync.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnSync.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="imgQR.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="imgQR.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>522, 15</value>
-  </data>
-  <data name="imgQR.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="imgQR.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>117, 115</value>
-  </data>
-  <data name="imgQR.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="imgQR.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;imgQR.Name" xml:space="preserve">
-    <value>imgQR</value>
-  </data>
-  <data name="&gt;&gt;imgQR.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imgQR.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;imgQR.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnAddGame.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnAddGame.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnAddGame.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>9, 82</value>
-  </data>
-  <data name="btnAddGame.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnAddGame.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnAddGame.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>8</value>
-  </data>
-  <data name="btnAddGame.Text" xml:space="preserve">
-    <value>Add Game To Database</value>
-  </data>
-  <data name="&gt;&gt;btnAddGame.Name" xml:space="preserve">
-    <value>btnAddGame</value>
-  </data>
-  <data name="&gt;&gt;btnAddGame.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddGame.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnAddGame.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="btnDownload.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnDownload.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnDownload.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>9, 15</value>
-  </data>
-  <data name="btnDownload.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnDownload.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnDownload.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>7</value>
-  </data>
-  <data name="btnDownload.Text" xml:space="preserve">
-    <value>Download From Youtube</value>
-  </data>
-  <data name="&gt;&gt;btnDownload.Name" xml:space="preserve">
-    <value>btnDownload</value>
-  </data>
-  <data name="&gt;&gt;btnDownload.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDownload.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnDownload.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="btnApolloOnAir.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnApolloOnAir.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnApolloOnAir.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>164, 49</value>
-  </data>
-  <data name="btnApolloOnAir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnApolloOnAir.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnApolloOnAir.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>6</value>
-  </data>
-  <data name="btnApolloOnAir.Text" xml:space="preserve">
-    <value>Launch Apollo On Air</value>
-  </data>
-  <data name="&gt;&gt;btnApolloOnAir.Name" xml:space="preserve">
-    <value>btnApolloOnAir</value>
-  </data>
-  <data name="&gt;&gt;btnApolloOnAir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnApolloOnAir.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnApolloOnAir.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="btnRevealedRadio.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnRevealedRadio.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnRevealedRadio.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>164, 15</value>
-  </data>
-  <data name="btnRevealedRadio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnRevealedRadio.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnRevealedRadio.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>5</value>
-  </data>
-  <data name="btnRevealedRadio.Text" xml:space="preserve">
-    <value>Stream Revealed Radio</value>
-  </data>
-  <data name="&gt;&gt;btnRevealedRadio.Name" xml:space="preserve">
-    <value>btnRevealedRadio</value>
-  </data>
-  <data name="&gt;&gt;btnRevealedRadio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnRevealedRadio.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnRevealedRadio.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="btnLoadPlaylist.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnLoadPlaylist.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnLoadPlaylist.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>319, 15</value>
-  </data>
-  <data name="btnLoadPlaylist.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnLoadPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnLoadPlaylist.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>4</value>
-  </data>
-  <data name="btnLoadPlaylist.Text" xml:space="preserve">
-    <value>Load Playlist</value>
-  </data>
-  <data name="&gt;&gt;btnLoadPlaylist.Name" xml:space="preserve">
-    <value>btnLoadPlaylist</value>
-  </data>
-  <data name="&gt;&gt;btnLoadPlaylist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnLoadPlaylist.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnLoadPlaylist.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="btnWebsite.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnWebsite.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnWebsite.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>164, 82</value>
-  </data>
-  <data name="btnWebsite.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnWebsite.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnWebsite.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>3</value>
-  </data>
-  <data name="btnWebsite.Text" xml:space="preserve">
-    <value>Open WebClient</value>
-  </data>
-  <data name="&gt;&gt;btnWebsite.Name" xml:space="preserve">
-    <value>btnWebsite</value>
-  </data>
-  <data name="&gt;&gt;btnWebsite.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnWebsite.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnWebsite.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="btnMove.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnMove.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 8.25pt</value>
-  </data>
-  <data name="btnMove.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>9, 48</value>
-  </data>
-  <data name="btnMove.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btnMove.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>147, 27</value>
-  </data>
-  <data name="btnMove.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>2</value>
-  </data>
-  <data name="btnMove.Text" xml:space="preserve">
-    <value>Move Song</value>
-  </data>
-  <data name="&gt;&gt;btnMove.Name" xml:space="preserve">
-    <value>btnMove</value>
-  </data>
-  <data name="&gt;&gt;btnMove.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnMove.Parent" xml:space="preserve">
-    <value>pgQuickAccess</value>
-  </data>
-  <data name="&gt;&gt;btnMove.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;imgCover.Name" xml:space="preserve">
-    <value>imgCover</value>
-  </data>
-  <data name="&gt;&gt;imgCover.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imgCover.Parent" xml:space="preserve">
-    <value>pgPlay</value>
-  </data>
-  <data name="&gt;&gt;imgCover.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="pgPlay.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>4, 38</value>
-  </data>
-  <data name="pgPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="pgPlay.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 382</value>
-  </data>
-  <data name="pgPlay.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>1</value>
-  </data>
-  <data name="pgPlay.Text" xml:space="preserve">
-    <value>Play</value>
-  </data>
-  <data name="pgPlay.Visible" type="System.Boolean, System.Private.CoreLib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pgPlay.Name" xml:space="preserve">
-    <value>pgPlay</value>
-  </data>
-  <data name="&gt;&gt;pgPlay.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;pgPlay.Parent" xml:space="preserve">
-    <value>tbControl</value>
-  </data>
-  <data name="&gt;&gt;pgPlay.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="imgCover.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="imgCover.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="imgCover.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>0, 0</value>
-  </data>
-  <data name="imgCover.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="imgCover.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 382</value>
-  </data>
-  <data name="imgCover.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="imgCover.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;imgCover.Name" xml:space="preserve">
-    <value>imgCover</value>
-  </data>
-  <data name="&gt;&gt;imgCover.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imgCover.Parent" xml:space="preserve">
-    <value>pgPlay</value>
-  </data>
-  <data name="&gt;&gt;imgCover.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;listView1.Name" xml:space="preserve">
-    <value>listView1</value>
-  </data>
-  <data name="&gt;&gt;listView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listView1.Parent" xml:space="preserve">
-    <value>pgConnectSpotify</value>
-  </data>
-  <data name="&gt;&gt;listView1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="pgConnectSpotify.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>4, 38</value>
-  </data>
-  <data name="pgConnectSpotify.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="pgConnectSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 382</value>
-  </data>
-  <data name="pgConnectSpotify.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>4</value>
-  </data>
-  <data name="pgConnectSpotify.Text" xml:space="preserve">
-    <value>Spotify Releases</value>
-  </data>
-  <data name="pgConnectSpotify.Visible" type="System.Boolean, System.Private.CoreLib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pgConnectSpotify.Name" xml:space="preserve">
-    <value>pgConnectSpotify</value>
-  </data>
-  <data name="&gt;&gt;pgConnectSpotify.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;pgConnectSpotify.Parent" xml:space="preserve">
-    <value>tbControl</value>
-  </data>
-  <data name="&gt;&gt;pgConnectSpotify.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="artist.Text" xml:space="preserve">
-    <value>Artist</value>
-  </data>
-  <data name="album.Text" xml:space="preserve">
-    <value>Album</value>
-  </data>
-  <data name="date.Text" xml:space="preserve">
-    <value>Release Date</value>
-  </data>
-  <data name="spotifyContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>174, 104</value>
-  </data>
-  <data name="&gt;&gt;spotifyContextMenu.Name" xml:space="preserve">
-    <value>spotifyContextMenu</value>
-  </data>
-  <data name="&gt;&gt;spotifyContextMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="listView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="listView1.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI Light, 9pt</value>
-  </data>
-  <data name="listView1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>0, 0</value>
-  </data>
-  <data name="listView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="listView1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 382</value>
-  </data>
-  <data name="listView1.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;listView1.Name" xml:space="preserve">
-    <value>listView1</value>
-  </data>
-  <data name="&gt;&gt;listView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listView1.Parent" xml:space="preserve">
-    <value>pgConnectSpotify</value>
-  </data>
-  <data name="&gt;&gt;listView1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="openOnSpotifyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>173, 22</value>
-  </data>
-  <data name="openOnSpotifyToolStripMenuItem.Text" xml:space="preserve">
-    <value>Open on Spotify</value>
-  </data>
-  <data name="btnAddToPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>173, 22</value>
-  </data>
-  <data name="btnAddToPlaylist.Text" xml:space="preserve">
-    <value>Add to Playlist</value>
-  </data>
-  <data name="addToPlaylistToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>180, 23</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>170, 6</value>
-  </data>
-  <data name="searchOnYoutubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>173, 22</value>
-  </data>
-  <data name="searchOnYoutubeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Search on Youtube</value>
-  </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>170, 6</value>
-  </data>
-  <data name="previewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>173, 22</value>
-  </data>
-  <data name="previewToolStripMenuItem.Text" xml:space="preserve">
-    <value>Preview</value>
-  </data>
-  <data name="&gt;&gt;cmbLanguage.Name" xml:space="preserve">
-    <value>cmbLanguage</value>
-  </data>
-  <data name="&gt;&gt;cmbLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbLanguage.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;cmbLanguage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label11.Name" xml:space="preserve">
-    <value>label11</value>
-  </data>
-  <data name="&gt;&gt;label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;keyTMDB.Name" xml:space="preserve">
-    <value>keyTMDB</value>
-  </data>
-  <data name="&gt;&gt;keyTMDB.Type" xml:space="preserve">
+  <data name="&gt;&gt;txtLogs.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;keyTMDB.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keyTMDB.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBSecret.Name" xml:space="preserve">
-    <value>keyIGDBSecret</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBSecret.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBSecret.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBSecret.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
-  </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBId.Name" xml:space="preserve">
-    <value>keyIGDBId</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBId.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBId.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;keySpotifySecret.Name" xml:space="preserve">
-    <value>keySpotifySecret</value>
-  </data>
-  <data name="&gt;&gt;keySpotifySecret.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keySpotifySecret.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keySpotifySecret.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;keySpotifyID.Name" xml:space="preserve">
-    <value>keySpotifyID</value>
-  </data>
-  <data name="&gt;&gt;keySpotifyID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keySpotifyID.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keySpotifyID.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;keyYoutube.Name" xml:space="preserve">
-    <value>keyYoutube</value>
-  </data>
-  <data name="&gt;&gt;keyYoutube.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keyYoutube.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keyYoutube.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="pgSettings.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>4, 38</value>
-  </data>
-  <data name="pgSettings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="pgSettings.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 382</value>
-  </data>
-  <data name="pgSettings.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>3</value>
-  </data>
-  <data name="pgSettings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="pgSettings.Visible" type="System.Boolean, System.Private.CoreLib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pgSettings.Name" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;pgSettings.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;pgSettings.Parent" xml:space="preserve">
-    <value>tbControl</value>
-  </data>
-  <data name="&gt;&gt;pgSettings.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="cmbLanguage.Items" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="cmbLanguage.Items1" xml:space="preserve">
-    <value>Deutsch</value>
-  </data>
-  <data name="cmbLanguage.Items2" xml:space="preserve">
-    <value>Português</value>
-  </data>
-  <data name="cmbLanguage.Items3" xml:space="preserve">
-    <value>Français</value>
-  </data>
-  <data name="cmbLanguage.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>264, 30</value>
-  </data>
-  <data name="cmbLanguage.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>162, 23</value>
-  </data>
-  <data name="cmbLanguage.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;cmbLanguage.Name" xml:space="preserve">
-    <value>cmbLanguage</value>
-  </data>
-  <data name="&gt;&gt;cmbLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbLanguage.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;cmbLanguage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label11.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>264, 12</value>
-  </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>118, 15</value>
-  </data>
-  <data name="label11.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>14</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="&gt;&gt;label11.Name" xml:space="preserve">
-    <value>label11</value>
-  </data>
-  <data name="&gt;&gt;label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="label8.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 252</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>163, 15</value>
-  </data>
-  <data name="label8.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>13</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>TMDB API Key [coming soon]</value>
-  </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="keyTMDB.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 270</value>
-  </data>
-  <data name="keyTMDB.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>231, 23</value>
-  </data>
-  <data name="keyTMDB.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;keyTMDB.Name" xml:space="preserve">
-    <value>keyTMDB</value>
-  </data>
-  <data name="&gt;&gt;keyTMDB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keyTMDB.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keyTMDB.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label9.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 204</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>89, 15</value>
-  </data>
-  <data name="label9.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>11</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>IGDB API Secret</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="keyIGDBSecret.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 222</value>
-  </data>
-  <data name="keyIGDBSecret.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>231, 23</value>
-  </data>
-  <data name="keyIGDBSecret.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBSecret.Name" xml:space="preserve">
-    <value>keyIGDBSecret</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBSecret.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBSecret.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBSecret.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="label10.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 156</value>
-  </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>67, 15</value>
-  </data>
-  <data name="label10.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>9</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>IGDB API Id</value>
-  </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
-  </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="keyIGDBId.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 174</value>
-  </data>
-  <data name="keyIGDBId.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>231, 23</value>
-  </data>
-  <data name="keyIGDBId.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBId.Name" xml:space="preserve">
-    <value>keyIGDBId</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBId.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keyIGDBId.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="label7.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 108</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>100, 15</value>
-  </data>
-  <data name="label7.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>7</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Spotify API Secret</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="keySpotifySecret.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 126</value>
-  </data>
-  <data name="keySpotifySecret.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>231, 23</value>
-  </data>
-  <data name="keySpotifySecret.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;keySpotifySecret.Name" xml:space="preserve">
-    <value>keySpotifySecret</value>
-  </data>
-  <data name="&gt;&gt;keySpotifySecret.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keySpotifySecret.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keySpotifySecret.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 60</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>78, 15</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>5</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Spotify API Id</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="keySpotifyID.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 78</value>
-  </data>
-  <data name="keySpotifyID.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>231, 23</value>
-  </data>
-  <data name="keySpotifyID.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;keySpotifyID.Name" xml:space="preserve">
-    <value>keySpotifyID</value>
-  </data>
-  <data name="&gt;&gt;keySpotifyID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keySpotifyID.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keySpotifyID.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, System.Private.CoreLib">
-    <value>True</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 12</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>94, 15</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>3</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Youtube API Key</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="keyYoutube.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 30</value>
-  </data>
-  <data name="keyYoutube.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>231, 23</value>
-  </data>
-  <data name="keyYoutube.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;keyYoutube.Name" xml:space="preserve">
-    <value>keyYoutube</value>
-  </data>
-  <data name="&gt;&gt;keyYoutube.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keyYoutube.Parent" xml:space="preserve">
-    <value>pgSettings</value>
-  </data>
-  <data name="&gt;&gt;keyYoutube.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="&gt;&gt;txtLogs.Parent" xml:space="preserve">
+    <value>pgLogs</value>
+  </data>
+  <data name="&gt;&gt;txtLogs.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="notifyIcon.Icon" type="System.Drawing.Icon, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3872,6 +4067,66 @@
   <data name="$this.Text" xml:space="preserve">
     <value>reAudioPlayer Apollo</value>
   </data>
+  <data name="&gt;&gt;artist.Name" xml:space="preserve">
+    <value>artist</value>
+  </data>
+  <data name="&gt;&gt;artist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;album.Name" xml:space="preserve">
+    <value>album</value>
+  </data>
+  <data name="&gt;&gt;album.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;date.Name" xml:space="preserve">
+    <value>date</value>
+  </data>
+  <data name="&gt;&gt;date.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openOnSpotifyToolStripMenuItem.Name" xml:space="preserve">
+    <value>openOnSpotifyToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;openOnSpotifyToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAddToPlaylist.Name" xml:space="preserve">
+    <value>btnAddToPlaylist</value>
+  </data>
+  <data name="&gt;&gt;btnAddToPlaylist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;addToPlaylistToolStripMenuItem.Name" xml:space="preserve">
+    <value>addToPlaylistToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;addToPlaylistToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;searchOnYoutubeToolStripMenuItem.Name" xml:space="preserve">
+    <value>searchOnYoutubeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;searchOnYoutubeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;previewToolStripMenuItem.Name" xml:space="preserve">
+    <value>previewToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;previewToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;clmnSpotify.Name" xml:space="preserve">
     <value>clmnSpotify</value>
   </data>
@@ -3948,66 +4203,6 @@
     <value>toolStripMenuItemRecommend</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemRecommend.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;artist.Name" xml:space="preserve">
-    <value>artist</value>
-  </data>
-  <data name="&gt;&gt;artist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;album.Name" xml:space="preserve">
-    <value>album</value>
-  </data>
-  <data name="&gt;&gt;album.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;date.Name" xml:space="preserve">
-    <value>date</value>
-  </data>
-  <data name="&gt;&gt;date.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;openOnSpotifyToolStripMenuItem.Name" xml:space="preserve">
-    <value>openOnSpotifyToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;openOnSpotifyToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddToPlaylist.Name" xml:space="preserve">
-    <value>btnAddToPlaylist</value>
-  </data>
-  <data name="&gt;&gt;btnAddToPlaylist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;addToPlaylistToolStripMenuItem.Name" xml:space="preserve">
-    <value>addToPlaylistToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;addToPlaylistToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;searchOnYoutubeToolStripMenuItem.Name" xml:space="preserve">
-    <value>searchOnYoutubeToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;searchOnYoutubeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
-    <value>toolStripSeparator2</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;previewToolStripMenuItem.Name" xml:space="preserve">
-    <value>previewToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;previewToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tmrAccentColour.Name" xml:space="preserve">

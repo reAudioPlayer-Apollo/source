@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace reAudioPlayerML.Search
+namespace reAudioPlayerML.Search.Obsolete
 {
     public class Spotify
     {
@@ -109,18 +109,7 @@ namespace reAudioPlayerML.Search
             this.txtSyncIn = txtSyncIn;
             this.txtSyncOut = txtSyncOut;
             this.cmbSyncPlaylist = cmbSyncPlaylist;
-            this.cmbSyncPlaylist = cmbSyncPlaylist;
             this.lblSyncProgress = lblSyncProgress;
-
-            this.listView
-                .GetType()
-                .GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
-                .SetValue(this.listView, true, null);
-
-            this.syncView
-                .GetType()
-                .GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
-                .SetValue(this.syncView, true, null);
 
             listView.SelectedIndexChanged += ListView_SelectedIndexChanged;
             syncView.SelectedIndexChanged += ListView_SelectedIndexChanged;
@@ -214,7 +203,7 @@ namespace reAudioPlayerML.Search
             {
                 if ((sender as ToolStripMenuItem).Name == "toolStripMenuItemPreviewSpotify")
                 {
-                    new SpotifyPreview(player, syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack);
+                    new SpotifyPreview(syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack);
                     return;
                 }
                 else if ((sender as ToolStripMenuItem).Name == "toolStripMenuItemPreviewLocal")
@@ -235,7 +224,7 @@ namespace reAudioPlayerML.Search
 
             Release album = getSelectedRelease();
             Paging<SimpleTrack> songs = album.tracks;
-            new SpotifyPreview(player, album.tracks.Items[0]);
+            new SpotifyPreview(album.tracks.Items[0]);
         }
 
         private async void Button_Click(object sender, EventArgs e)
@@ -325,7 +314,7 @@ namespace reAudioPlayerML.Search
                     (sender as ToolStripMenuItem).DropDownItems["link"].Text = "";
                     break;
                 case "toolStripMenuItemRecommend":
-                    Recommender form = new Recommender(this, player, (syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack));
+                    Recommender form = new Recommender((syncPlaylist[selectedIndex[listView.Name]].Track as FullTrack));
                     form.Show();
                     break;
             }
