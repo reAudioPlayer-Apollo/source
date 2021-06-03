@@ -35,14 +35,25 @@ namespace reAudioPlayerML.HttpServer.API
         }
 
         [Route(HttpVerbs.Get, "/volume/{value}")]
-        public async Task RSetVolume(int value)
+        public async Task<int> RSetVolume(int value)
         {
-            volume(value);
+            return Convert.ToInt32(volume(value));
         }
         public string volume(int value)
         {
             PlayerManager.volume = value;
             return value.ToString();
+        }
+
+        [Route(HttpVerbs.Get, "/jump/{value}")]
+        public async void RJump(int value)
+        {
+            await Static.SendStringAsync(HttpContext, jump(value));
+        }
+        public string jump(int value)
+        {
+            PlayerManager.mediaPlayer.jumpTo(value);
+            return PlayerManager.playerPosition.ToString();
         }
 
         [Route(HttpVerbs.Get, "/playPause")]
@@ -66,9 +77,9 @@ namespace reAudioPlayerML.HttpServer.API
         }
 
         [Route(HttpVerbs.Get, "/load/playlist/{index}")]
-        public async Task<string> RLoadPlaylist(int index)
+        public async void RLoadPlaylist(int index)
         {
-            return loadPlaylist(index);
+            await Static.SendStringAsync(HttpContext, loadPlaylist(index));
         }
         public string loadPlaylist(int index)
         {
@@ -76,20 +87,20 @@ namespace reAudioPlayerML.HttpServer.API
         }
 
         [Route(HttpVerbs.Get, "/load/{index}")]
-        public async Task RLoadSong(int index)
+        public async void RLoadSong(int index)
         {
-            loadSong(index);
+            await Static.SendStringAsync(HttpContext, loadSong(index));
         }
         public string loadSong(int index)
         {
             PlayerManager.load(index);
-            return null;
+            return PlayerManager.displayName;
         }
 
         public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)
         {
             int value = 0;
-            bool isInt = int.TryParse(msg.data, out value);
+            bool isInt = int.TryParse(msg.endpoint == "jump" ? msg.data.Replace(".", "") : msg.data, out value);
 
             switch (msg.endpoint)
             {
@@ -103,6 +114,10 @@ namespace reAudioPlayerML.HttpServer.API
 
                 case "volume":
                     msg.data = isInt ? volume(value) : null;
+                    break;
+
+                case "jump":
+                    msg.data = isInt ? jump(value) : null;
                     break;
 
                 case "playPause":

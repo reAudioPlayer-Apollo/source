@@ -77,6 +77,53 @@ namespace reAudioPlayerML
             }
         }
 
+        public static PlayerPosition playerPosition
+        {
+            get
+            {
+                switch (activePlayer)
+                {
+                    case ActivePlayer.ApolloOnAir:
+                        return new PlayerPosition();
+
+                    case ActivePlayer.RevealedStream:
+                        return new PlayerPosition();
+
+                    case ActivePlayer.Playlist:
+                    default:
+                        PlayerPosition t = null;
+                        mediaPlayer.trackBar.Invoke(new Action(() =>
+                        {
+                            t = new PlayerPosition(mediaPlayer.player.Position, mediaPlayer.player.NaturalDuration.TimeSpan);
+                        }));
+                        return t;
+                }
+            }
+        }
+
+        public class PlayerPosition
+        {
+            public string remainingTime;
+            public string duration;
+            public string absolutePosition;
+            public string relativePosition;
+
+            public PlayerPosition() { }
+
+            public PlayerPosition(TimeSpan absolutePosition, TimeSpan duration)
+            {
+                this.duration = duration.ToString("mm':'ss");
+                this.absolutePosition = absolutePosition.ToString("mm':'ss");
+                remainingTime = (duration - absolutePosition).ToString("mm':'ss");
+                relativePosition = Math.Round((absolutePosition.TotalSeconds / duration.TotalSeconds) * 100, 1).ToString() + "%";
+            }
+
+            public string ToString()
+            {
+                return JsonConvert.SerializeObject(this);
+            }
+        }
+
         public static int volume
         {
             get
@@ -173,7 +220,19 @@ namespace reAudioPlayerML
             }
         }
 
-        public static string loadPlaylist(int index) // here?
+        public static PlaylistManager.FullPlaylist loadPlaylistVirtually(int index)
+        {
+            var playlists = File.ReadAllLines(logger.playlistLib);
+            var songList = MediaPlayer.GetPlaylist(playlists[index], logger);
+            return loadPlaylistVirtually(songList);
+        }
+
+        public static PlaylistManager.FullPlaylist loadPlaylistVirtually(List<MediaPlayer.Song> songList)
+        {
+            return PlaylistManager.FullPlaylist.FromSongList(songList);
+        }
+
+        public static string loadPlaylist(int index)
         {
             switch (activePlayer)
             {

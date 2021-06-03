@@ -11,7 +11,7 @@ namespace reAudioPlayerML
 {
     public class MediaPlayer
     {
-        private readonly System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
+        public readonly System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
         public List<Song> playlist { get; private set; }
         private int playlistIndex;
         private int nextIndex;
@@ -20,7 +20,7 @@ namespace reAudioPlayerML
         private readonly System.Windows.Forms.Timer tmrBarManager = new System.Windows.Forms.Timer();
         private readonly PausableTimer tmrSongPlayed;
         private MetroFramework.Controls.MetroTrackBar volumeBar;
-        private MetroFramework.Controls.MetroTrackBar trackBar;
+        public MetroFramework.Controls.MetroTrackBar trackBar;
         private System.Windows.Forms.PictureBox playPauseImg;
         private System.Windows.Forms.Label lblDone, lblUp, lblUpNowTitle, lblUpNowArtist;
         private readonly Logger logger;
@@ -176,7 +176,10 @@ namespace reAudioPlayerML
 
         public void jumpTo(int position)
         {
-            player.Position = new TimeSpan(0, 0, 0, 0, fromTrackBarScale(position));
+            trackBar.Invoke(new Action(() =>
+            {
+                player.Position = new TimeSpan(0, 0, 0, 0, fromTrackBarScale(position));
+            }));
         }
 
         public void next()
@@ -186,6 +189,11 @@ namespace reAudioPlayerML
 
         public void last()
         {
+            if (playlist is null)
+            {
+                return;
+            }
+
             loadSong(lastIndex);
         }
 
@@ -202,11 +210,16 @@ namespace reAudioPlayerML
             return r;
         }
 
-        private int fromTrackBarScale(int position)
+        public int fromTrackBarScale(int position)
         {
+            double totMs = 0;
+
             try
             {
-                double totMs = player.NaturalDuration.TimeSpan.TotalMilliseconds;
+                trackBar.Invoke(new Action(() =>
+                {
+                    totMs = player.NaturalDuration.TimeSpan.TotalMilliseconds;
+                }));
 
                 return (int)Math.Round((position * totMs) / 1000.0);
             }
@@ -248,7 +261,7 @@ namespace reAudioPlayerML
             loadSong(playlist[0].location);
         }
 
-        private Song getSong(string filename)
+        public static Song GetSong(string filename)
         {
             Song song = new Song();
             TagLib.File tagfile = TagLib.File.Create(filename);
@@ -272,7 +285,7 @@ namespace reAudioPlayerML
                     IEnumerable<Song> structResults = playlist.Where(a => a.location == filename);
                     playlistIndex = playlist.IndexOf(structResults.First());
                     player.Open(new Uri(filename));
-                    upNow = getSong(filename);
+                    upNow = playlist.Find(x => x.location == filename);
                     lblUpNowTitle.Text = upNow.title;
                     lblUpNowArtist.Text = $"{upNow.artist} - [{filename}]";
                 }));
@@ -348,13 +361,7 @@ namespace reAudioPlayerML
         public void loadPlaylist(List<string> pl, bool autoplay = false)
         {
             playlistIndex = 0;
-            playlist = new List<Song>();
-
-            foreach (var f in pl)
-            {
-                playlist.Add(getSong(f));
-                logger.addSongToDB(f);
-            }
+            playlist = GetPlaylist(pl, logger);
 
             playlistCount = playlist.Count;
 
@@ -365,6 +372,28 @@ namespace reAudioPlayerML
 
             Task.Run(() => loadCovers());
             loadSong(0, autoplay);
+        }
+
+        public static List<Song> GetPlaylist(string pl, Logger logger)
+        {
+            List<string> x = PlaylistManager.getSongPathsAsStrings(pl);
+
+            logger.addPlaylistToDB(pl);
+
+            return GetPlaylist(x, logger);
+        }
+
+        public static List<Song> GetPlaylist(List<string> pl, Logger logger)
+        {
+            List<Song> t = new List<Song>();
+
+            foreach (var f in pl)
+            {
+                t.Add(GetSong(f));
+                logger.addSongToDB(f);
+            }
+
+            return t;
         }
 
         private async Task loadCovers()

@@ -246,6 +246,8 @@ namespace reAudioPlayerML
         private void tmrAccentColour_Tick(object sender, EventArgs e)
         {
             btnRevealedRadio.FlatAppearance.BorderColor =
+                btnSyncLocalToSpotify.FlatAppearance.BorderColor =
+                btnManualAcrop.FlatAppearance.BorderColor =
                 btnSyncAnalyse.FlatAppearance.BorderColor =
                 btnSyncExport.FlatAppearance.BorderColor =
                 btnSync.FlatAppearance.BorderColor =
@@ -257,6 +259,8 @@ namespace reAudioPlayerML
                 btnMove.FlatAppearance.BorderColor =
                 mediaPlayer.accentColour;
             btnRevealedRadio.FlatAppearance.MouseDownBackColor =
+                btnSyncLocalToSpotify.FlatAppearance.MouseDownBackColor =
+                btnManualAcrop.FlatAppearance.MouseDownBackColor =
                 btnSyncAnalyse.FlatAppearance.MouseDownBackColor =
                 btnSyncExport.FlatAppearance.MouseDownBackColor =
                 btnSync.FlatAppearance.MouseDownBackColor =

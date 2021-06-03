@@ -24,6 +24,28 @@ namespace reAudioPlayerML.HttpServer.API
             return PlayerManager.displayName;
         }
 
+        [Route(HttpVerbs.Get, "/playlist")]
+        public async Task RGetPlaylist()
+        {
+            await Static.SendStringAsync(HttpContext, playlist());
+        }
+
+        public string playlist()
+        {
+            return JsonConvert.SerializeObject(PlayerManager.loadPlaylistVirtually(PlayerManager.mediaPlayer.playlist));
+        }
+
+        [Route(HttpVerbs.Get, "/playlist/{index}")]
+        public async Task RGetPlaylist(int index)
+        {
+            await Static.SendStringAsync(HttpContext, playlist(index));
+        }
+
+        public string playlist(int index)
+        {
+            return JsonConvert.SerializeObject(PlayerManager.loadPlaylistVirtually(index));
+        }
+
         [Route(HttpVerbs.Get, "/playlists")]
         public async Task RGetPlaylists()
         {
@@ -44,6 +66,17 @@ namespace reAudioPlayerML.HttpServer.API
         public string volume()
         {
             return PlayerManager.volume.ToString();
+        }
+
+        [Route(HttpVerbs.Get, "/position")]
+        public async Task RPosition()
+        {
+            await Static.SendStringAsync(HttpContext, position());
+        }
+
+        public string position()
+        {
+            return PlayerManager.playerPosition.ToString();
         }
 
         [Route(HttpVerbs.Get, "/cover")]
@@ -79,6 +112,9 @@ namespace reAudioPlayerML.HttpServer.API
 
         public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)
         {
+            int value = 0;
+            bool isInt = int.TryParse(msg.data, out value);
+
             switch (msg.endpoint)
             {
                 case "displayname":
@@ -89,8 +125,16 @@ namespace reAudioPlayerML.HttpServer.API
                     msg.data = playlists();
                     break;
 
+                case "playlist":
+                    msg.data = isInt ? playlist(value) : playlist();
+                    break;
+
                 case "volume":
                     msg.data = volume();
+                    break;
+
+                case "position":
+                    msg.data = position();
                     break;
 
                 case "cover":

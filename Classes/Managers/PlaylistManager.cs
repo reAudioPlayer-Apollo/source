@@ -94,12 +94,44 @@ namespace reAudioPlayerML
             return file.LastWriteTime.ToString("d MMM yyyy");
         }
 
-        public struct DetailedPlaylist
+        public class DetailedPlaylist
         {
-            public string name;
-            public string description;
-            public string date;
-            public string[] tags;
+            public string name { get; set; }
+            public string description { get; set; }
+            public string date { get; set; }
+            public string[] tags { get; set; }
+
+            public static explicit operator DetailedPlaylist(FullPlaylist bar)
+            {
+                return new DetailedPlaylist { name = bar.name, description = bar.description, date = bar.date, tags = bar.tags };
+            }
+        }
+
+        public class FullPlaylist
+        {
+            public string name { get; set; }
+            public string description { get; set; }
+            public string date { get; set; }
+            public string[] tags { get; set; }
+
+            public MediaPlayer.Song[] songs;
+
+            public static implicit operator FullPlaylist(DetailedPlaylist bar)
+            {
+                return new FullPlaylist { name = bar.name, description = bar.description, date = bar.date, tags = bar.tags};
+            }
+
+            public static FullPlaylist FromSongList(List<MediaPlayer.Song> songs)
+            {
+                if (songs is null || songs.Count <= 0)
+                {
+                    return null;
+                }
+
+                FullPlaylist t = getDetailedPlaylist(Path.GetDirectoryName(songs.FirstOrDefault().location));
+                t.songs = songs.ToArray();
+                return t;
+            }
         }
 
         public struct AllDetailedPlaylists
@@ -123,7 +155,7 @@ namespace reAudioPlayerML
             {
                 var t = getDetailedPlaylist(pl);
                 t.description += " songs, handpicked by you";
-                allDetailedPlaylists.customplaylists.Add(t);
+                allDetailedPlaylists.customplaylists.Add(t as DetailedPlaylist);
             }
 
             return allDetailedPlaylists;
