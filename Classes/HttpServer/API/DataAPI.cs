@@ -4,6 +4,7 @@ using EmbedIO.WebApi;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -55,6 +56,48 @@ namespace reAudioPlayerML.HttpServer.API
         public string playlists()
         {
             return JsonConvert.SerializeObject(PlaylistManager.getDetailedPlaylists());
+        }
+
+        [Route(HttpVerbs.Get, "/search/{query}&{scope}")]
+        public async Task RSearch(string query, string scope = null)
+        {
+            await Static.SendStringAsync(HttpContext, search(query, scope));
+        }
+
+        public string search(ISearch req)
+        {
+            return search(req.query, req.scope);
+        }
+
+        public string search(string query, string scope)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            var pl = PlayerManager.mediaPlayer.playlist;
+            if (pl is null)
+            {
+                return "null";
+            }
+
+            query = query is null ? "" : query;
+
+            string ret;
+
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                ret = MediaPlayer.Song.ToString(pl.ToArray());
+                sw.Stop();
+                Debug.WriteLine(sw.Elapsed.ToString());
+                return ret;
+            }
+
+            var matches = pl.Where(x => x.oneLiner.ToLower().Contains(query.ToLower())).ToList();
+            ret = MediaPlayer.Song.ToString(matches.ToArray());
+
+            sw.Stop();
+            Debug.WriteLine(sw.Elapsed.ToString());
+            return ret;
         }
 
         [Route(HttpVerbs.Get, "/volume")]
@@ -110,6 +153,13 @@ namespace reAudioPlayerML.HttpServer.API
             return ColorTranslator.ToHtml(PlayerManager.accentColour);
         }
 
+        public struct ISearch
+        {
+            public string query;
+            public string scope;
+            public string type;
+        }
+
         public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)
         {
             int value = 0;
@@ -147,6 +197,10 @@ namespace reAudioPlayerML.HttpServer.API
 
                 case "accentColour":
                     msg.data = accentColour();
+                    break;
+
+                case "search":
+                    msg.data = search(JsonConvert.DeserializeObject<ISearch>(msg.data));
                     break;
 
                 default:

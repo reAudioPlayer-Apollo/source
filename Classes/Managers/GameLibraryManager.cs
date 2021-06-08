@@ -51,11 +51,55 @@ namespace reAudioPlayerML
             gameChecker = gc;
             webServer = hs;
 
+            loadFromCache();
             var drives = DriveInfo.GetDrives();
 
             foreach (var drive in drives)
             {
                 scanAndAppend(drive.RootDirectory.FullName);
+            }
+        }
+
+        public static void loadFromCache()
+        {
+            var cachedGames = cache;
+
+            foreach (var game in cachedGames)
+            {
+                if (File.Exists(game.Key))
+                {
+                    var name = gameChecker.getDisplayName(game.Key);
+
+                    lock (installedGames)
+                    {
+                        if (!installedGames.ContainsKey(name))
+                        {
+                            GameStartInfo t = new GameStartInfo();
+                            t.location = game.Key;
+
+                            if (game.Key.Contains("steamapps"))
+                                t.platform = GameStartInfo.Platform.Steam;
+                            else
+                                t.platform = GameStartInfo.Platform.Unknown;
+
+                            installedGames.Add(name, t);
+                        }
+                    }
+                }
+            }
+        }
+
+        public static Dictionary<string, string> cache
+        {
+            get
+            {
+                var t = JsonConvert.DeserializeObject<Dictionary<string, string>>(Properties.Settings.Default.gameCache);
+                return t is null ? new Dictionary<string, string>() : t;
+            }
+            set
+            {
+                Properties.Settings.Default.gameCache = JsonConvert.SerializeObject(value);
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -65,12 +109,12 @@ namespace reAudioPlayerML
 
             Task.Factory.StartNew(() => getGamesInFolder(directory)).ContinueWith(games =>
             {
-                lock (games)
+                foreach (var game in games.Result)
                 {
-                    foreach (var game in games.Result)
-                    {
-                        var name = gameChecker.getDisplayName(game);
+                    var name = gameChecker.getDisplayName(game);
 
+                    lock (installedGames)
+                    {
                         if (!installedGames.ContainsKey(name))
                         {
                             GameStartInfo t = new GameStartInfo();
@@ -86,6 +130,19 @@ namespace reAudioPlayerML
                 }
 
                 activeScannings--;
+
+                if (activeScannings == 0)
+                {
+                    lock (installedGames)
+                    {
+                        Dictionary<string, string> tmp = new Dictionary<string, string>();
+                        foreach (var game in installedGames)
+                        {
+                            tmp.Add(game.Value.location, game.Key);
+                        }
+                        cache = tmp;
+                    }
+                }
             }).ConfigureAwait(true);
         }
 

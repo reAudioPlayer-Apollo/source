@@ -8,6 +8,16 @@ window.ws = new function () {
             webSocket.send(createMessage("data", "playlists"));
         }
 
+        playlist(index) {
+            webSocket.send(createMessage("data", "playlist", index));
+        }
+
+        search(query) {
+            webSocket.send(createMessage("data", "search", JSON.stringify({
+                query
+            })));
+        }
+
         volume() {
             webSocket.send(createMessage("data", "volume"));
         }

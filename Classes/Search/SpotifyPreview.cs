@@ -95,7 +95,7 @@ namespace reAudioPlayerML.Search
 
         public void downloadPreview(FullTrack track)
         {
-            downloadPreview(track.Name, track?.PreviewUrl);
+            downloadPreview(track?.Name, track?.PreviewUrl);
             previewF = track;
         }
 

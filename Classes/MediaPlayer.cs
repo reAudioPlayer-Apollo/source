@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -56,7 +58,7 @@ namespace reAudioPlayerML
         public bool isPlaying
         { get; private set; }
 
-        public struct Song
+        public class SimpleSong
         {
             public string oneLiner;
             public string secondLiner;
@@ -65,8 +67,79 @@ namespace reAudioPlayerML
             public string album;
             public string location;
             public Color accentColour;
+            public int index;
+            public string coverUri;
+            public Search.Spotify.Synchronise.SpotifyComment info;
+
+            public SimpleSong() { }
+            public SimpleSong(Song song)
+            {
+                oneLiner = song.oneLiner;
+                secondLiner = song.secondLiner;
+                artist = song.artist;
+                title = song.title;
+                album = song.album;
+                location = song.location;
+                accentColour = song.accentColour;
+                index = song.index;
+                info = song.info;
+
+                if (song.cover is not null)
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        try
+                        {
+                            song.cover.Save(m, song.cover.RawFormat);
+                            coverUri = "data:image/"
+                                    + song.cover.RawFormat.ToString()
+                                    + ";base64,"
+                                    + Convert.ToBase64String(m.ToArray()) + "\"";
+                        }
+                        catch { }
+                    }
+                }
+            }
+
+            public static string ToString(Song song)
+            {
+                return JsonConvert.SerializeObject(new SimpleSong(song));
+            }
+
+            public static string ToString(SimpleSong song)
+            {
+                return JsonConvert.SerializeObject(song);
+            }
+
+            public static SimpleSong[] ConvertList(Song[] songs)
+            {
+                List<SimpleSong> ret = new List<SimpleSong>();
+
+                foreach (var song in songs)
+                {
+                    ret.Add(new SimpleSong(song));
+                }
+
+                return ret.ToArray();
+            }
+        }
+
+        public class Song: SimpleSong
+        {
             public Image cover;
             public Image background;
+
+            public static string ToString(Song[] songs, bool asSimpleSong = true)
+            {
+                if (asSimpleSong)
+                {
+                    return JsonConvert.SerializeObject(ConvertList(songs));
+                }
+                else
+                {
+                    return JsonConvert.SerializeObject(songs);
+                }
+            }
         }
 
         public MediaPlayer(Logger log, NotifyIcon notifyIco)
@@ -82,6 +155,7 @@ namespace reAudioPlayerML
             tmrBarManager.Tick += TmrBarMgr_Tick;
             tmrBarManager.Start();
             var t = upNow;
+            t = t is null ? new Song() : t;
             t.oneLiner = "N/A";
             upNow = t;
         }
@@ -120,7 +194,7 @@ namespace reAudioPlayerML
                         }
                         else
                         {
-                            //playlist[playlistIndex].cover.Save("ressources\\cover.jpg");
+                            //playlist[playlistIndex].cover.Save("resources\\cover.jpg");
                             PlayerManager.cover = playlist[playlistIndex].cover.Clone() as Image;
                             imgCover.BackgroundImage = playlist[playlistIndex].background;
 
@@ -134,7 +208,20 @@ namespace reAudioPlayerML
             return returnv;
         }
 
-        private Image getCover(string file)
+        public static Image GetCover(TagLib.File file)
+        {
+            try
+            {
+                MemoryStream stream = new MemoryStream(file.Tag.Pictures[0].Data.Data);
+                return Image.FromStream(stream);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public static Image GetCover(string file)
         {
             try
             {
@@ -266,9 +353,10 @@ namespace reAudioPlayerML
             Song song = new Song();
             TagLib.File tagfile = TagLib.File.Create(filename);
             song.artist = tagfile.Tag.FirstPerformer;
-            song.title = tagfile.Tag.Title;
+            song.title = tagfile.Tag.Title is null ? Path.GetFileNameWithoutExtension(filename) : tagfile.Tag.Title;
             song.album = tagfile.Tag.Album;
             song.location = filename;
+            song.info = Search.Spotify.Synchronise.SpotifyComment.FromString(tagfile.Tag.Comment);
 
             song.oneLiner = $"{song.artist} - {song.title}";
             song.secondLiner = $"{song.artist} - {song.album}";
@@ -390,6 +478,7 @@ namespace reAudioPlayerML
             foreach (var f in pl)
             {
                 t.Add(GetSong(f));
+                t[t.Count - 1].index = pl.IndexOf(f);
                 logger.addSongToDB(f);
             }
 
@@ -406,7 +495,7 @@ namespace reAudioPlayerML
                     return;
                 }
 
-                Image cover = getCover(playlist[i].location);
+                Image cover = GetCover(playlist[i].location);
                 
                 lock (playlist)
                 {

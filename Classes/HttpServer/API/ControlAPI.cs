@@ -66,13 +66,13 @@ namespace reAudioPlayerML.HttpServer.API
             PlayerManager.playPause();
             if (PlayerManager.isPlaying)
             {
-                //return GetStream("ressources/controls/webPlay.png");
-                return Static.GetStream("ressources/controls/webPlay.png");
+                //return GetStream("resources/controls/webPlay.png");
+                return Static.GetStream("resources/controls/webPlay.png");
             }
             else
             {
-                //return GetStream("ressources/controls/webPause.png");
-                return Static.GetStream("ressources/controls/webPause.png");
+                //return GetStream("resources/controls/webPause.png");
+                return Static.GetStream("resources/controls/webPause.png");
             }
         }
 

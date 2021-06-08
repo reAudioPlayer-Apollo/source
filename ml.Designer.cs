@@ -188,7 +188,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::reAudioPlayerML.Properties.Resources.volume_down2;
+            this.pictureBox2.Image = global::reAudioPlayerML.Properties.Resources.volume_down;
             resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;

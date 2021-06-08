@@ -57,26 +57,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Private.CoreLib" name="System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" />
-  <data name="lblUpNowArtist.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblUpNowArtist.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="lblUpNowArtist.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblUpNowArtist.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblUpNowArtist.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="lblUpNowArtist.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 53</value>
   </data>
-  <assembly alias="System.Windows.Forms.Primitives" name="System.Windows.Forms.Primitives, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblUpNowArtist.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblUpNowArtist.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="lblUpNowArtist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="lblUpNowArtist.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 13</value>
   </data>
-  <data name="lblUpNowArtist.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="lblUpNowArtist.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="lblUpNowArtist.Text" xml:space="preserve">
@@ -86,7 +85,7 @@
     <value>lblUpNowArtist</value>
   </data>
   <data name="&gt;&gt;lblUpNowArtist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblUpNowArtist.Parent" xml:space="preserve">
     <value>pnlHead</value>
@@ -94,22 +93,22 @@
   <data name="&gt;&gt;lblUpNowArtist.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblUpNowTitle.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="lblUpNowTitle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblUpNowTitle.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="lblUpNowTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 20.25pt</value>
   </data>
-  <data name="lblUpNowTitle.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="lblUpNowTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 10</value>
   </data>
-  <data name="lblUpNowTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="lblUpNowTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="lblUpNowTitle.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="lblUpNowTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 37</value>
   </data>
-  <data name="lblUpNowTitle.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="lblUpNowTitle.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="lblUpNowTitle.Text" xml:space="preserve">
@@ -119,7 +118,7 @@
     <value>lblUpNowTitle</value>
   </data>
   <data name="&gt;&gt;lblUpNowTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblUpNowTitle.Parent" xml:space="preserve">
     <value>pnlHead</value>
@@ -127,27 +126,27 @@
   <data name="&gt;&gt;lblUpNowTitle.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pnlHead.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="pnlHead.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pnlHead.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="pnlHead.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pnlHead.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pnlHead.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pnlHead.Size" type="System.Drawing.Size, System.Drawing">
     <value>816, 82</value>
   </data>
-  <data name="pnlHead.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pnlHead.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;pnlHead.Name" xml:space="preserve">
     <value>pnlHead</value>
   </data>
   <data name="&gt;&gt;pnlHead.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pnlHead.Parent" xml:space="preserve">
     <value>$this</value>
@@ -155,26 +154,26 @@
   <data name="&gt;&gt;pnlHead.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>68, 103</value>
   </data>
-  <data name="pictureBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pictureBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 23</value>
   </data>
   <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <data name="pictureBox2.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
     <value>pictureBox2</value>
   </data>
   <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -185,26 +184,26 @@
   <data name="pictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>732, 105</value>
   </data>
-  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
     <value>pictureBox1</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -215,22 +214,22 @@
   <data name="lblTimeUp.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="lblTimeUp.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="lblTimeUp.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblTimeUp.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="lblTimeUp.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 9pt</value>
   </data>
-  <data name="lblTimeUp.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="lblTimeUp.Location" type="System.Drawing.Point, System.Drawing">
     <value>760, 40</value>
   </data>
-  <data name="lblTimeUp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="lblTimeUp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="lblTimeUp.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="lblTimeUp.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 15</value>
   </data>
-  <data name="lblTimeUp.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="lblTimeUp.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="lblTimeUp.Text" xml:space="preserve">
@@ -240,7 +239,7 @@
     <value>lblTimeUp</value>
   </data>
   <data name="&gt;&gt;lblTimeUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblTimeUp.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -248,22 +247,22 @@
   <data name="&gt;&gt;lblTimeUp.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="lblTimeDone.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="lblTimeDone.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblTimeDone.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="lblTimeDone.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 9pt</value>
   </data>
-  <data name="lblTimeDone.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="lblTimeDone.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 40</value>
   </data>
-  <data name="lblTimeDone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="lblTimeDone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="lblTimeDone.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="lblTimeDone.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 15</value>
   </data>
-  <data name="lblTimeDone.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="lblTimeDone.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="lblTimeDone.Text" xml:space="preserve">
@@ -273,7 +272,7 @@
     <value>lblTimeDone</value>
   </data>
   <data name="&gt;&gt;lblTimeDone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblTimeDone.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -284,16 +283,16 @@
   <data name="prgVolume.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="prgVolume.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="prgVolume.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 103</value>
   </data>
-  <data name="prgVolume.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="prgVolume.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="prgVolume.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="prgVolume.Size" type="System.Drawing.Size, System.Drawing">
     <value>617, 27</value>
   </data>
-  <data name="prgVolume.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="prgVolume.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="prgVolume.Text" xml:space="preserve">
@@ -303,7 +302,7 @@
     <value>prgVolume</value>
   </data>
   <data name="&gt;&gt;prgVolume.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTrackBar, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+    <value>MetroFramework.Controls.MetroTrackBar, MetroFramework, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="&gt;&gt;prgVolume.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -314,16 +313,16 @@
   <data name="prgTimeDone.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="prgTimeDone.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="prgTimeDone.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 15</value>
   </data>
-  <data name="prgTimeDone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="prgTimeDone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="prgTimeDone.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="prgTimeDone.Size" type="System.Drawing.Size, System.Drawing">
     <value>788, 27</value>
   </data>
-  <data name="prgTimeDone.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="prgTimeDone.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="prgTimeDone.Text" xml:space="preserve">
@@ -333,7 +332,7 @@
     <value>prgTimeDone</value>
   </data>
   <data name="&gt;&gt;prgTimeDone.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTrackBar, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+    <value>MetroFramework.Controls.MetroTrackBar, MetroFramework, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="&gt;&gt;prgTimeDone.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -344,26 +343,26 @@
   <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
     <value>490, 50</value>
   </data>
-  <data name="btnNext.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnNext.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 46</value>
   </data>
   <data name="btnNext.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <data name="btnNext.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnNext.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;btnNext.Name" xml:space="preserve">
     <value>btnNext</value>
   </data>
   <data name="&gt;&gt;btnNext.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -374,26 +373,26 @@
   <data name="btnPlayPause.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="btnPlayPause.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnPlayPause.Location" type="System.Drawing.Point, System.Drawing">
     <value>383, 50</value>
   </data>
-  <data name="btnPlayPause.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnPlayPause.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnPlayPause.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnPlayPause.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 46</value>
   </data>
   <data name="btnPlayPause.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="btnPlayPause.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnPlayPause.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;btnPlayPause.Name" xml:space="preserve">
     <value>btnPlayPause</value>
   </data>
   <data name="&gt;&gt;btnPlayPause.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnPlayPause.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -401,26 +400,26 @@
   <data name="&gt;&gt;btnPlayPause.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="btnLast.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnLast.Location" type="System.Drawing.Point, System.Drawing">
     <value>268, 50</value>
   </data>
-  <data name="btnLast.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnLast.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnLast.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnLast.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 46</value>
   </data>
   <data name="btnLast.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <data name="btnLast.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnLast.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;btnLast.Name" xml:space="preserve">
     <value>btnLast</value>
   </data>
   <data name="&gt;&gt;btnLast.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnLast.Parent" xml:space="preserve">
     <value>pnlFooter</value>
@@ -431,23 +430,23 @@
   <data name="pnlFooter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="pnlFooter.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pnlFooter.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 506</value>
   </data>
-  <data name="pnlFooter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pnlFooter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pnlFooter.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pnlFooter.Size" type="System.Drawing.Size, System.Drawing">
     <value>816, 148</value>
   </data>
-  <data name="pnlFooter.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pnlFooter.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;pnlFooter.Name" xml:space="preserve">
     <value>pnlFooter</value>
   </data>
   <data name="&gt;&gt;pnlFooter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pnlFooter.Parent" xml:space="preserve">
     <value>$this</value>
@@ -455,16 +454,16 @@
   <data name="&gt;&gt;pnlFooter.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="lblBackgroundTasks.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="lblBackgroundTasks.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblBackgroundTasks.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="lblBackgroundTasks.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 7</value>
   </data>
-  <data name="lblBackgroundTasks.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="lblBackgroundTasks.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 15</value>
   </data>
-  <data name="lblBackgroundTasks.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="lblBackgroundTasks.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="lblBackgroundTasks.Text" xml:space="preserve">
@@ -474,7 +473,7 @@
     <value>lblBackgroundTasks</value>
   </data>
   <data name="&gt;&gt;lblBackgroundTasks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblBackgroundTasks.Parent" xml:space="preserve">
     <value>pnlRight</value>
@@ -485,23 +484,23 @@
   <data name="pnlRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="pnlRight.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pnlRight.Location" type="System.Drawing.Point, System.Drawing">
     <value>663, 82</value>
   </data>
-  <data name="pnlRight.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pnlRight.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pnlRight.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pnlRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 424</value>
   </data>
-  <data name="pnlRight.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pnlRight.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;pnlRight.Name" xml:space="preserve">
     <value>pnlRight</value>
   </data>
   <data name="&gt;&gt;pnlRight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pnlRight.Parent" xml:space="preserve">
     <value>$this</value>
@@ -512,19 +511,19 @@
   <data name="btnManualAcrop.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnManualAcrop.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnManualAcrop.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnManualAcrop.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnManualAcrop.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 139</value>
   </data>
-  <data name="btnManualAcrop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnManualAcrop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnManualAcrop.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnManualAcrop.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnManualAcrop.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnManualAcrop.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
   <data name="btnManualAcrop.Text" xml:space="preserve">
@@ -534,7 +533,7 @@
     <value>btnManualAcrop</value>
   </data>
   <data name="&gt;&gt;btnManualAcrop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnManualAcrop.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -545,19 +544,19 @@
   <data name="btnSync.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnSync.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnSync.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnSync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnSync.Location" type="System.Drawing.Point, System.Drawing">
     <value>319, 48</value>
   </data>
-  <data name="btnSync.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnSync.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnSync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnSync.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnSync.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnSync.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
   <data name="btnSync.Text" xml:space="preserve">
@@ -567,7 +566,7 @@
     <value>btnSync</value>
   </data>
   <data name="&gt;&gt;btnSync.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSync.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -578,26 +577,26 @@
   <data name="imgQR.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="imgQR.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="imgQR.Location" type="System.Drawing.Point, System.Drawing">
     <value>522, 15</value>
   </data>
-  <data name="imgQR.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="imgQR.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="imgQR.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="imgQR.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 115</value>
   </data>
   <data name="imgQR.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <data name="imgQR.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="imgQR.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="&gt;&gt;imgQR.Name" xml:space="preserve">
     <value>imgQR</value>
   </data>
   <data name="&gt;&gt;imgQR.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;imgQR.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -608,19 +607,19 @@
   <data name="btnAddGame.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnAddGame.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnAddGame.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnAddGame.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnAddGame.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 82</value>
   </data>
-  <data name="btnAddGame.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnAddGame.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnAddGame.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnAddGame.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnAddGame.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnAddGame.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="btnAddGame.Text" xml:space="preserve">
@@ -630,7 +629,7 @@
     <value>btnAddGame</value>
   </data>
   <data name="&gt;&gt;btnAddGame.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnAddGame.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -641,19 +640,19 @@
   <data name="btnDownload.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnDownload.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnDownload.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnDownload.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnDownload.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 15</value>
   </data>
-  <data name="btnDownload.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnDownload.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnDownload.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnDownload.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnDownload.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnDownload.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="btnDownload.Text" xml:space="preserve">
@@ -663,7 +662,7 @@
     <value>btnDownload</value>
   </data>
   <data name="&gt;&gt;btnDownload.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnDownload.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -674,19 +673,19 @@
   <data name="btnApolloOnAir.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnApolloOnAir.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnApolloOnAir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnApolloOnAir.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnApolloOnAir.Location" type="System.Drawing.Point, System.Drawing">
     <value>164, 49</value>
   </data>
-  <data name="btnApolloOnAir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnApolloOnAir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnApolloOnAir.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnApolloOnAir.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnApolloOnAir.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnApolloOnAir.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="btnApolloOnAir.Text" xml:space="preserve">
@@ -696,7 +695,7 @@
     <value>btnApolloOnAir</value>
   </data>
   <data name="&gt;&gt;btnApolloOnAir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnApolloOnAir.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -707,19 +706,19 @@
   <data name="btnRevealedRadio.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnRevealedRadio.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnRevealedRadio.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnRevealedRadio.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnRevealedRadio.Location" type="System.Drawing.Point, System.Drawing">
     <value>164, 15</value>
   </data>
-  <data name="btnRevealedRadio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnRevealedRadio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnRevealedRadio.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnRevealedRadio.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnRevealedRadio.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnRevealedRadio.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="btnRevealedRadio.Text" xml:space="preserve">
@@ -729,7 +728,7 @@
     <value>btnRevealedRadio</value>
   </data>
   <data name="&gt;&gt;btnRevealedRadio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnRevealedRadio.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -740,19 +739,19 @@
   <data name="btnLoadPlaylist.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnLoadPlaylist.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnLoadPlaylist.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnLoadPlaylist.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnLoadPlaylist.Location" type="System.Drawing.Point, System.Drawing">
     <value>319, 15</value>
   </data>
-  <data name="btnLoadPlaylist.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnLoadPlaylist.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnLoadPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnLoadPlaylist.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnLoadPlaylist.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnLoadPlaylist.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="btnLoadPlaylist.Text" xml:space="preserve">
@@ -762,7 +761,7 @@
     <value>btnLoadPlaylist</value>
   </data>
   <data name="&gt;&gt;btnLoadPlaylist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnLoadPlaylist.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -773,19 +772,19 @@
   <data name="btnWebsite.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnWebsite.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnWebsite.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnWebsite.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnWebsite.Location" type="System.Drawing.Point, System.Drawing">
     <value>164, 82</value>
   </data>
-  <data name="btnWebsite.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnWebsite.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnWebsite.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnWebsite.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnWebsite.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnWebsite.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="btnWebsite.Text" xml:space="preserve">
@@ -795,7 +794,7 @@
     <value>btnWebsite</value>
   </data>
   <data name="&gt;&gt;btnWebsite.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnWebsite.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -806,19 +805,19 @@
   <data name="btnMove.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnMove.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="btnMove.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 8.25pt</value>
   </data>
-  <data name="btnMove.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnMove.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 48</value>
   </data>
-  <data name="btnMove.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="btnMove.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="btnMove.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnMove.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 27</value>
   </data>
-  <data name="btnMove.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnMove.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="btnMove.Text" xml:space="preserve">
@@ -828,7 +827,7 @@
     <value>btnMove</value>
   </data>
   <data name="&gt;&gt;btnMove.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnMove.Parent" xml:space="preserve">
     <value>pgQuickAccess</value>
@@ -836,16 +835,16 @@
   <data name="&gt;&gt;btnMove.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="pgQuickAccess.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pgQuickAccess.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="pgQuickAccess.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pgQuickAccess.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pgQuickAccess.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pgQuickAccess.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
-  <data name="pgQuickAccess.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pgQuickAccess.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="pgQuickAccess.Text" xml:space="preserve">
@@ -855,7 +854,7 @@
     <value>pgQuickAccess</value>
   </data>
   <data name="&gt;&gt;pgQuickAccess.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="&gt;&gt;pgQuickAccess.Parent" xml:space="preserve">
     <value>tbControl</value>
@@ -869,26 +868,26 @@
   <data name="imgCover.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="imgCover.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="imgCover.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="imgCover.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="imgCover.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="imgCover.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="imgCover.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
   <data name="imgCover.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="imgCover.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="imgCover.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;imgCover.Name" xml:space="preserve">
     <value>imgCover</value>
   </data>
   <data name="&gt;&gt;imgCover.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;imgCover.Parent" xml:space="preserve">
     <value>pgPlay</value>
@@ -896,29 +895,29 @@
   <data name="&gt;&gt;imgCover.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="pgPlay.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pgPlay.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="pgPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pgPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pgPlay.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pgPlay.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
-  <data name="pgPlay.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pgPlay.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="pgPlay.Text" xml:space="preserve">
     <value>Play</value>
   </data>
-  <data name="pgPlay.Visible" type="System.Boolean, System.Private.CoreLib">
+  <data name="pgPlay.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="&gt;&gt;pgPlay.Name" xml:space="preserve">
     <value>pgPlay</value>
   </data>
   <data name="&gt;&gt;pgPlay.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="&gt;&gt;pgPlay.Parent" xml:space="preserve">
     <value>tbControl</value>
@@ -935,71 +934,74 @@
   <data name="date.Text" xml:space="preserve">
     <value>Release Date</value>
   </data>
-  <data name="openOnSpotifyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <metadata name="spotifyContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="openOnSpotifyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
   <data name="openOnSpotifyToolStripMenuItem.Text" xml:space="preserve">
     <value>Open on Spotify</value>
   </data>
-  <data name="addToPlaylistToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="addToPlaylistToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 23</value>
   </data>
-  <data name="btnAddToPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnAddToPlaylist.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
   <data name="btnAddToPlaylist.Text" xml:space="preserve">
     <value>Add to Playlist</value>
   </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 6</value>
   </data>
-  <data name="searchOnYoutubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="searchOnYoutubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
   <data name="searchOnYoutubeToolStripMenuItem.Text" xml:space="preserve">
     <value>Search on Youtube</value>
   </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 6</value>
   </data>
-  <data name="previewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="previewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
   <data name="previewToolStripMenuItem.Text" xml:space="preserve">
     <value>Preview</value>
   </data>
-  <data name="spotifyContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="spotifyContextMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 104</value>
   </data>
   <data name="&gt;&gt;spotifyContextMenu.Name" xml:space="preserve">
     <value>spotifyContextMenu</value>
   </data>
   <data name="&gt;&gt;spotifyContextMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="listView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="listView1.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="listView1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 9pt</value>
   </data>
-  <data name="listView1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="listView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="listView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="listView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="listView1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="listView1.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
-  <data name="listView1.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="listView1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="&gt;&gt;listView1.Name" xml:space="preserve">
     <value>listView1</value>
   </data>
   <data name="&gt;&gt;listView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;listView1.Parent" xml:space="preserve">
     <value>pgConnectSpotify</value>
@@ -1007,29 +1009,29 @@
   <data name="&gt;&gt;listView1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="pgConnectSpotify.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pgConnectSpotify.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="pgConnectSpotify.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pgConnectSpotify.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pgConnectSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pgConnectSpotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
-  <data name="pgConnectSpotify.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pgConnectSpotify.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="pgConnectSpotify.Text" xml:space="preserve">
     <value>Spotify Releases</value>
   </data>
-  <data name="pgConnectSpotify.Visible" type="System.Boolean, System.Private.CoreLib">
+  <data name="pgConnectSpotify.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="&gt;&gt;pgConnectSpotify.Name" xml:space="preserve">
     <value>pgConnectSpotify</value>
   </data>
   <data name="&gt;&gt;pgConnectSpotify.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="&gt;&gt;pgConnectSpotify.Parent" xml:space="preserve">
     <value>tbControl</value>
@@ -1043,86 +1045,89 @@
   <data name="clmnLocal.Text" xml:space="preserve">
     <value>Local File</value>
   </data>
-  <data name="toolStripMenuItemPreviewSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <metadata name="spotifySyncContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>179, 17</value>
+  </metadata>
+  <data name="toolStripMenuItemPreviewSpotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>302, 22</value>
   </data>
   <data name="toolStripMenuItemPreviewSpotify.Text" xml:space="preserve">
     <value>Preview Spotify</value>
   </data>
-  <data name="toolStripMenuItemPreviewLocal.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripMenuItemPreviewLocal.Size" type="System.Drawing.Size, System.Drawing">
     <value>302, 22</value>
   </data>
   <data name="toolStripMenuItemPreviewLocal.Text" xml:space="preserve">
     <value>Preview Local</value>
   </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>299, 6</value>
   </data>
-  <data name="toolStripMenuItemOpenSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripMenuItemOpenSpotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>302, 22</value>
   </data>
   <data name="toolStripMenuItemOpenSpotify.Text" xml:space="preserve">
     <value>Open On Spotify</value>
   </data>
-  <data name="toolStripMenuItemShowInExplorer.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripMenuItemShowInExplorer.Size" type="System.Drawing.Size, System.Drawing">
     <value>302, 22</value>
   </data>
   <data name="toolStripMenuItemShowInExplorer.Text" xml:space="preserve">
     <value>Show In Explorer</value>
   </data>
-  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
     <value>299, 6</value>
   </data>
-  <data name="toolStripMenuItemChangeFile.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripMenuItemChangeFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>302, 22</value>
   </data>
   <data name="toolStripMenuItemChangeFile.Text" xml:space="preserve">
     <value>Change Local File</value>
   </data>
-  <data name="link.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="link.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
-  <data name="toolStripMenuItemChangeSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripMenuItemChangeSpotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>302, 22</value>
   </data>
   <data name="toolStripMenuItemChangeSpotify.Text" xml:space="preserve">
     <value>Change Spotify Equal</value>
   </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
     <value>299, 6</value>
   </data>
-  <data name="toolStripMenuItemRecommend.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripMenuItemRecommend.Size" type="System.Drawing.Size, System.Drawing">
     <value>302, 22</value>
   </data>
   <data name="toolStripMenuItemRecommend.Text" xml:space="preserve">
     <value>Get Recommendations Based On This Song</value>
   </data>
-  <data name="spotifySyncContextMenu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="spotifySyncContextMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>303, 176</value>
   </data>
   <data name="&gt;&gt;spotifySyncContextMenu.Name" xml:space="preserve">
     <value>spotifySyncContextMenu</value>
   </data>
   <data name="&gt;&gt;spotifySyncContextMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lviewSpotifySync.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="lviewSpotifySync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="lviewSpotifySync.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 123</value>
   </data>
-  <data name="lviewSpotifySync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="lviewSpotifySync.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 259</value>
   </data>
-  <data name="lviewSpotifySync.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="lviewSpotifySync.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;lviewSpotifySync.Name" xml:space="preserve">
     <value>lviewSpotifySync</value>
   </data>
   <data name="&gt;&gt;lviewSpotifySync.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lviewSpotifySync.Parent" xml:space="preserve">
     <value>pgSpotifySync</value>
@@ -1136,13 +1141,13 @@
   <data name="btnSyncLocalToSpotify.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnSyncLocalToSpotify.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnSyncLocalToSpotify.Location" type="System.Drawing.Point, System.Drawing">
     <value>170, 25</value>
   </data>
-  <data name="btnSyncLocalToSpotify.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnSyncLocalToSpotify.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="btnSyncLocalToSpotify.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnSyncLocalToSpotify.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="btnSyncLocalToSpotify.Text" xml:space="preserve">
@@ -1152,7 +1157,7 @@
     <value>btnSyncLocalToSpotify</value>
   </data>
   <data name="&gt;&gt;btnSyncLocalToSpotify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSyncLocalToSpotify.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1160,26 +1165,26 @@
   <data name="&gt;&gt;btnSyncLocalToSpotify.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblSyncProgress.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="lblSyncProgress.Location" type="System.Drawing.Point, System.Drawing">
     <value>342, 105</value>
   </data>
-  <data name="lblSyncProgress.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="lblSyncProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>310, 15</value>
   </data>
-  <data name="lblSyncProgress.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="lblSyncProgress.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
   <data name="lblSyncProgress.Text" xml:space="preserve">
     <value>No playlist selected</value>
   </data>
-  <data name="lblSyncProgress.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
+  <data name="lblSyncProgress.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopRight</value>
   </data>
   <data name="&gt;&gt;lblSyncProgress.Name" xml:space="preserve">
     <value>lblSyncProgress</value>
   </data>
   <data name="&gt;&gt;lblSyncProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSyncProgress.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1187,16 +1192,16 @@
   <data name="&gt;&gt;lblSyncProgress.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>332, 56</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 15</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
@@ -1206,7 +1211,7 @@
     <value>label4</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1214,16 +1219,16 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>332, 11</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 15</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
@@ -1233,7 +1238,7 @@
     <value>label3</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1241,16 +1246,16 @@
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 11</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 15</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
@@ -1260,7 +1265,7 @@
     <value>label1</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1271,13 +1276,13 @@
   <data name="btnSyncExport.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnSyncExport.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnSyncExport.Location" type="System.Drawing.Point, System.Drawing">
     <value>170, 70</value>
   </data>
-  <data name="btnSyncExport.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnSyncExport.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="btnSyncExport.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnSyncExport.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="btnSyncExport.Text" xml:space="preserve">
@@ -1287,7 +1292,7 @@
     <value>btnSyncExport</value>
   </data>
   <data name="&gt;&gt;btnSyncExport.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSyncExport.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1295,20 +1300,20 @@
   <data name="&gt;&gt;btnSyncExport.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="txtSyncOut.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="txtSyncOut.Location" type="System.Drawing.Point, System.Drawing">
     <value>332, 74</value>
   </data>
-  <data name="txtSyncOut.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="txtSyncOut.Size" type="System.Drawing.Size, System.Drawing">
     <value>320, 23</value>
   </data>
-  <data name="txtSyncOut.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="txtSyncOut.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="&gt;&gt;txtSyncOut.Name" xml:space="preserve">
     <value>txtSyncOut</value>
   </data>
   <data name="&gt;&gt;txtSyncOut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtSyncOut.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1316,20 +1321,20 @@
   <data name="&gt;&gt;txtSyncOut.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="txtLocalInput.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="txtLocalInput.Location" type="System.Drawing.Point, System.Drawing">
     <value>332, 29</value>
   </data>
-  <data name="txtLocalInput.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="txtLocalInput.Size" type="System.Drawing.Size, System.Drawing">
     <value>320, 23</value>
   </data>
-  <data name="txtLocalInput.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="txtLocalInput.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="&gt;&gt;txtLocalInput.Name" xml:space="preserve">
     <value>txtLocalInput</value>
   </data>
   <data name="&gt;&gt;txtLocalInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtLocalInput.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1340,13 +1345,13 @@
   <data name="btnSyncAnalyse.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnSyncAnalyse.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="btnSyncAnalyse.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 70</value>
   </data>
-  <data name="btnSyncAnalyse.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnSyncAnalyse.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="btnSyncAnalyse.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="btnSyncAnalyse.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="btnSyncAnalyse.Text" xml:space="preserve">
@@ -1356,7 +1361,7 @@
     <value>btnSyncAnalyse</value>
   </data>
   <data name="&gt;&gt;btnSyncAnalyse.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSyncAnalyse.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1364,20 +1369,20 @@
   <data name="&gt;&gt;btnSyncAnalyse.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="cmbSyncPlaylist.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="cmbSyncPlaylist.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 29</value>
   </data>
-  <data name="cmbSyncPlaylist.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="cmbSyncPlaylist.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 23</value>
   </data>
-  <data name="cmbSyncPlaylist.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="cmbSyncPlaylist.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;cmbSyncPlaylist.Name" xml:space="preserve">
     <value>cmbSyncPlaylist</value>
   </data>
   <data name="&gt;&gt;cmbSyncPlaylist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmbSyncPlaylist.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1388,20 +1393,20 @@
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 123</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>pgSpotifySync</value>
@@ -1409,13 +1414,13 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="pgSpotifySync.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pgSpotifySync.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="pgSpotifySync.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pgSpotifySync.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
-  <data name="pgSpotifySync.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pgSpotifySync.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="pgSpotifySync.Text" xml:space="preserve">
@@ -1425,7 +1430,7 @@
     <value>pgSpotifySync</value>
   </data>
   <data name="&gt;&gt;pgSpotifySync.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pgSpotifySync.Parent" xml:space="preserve">
     <value>tbControl</value>
@@ -1433,19 +1438,19 @@
   <data name="&gt;&gt;pgSpotifySync.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>264, 60</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 15</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
@@ -1455,7 +1460,7 @@
     <value>label2</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1463,13 +1468,13 @@
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="txtExportArtistDelimiter.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="txtExportArtistDelimiter.Location" type="System.Drawing.Point, System.Drawing">
     <value>264, 78</value>
   </data>
-  <data name="txtExportArtistDelimiter.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="txtExportArtistDelimiter.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 23</value>
   </data>
-  <data name="txtExportArtistDelimiter.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="txtExportArtistDelimiter.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="txtExportArtistDelimiter.Text" xml:space="preserve">
@@ -1479,7 +1484,7 @@
     <value>txtExportArtistDelimiter</value>
   </data>
   <data name="&gt;&gt;txtExportArtistDelimiter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtExportArtistDelimiter.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1499,20 +1504,20 @@
   <data name="cmbLanguage.Items3" xml:space="preserve">
     <value>Français</value>
   </data>
-  <data name="cmbLanguage.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="cmbLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>264, 30</value>
   </data>
-  <data name="cmbLanguage.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="cmbLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 23</value>
   </data>
-  <data name="cmbLanguage.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="cmbLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
   <data name="&gt;&gt;cmbLanguage.Name" xml:space="preserve">
     <value>cmbLanguage</value>
   </data>
   <data name="&gt;&gt;cmbLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmbLanguage.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1520,13 +1525,13 @@
   <data name="&gt;&gt;cmbLanguage.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="label11.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
     <value>264, 12</value>
   </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 15</value>
   </data>
-  <data name="label11.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label11.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
@@ -1536,7 +1541,7 @@
     <value>label11</value>
   </data>
   <data name="&gt;&gt;label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1544,16 +1549,16 @@
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="label8.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 252</value>
   </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 15</value>
   </data>
-  <data name="label8.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
@@ -1563,7 +1568,7 @@
     <value>label8</value>
   </data>
   <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1571,20 +1576,20 @@
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="keyTMDB.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="keyTMDB.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 270</value>
   </data>
-  <data name="keyTMDB.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="keyTMDB.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 23</value>
   </data>
-  <data name="keyTMDB.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="keyTMDB.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="&gt;&gt;keyTMDB.Name" xml:space="preserve">
     <value>keyTMDB</value>
   </data>
   <data name="&gt;&gt;keyTMDB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;keyTMDB.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1592,16 +1597,16 @@
   <data name="&gt;&gt;keyTMDB.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="label9.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 204</value>
   </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 15</value>
   </data>
-  <data name="label9.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
@@ -1611,7 +1616,7 @@
     <value>label9</value>
   </data>
   <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label9.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1619,20 +1624,20 @@
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="keyIGDBSecret.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="keyIGDBSecret.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 222</value>
   </data>
-  <data name="keyIGDBSecret.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="keyIGDBSecret.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 23</value>
   </data>
-  <data name="keyIGDBSecret.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="keyIGDBSecret.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
   <data name="&gt;&gt;keyIGDBSecret.Name" xml:space="preserve">
     <value>keyIGDBSecret</value>
   </data>
   <data name="&gt;&gt;keyIGDBSecret.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;keyIGDBSecret.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1640,16 +1645,16 @@
   <data name="&gt;&gt;keyIGDBSecret.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="label10.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 156</value>
   </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 15</value>
   </data>
-  <data name="label10.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
@@ -1659,7 +1664,7 @@
     <value>label10</value>
   </data>
   <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label10.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1667,20 +1672,20 @@
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="keyIGDBId.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="keyIGDBId.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 174</value>
   </data>
-  <data name="keyIGDBId.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="keyIGDBId.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 23</value>
   </data>
-  <data name="keyIGDBId.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="keyIGDBId.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="&gt;&gt;keyIGDBId.Name" xml:space="preserve">
     <value>keyIGDBId</value>
   </data>
   <data name="&gt;&gt;keyIGDBId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;keyIGDBId.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1688,16 +1693,16 @@
   <data name="&gt;&gt;keyIGDBId.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="label7.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 108</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 15</value>
   </data>
-  <data name="label7.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
@@ -1707,7 +1712,7 @@
     <value>label7</value>
   </data>
   <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1715,20 +1720,20 @@
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="keySpotifySecret.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="keySpotifySecret.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 126</value>
   </data>
-  <data name="keySpotifySecret.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="keySpotifySecret.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 23</value>
   </data>
-  <data name="keySpotifySecret.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="keySpotifySecret.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="&gt;&gt;keySpotifySecret.Name" xml:space="preserve">
     <value>keySpotifySecret</value>
   </data>
   <data name="&gt;&gt;keySpotifySecret.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;keySpotifySecret.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1736,16 +1741,16 @@
   <data name="&gt;&gt;keySpotifySecret.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 60</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 15</value>
   </data>
-  <data name="label6.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
@@ -1755,7 +1760,7 @@
     <value>label6</value>
   </data>
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1763,20 +1768,20 @@
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="keySpotifyID.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="keySpotifyID.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 78</value>
   </data>
-  <data name="keySpotifyID.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="keySpotifyID.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 23</value>
   </data>
-  <data name="keySpotifyID.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="keySpotifyID.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="&gt;&gt;keySpotifyID.Name" xml:space="preserve">
     <value>keySpotifyID</value>
   </data>
   <data name="&gt;&gt;keySpotifyID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;keySpotifyID.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1784,16 +1789,16 @@
   <data name="&gt;&gt;keySpotifyID.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="label5.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 12</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 15</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
@@ -1803,7 +1808,7 @@
     <value>label5</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1811,20 +1816,20 @@
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="keyYoutube.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="keyYoutube.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 30</value>
   </data>
-  <data name="keyYoutube.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="keyYoutube.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 23</value>
   </data>
-  <data name="keyYoutube.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="keyYoutube.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;keyYoutube.Name" xml:space="preserve">
     <value>keyYoutube</value>
   </data>
   <data name="&gt;&gt;keyYoutube.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;keyYoutube.Parent" xml:space="preserve">
     <value>pgSettings</value>
@@ -1832,29 +1837,29 @@
   <data name="&gt;&gt;keyYoutube.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="pgSettings.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pgSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="pgSettings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="pgSettings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="pgSettings.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pgSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
-  <data name="pgSettings.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pgSettings.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="pgSettings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="pgSettings.Visible" type="System.Boolean, System.Private.CoreLib">
+  <data name="pgSettings.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="&gt;&gt;pgSettings.Name" xml:space="preserve">
     <value>pgSettings</value>
   </data>
   <data name="&gt;&gt;pgSettings.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="&gt;&gt;pgSettings.Parent" xml:space="preserve">
     <value>tbControl</value>
@@ -1865,26 +1870,26 @@
   <data name="txtLogs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="txtLogs.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="txtLogs.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="txtLogs.Multiline" type="System.Boolean, System.Private.CoreLib">
+  <data name="txtLogs.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtLogs.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
-  <data name="txtLogs.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="txtLogs.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
-  <data name="txtLogs.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="txtLogs.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;txtLogs.Name" xml:space="preserve">
     <value>txtLogs</value>
   </data>
   <data name="&gt;&gt;txtLogs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtLogs.Parent" xml:space="preserve">
     <value>pgLogs</value>
@@ -1892,13 +1897,13 @@
   <data name="&gt;&gt;txtLogs.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="pgLogs.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pgLogs.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="pgLogs.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pgLogs.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 382</value>
   </data>
-  <data name="pgLogs.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="pgLogs.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="pgLogs.Text" xml:space="preserve">
@@ -1908,7 +1913,7 @@
     <value>pgLogs</value>
   </data>
   <data name="&gt;&gt;pgLogs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pgLogs.Parent" xml:space="preserve">
     <value>tbControl</value>
@@ -1919,26 +1924,26 @@
   <data name="tbControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tbControl.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="tbControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 82</value>
   </data>
-  <data name="tbControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="tbControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="tbControl.Padding" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="tbControl.Padding" type="System.Drawing.Point, System.Drawing">
     <value>6, 8</value>
   </data>
-  <data name="tbControl.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="tbControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>663, 424</value>
   </data>
-  <data name="tbControl.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="tbControl.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="&gt;&gt;tbControl.Name" xml:space="preserve">
     <value>tbControl</value>
   </data>
   <data name="&gt;&gt;tbControl.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabControl, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+    <value>MetroFramework.Controls.MetroTabControl, MetroFramework, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="&gt;&gt;tbControl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1946,7 +1951,13 @@
   <data name="&gt;&gt;tbControl.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="notifyIcon.Icon" type="System.Drawing.Icon, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <metadata name="tmrAccentColour.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>366, 17</value>
+  </metadata>
+  <metadata name="notifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>510, 17</value>
+  </metadata>
+  <data name="notifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIAAGiAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAgABJ
         REFUeNrsnXWYHMXWh3/VMu6y7hZXJLi7BQ3B3d1dP+CGi3twh4QgCQ4XgoRgIe7rvuM+0z1t9f2xm5BA
@@ -2534,19 +2545,19 @@
   <data name="notifyIcon.Text" xml:space="preserve">
     <value>reAudioPlayer Apollo</value>
   </data>
-  <data name="notifyIcon.Visible" type="System.Boolean, System.Private.CoreLib">
+  <data name="notifyIcon.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>170, 64</value>
   </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 29</value>
   </data>
-  <data name="button2.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="button2.Text" xml:space="preserve">
@@ -2556,7 +2567,7 @@
     <value>button2</value>
   </data>
   <data name="&gt;&gt;button2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button2.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -2564,20 +2575,20 @@
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>332, 29</value>
   </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>320, 23</value>
   </data>
-  <data name="textBox2.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
     <value>textBox2</value>
   </data>
   <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -2594,20 +2605,20 @@
   <data name="comboBox3.Items2" xml:space="preserve">
     <value>[Ask Every Time]</value>
   </data>
-  <data name="comboBox3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="comboBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>170, 29</value>
   </data>
-  <data name="comboBox3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="comboBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 23</value>
   </data>
-  <data name="comboBox3.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="comboBox3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;comboBox3.Name" xml:space="preserve">
     <value>comboBox3</value>
   </data>
   <data name="&gt;&gt;comboBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;comboBox3.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -2618,13 +2629,13 @@
   <data name="button3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 64</value>
   </data>
-  <data name="button3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 29</value>
   </data>
-  <data name="button3.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="button3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="button3.Text" xml:space="preserve">
@@ -2634,7 +2645,7 @@
     <value>button3</value>
   </data>
   <data name="&gt;&gt;button3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button3.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -2642,20 +2653,20 @@
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="comboBox4.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="comboBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 29</value>
   </data>
-  <data name="comboBox4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="comboBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 23</value>
   </data>
-  <data name="comboBox4.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="comboBox4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;comboBox4.Name" xml:space="preserve">
     <value>comboBox4</value>
   </data>
   <data name="&gt;&gt;comboBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;comboBox4.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -2666,49 +2677,49 @@
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>655, 198</value>
   </data>
-  <data name="panel2.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>332, 70</value>
   </data>
-  <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>320, 23</value>
   </data>
-  <data name="textBox3.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="textBox3.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="&gt;&gt;textBox3.Name" xml:space="preserve">
     <value>textBox3</value>
   </data>
   <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>79</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing.Primitives">
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>816, 654</value>
   </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIAAGiAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAgABJ
         REFUeNrsnXWYHMXWh3/VMu6y7hZXJLi7BQ3B3d1dP+CGi3twh4QgCQ4XgoRgIe7rvuM+0z1t9f2xm5BA
@@ -3293,7 +3304,7 @@
         o6bHmxBCCCGEEEIIIYQQQgghhJAH0H8AoEiPS3tXWV4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
@@ -3303,156 +3314,156 @@
     <value>artist</value>
   </data>
   <data name="&gt;&gt;artist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;album.Name" xml:space="preserve">
     <value>album</value>
   </data>
   <data name="&gt;&gt;album.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;date.Name" xml:space="preserve">
     <value>date</value>
   </data>
   <data name="&gt;&gt;date.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;openOnSpotifyToolStripMenuItem.Name" xml:space="preserve">
     <value>openOnSpotifyToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;openOnSpotifyToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnAddToPlaylist.Name" xml:space="preserve">
     <value>btnAddToPlaylist</value>
   </data>
   <data name="&gt;&gt;btnAddToPlaylist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;addToPlaylistToolStripMenuItem.Name" xml:space="preserve">
     <value>addToPlaylistToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;addToPlaylistToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
     <value>toolStripSeparator1</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;searchOnYoutubeToolStripMenuItem.Name" xml:space="preserve">
     <value>searchOnYoutubeToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;searchOnYoutubeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
     <value>toolStripSeparator2</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;previewToolStripMenuItem.Name" xml:space="preserve">
     <value>previewToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;previewToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;clmnSpotify.Name" xml:space="preserve">
     <value>clmnSpotify</value>
   </data>
   <data name="&gt;&gt;clmnSpotify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;clmnLocal.Name" xml:space="preserve">
     <value>clmnLocal</value>
   </data>
   <data name="&gt;&gt;clmnLocal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemPreviewSpotify.Name" xml:space="preserve">
     <value>toolStripMenuItemPreviewSpotify</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemPreviewSpotify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemPreviewLocal.Name" xml:space="preserve">
     <value>toolStripMenuItemPreviewLocal</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemPreviewLocal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
     <value>toolStripSeparator3</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemOpenSpotify.Name" xml:space="preserve">
     <value>toolStripMenuItemOpenSpotify</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemOpenSpotify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemShowInExplorer.Name" xml:space="preserve">
     <value>toolStripMenuItemShowInExplorer</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemShowInExplorer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
     <value>toolStripSeparator4</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemChangeFile.Name" xml:space="preserve">
     <value>toolStripMenuItemChangeFile</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemChangeFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemChangeSpotify.Name" xml:space="preserve">
     <value>toolStripMenuItemChangeSpotify</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemChangeSpotify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;link.Name" xml:space="preserve">
     <value>link</value>
   </data>
   <data name="&gt;&gt;link.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
     <value>toolStripSeparator5</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemRecommend.Name" xml:space="preserve">
     <value>toolStripMenuItemRecommend</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemRecommend.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tmrAccentColour.Name" xml:space="preserve">
     <value>tmrAccentColour</value>
   </data>
   <data name="&gt;&gt;tmrAccentColour.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;notifyIcon.Name" xml:space="preserve">
     <value>notifyIcon</value>
   </data>
   <data name="&gt;&gt;notifyIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ml</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=5.0.6.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -117,7 +117,7 @@ namespace reAudioPlayerML
                     string link = "https://www.youtube.com/playlist?" + Path.GetFileNameWithoutExtension(sync);
 
                     NYoutubeDL.YoutubeDL dl = new NYoutubeDL.YoutubeDL();
-                    dl.YoutubeDlPath = AppContext.BaseDirectory + "ressources\\youtube-dl.exe";
+                    dl.YoutubeDlPath = AppContext.BaseDirectory + "resources\\youtube-dl.exe";
                     dl.Options.GeneralOptions.ConfigLocation = sync.Replace(".arch", ".conf");
                     dl.VideoUrl = link;
                     dl.Options.VideoSelectionOptions.DownloadArchive = sync;
@@ -154,7 +154,7 @@ namespace reAudioPlayerML
         public async void download(string video)
         {
             NYoutubeDL.YoutubeDL dl = new NYoutubeDL.YoutubeDL();
-            dl.YoutubeDlPath = AppContext.BaseDirectory + "ressources\\youtube-dl.exe";
+            dl.YoutubeDlPath = AppContext.BaseDirectory + "resources\\youtube-dl.exe";
             dl.Options.PostProcessingOptions.ExtractAudio = true;
             dl.Options.PostProcessingOptions.AudioFormat = NYoutubeDL.Helpers.Enums.AudioFormat.mp3;
             dl.Options.PostProcessingOptions.AddMetadata = true;
@@ -208,7 +208,7 @@ namespace reAudioPlayerML
         public NYoutubeDL.YoutubeDL createDownloader(string link, string output, bool noPlaylist = false)
         {
             var dl = new NYoutubeDL.YoutubeDL();
-            dl.YoutubeDlPath = AppContext.BaseDirectory + "ressources\\youtube-dl.exe";
+            dl.YoutubeDlPath = AppContext.BaseDirectory + "resources\\youtube-dl.exe";
             dl.Options.FilesystemOptions.Continue = true;
             dl.Options.GeneralOptions.IgnoreErrors = true;
             dl.Options.FilesystemOptions.NoOverwrites = true;

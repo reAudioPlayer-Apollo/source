@@ -310,7 +310,10 @@ namespace reAudioPlayerML.Search.Spotify
 
             while (trackIds.Count > 0)
             {
-                ret.AddRange(Init.Client.Tracks.GetSeveral(new TracksRequest(trackIds.Take(50).ToList())).Result.Tracks);
+                try
+                {
+                    ret.AddRange(Init.Client.Tracks.GetSeveral(new TracksRequest(trackIds.Take(50).ToArray())).Result.Tracks);
+                } catch { }
                 trackIds.RemoveRange(0, trackIds.Count > 50 ? 50 : trackIds.Count);
             }
 
@@ -345,9 +348,9 @@ namespace reAudioPlayerML.Search.Spotify
 
                 return item;
             }
-            catch (APITooManyRequestsException)
+            catch
             {
-                UIHandler.lblSyncProgress.Invoke(new Action(() => UIHandler.lblSyncProgress.Text = "Rate Limit Exceeded"));
+                UIHandler.lblSyncProgress.Invoke(new Action(() => UIHandler.lblSyncProgress.Text = "Rate Limit Exceeded @ " + Path.GetFileNameWithoutExtension(song)));
             }
 
             return null;
@@ -463,7 +466,12 @@ namespace reAudioPlayerML.Search.Spotify
                 return "N/A";
             }
 
-            string name = track.Artists.FirstOrDefault().Name;
+            string name = "";
+
+            try
+            {
+                name = track.Artists.FirstOrDefault().Name;
+            } catch { }
 
             for (int i = 1; i < track.Artists.Count; i++)
             {
@@ -650,12 +658,17 @@ namespace reAudioPlayerML.Search.Spotify
 
                 if (missingIds.Count > 0)
                 {
-                    TracksAudioFeaturesRequest req = new TracksAudioFeaturesRequest(missingIds);
-                    List<TrackAudioFeatures> res = Init.Client.Tracks.GetSeveralAudioFeatures(req).Result.AudioFeatures;
-
-                    foreach (TrackAudioFeatures re in res)
+                    while (missingIds.Count > 0)
                     {
-                        featureCache.Add(re.Id, re);
+                        TracksAudioFeaturesRequest req = new TracksAudioFeaturesRequest(missingIds.Take(100).ToArray());
+                        List<TrackAudioFeatures> res = Init.Client.Tracks.GetSeveralAudioFeatures(req).Result.AudioFeatures;
+
+                        foreach (TrackAudioFeatures re in res)
+                        {
+                            featureCache.TryAdd(re.Id, re);
+                        }
+
+                        missingIds.RemoveRange(0, missingIds.Count > 50 ? 50 : missingIds.Count);
                     }
 
                     Wrapper.SpotifyFeatureCache = featureCache;
@@ -677,7 +690,8 @@ namespace reAudioPlayerML.Search.Spotify
                     else
                     {
                         string output = overwrite ?
-                            Path.Combine(Path.GetDirectoryName(file), item.Text + Path.GetExtension(file)) :
+                            file :
+//                            Path.Combine(Path.GetDirectoryName(file), item.Text + Path.GetExtension(file)) :
                             Path.Combine(UIHandler.txtSyncOut.Text, item.Text + Path.GetExtension(file));
 
                         if (file != output)
@@ -740,8 +754,9 @@ namespace reAudioPlayerML.Search.Spotify
             return string.IsNullOrWhiteSpace(UIHandler.txtArtistDelimiter.Text) ? artists : new string[] { string.Join(UIHandler.txtArtistDelimiter.Text, artists) };
         }
 
-        private class SpotifyComment
+        public class SpotifyComment
         {
+            public SpotifyComment() { }
             public SpotifyComment(TrackAudioFeatures features, int popularity, string releaseDate)
             {
                 energy = (int)Math.Round(features.Energy * 100);
@@ -764,7 +779,14 @@ namespace reAudioPlayerML.Search.Spotify
 
             public static SpotifyComment FromString(string comment)
             {
-                return JsonConvert.DeserializeObject<SpotifyComment>(comment);
+                try
+                {
+                    return comment is null ? new SpotifyComment() : JsonConvert.DeserializeObject<SpotifyComment>(comment);
+                }
+                catch
+                {
+                    return new SpotifyComment();
+                }
             }
 
             public int popularity, energy, danceability, happiness, loudness, accousticness, instrumentalness, liveness, speechiness;

@@ -43,7 +43,7 @@ reAudioPlayer collects and stores locally in "%localappdata%\reAudioPlayer":
 - YT-Sync Jobs (job description + archive) (Syncs/*)
 
 reAudioPlayer collects and stores anonymously on an external server, only accessible through the audio player:
-- [install directory]/ressources/games.json is being synchronised to the cloud
+- [install directory]/resources/games.json is being synchronised to the cloud
 
 reAudioPlayer collects and temporary stores anonymously on an [on heroku hosted server](https://github.com/reAudioPlayer-Apollo/server), only accessible through the audio player with an automatically generated key:
 - game library, used to share your games, generated key can be shared to friends, expires one day after creation

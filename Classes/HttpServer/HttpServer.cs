@@ -91,7 +91,7 @@ namespace reAudioPlayerML.HttpServer
 
                 .WithModule(new Modules.WebSocket("/ws"))
 
-                .WithStaticFolder("/", "ressources/www/", true)
+                .WithStaticFolder("/", "resources/www/", true)
                 .WithModule(new ActionModule("/", HttpVerbs.Any, ctx => ctx.SendDataAsync(new { Message = "Error" })));
 
             return server;

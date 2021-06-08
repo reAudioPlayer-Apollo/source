@@ -46,28 +46,31 @@ namespace reAudioPlayerML
 
         public void populateJson()
         {
-            var items = loadJson();
-            Search.Game game = new Search.Game();
-            bool changedAtLeastOne = false;
-            
-            for (var i = 0; i < items.Count; i++)
+            try
             {
-                if (items[i].igdbId == -1)
-                {
-                    var t = game.byQuery(items[i].name).Result;
-                    items[i].igdbId = (long)t.Id;
-                    items[i].cover = t.Cover.Value.Url.Replace("t_thumb", "t_1080p");
-                    changedAtLeastOne = true;
-                }
-            }
+                var items = loadJson();
+                Search.Game game = new Search.Game();
+                bool changedAtLeastOne = false;
 
-            if (changedAtLeastOne)
-                saveJson(items.ToArray());
+                for (var i = 0; i < items.Count; i++)
+                {
+                    if (items[i].igdbId == -1)
+                    {
+                        var t = game.byQuery(items[i].name).Result;
+                        items[i].igdbId = (long)t.Id;
+                        items[i].cover = t.Cover.Value.Url.Replace("t_thumb", "t_1080p");
+                        changedAtLeastOne = true;
+                    }
+                }
+
+                if (changedAtLeastOne)
+                    saveJson(items.ToArray());
+            } catch { }
         }
 
         private static void saveJson(GameObj[] items)
         {
-            File.WriteAllText("ressources\\games.json", JsonConvert.SerializeObject(items));
+            File.WriteAllText("resources\\games.json", JsonConvert.SerializeObject(items));
         }
 
         public static void addGameToJson(string name, string exe)
@@ -89,7 +92,7 @@ namespace reAudioPlayerML
 
         public static List<GameObj> loadJson()
         {
-            using (StreamReader r = new StreamReader("ressources\\games.json"))
+            using (StreamReader r = new StreamReader("resources\\games.json"))
             {
                 string json = r.ReadToEnd();
                 List<GameObj> items = JsonConvert.DeserializeObject<List<GameObj>>(json);

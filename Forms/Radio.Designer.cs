@@ -36,6 +36,7 @@
             this.lblProgramme = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblArtist = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,13 +44,12 @@
             this.imgCover = new System.Windows.Forms.PictureBox();
             this.reAudioPlayer = new System.Windows.Forms.NotifyIcon(this.components);
             this.tmrSpinner = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCover)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -122,21 +122,33 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.lblArtist);
             this.panel3.Controls.Add(this.lblTitle);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 365);
+            this.panel3.Location = new System.Drawing.Point(0, 311);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(933, 77);
+            this.panel3.Size = new System.Drawing.Size(933, 131);
             this.panel3.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // lblArtist
             // 
             this.lblArtist.AutoSize = true;
             this.lblArtist.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblArtist.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblArtist.Location = new System.Drawing.Point(14, 51);
+            this.lblArtist.Location = new System.Drawing.Point(144, 108);
             this.lblArtist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblArtist.Name = "lblArtist";
             this.lblArtist.Size = new System.Drawing.Size(26, 13);
@@ -149,7 +161,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTitle.Location = new System.Drawing.Point(7, 8);
+            this.lblTitle.Location = new System.Drawing.Point(137, 65);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(63, 37);
@@ -160,7 +172,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.metroProgressSpinner1);
             this.panel2.Controls.Add(this.imgCover);
             this.panel2.Controls.Add(this.panel3);
@@ -191,10 +202,11 @@
             // 
             this.imgCover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.imgCover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgCover.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imgCover.Location = new System.Drawing.Point(0, 0);
             this.imgCover.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.imgCover.Name = "imgCover";
-            this.imgCover.Size = new System.Drawing.Size(933, 365);
+            this.imgCover.Size = new System.Drawing.Size(933, 311);
             this.imgCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgCover.TabIndex = 3;
             this.imgCover.TabStop = false;
@@ -210,15 +222,6 @@
             this.tmrSpinner.Enabled = true;
             this.tmrSpinner.Interval = 200;
             this.tmrSpinner.Tick += new System.EventHandler(this.tmrSpinner_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Red;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 265);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // Radio
             // 
@@ -239,9 +242,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgCover)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

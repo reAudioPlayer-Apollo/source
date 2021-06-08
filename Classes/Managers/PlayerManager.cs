@@ -237,12 +237,10 @@ namespace reAudioPlayerML
             switch (activePlayer)
             {
                 case ActivePlayer.ApolloOnAir:
-                    //  nothing
-                    return "N/A";
+                    return "Streaming Apollo On Air";
 
                 case ActivePlayer.RevealedStream:
-                    // nothing
-                    return "N/A";
+                    return "Streaming Revealed Radio";
 
                 case ActivePlayer.Playlist:
                 default:

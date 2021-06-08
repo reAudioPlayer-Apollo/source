@@ -124,11 +124,13 @@ namespace reAudioPlayerML
                     TagLib.File tag = TagLib.File.Create(song);
                     lblArtist.Text = tag.Tag.FirstPerformer is null ? "N/A" : tag.Tag.FirstPerformer.ToUpper();
                     lblTitle.Text = tag.Tag.Title is null ? "N/A" : tag.Tag.Title.ToUpper();
+                    pictureBox1.Image = MediaPlayer.GetCover(tag);
                 }
                 catch
                 {
                     lblArtist.Text = "N/A";
-                    lblTitle.Text = "N/A"; 
+                    lblTitle.Text = "N/A";
+                    pictureBox1.Image = null;
                 }
                 player.Open(new Uri(song));
             }
@@ -172,6 +174,7 @@ namespace reAudioPlayerML
                         TagLib.File tag = TagLib.File.Create(song);
                         lblArtist.Text = tag.Tag.FirstPerformer.ToUpper();
                         lblTitle.Text = tag.Tag.Title.ToUpper();
+                        pictureBox1.Image = MediaPlayer.GetCover(tag);
                         player.Open(new Uri(song));
                     }));
                 });

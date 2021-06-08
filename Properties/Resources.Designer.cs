@@ -183,9 +183,9 @@ namespace reAudioPlayerML.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap volume_down2 {
+        internal static System.Drawing.Bitmap volume_down {
             get {
-                object obj = ResourceManager.GetObject("volume down2", resourceCulture);
+                object obj = ResourceManager.GetObject("volume down", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
