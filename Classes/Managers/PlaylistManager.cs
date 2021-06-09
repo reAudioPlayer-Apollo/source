@@ -155,7 +155,7 @@ namespace reAudioPlayerML
             {
                 var t = getDetailedPlaylist(pl);
                 t.description += " songs, handpicked by you";
-                allDetailedPlaylists.customplaylists.Add(t as DetailedPlaylist);
+                allDetailedPlaylists.customplaylists.Add(t);
             }
 
             return allDetailedPlaylists;

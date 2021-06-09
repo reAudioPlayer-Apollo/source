@@ -1,11 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,9 +14,48 @@ namespace reAudioPlayerML
         public readonly System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
         public List<Song> playlist { get; private set; }
         private int playlistIndex;
-        private int nextIndex;
-        private int lastIndex;
-        private int playlistCount;
+        public int nextIndex
+        {
+            get
+            {
+                int j = playlistIndex + 1;
+
+                for (int i = 0; i < playlist.Count; i++) // only run once
+                {
+                    if (j < playlist.Count && !blockList.Contains(j))
+                        continue;
+
+                    if (j >= playlist.Count)
+                        j = 0;
+                    else
+                        j++;
+                }
+
+                return j;
+            }
+        }
+
+        private int lastIndex
+        {
+            get
+            {
+                int j = playlistIndex - 1;
+
+                for (int i = 0; i < playlist.Count; i++) // only run once
+                {
+                    if (j >= 0 && !blockList.Contains(j))
+                        continue;
+
+                    if (j < 0)
+                        j = playlist.Count - 1;
+                    else
+                        j--;
+                }
+
+                return j;
+            }
+        }
+
         private readonly System.Windows.Forms.Timer tmrBarManager = new System.Windows.Forms.Timer();
         private readonly PausableTimer tmrSongPlayed;
         private MetroFramework.Controls.MetroTrackBar volumeBar;
@@ -33,6 +70,8 @@ namespace reAudioPlayerML
         private static NotifyIcon notifyIcon;
         private bool mayCancelLoad = false, cancelLoad = false;
         public RevealedStream revealedStream;
+
+        public List<int> blockList = new List<int>();
 
         public Song upNow { get; private set; }
 
@@ -122,12 +161,22 @@ namespace reAudioPlayerML
 
                 return ret.ToArray();
             }
+
+            public string ToString()
+            {
+                return JsonConvert.SerializeObject(this);
+            }
         }
 
-        public class Song: SimpleSong
+        public class Song : SimpleSong
         {
             public Image cover;
             public Image background;
+
+            public string ToString()
+            {
+                return JsonConvert.SerializeObject(this);
+            }
 
             public static string ToString(Song[] songs, bool asSimpleSong = true)
             {
@@ -139,6 +188,107 @@ namespace reAudioPlayerML
                 {
                     return JsonConvert.SerializeObject(songs);
                 }
+            }
+        }
+
+        public enum OrderBy
+        {
+            Artist,
+            Title,
+            Album,
+            ReleaseDate,
+            CreationDate,
+            Filename,
+            Popularity,
+            Energy,
+            Danceability,
+            Happiness,
+            Loudness,
+            Accousticness,
+            Instrumentalness,
+            Liveness,
+            Speechiness,
+            Key
+        }
+
+        public void sort(string orderBy)
+        {
+            try
+            {
+                OrderBy eOrderBy = (OrderBy)Enum.Parse(typeof(OrderBy), orderBy, true);
+                sort(eOrderBy);
+            }
+            catch { }
+        }
+
+        public void sort(OrderBy orderBy = OrderBy.Artist)
+        {
+            switch (orderBy)
+            {
+                case OrderBy.Artist:
+                    playlist = playlist.OrderBy(x => x.artist).ToList();
+                    break;
+
+                case OrderBy.Title:
+                    playlist = playlist.OrderBy(x => x.title).ToList();
+                    break;
+
+                case OrderBy.Album:
+                    playlist = playlist.OrderBy(x => x.album).ToList();
+                    break;
+
+                case OrderBy.ReleaseDate:
+                    playlist = playlist.OrderByDescending(x => x.info.releaseDate).ToList();
+                    break;
+
+                case OrderBy.CreationDate:
+                    playlist = playlist.OrderByDescending(x => new FileInfo(x.location).CreationTime).ToList();
+                    break;
+
+                case OrderBy.Filename:
+                    playlist = playlist.OrderBy(x => Path.GetFileNameWithoutExtension(x.location)).ToList();
+                    break;
+
+                case OrderBy.Popularity:
+                    playlist = playlist.OrderByDescending(x => x.info.popularity).ToList();
+                    break;
+
+                case OrderBy.Energy:
+                    playlist = playlist.OrderByDescending(x => x.info.energy).ToList();
+                    break;
+
+                case OrderBy.Danceability:
+                    playlist = playlist.OrderByDescending(x => x.info.danceability).ToList();
+                    break;
+
+                case OrderBy.Happiness:
+                    playlist = playlist.OrderByDescending(x => x.info.happiness).ToList();
+                    break;
+
+                case OrderBy.Loudness:
+                    playlist = playlist.OrderByDescending(x => x.info.loudness).ToList();
+                    break;
+
+                case OrderBy.Accousticness:
+                    playlist = playlist.OrderByDescending(x => x.info.accousticness).ToList();
+                    break;
+
+                case OrderBy.Liveness:
+                    playlist = playlist.OrderByDescending(x => x.info.liveness).ToList();
+                    break;
+
+                case OrderBy.Speechiness:
+                    playlist = playlist.OrderByDescending(x => x.info.speechiness).ToList();
+                    break;
+
+                case OrderBy.Key:
+                    playlist = playlist.OrderBy(x => x.info.key).ToList();
+                    break;
+            }
+
+            for (int i = 0; i < playlist.Count; i++)
+            {
+                playlist[i].index = i;
             }
         }
 
@@ -164,6 +314,7 @@ namespace reAudioPlayerML
         {
             lblUpNowArtist.Text = artist;
             lblUpNowTitle.Text = title;
+            PlayerManager.webSocket?.broadCastDisplayname();
 
             player.Open(new Uri(filename));
             play();
@@ -197,7 +348,6 @@ namespace reAudioPlayerML
                             //playlist[playlistIndex].cover.Save("resources\\cover.jpg");
                             PlayerManager.cover = playlist[playlistIndex].cover.Clone() as Image;
                             imgCover.BackgroundImage = playlist[playlistIndex].background;
-
                             accentColour = playlist[playlistIndex].accentColour;
                         }
                     }
@@ -348,8 +498,13 @@ namespace reAudioPlayerML
             loadSong(playlist[0].location);
         }
 
-        public static Song GetSong(string filename)
+        public static Song GetSong(string filename, bool getCover = false, bool getAccentColour = false)
         {
+            if (!File.Exists(filename))
+            {
+                return new Song();
+            }
+
             Song song = new Song();
             TagLib.File tagfile = TagLib.File.Create(filename);
             song.artist = tagfile.Tag.FirstPerformer;
@@ -359,7 +514,17 @@ namespace reAudioPlayerML
             song.info = Search.Spotify.Synchronise.SpotifyComment.FromString(tagfile.Tag.Comment);
 
             song.oneLiner = $"{song.artist} - {song.title}";
-            song.secondLiner = $"{song.artist} - {song.album}";
+            song.secondLiner = string.IsNullOrWhiteSpace(song.album) ? song.artist : $"{song.artist} - {song.album}";
+
+            if (getCover || getAccentColour)
+            {
+                song.cover = GetCover(tagfile);
+
+                if (getAccentColour && song.cover is not null)
+                {
+                    song.accentColour = MediaPlayer.getAccentColour(song.cover, gap: 8).Result;
+                }
+            }
 
             return song;
         }
@@ -376,6 +541,7 @@ namespace reAudioPlayerML
                     upNow = playlist.Find(x => x.location == filename);
                     lblUpNowTitle.Text = upNow.title;
                     lblUpNowArtist.Text = $"{upNow.artist} - [{filename}]";
+                    PlayerManager.webSocket?.broadCastDisplayname();
                 }));
 
                 if (autoplay)
@@ -397,6 +563,11 @@ namespace reAudioPlayerML
 
         public void loadSong(int index, bool autoplay = true)
         {
+            if (playlist is not null && index >= playlist.Count)
+            {
+                return;
+            }
+
             loadSong(playlist[index].location, autoplay);
         }
 
@@ -415,28 +586,6 @@ namespace reAudioPlayerML
             loadNext();
         }
 
-        public int getNextIndex()
-        {
-            int i = playlistIndex + 1;
-
-            if (i >= playlistCount)
-                i = 0;
-
-            nextIndex = i;
-            return i;
-        }
-
-        public int getLastIndex()
-        {
-            int i = playlistIndex - 1;
-
-            if (i < 0)
-                i = playlistCount - 1;
-
-            lastIndex = i;
-            return i;
-        }
-
         public void loadPlaylist(string pl, bool autoplay = false)
         {
             List<string> x = PlaylistManager.getSongPathsAsStrings(pl);
@@ -450,8 +599,7 @@ namespace reAudioPlayerML
         {
             playlistIndex = 0;
             playlist = GetPlaylist(pl, logger);
-
-            playlistCount = playlist.Count;
+            blockList = new List<int>();
 
             cancelLoad = mayCancelLoad;
             mayCancelLoad = true;
@@ -471,13 +619,13 @@ namespace reAudioPlayerML
             return GetPlaylist(x, logger);
         }
 
-        public static List<Song> GetPlaylist(List<string> pl, Logger logger)
+        public static List<Song> GetPlaylist(List<string> pl, Logger logger, bool getCover = false, bool getAccentColour = false)
         {
             List<Song> t = new List<Song>();
 
             foreach (var f in pl)
             {
-                t.Add(GetSong(f));
+                t.Add(GetSong(f, getCover, getAccentColour));
                 t[t.Count - 1].index = pl.IndexOf(f);
                 logger.addSongToDB(f);
             }
@@ -487,7 +635,9 @@ namespace reAudioPlayerML
 
         private async Task loadCovers()
         {
-            for (int i = 0; i < playlist.Count; i++)
+            var files = playlist.Select(x => x.location).ToArray();
+
+            for (int i = 0; i < files.Length; i++)
             {
                 if (cancelLoad)
                 {
@@ -495,13 +645,13 @@ namespace reAudioPlayerML
                     return;
                 }
 
-                Image cover = GetCover(playlist[i].location);
-                
+                Image cover = GetCover(playlist[playlist.FindIndex(x => x.location == files[i])].location);
+
                 lock (playlist)
                 {
-                    Song ttt = playlist[i];
+                    Song ttt = playlist[playlist.FindIndex(x => x.location == files[i])];
                     ttt.cover = cover;
-                    playlist[i] = ttt;
+                    playlist[playlist.FindIndex(x => x.location == files[i])] = ttt;
                 };
             }
 
@@ -526,7 +676,9 @@ namespace reAudioPlayerML
 
         private async Task loadBackgrounds()
         {
-            for (int i = 0; i < playlist.Count; i++)
+            var files = playlist.Select(x => x.location).ToArray();
+
+            for (int i = 0; i < files.Length; i++)
             {
                 if (cancelLoad)
                 {
@@ -534,25 +686,25 @@ namespace reAudioPlayerML
                     return;
                 }
 
-                if (playlist[i].cover is null)
+                if (playlist[playlist.FindIndex(x => x.location == files[i])].cover is null)
                 {
-                    var t = playlist[i];
+                    var t = playlist[playlist.FindIndex(x => x.location == files[i])];
                     t.accentColour = Color.Black;
                     t.background = null;
-                    playlist[i] = t;
+                    playlist[playlist.FindIndex(x => x.location == files[i])] = t;
                 }
                 else
                 {
-                    Color colour = await getAccentColour(playlist[i].cover, 1);
+                    Color colour = await getAccentColour(playlist[playlist.FindIndex(x => x.location == files[i])].cover, 1);
 
                     Bitmap bm = getBackground(colour);
-                    Song ttt = playlist[i];
+                    Song ttt = playlist[playlist.FindIndex(x => x.location == files[i])];
 
                     lock (playlist)
                     {
                         ttt.accentColour = colour;
                         ttt.background = bm;
-                        playlist[i] = ttt;
+                        playlist[playlist.FindIndex(x => x.location == files[i])] = ttt;
                     }
                 }
             }
@@ -567,8 +719,6 @@ namespace reAudioPlayerML
                 playPauseImg.Image = Properties.Resources.pause;
                 isPlaying = true;
                 player.Play();
-                getNextIndex();
-                getLastIndex();
 
                 try
                 {
@@ -577,7 +727,8 @@ namespace reAudioPlayerML
                         revealedLink = revealedStream.getLink();
                         revealedStream.Close();
                     }
-                } catch { }
+                }
+                catch { }
 
                 tmrSongPlayed.Resume();
             }));
@@ -602,7 +753,8 @@ namespace reAudioPlayerML
                     {
                         revealedStream = new RevealedStream(revealedLink);
                         revealedStream.Show();
-                    } catch { }
+                    }
+                    catch { }
 
                     ret = true;
                 }
@@ -626,7 +778,7 @@ namespace reAudioPlayerML
             return finder.getColourAsShadowBitmap(colour);
         }
 
-        private async Task<System.Drawing.Color> getAccentColour(Image image, int gap = 2)
+        private static async Task<System.Drawing.Color> getAccentColour(Image image, int gap = 2)
         {
             AccentColour.PictureAnalyser piccAnalyser = new AccentColour.PictureAnalyser();
             AccentColour.Finder finderr = new AccentColour.Finder();

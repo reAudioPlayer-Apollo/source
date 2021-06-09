@@ -7,6 +7,7 @@
 
   <title>Library</title>
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
   <link href="/library/style.css" rel="stylesheet" />
 
@@ -20,10 +21,41 @@
   </div>
   <div class="row notgamerow">
     <header>
+      <label class="forselect" for="sort">Order by:</label>
+      <select id="sort" onchange="ws.control.sort(value.replace(' ', ''))">
+        <option>Artist</option>
+        <option>Title</option>
+        <option>Album</option>
+        <option>Release Date</option>
+        <option>Creation Date</option>
+        <option>Filename</option>
+        <option>Popularity</option>
+        <option>Energy</option>
+        <option>Danceability</option>
+        <option>Happiness</option>
+        <option>Loudness</option>
+        <option>Accousticness</option>
+        <option>Instrumentalness</option>
+        <option>Liveness</option>
+        <option>Speechiness</option>
+        <option>Key</option>
+      </select>
+      <label class="forselect" for="scope">Scope:</label>
+      <select onchange="updateLib()" id="scope">
+        <option>Playlist</option>
+        <option>Global</option>
+      </select>
+      <label class="forselect" for="playlist">Load Playlist:</label>
+      <select onchange="selectedIndex > 0 ? ws.control.loadPlaylist(selectedIndex - 1) : null" id="playlist">
+        <option>(none)</option>
+      </select>
+      <span onclick="updateLib()" style="cursor: pointer;" class="forselect material-icons">refresh</span>
+      <span onclick="updateBlock()" style="cursor: pointer;" class="forselect material-icons">done</span>
       <div class="form__group field">
-        <input oninput="processChange()" type="input" class="form__field" placeholder="Name" id='search' required />
+        <input oninput="filterLib()" type="input" class="form__field" placeholder="Name" id='search' required />
         <label for="name" class="form__label">Search...</label>
       </div>
+      <br>
     </header>
   </div>
 

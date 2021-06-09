@@ -35,7 +35,6 @@ namespace reAudioPlayerML
                 _cover = value;
                 Debug.WriteLine("Broadcast");
                 webSocket?.broadCastCover();
-                webSocket?.broadCastDisplayname();
             }
         }
 

@@ -277,7 +277,10 @@ namespace reAudioPlayerML
             listBoxBindingSource.DataMember = "accentColour";
             btnWebsite.DataBindings.Add("FlatAppearance.BorderColor", listBoxBindingSource, "accentColour");
             */
-            this.Refresh();
+            try
+            {
+                this.Refresh();
+            } catch { }
         }
 
         private void btnWebsite_Click(object sender, EventArgs e)

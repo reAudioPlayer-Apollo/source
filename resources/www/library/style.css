@@ -20,6 +20,7 @@
 }
 
 body {
+  overflow: overlay;
   background: linear-gradient(to right top, var(--gradient-c1), var(--gradient-c2));
   margin: 0%;
   padding: 0%;
@@ -307,7 +308,7 @@ table td, table th {
   border-radius:50%;
   animation:animateC 2s linear infinite;
 }
-span
+span.rot
 {
   display:block;
   position:absolute;
@@ -319,7 +320,7 @@ span
   transform-origin:left;
   animation:animate 2s linear infinite;
 }
-span:before
+span.rot:before
 {
   content:'';
   position:absolute;
@@ -356,4 +357,56 @@ span:before
 
 .invisible {
   display: none;
+}
+
+select, select:focus, select option {
+  border: none;
+  border-bottom: 1px solid var(--font);
+  background: transparent;
+  color: var(--font);
+  padding: .5rem;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  /*margin-left: 10px;*/
+}
+
+select option {
+  background: var(--gradient-c2);
+  color: var(--font);
+}
+
+.focus {
+  flex: 1 1 calc(50% - 20px) !important;
+  max-width: calc(50% - 8px);
+}
+
+label.forselect, span.forselect {
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: .5rem;
+  padding-right: .1rem;
+  margin-right: 2px;
+  color: var(--font);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--font);
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-c1);
 }

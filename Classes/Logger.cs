@@ -65,6 +65,24 @@ namespace reAudioPlayerML
             {
                 gameTrainerTable = new List<string>(File.ReadLines(gameTrainer));
             }
+
+            updateSongLib();
+        }
+
+        private void updateSongLib()
+        {
+            var songs = new List<string>(File.ReadAllLines(songLib));
+            var newSongs = new List<string>(songs);
+
+            foreach (var song in songs)
+            {
+                if (!File.Exists(song))
+                {
+                    newSongs.Remove(song);
+                }
+            }
+
+            File.WriteAllLines(songLib, newSongs);
         }
 
         public void addFileMove(string oldDir, string newDir)

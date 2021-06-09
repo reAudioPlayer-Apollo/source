@@ -1,6 +1,7 @@
 ﻿using EmbedIO;
 using EmbedIO.Routing;
 using EmbedIO.WebApi;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,44 @@ namespace reAudioPlayerML.HttpServer.API
         {
             PlayerManager.mediaPlayer.jumpTo(value);
             return PlayerManager.playerPosition.ToString();
+        }
+
+        [Route(HttpVerbs.Get, "/sort/{type}")]
+        public async void RSort(string type)
+        {
+            await Static.SendStringAsync(HttpContext, sort(type));
+        }
+        public string sort(string type)
+        {
+            PlayerManager.mediaPlayer.sort(type);
+            return PlayerManager.mediaPlayer.playlist[PlayerManager.mediaPlayer.nextIndex].ToString();
+        }
+
+        [Route(HttpVerbs.Get, "/block/{blockList}")]
+        public async void RBlock(string blockList)
+        {
+            block(blockList);
+        }
+
+        public string block(string blockList)
+        {
+            try
+            {
+                blockList = blockList.Replace("\"", "");
+
+                int[] t = JsonConvert.DeserializeObject<int[]>(blockList);
+                return block(t);
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
+        public string block(int[] blockList)
+        {
+            PlayerManager.mediaPlayer.blockList = new List<int>(blockList);
+            return null;
         }
 
         [Route(HttpVerbs.Get, "/playPause")]
@@ -118,6 +157,14 @@ namespace reAudioPlayerML.HttpServer.API
 
                 case "jump":
                     msg.data = isInt ? jump(value) : null;
+                    break;
+
+                case "sort":
+                    msg.data = sort(msg.data);
+                    break;
+
+                case "block":
+                    msg.data = block(msg.data);
                     break;
 
                 case "playPause":

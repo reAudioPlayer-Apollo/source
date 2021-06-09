@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,12 +70,15 @@ namespace reAudioPlayerML.HttpServer.API
             return search(req.query, req.scope);
         }
 
-        public string search(string query, string scope)
+        public string search(string query, string scope = "playlist")
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
 
-            var pl = PlayerManager.mediaPlayer.playlist;
+            List<MediaPlayer.Song> pl = scope is not null && scope.ToLower() == "global" ?
+                MediaPlayer.GetPlaylist(File.ReadAllLines(PlayerManager.logger.songLib).ToList(), PlayerManager.logger, true, true) :
+                PlayerManager.mediaPlayer.playlist;
+
             if (pl is null)
             {
                 return "null";
@@ -92,7 +96,7 @@ namespace reAudioPlayerML.HttpServer.API
                 return ret;
             }
 
-            var matches = pl.Where(x => x.oneLiner.ToLower().Contains(query.ToLower())).ToList();
+            var matches = pl.Where(x => x is not null && x.oneLiner.ToLower().Contains(query.ToLower())).ToList();
             ret = MediaPlayer.Song.ToString(matches.ToArray());
 
             sw.Stop();

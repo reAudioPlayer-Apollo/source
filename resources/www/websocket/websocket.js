@@ -12,10 +12,15 @@ window.ws = new function () {
             webSocket.send(createMessage("data", "playlist", index));
         }
 
-        search(query) {
+        search(query, scope = "playlist") {
             webSocket.send(createMessage("data", "search", JSON.stringify({
-                query
+                query,
+                scope
             })));
+        }
+
+        position() {
+            webSocket.send(createMessage("data", "position"));
         }
 
         volume() {
@@ -42,6 +47,18 @@ window.ws = new function () {
 
         last() {
             webSocket.send(createMessage("control", "last"));
+        }
+
+        jump(value) {
+            webSocket.send(createMessage("control", "jump", value));
+        }
+
+        sort(type) {
+            webSocket.send(createMessage("control", "sort", type));
+        }
+
+        block(list) {
+            webSocket.send(createMessage("control", "block", JSON.stringify(list)));
         }
 
         playPause() {
