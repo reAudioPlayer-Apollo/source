@@ -69,6 +69,16 @@ namespace reAudioPlayerML
             updateSongLib();
         }
 
+        public string getSongLocationById(int id)
+        {
+            return File.ReadAllLines(songLib)[id];
+        }
+
+        public int getSongIdByLocation(string location)
+        {
+            return File.ReadAllLines(songLib).ToList().FindIndex(x => x == location);
+        }
+
         private void updateSongLib()
         {
             var songs = new List<string>(File.ReadAllLines(songLib));

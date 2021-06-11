@@ -70,14 +70,23 @@ namespace reAudioPlayerML.HttpServer.API
             return search(req.query, req.scope);
         }
 
+        public static List<MediaPlayer.Song> globalPlaylistCache = new List<MediaPlayer.Song>();
+
         public string search(string query, string scope = "playlist")
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
+            string specialCoverUriSuffix = "";
 
             List<MediaPlayer.Song> pl = scope is not null && scope.ToLower() == "global" ?
-                MediaPlayer.GetPlaylist(File.ReadAllLines(PlayerManager.logger.songLib).ToList(), PlayerManager.logger, true, true) :
+                MediaPlayer.GetPlaylist(File.ReadAllLines(PlayerManager.logger.songLib).ToList(), PlayerManager.logger) :
                 PlayerManager.mediaPlayer.playlist;
+
+            if (scope is not null && scope.ToLower() == "global")
+            {
+                globalPlaylistCache = new List<MediaPlayer.Song>(pl);
+                specialCoverUriSuffix = "&global";
+            }
 
             if (pl is null)
             {
@@ -90,7 +99,7 @@ namespace reAudioPlayerML.HttpServer.API
 
             if (string.IsNullOrWhiteSpace(query))
             {
-                ret = MediaPlayer.Song.ToString(pl.ToArray());
+                ret = MediaPlayer.Song.ToString(pl.ToArray(), specialCoverUriSuffix: specialCoverUriSuffix);
                 sw.Stop();
                 Debug.WriteLine(sw.Elapsed.ToString());
                 return ret;
@@ -102,6 +111,50 @@ namespace reAudioPlayerML.HttpServer.API
             sw.Stop();
             Debug.WriteLine(sw.Elapsed.ToString());
             return ret;
+        }
+
+        [Route(HttpVerbs.Get, "/cover/{id}&global")]
+        public async Task RCoverGlobal(int id)
+        {
+            var bytes = cover(id, true);
+
+            if (bytes is not null)
+            {
+                using (var stream = HttpContext.OpenResponseStream())
+                {
+                    await stream.WriteAsync(bytes, 0, bytes.Length);
+                }
+            }
+        }
+
+        [Route(HttpVerbs.Get, "/cover/{id}")]
+        public async Task RCover(int id)
+        {
+            var bytes = cover(id);
+
+            if (bytes is not null)
+            {
+                using (var stream = HttpContext.OpenResponseStream())
+                {
+                    await stream.WriteAsync(bytes, 0, bytes.Length);
+                }
+            }
+        }
+
+        public byte[] cover(int id, bool global = false)
+        {
+            var location = PlayerManager.logger.getSongLocationById(id);
+
+            MediaPlayer.Song song = global ?
+                globalPlaylistCache.Where(x => x.location == location).FirstOrDefault() : 
+                PlayerManager.mediaPlayer.playlist.Where(x => x.location == location).FirstOrDefault();
+            
+            if (song is not null && (song.cover is not null || global))
+            {
+                return song.getCoverBytes(global);
+            }
+
+            return null;
         }
 
         [Route(HttpVerbs.Get, "/volume")]

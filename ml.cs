@@ -125,6 +125,8 @@ namespace reAudioPlayerML
 
                 Search.Spotify.Init.AuthoriseUser();
             }
+
+            lblBackgroundTasks.Text = "Initialised";
         }
 
         private void updateUpdater()
@@ -164,7 +166,7 @@ namespace reAudioPlayerML
                 mediaPlayer.loadPlaylist(dir);
             }
 
-            youtubeSyncer.sync();
+            Task.Factory.StartNew(() => youtubeSyncer.sync());
             HttpServer.API.Static.syncer = youtubeSyncer;
             cleanUp();
             Directory.CreateDirectory(AppContext.BaseDirectory + "spotify");
@@ -246,6 +248,7 @@ namespace reAudioPlayerML
         private void tmrAccentColour_Tick(object sender, EventArgs e)
         {
             btnRevealedRadio.FlatAppearance.BorderColor =
+                btnLoadIndependentAsPlaylist.FlatAppearance.BorderColor =
                 btnSyncLocalToSpotify.FlatAppearance.BorderColor =
                 btnManualAcrop.FlatAppearance.BorderColor =
                 btnSyncAnalyse.FlatAppearance.BorderColor =
@@ -259,6 +262,7 @@ namespace reAudioPlayerML
                 btnMove.FlatAppearance.BorderColor =
                 mediaPlayer.accentColour;
             btnRevealedRadio.FlatAppearance.MouseDownBackColor =
+                btnLoadIndependentAsPlaylist.FlatAppearance.MouseDownBackColor =
                 btnSyncLocalToSpotify.FlatAppearance.MouseDownBackColor =
                 btnManualAcrop.FlatAppearance.MouseDownBackColor =
                 btnSyncAnalyse.FlatAppearance.MouseDownBackColor =
@@ -279,7 +283,7 @@ namespace reAudioPlayerML
             */
             try
             {
-                this.Refresh();
+                btnMove.Invoke(new Action(() => this.Refresh()));
             } catch { }
         }
 
@@ -315,12 +319,15 @@ namespace reAudioPlayerML
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             string dir = files[0];
 
+
             if (File.Exists(dir))
             {
-                dir = Path.GetDirectoryName(dir);
+                mediaPlayer.playIndependent(dir);
             }
-
-            mediaPlayer.loadPlaylist(dir);
+            else
+            {
+                mediaPlayer.loadPlaylist(dir);
+            }
         }
 
         private void btnRevealedRadio_Click(object sender, EventArgs e)
@@ -464,6 +471,11 @@ namespace reAudioPlayerML
         private void btnSyncLocalToSpotify_Click(object sender, EventArgs e)
         {
             Task.Factory.StartNew(() => Search.Spotify.Synchronise.LocalToSpotify());
+        }
+
+        private void btnLoadIndependentAsPlaylist_Click(object sender, EventArgs e)
+        {
+            mediaPlayer.loadFromIndependentSong();
         }
     }
 }

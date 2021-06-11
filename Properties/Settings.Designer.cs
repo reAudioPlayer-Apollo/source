@@ -94,5 +94,17 @@ namespace reAudioPlayerML.Properties {
                 this["gameCache"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string accentColourCache {
+            get {
+                return ((string)(this["accentColourCache"]));
+            }
+            set {
+                this["accentColourCache"] = value;
+            }
+        }
     }
 }

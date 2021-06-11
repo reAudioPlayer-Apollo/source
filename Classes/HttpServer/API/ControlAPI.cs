@@ -99,6 +99,7 @@ namespace reAudioPlayerML.HttpServer.API
         public async Task RPlayPause(int value)
         {
             await Static.SendStringAsync(HttpContext, playPause());
+            PlayerManager.mediaPlayer.jumpTo(50);
         }
         public string playPause()
         {
@@ -125,6 +126,18 @@ namespace reAudioPlayerML.HttpServer.API
             return PlayerManager.loadPlaylist(index);
         }
 
+        [Route(HttpVerbs.Get, "/load/{index}&global")]
+        public async void RLoadGlobalSong(int index)
+        {
+            await Static.SendStringAsync(HttpContext, loadGlobalSong(index));
+        }
+        public string loadGlobalSong(int index)
+        {
+            var song = DataAPI.globalPlaylistCache[index];
+            PlayerManager.mediaPlayer.playIndependent(song, true, startPosition: 300);
+            return song.oneLiner;
+        }
+
         [Route(HttpVerbs.Get, "/load/{index}")]
         public async void RLoadSong(int index)
         {
@@ -134,6 +147,12 @@ namespace reAudioPlayerML.HttpServer.API
         {
             PlayerManager.load(index);
             return PlayerManager.displayName;
+        }
+
+        private struct ILoadSong
+        {
+            public int index;
+            public string scope;
         }
 
         public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)
@@ -176,7 +195,29 @@ namespace reAudioPlayerML.HttpServer.API
                     break;
 
                 case "load":
-                    msg.data = isInt ? loadSong(value) : null;
+                    if (!isInt)
+                    {
+                        try
+                        {
+                            var t = JsonConvert.DeserializeObject<ILoadSong>(msg.data);
+
+                            if (t.scope == "global")
+                            {
+                                msg.data = loadGlobalSong(t.index);
+                            }
+                            else
+                            {
+                                isInt = true;
+                                value = t.index;
+                            }
+                        }
+                        catch
+                        {
+                            msg.data = null;
+                        }
+                    }
+
+                    msg.data = isInt ? loadSong(value) : msg.data;
                     break;
 
                 default:

@@ -107,9 +107,11 @@ function receiveLibrary(evt) {
 
   let library = "";
 
+  const classes = jdata.length > 200 ? "game compact" : "game";
+
   for (let i = 0; i < jdata.length; i++) {
     jdata[i].info.loudness = Math.round(jdata[i].info.loudness / 100);
-    var line = "<div class='game'><img <img style='box-shadow:0px 0px 20px rgba(" + jdata[i].accentColour + ", .6)' onclick='ws.control.load(" + jdata[i].index + ");' src='" +
+    var line = "<div class='" + classes +"'><img loading='lazy' style='box-shadow:0px 0px 20px rgba(" + jdata[i].accentColour + ", .6)' onclick='ws.control.load(" + jdata[i].index + ", " + (document.getElementById("scope").value == "Global") + ");' src='" +
       jdata[i].coverUri?.replaceAll('"', '') + "'>"
       + "<h4>" + jdata[i].title + "</h4>"
       + "<h5>" + jdata[i].secondLiner + "</h5>"
@@ -126,7 +128,7 @@ function receiveLibrary(evt) {
       + `<tr><td>Key<td>${jdata[i].info.key}</td></tr>`
       + "</table>Released on " + jdata[i].info.releaseDate + "</div>";
 
-      jdata[i].keywords = `${jdata[i].title} ${jdata[i].artist} ${jdata[i].album} ${getInfoKeywords(jdata[i].info)}`;
+      jdata[i].keywords = `${jdata[i].title} ${jdata[i].artist} ${jdata[i].album} ${getInfoKeywords(jdata[i].info)}` + (document.getElementById("scope").value == "Global" ? ` ${jdata[i].location}` : "");
 
     library += line;
 

@@ -14,10 +14,11 @@ namespace reAudioPlayerML
     {
         public static MediaPlayer mediaPlayer;
         public static Logger logger;
+        public static HttpServer.Modules.WebSocket webSocket;
+
         static RevealedStream revealedStream;
         static Radio radio;
         static string revealedLink = RevealedStream.defaultLink;
-        public static HttpServer.Modules.WebSocket webSocket;
         private static Image _cover;
         public static Image cover
         {

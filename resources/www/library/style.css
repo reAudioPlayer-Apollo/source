@@ -380,6 +380,16 @@ select option {
   max-width: calc(50% - 8px);
 }
 
+.compact {
+  flex: 1 1 calc(12.5% - 30px) !important;
+  max-width: calc(12.5% - 8px);
+}
+
+.compact.focus {
+  flex: 1 1 calc(25% - 40px) !important;
+  max-width: calc(25% - 8px);
+}
+
 label.forselect, span.forselect {
   display: inline-block;
   margin-top: 5px;

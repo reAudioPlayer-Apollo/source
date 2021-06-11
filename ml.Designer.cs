@@ -127,6 +127,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnLoadIndependentAsPlaylist = new System.Windows.Forms.Button();
             this.pnlHead.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -292,6 +293,7 @@
             // pgQuickAccess
             // 
             this.pgQuickAccess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.pgQuickAccess.Controls.Add(this.btnLoadIndependentAsPlaylist);
             this.pgQuickAccess.Controls.Add(this.btnManualAcrop);
             this.pgQuickAccess.Controls.Add(this.btnSync);
             this.pgQuickAccess.Controls.Add(this.imgQR);
@@ -940,6 +942,15 @@
             resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
             // 
+            // btnLoadIndependentAsPlaylist
+            // 
+            this.btnLoadIndependentAsPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnLoadIndependentAsPlaylist, "btnLoadIndependentAsPlaylist");
+            this.btnLoadIndependentAsPlaylist.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLoadIndependentAsPlaylist.Name = "btnLoadIndependentAsPlaylist";
+            this.btnLoadIndependentAsPlaylist.UseVisualStyleBackColor = false;
+            this.btnLoadIndependentAsPlaylist.Click += new System.EventHandler(this.btnLoadIndependentAsPlaylist_Click);
+            // 
             // ml
             // 
             this.AllowDrop = true;
@@ -1091,6 +1102,7 @@
         private System.Windows.Forms.TextBox txtLogs;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtExportArtistDelimiter;
+        private System.Windows.Forms.Button btnLoadIndependentAsPlaylist;
     }
 }
 

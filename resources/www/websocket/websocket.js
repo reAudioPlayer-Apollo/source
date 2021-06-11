@@ -73,8 +73,11 @@ window.ws = new function () {
             webSocket.send(createMessage("control", "load/playlist", index));
         }
 
-        load(index) {
-            webSocket.send(createMessage("control", "load", index));
+        load(index, globally = false) {
+            webSocket.send(createMessage("control", "load", JSON.stringify({
+                index,
+                scope: globally ? "global" : "playlist"
+            })));
         }
     }
 
