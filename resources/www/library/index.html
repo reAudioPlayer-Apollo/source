@@ -21,6 +21,7 @@
   </div>
   <div class="row notgamerow">
     <header>
+      <!--Order By-->
       <label class="forselect" for="sort">Order by:</label>
       <select id="sort" onchange="ws.control.sort(value.replace(' ', ''))">
         <option>Artist</option>
@@ -39,18 +40,35 @@
         <option>Liveness</option>
         <option>Speechiness</option>
         <option>Key</option>
+        <option>Play Count</option>
       </select>
+
+      <!--Scope-->
       <label class="forselect" for="scope">Scope:</label>
       <select onchange="updateLib()" id="scope">
         <option>Playlist</option>
         <option>Global</option>
       </select>
+
+      <!--Load Playlist-->
       <label class="forselect" for="playlist">Load Playlist:</label>
-      <select onchange="selectedIndex > 0 ? ws.control.loadPlaylist(selectedIndex - 1) : null" id="playlist">
+      <select onchange="loadPlaylist(selectedIndex)" id="playlist">
         <option>(none)</option>
       </select>
-      <span onclick="updateLib()" style="cursor: pointer;" class="forselect material-icons">refresh</span>
-      <span onclick="updateBlock()" style="cursor: pointer;" class="forselect material-icons">done</span>
+
+      <!--View-->
+      <label class="forselect" for="view">View:</label>
+      <select onchange="changeView(selectedIndex)" id="viewselect">
+        <option>Large</option>
+        <option>Compact</option>
+      </select>
+
+      <!--Buttons (Symbols)-->
+      <span data-tooltip="refresh your view" onclick="updateLib()" style="cursor: pointer;" class="forselect material-icons">refresh</span>
+      <span data-tooltip="apply filter" onclick="updateBlock()" style="cursor: pointer;" class="forselect material-icons">done</span>
+      <span data-tooltip="export as playlist" onclick="createPlaylist()" style="cursor: pointer;" class="forselect material-icons">file_download</span>
+
+      <!--Search-->
       <div class="form__group field">
         <input oninput="filterLib()" type="input" class="form__field" placeholder="Name" id='search' required />
         <label for="name" class="form__label">Search...</label>

@@ -73,11 +73,16 @@ window.ws = new function () {
             webSocket.send(createMessage("control", "load/playlist", index));
         }
 
+        loadAutoPlaylist(name) {
+            webSocket.send(createMessage("control", "load/playlist", name));
+        }
+
         load(index, globally = false) {
-            webSocket.send(createMessage("control", "load", JSON.stringify({
-                index,
-                scope: globally ? "global" : "playlist"
-            })));
+            globally ? this.loadGlobal(index) : webSocket.send(createMessage("control", "load", index));
+        }
+
+        loadGlobal(index) {
+            webSocket.send(createMessage("control", "load/global", index));
         }
     }
 
@@ -117,6 +122,16 @@ window.ws = new function () {
                 link: link,
                 output: output
             })));
+        }
+    }
+
+    class Playlist {
+        create(list) {
+            webSocket.send(createMessage("playlist", "create", JSON.stringify(list)));
+        }
+
+        createVirtual(list) {
+            webSocket.send(createMessage("playlist", "virtual/create", JSON.stringify(list)));
         }
     }
 

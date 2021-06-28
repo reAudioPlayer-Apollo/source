@@ -16,7 +16,7 @@ namespace reAudioPlayerML.HttpServer.API
     {
         public static YoutubeSyncer syncer;
 
-        public static string GetStream(Image image)
+        public static string GetAsBase64(Image image)
         {
             if (image is null)
                 return "";
@@ -41,7 +41,7 @@ namespace reAudioPlayerML.HttpServer.API
             }
         }
 
-        public static string GetStream(string path)
+        public static string GetAsBase64(string path)
         {
             using (Image image = Image.FromFile(path))
             {
@@ -68,15 +68,15 @@ namespace reAudioPlayerML.HttpServer.API
 
     class GeneralAPI: WebApiController
     {
+        public string version()
+        {
+            return "reAudioPlayer Apollo .5";
+        }
+
         [Route(HttpVerbs.Get, "/version")]
         public async Task RGetVersion(string user)
         {
             await Static.SendStringAsync(HttpContext, version());
-        }
-
-        public string version()
-        {
-            return "reAudioPlayer Apollo .5";
         }
 
         public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)

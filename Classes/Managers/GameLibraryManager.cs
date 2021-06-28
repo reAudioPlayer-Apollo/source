@@ -107,6 +107,8 @@ namespace reAudioPlayerML
         {
             activeScannings++;
 
+            Logger.Log($"scanning {directory}", "GameLibraryManager");
+
             Task.Factory.StartNew(() => getGamesInFolder(directory)).ContinueWith(games =>
             {
                 foreach (var game in games.Result)
@@ -131,10 +133,14 @@ namespace reAudioPlayerML
 
                 activeScannings--;
 
+                Logger.Log($"scanned {directory} ({activeScannings} remaining)", "GameLibraryManager");
+
                 if (activeScannings == 0)
                 {
                     lock (installedGames)
                     {
+                        Logger.Log($"Game Library has been scanned and updated, {installedGames.Count} games are installed", "GameLibraryManager");
+
                         Dictionary<string, string> tmp = new Dictionary<string, string>();
                         foreach (var game in installedGames)
                         {

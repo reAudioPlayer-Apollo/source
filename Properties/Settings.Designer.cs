@@ -106,5 +106,29 @@ namespace reAudioPlayerML.Properties {
                 this["accentColourCache"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string playCountCache {
+            get {
+                return ((string)(this["playCountCache"]));
+            }
+            set {
+                this["playCountCache"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string virtualPlaylists {
+            get {
+                return ((string)(this["virtualPlaylists"]));
+            }
+            set {
+                this["virtualPlaylists"] = value;
+            }
+        }
     }
 }

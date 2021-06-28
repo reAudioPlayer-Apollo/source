@@ -232,6 +232,23 @@ namespace reAudioPlayerML
             return PlaylistManager.FullPlaylist.FromSongList(songList);
         }
 
+        public static string loadPlaylist(string[] playlist)
+        {
+            switch (activePlayer)
+            {
+                case ActivePlayer.ApolloOnAir:
+                    return "Streaming Apollo On Air";
+
+                case ActivePlayer.RevealedStream:
+                    return "Streaming Revealed Radio";
+
+                case ActivePlayer.Playlist:
+                default:
+                    mediaPlayer.loadPlaylist(playlist?.ToList());
+                    return "Custom Playlist";
+            }
+        }
+
         public static string loadPlaylist(int index)
         {
             switch (activePlayer)
@@ -245,8 +262,24 @@ namespace reAudioPlayerML
                 case ActivePlayer.Playlist:
                 default:
                     var playlists = File.ReadAllLines(logger.playlistLib);
-                    mediaPlayer.loadPlaylist(playlists[index]);
-                    return new DirectoryInfo(playlists[index]).Name;
+                    var vpl = PlaylistManager.virtualPlaylists;
+
+                    if (index >= playlists.Length + vpl.Count)
+                    {
+                        return "404";
+                    }
+
+                    if (index < playlists.Length)
+                    {
+                        mediaPlayer.loadPlaylist(playlists[index]);
+                        return new DirectoryInfo(playlists[index]).Name;
+                    }
+                    else
+                    {
+                        var v = vpl.ElementAt(index - playlists.Length);
+                        mediaPlayer.loadPlaylist(v.Value.ToList());
+                        return v.Key;
+                    }
             }
         }
 
@@ -374,7 +407,7 @@ namespace reAudioPlayerML
                 foreach (var programme in radio.programmes)
                 {
                     RadioProgramme x;
-                    var t = PlaylistManager.getDetailedPlaylist(Path.GetDirectoryName( programme.Value[0] ));
+                    var t = PlaylistManager.GetDetailedPlaylist(Path.GetDirectoryName( programme.Value[0] ));
                     x.description = t.description += " songs, including:";
                     x.songs = t.tags;
                     x.name = t.name;

@@ -165,7 +165,7 @@ header {
 .game {
   background: var(--glass-gradient);
   /*padding: 8px;*/
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 4px;
   /*margin-top: 8px;
 margin-bottom: 0px;

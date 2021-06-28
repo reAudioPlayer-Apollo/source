@@ -115,14 +115,7 @@ namespace reAudioPlayerML.Search.Spotify
                     var link = (sender as ToolStripMenuItem).DropDownItems["link"].Text.Split("/");
                     var trackId = link[link.Length - 1].Split("?")[0];
                     var slc = spotifyLinkCache;
-                    if (slc.ContainsKey(trackId))
-                    {
-                        slc[trackId] = t;
-                    }
-                    else
-                    {
-                        slc.Add(trackId, t);
-                    }
+                    slc.Add(t, trackId);
                     spotifyLinkCache = slc;
                     var track = Init.Client.Tracks.Get(trackId).Result;
                     Search.SpotifyPreview.ClearCachedTrack(syncPlaylist[selectedIndex].Track as SimpleTrack);
@@ -157,7 +150,7 @@ namespace reAudioPlayerML.Search.Spotify
                     }
 
                     string displayname = getDisplayName(new FileInfo(filename));
-                    PlayerManager.mediaPlayer.playIndependent(filename, displayname.Split('-')[1].Trim(), displayname.Split('-')[0].Trim());
+                    PlayerManager.mediaPlayer.playIndependent(filename, displayname.Split('-')[1].Trim(), displayname.Split('-')[0].Trim(), 300);
                     return;
                 }
             }
@@ -185,7 +178,20 @@ namespace reAudioPlayerML.Search.Spotify
             }
             get
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(Properties.Settings.Default.spotifyLinkCache);
+                var t = JsonConvert.DeserializeObject<Dictionary<string, string>>(Properties.Settings.Default.spotifyLinkCache);
+                
+                if (t is null)
+                {
+                    return new Dictionary<string, string>();
+                }
+
+                if (t.Where(x => File.Exists(x.Value)).Count() > 0)
+                {
+                    var s = t.Where(x => t.Where(y => y.Value == x.Value).Count() == 1);
+                    return s.ToDictionary(x => File.Exists(x.Key) ? x.Key : x.Value, x => File.Exists(x.Key) ? x.Value : x.Key);
+                }
+
+                return t.Where(x => File.Exists(x.Key)).ToDictionary(x => x.Key, x => x.Value);
             }
         }
 
@@ -359,10 +365,11 @@ namespace reAudioPlayerML.Search.Spotify
         private static string getMatchingLocalSong(ref FullTrack track, ref List<string> lib)
         {
             Dictionary<string, string> localCache = spotifyLinkCache is null ? new Dictionary<string, string>() : spotifyLinkCache;
+            string trackId = track.Id;
 
-            if (localCache.ContainsKey(track.Id))
+            if (localCache.ContainsValue(trackId))
             {
-                string file = localCache[track.Id];
+                string file = localCache.FirstOrDefault(x => x.Value == trackId).Key;
 
                 if (File.Exists(file) && lib.Contains(file))
                 {
@@ -487,14 +494,14 @@ namespace reAudioPlayerML.Search.Spotify
         {
             Dictionary<string, string> localCache = spotifyLinkCache is null ? new Dictionary<string, string>() : spotifyLinkCache;
 
-            if (localCache.ContainsKey(id))
+            if (localCache.ContainsKey(file))
             {
-                localCache[id] = file;
+                localCache[file] = id;
                 spotifyLinkCache = localCache;
                 return;
             }
 
-            localCache.Add(id, file);
+            localCache.Add(file, id);
             spotifyLinkCache = localCache;
         }
 
@@ -504,10 +511,14 @@ namespace reAudioPlayerML.Search.Spotify
             SpotifyToLocalById(i);
         }
 
+        private static string synchedPlaylist = "";
+
         public static void SpotifyToLocalByName(string name)
         {
             if (string.IsNullOrEmpty(name))
             { return; }
+
+            synchedPlaylist = name;
 
             Stopwatch sw = new Stopwatch();
             sw.Start();
@@ -604,11 +615,14 @@ namespace reAudioPlayerML.Search.Spotify
 
             TaskDialogPage td = new TaskDialogPage();
             var btnApply = new TaskDialogCommandLinkButton("Apply", "adds spotify metadata to the current local files");
+            var btnRenameApply = new TaskDialogCommandLinkButton("Rename & Apply", "adds spotify metadata to the current local files, but also renames it \"[Artist] - [Title]\"");
             var btnCopyApply = new TaskDialogCommandLinkButton("Copy & Apply", "adds spotify metadata to copies of your local files");
+            var btnLoad = new TaskDialogCommandLinkButton("Load As Playlist", "loads all songs as a playlist");
+            var btnVirtual = new TaskDialogCommandLinkButton("Create Virtual Playlist", "creates a virtual playlist, leaving your files untouched");
 
-            td.Text = "Do you want to fetch metadata from spotify?";
-            td.Expander.Text = "Fetches: Artist, Title, Album, BPM, Key, {pop, nrg, loudness, cover, ?}";
-            td.Buttons = new TaskDialogButtonCollection() { btnApply, btnCopyApply, TaskDialogButton.Cancel };
+            td.Text = "How Do you want to export?";
+            td.Expander.Text = "Fetches: Artist, Title, Album, BPM, Key, Popularity, Energy, Cover, Loudness, ...";
+            td.Buttons = new TaskDialogButtonCollection() { btnApply, btnRenameApply, btnCopyApply, btnLoad, btnVirtual, TaskDialogButton.Cancel };
             td.Verification = new TaskDialogVerificationCheckBox("don't apply metadata");
             var mode = TaskDialog.ShowDialog(td);
 
@@ -617,8 +631,25 @@ namespace reAudioPlayerML.Search.Spotify
                 return;
             }
 
+            var files = UIHandler.syncView.Items
+                    .Cast<ListViewItem>()
+                    .Select(x => x.SubItems[1].Text)
+                    .ToArray();
+
+            if (mode == btnLoad)
+            {
+                PlayerManager.loadPlaylist(files);
+                return;
+            }
+
+            if (mode == btnVirtual)
+            {
+                PlaylistManager.Create(files, synchedPlaylist);
+                return;
+            }
+
             fetchMetadata = !td.Verification.Checked;
-            overwrite = mode == btnApply;
+            overwrite = mode == btnApply || mode == btnRenameApply;
 
             if (string.IsNullOrEmpty(UIHandler.txtSyncOut.Text))
             {
@@ -675,6 +706,8 @@ namespace reAudioPlayerML.Search.Spotify
                 }
             }
 
+            Dictionary<string, string> localCache = spotifyLinkCache is null ? new Dictionary<string, string>() : spotifyLinkCache;
+
             // actually exporting
             foreach (ListViewItem item in UIHandler.syncView.Items)
             {
@@ -689,10 +722,13 @@ namespace reAudioPlayerML.Search.Spotify
                     }
                     else
                     {
+                        string noCopyOutput = mode == btnRenameApply ? Path.Combine(Path.GetDirectoryName(file), item.Text + Path.GetExtension(file)) : file;
+
                         string output = overwrite ?
-                            file :
-//                            Path.Combine(Path.GetDirectoryName(file), item.Text + Path.GetExtension(file)) :
+                            noCopyOutput :                            
                             Path.Combine(UIHandler.txtSyncOut.Text, item.Text + Path.GetExtension(file));
+
+                        FullTrack ft = syncPlaylist[index].Track as FullTrack;
 
                         if (file != output)
                         {
@@ -702,9 +738,15 @@ namespace reAudioPlayerML.Search.Spotify
                             {
                                 File.Delete(file);
                             }
-                        }
 
-                        FullTrack ft = syncPlaylist[index].Track as FullTrack;
+                            item.SubItems[1].Text = output;
+
+                            if (localCache.ContainsKey(file))
+                            {
+                                localCache.Add(output, localCache[file]);
+                                localCache.Remove(file);
+                            }
+                        }
 
                         TagLib.File tag = TagLib.File.Create(output);
 
@@ -745,6 +787,8 @@ namespace reAudioPlayerML.Search.Spotify
                     }
                 }
             }
+
+            spotifyLinkCache = localCache;
 
             MessageBox.Show("Done");
         }

@@ -86,6 +86,8 @@ namespace reAudioPlayerML.HttpServer
                     .WithController<API.GameAPI>())
                 .WithWebApi("/api/youtube", m => m
                     .WithController<API.YoutubeAPI>())
+                .WithWebApi("/api/playlist", m => m
+                    .WithController<API.PlaylistAPI>())
                 .WithWebApi("/api", m => m
                     .WithController<API.GeneralAPI>())
 

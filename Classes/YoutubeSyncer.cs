@@ -179,7 +179,7 @@ namespace reAudioPlayerML
         public async void Dl_StandardOutputEvent(object sender, string e)
         {
             logs.Add(e);
-            txtLogger.Invoke(new Action(() => { txtLogger.Text = e + "\r\n" + txtLogger.Text; }));
+            Logger.Log(e, "YoutubeSyncer.StandardOutputEvent");
 
             if (e.Contains("Downloading webpage") && e.Contains("[youtube]"))
             {

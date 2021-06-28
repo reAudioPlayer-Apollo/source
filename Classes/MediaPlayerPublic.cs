@@ -76,19 +76,64 @@ namespace reAudioPlayerML
         public bool isPlaying
         { get; private set; }
 
-        public class SimpleSong
+        public class BasicSong
+        {
+            public string artist;
+            public string title;
+            public string location;
+            public string coverUri;
+            public int id;
+
+            public static BasicSong[] ConvertFromSongList(Song[] bar)
+            {
+                List<BasicSong> l = new List<BasicSong>();
+
+                foreach (var s in bar)
+                {
+                    l.Add(new BasicSong() { artist = s.artist, title = s.title, location = s.location, coverUri = s.coverUri, id = s.id });
+                }
+
+                return l.ToArray();
+            }
+
+            public static BasicSong[] ConvertFromSongList(SimpleSong[] bar)
+            {
+                List<BasicSong> l = new List<BasicSong>();
+
+                foreach (var s in bar)
+                {
+                    l.Add(new BasicSong() { artist = s.artist, title = s.title, location = s.location, coverUri = s.coverUri, id = s.id });
+                }
+
+                return l.ToArray();
+            }
+        }
+
+        public class SimpleSong : BasicSong
         {
             public string oneLiner;
             public string secondLiner;
-            public string artist;
-            public string title;
             public string album;
-            public string location;
             public Color accentColour;
             public int index;
-            public string coverUri;
             public Search.Spotify.Synchronise.SpotifyComment info;
-            public int id;
+            public int playCount
+            {
+                get
+                {
+                    return Logger.GetPlayCount(location);
+                }
+            }
+
+            public string keywords
+            {
+                get
+                {
+                    return $"{title} {artist} {album} pop:{info.popularity} nrg:{info.energy} dnc:{info.danceability} " +
+                        $"hap:{info.happiness} loud:{info.loudness} acc:{info.accousticness} inst:{info.instrumentalness} " +
+                        $"live:{info.liveness} spe:{info.speechiness} key:{info.key} dat:{info.releaseDate}";
+                }
+            }
 
             public SimpleSong() { }
             public SimpleSong(Song song, string specialCoverUriSuffix = "")
@@ -146,6 +191,22 @@ namespace reAudioPlayerML
         {
             public Image cover;
             public Image background;
+
+            public Song() { }
+
+            public Song(BasicSong song)
+            {
+                if (song is null)
+                {
+                    return;
+                }
+
+                artist = song.artist;
+                title = song.title;
+                id = song.id;
+                location = song.location;
+                coverUri = song.coverUri;
+            }
 
             public string ToString()
             {
@@ -218,7 +279,8 @@ namespace reAudioPlayerML
             Instrumentalness,
             Liveness,
             Speechiness,
-            Key
+            Key,
+            PlayCount
         }
 
         /// <summary>
@@ -300,6 +362,10 @@ namespace reAudioPlayerML
                 case OrderBy.Key:
                     playlist = playlist.OrderBy(x => x.info.key).ToList();
                     break;
+
+                case OrderBy.PlayCount:
+                    playlist = playlist.OrderByDescending(x => x.playCount).ToList();
+                    break;
             }
 
             for (int i = 0; i < playlist.Count; i++)
@@ -308,9 +374,15 @@ namespace reAudioPlayerML
             }
         }
 
-        /// <summary>Plays a single song right, playlist will resume afterwards</summary>
+        /// <summary>Plays a single song right now, playlist will resume afterwards</summary>
         /// <param name="song">the song to be played</param>
         /// <param name="startPosition">start position in 1/1000, useful for previews</param>
+        public void playIndependent(BasicSong song, int startPosition = 0)
+        {
+            playIndependent(song.location, song.title, song.artist, startPosition);
+        }
+
+        /// <inheritdoc cref="playIndependent(BasicSong, int)"/>
         public void playIndependent(SimpleSong song, int startPosition = 0)
         {
             playIndependent(song.location, song.title, song.artist, startPosition);
@@ -401,6 +473,16 @@ namespace reAudioPlayerML
             trackBar.Invoke(new Action(() =>
             {
                 player.Position = new TimeSpan(0, 0, 0, 0, fromTrackBarScale(position));
+            }));
+        }
+
+        /// <inheritdoc cref="jumpTo(int)"/>
+        /// <param name="position">target position as timespan</param>
+        public void jumpTo(TimeSpan position)
+        {
+            trackBar.Invoke(new Action(() =>
+            {
+                player.Position = position;
             }));
         }
 
@@ -495,6 +577,14 @@ namespace reAudioPlayerML
                     PlayerManager.webSocket?.broadCastDisplayname();
                 }));
 
+                _ = Task.Delay(30 * 1000).ContinueWith((t) =>
+                  {
+                      if (upNow.location == filename)
+                      {
+                          logger.addSongPlayed(filename);
+                      }
+                  });
+
                 if (autoplay)
                     play();
 
@@ -527,7 +617,7 @@ namespace reAudioPlayerML
             playlist = GetPlaylist(pl, logger, true);
             blockList = new List<int>();
 
-            Task.Run(() => updateAccentColours(playlist.ToArray()));
+            Task.Run(() => updateAccentColours(playlist?.ToArray()));
             loadSong(0, autoplay);
         }
 
@@ -622,6 +712,11 @@ namespace reAudioPlayerML
         /// <returns></returns>
         public static List<Song> GetPlaylist(List<string> pl, Logger logger, bool getCover = false, bool getAccentColour = false)
         {
+            if (pl is null)
+            {
+                return null;
+            }
+
             List<Song> t = new List<Song>();
 
             foreach (var f in pl)

@@ -167,7 +167,7 @@ header {
 .game {
   background: var(--glass-gradient);
   /*padding: 8px;*/
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 4px;
   /*margin-top: 8px;
 margin-bottom: 0px;
@@ -419,4 +419,32 @@ label.forselect, span.forselect {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gradient-c1);
+}
+
+/* tooltips */
+[data-tooltip]:before {
+  /* needed - do not touch */
+  content: attr(data-tooltip);
+  position: absolute;
+  opacity: 0;
+
+  /* customisable */
+  transition: all 0.15s ease;
+  padding: 5px;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+[data-tooltip]:hover:before {
+  /* needed - do not touch */
+  opacity: 1;
+
+  /* customisable */
+  color: whitesmoke;
+  font-size: .7rem;
+  font-family: "Poppins", sans-serif;
+  background: rgb(39, 39, 39);
+  margin-top: 10px;
+  margin-left: 5px;
 }

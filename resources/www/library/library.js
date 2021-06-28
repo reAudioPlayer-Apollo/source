@@ -10,10 +10,45 @@ function onConnected() {
   ws.data.playlists();
 }
 
+function changeView(index)
+{
+  const library = document.getElementById("library");
+
+  for (let i = 0; i < library.children.length; i++) {
+    const game = library.children[i];
+
+    if (index == 0)
+    {
+      if (game.classList.contains("compact")) {
+        game.classList.remove("compact");
+      }
+    } else {
+      if (!game.classList.contains("compact")) {
+        game.classList.add("compact");
+      }
+    }
+  }
+}
+
 function populatePlaylists(evt)
 {
   const select = document.getElementById("playlist");
   const playlists = JSON.parse(evt.data.data)
+
+  const si = select.children[select.selectedIndex].outerText;
+  while(select.children.length > 1)
+  {
+    select.removeChild(select.children[1]);
+  }
+
+  autoPlaylistsCount = playlists.autoplaylists.length;
+  for (let i = 0; i < playlists.autoplaylists.length; i ++)
+  {
+    option = document.createElement('option');
+    option.setAttribute('value', "★ " + playlists.autoplaylists[i].name);
+    option.appendChild(document.createTextNode("★ " + playlists.autoplaylists[i].name));
+    select.appendChild(option);
+  }
 
   for (let i = 0; i < playlists.customplaylists.length; i ++)
   {
@@ -22,6 +57,8 @@ function populatePlaylists(evt)
     option.appendChild(document.createTextNode(playlists.customplaylists[i].name));
     select.appendChild(option);
   }
+
+  select.selectedIndex = Array.prototype.slice.call(select.children).findIndex(x => x.outerText == si);
 
   updateLib();
 }
@@ -42,6 +79,15 @@ function updateBlock()
   ws.control.block(blockList);
 }
 
+function createPlaylist() {
+  const library = document.getElementById("library");
+  const children = Array.prototype.slice.call( library.children );
+  const blockedElements = children.filter(x => !x.classList.contains("hidden"));
+  const blockList = blockedElements.map(x => children.findIndex(y => y == x));
+
+  confirm(`Do you want to create a playlist with this ${blockList.length} songs?`) ? ws.control.createPlaylist(blockList) : null;
+}
+
 function debounce(func, timeout = 300){
   let timer;
   return (...args) => {
@@ -49,7 +95,6 @@ function debounce(func, timeout = 300){
     timer = setTimeout(() => { func.apply(this, args); }, timeout);
   };
 }
-//const processChange = debounce(() => updateLib());
 
 function filterNowPlaying(evt)
 {
@@ -95,6 +140,25 @@ function filterLib()
 }
 
 let jdata = { }
+let autoPlaylistsCount = 0
+
+function loadPlaylist(index, text)
+{
+  if (index <= 0)
+  {
+    return;
+  }
+
+  if (index <= autoPlaylistsCount)
+  {
+    ws.control.loadAutoPlaylist(document.getElementById("playlist").value.substr(2));
+  }
+  else
+  {
+    ws.control.loadPlaylist(index - (1 + autoPlaylistsCount));
+    ws.data.playlists();
+  }
+}
 
 function receiveLibrary(evt) {
   console.timeEnd("resp")
@@ -107,7 +171,7 @@ function receiveLibrary(evt) {
 
   let library = "";
 
-  const classes = jdata.length > 200 ? "game compact" : "game";
+  const classes = document.getElementById("viewselect").selectedIndex == 1 ? "game compact" : "game";
 
   for (let i = 0; i < jdata.length; i++) {
     jdata[i].info.loudness = Math.round(jdata[i].info.loudness / 100);
@@ -116,6 +180,7 @@ function receiveLibrary(evt) {
       + "<h4>" + jdata[i].title + "</h4>"
       + "<h5>" + jdata[i].secondLiner + "</h5>"
       + "<details><summary>Stats</summary><table>"
+      + `<tr><td>Play Count<td>${jdata[i].playCount}</td></tr>`
       + `<tr><td>Popularity<td>${jdata[i].info.popularity}</td></tr>`
       + `<tr><td>Energy<td>${jdata[i].info.energy}</td></tr>`
       + `<tr><td>Danceability<td>${jdata[i].info.danceability}</td></tr>`
@@ -128,7 +193,7 @@ function receiveLibrary(evt) {
       + `<tr><td>Key<td>${jdata[i].info.key}</td></tr>`
       + "</table>Released on " + jdata[i].info.releaseDate + "</div>";
 
-      jdata[i].keywords = `${jdata[i].title} ${jdata[i].artist} ${jdata[i].album} ${getInfoKeywords(jdata[i].info)}` + (document.getElementById("scope").value == "Global" ? ` ${jdata[i].location}` : "");
+      //jdata[i].keywords = `${jdata[i].title} ${jdata[i].artist} ${jdata[i].album} ${getInfoKeywords(jdata[i].info)}` + (document.getElementById("scope").value == "Global" ? ` ${jdata[i].location}` : "");
 
     library += line;
 

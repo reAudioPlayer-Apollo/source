@@ -71,6 +71,7 @@ namespace reAudioPlayerML
                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
 
+            Logger.txtLogger = txtLogs;
             YoutubeSyncer.txtLogger = txtLogs;
         }
 
@@ -126,7 +127,7 @@ namespace reAudioPlayerML
                 Search.Spotify.Init.AuthoriseUser();
             }
 
-            lblBackgroundTasks.Text = "Initialised";
+            Logger.Log("Initialised");
         }
 
         private void updateUpdater()
@@ -157,6 +158,9 @@ namespace reAudioPlayerML
 
         private void launcher_Load(object sender, EventArgs e)
         {
+            Properties.Settings.Default.virtualPlaylists = "";
+            Properties.Settings.Default.Save();
+
             string dir = "";
 
             if (args.Length > 0)
@@ -170,6 +174,8 @@ namespace reAudioPlayerML
             HttpServer.API.Static.syncer = youtubeSyncer;
             cleanUp();
             Directory.CreateDirectory(AppContext.BaseDirectory + "spotify");
+
+            Logger.Log("Loaded");
         }
 
         private void btnPlayPause_Click(object sender, EventArgs e)
@@ -283,7 +289,7 @@ namespace reAudioPlayerML
             */
             try
             {
-                btnMove.Invoke(new Action(() => this.Refresh()));
+                this.Invoke(new Action(() => this.Refresh()));
             } catch { }
         }
 

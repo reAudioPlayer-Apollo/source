@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace reAudioPlayerML
         private string moveTrainer;
 
         public List<string> songTrainerTable { get; private set; } = new List<string>();
-        public List<string> gameTrainerTable { get; private set; }  = new List<string>();
+        public List<string> gameTrainerTable { get; private set; } = new List<string>();
         private List<string> moveTrainerTable = new List<string>();
         public Dictionary<string, string> moveTrainerDictionary = new Dictionary<string, string>();
 
@@ -190,8 +191,14 @@ namespace reAudioPlayerML
             if (!lib.Contains(playlistName))
             {
                 lib.Add(playlistName);
-                File.WriteAllLines(playlistLib, lib);
             }
+            else
+            {
+                lib.Remove(playlistName);
+                lib.Insert(0, playlistName);
+            }
+
+            File.WriteAllLines(playlistLib, lib);
         }
 
         private int getSongIndex(string filename)
@@ -210,6 +217,43 @@ namespace reAudioPlayerML
                 lib.Add(filename);
                 File.WriteAllLines(songLib, lib);
             }
+        }
+
+        public static Dictionary<string, int> GetPlayCountCache()
+        {
+            return string.IsNullOrWhiteSpace(Properties.Settings.Default.playCountCache) ? new Dictionary<string, int>() : JsonConvert.DeserializeObject<Dictionary<string, int>>(Properties.Settings.Default.playCountCache);
+        }
+
+        public static int GetPlayCount(string filename)
+        {
+            var cache = GetPlayCountCache();
+            if (cache.ContainsKey(filename))
+            {
+                return cache[filename];
+            }
+            return 0;
+        }
+
+        public void addSongPlayed(string filename)
+        {
+            var cache = GetPlayCountCache();
+            if (cache.ContainsKey(filename))
+            {
+                cache[filename]++;
+            }
+            else
+            {
+                cache[filename] = 1;
+            }
+            Properties.Settings.Default.playCountCache = JsonConvert.SerializeObject(cache);
+            Properties.Settings.Default.Save();
+        }
+
+        public static TextBox txtLogger;
+
+        public static void Log(string msg, string logger = "root")
+        {
+            txtLogger.Invoke(new Action(() => { txtLogger.Text = $"[{logger}] {msg}" + "\r\n" + txtLogger.Text; }));
         }
     }
 }

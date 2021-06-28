@@ -1,16 +1,86 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace reAudioPlayerML
 {
     public static class PlaylistManager
     {
         public static Logger logger;
+
+        public static string Create(string[] songs, bool virtually = false)
+        {
+            return virtually ? createVirtually(songs) : createPhysically(songs);
+        }
+
+        public static string Create(string[] songs, string name)
+        {
+            return createVirtually(songs, name);
+        }
+
+        public static Dictionary<string, string[]> virtualPlaylists
+        {
+            get
+            {
+                var t = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(Properties.Settings.Default.virtualPlaylists);
+                return t is null ? new Dictionary<string, string[]>() : t;
+            }
+            set
+            {
+                Properties.Settings.Default.virtualPlaylists = JsonConvert.SerializeObject(value);
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private static string createVirtually(string[] songs, string name = "Virtual Playlist")
+        {
+            var pls = virtualPlaylists;
+
+            if (pls.ContainsKey(name))
+            {
+                pls[name] = songs;
+            }
+            else
+            {
+                pls.Add(name, songs);
+            }
+
+            virtualPlaylists = pls;
+
+            return name;
+        }
+
+        private static string createPhysically(string[] songs)
+        {
+            string ret = "";
+
+            Logger.txtLogger.Invoke(new Action(() =>
+            {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.ShowNewFolderButton = true;
+                if (fbd.ShowDialog() == DialogResult.Cancel)
+                {
+                    ret = "[Aborted]";
+                }
+                else
+                {
+                    foreach (var song in songs)
+                    {
+                        File.Copy(song, Path.Combine(fbd.SelectedPath, Path.GetFileName(song)));
+                    }
+
+                    ret = fbd.SelectedPath;
+                }
+            }));
+
+            return ret;
+        }
 
         public static List<string> getPlaylistPathsAsStrings()
         {
@@ -27,6 +97,19 @@ namespace reAudioPlayerML
             }
 
             return playlists;
+        }
+
+        public static List<FileInfo> getSongPathsAsFileInfos(string[] playlist)
+        {
+            List<FileInfo> x = new List<FileInfo>();
+
+            foreach (string file in playlist)
+            {
+                if (FileManager.isSupported(file))
+                    x.Add(new FileInfo(file));
+            }
+
+            return x;
         }
 
         public static List<FileInfo> getSongPathsAsFileInfos(string playlist)
@@ -82,7 +165,7 @@ namespace reAudioPlayerML
             return tags;
         }
 
-        public static string getLastWriteDateOfPlaylists(string playlist)
+        public static string GetLastWriteDateOfPlaylists(string playlist)
         {
             var songs = getSongPathsAsFileInfos(playlist);
             if (songs.Count == 0)
@@ -91,6 +174,17 @@ namespace reAudioPlayerML
                 return ret;
             }
             FileInfo file = songs.OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
+            return file.LastWriteTime.ToString("d MMM yyyy");
+        }
+
+        public static string GetLastWriteDateOfPlaylists(FileInfo[] playlist)
+        {
+            if (playlist.Length == 0)
+            {
+                var ret = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).ToString("d MM yyyy");
+                return ret;
+            }
+            FileInfo file = playlist.OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
             return file.LastWriteTime.ToString("d MMM yyyy");
         }
 
@@ -128,7 +222,7 @@ namespace reAudioPlayerML
                     return null;
                 }
 
-                FullPlaylist t = getDetailedPlaylist(Path.GetDirectoryName(songs.FirstOrDefault().location));
+                FullPlaylist t = GetDetailedPlaylist(Path.GetDirectoryName(songs.FirstOrDefault().location));
                 t.songs = songs.ToArray();
                 return t;
             }
@@ -140,6 +234,14 @@ namespace reAudioPlayerML
             public List<DetailedPlaylist> customplaylists;
         }
 
+        public static KeyValuePair<int, AllDetailedPlaylists> FindDetailedPlaylist(string query)
+        {
+            var apls = getDetailedPlaylists();
+            var pls = apls.autoplaylists.Concat(apls.customplaylists).ToList();
+            var index = pls.FindIndex(x => x.name.ToLower().Contains(query.ToLower()));
+            return new KeyValuePair<int, AllDetailedPlaylists>(index, apls);
+        }
+
         public static AllDetailedPlaylists getDetailedPlaylists()
         {
             AutoPlaylists.updateSpecialPlaylists();
@@ -148,44 +250,84 @@ namespace reAudioPlayerML
             allDetailedPlaylists.customplaylists = new List<DetailedPlaylist>();
             allDetailedPlaylists.autoplaylists = new List<DetailedPlaylist>();
 
-            allDetailedPlaylists.autoplaylists.AddRange(AutoPlaylists.getSpecialPlaylists());
+            var s = AutoPlaylists.getSpecialPlaylists();
+            foreach (var cs in s)
+            {
+                allDetailedPlaylists.autoplaylists.Add((DetailedPlaylist)cs);
+            }
+
             var pls = getPlaylistPathsAsStrings();
 
             foreach (var pl in pls) // customplaylists
             {
-                var t = getDetailedPlaylist(pl);
-                t.description += " songs, handpicked by you";
+                var t = GetDetailedPlaylist(pl);
+                t.description += " songs, hand picked by you";
+                allDetailedPlaylists.customplaylists.Add(t);
+            }
+
+            var vpls = virtualPlaylists;
+
+            foreach (var vpl in vpls)
+            {
+                var t = GetDetailedPlaylist(vpl);
+                t.name = "♺ " + t.name;
+                t.description += " songs, hand picked by you, stored virtually";
                 allDetailedPlaylists.customplaylists.Add(t);
             }
 
             return allDetailedPlaylists;
         }
 
-        public static DetailedPlaylist getDetailedPlaylist(string playlist)
+        public static DetailedPlaylist GetDetailedPlaylist(KeyValuePair<string, string[]> playlist)
+        {
+            var fis = playlist.Value.Select(x => new FileInfo(x)).ToArray();
+            DetailedPlaylist t = new DetailedPlaylist();
+            t.tags = getTagsOfPlaylist(fis).ToArray();
+            t.description = fis.Length.ToString();
+            t.name = playlist.Key;
+            t.date = GetLastWriteDateOfPlaylists(fis);
+            return t;
+        }
+
+        public static DetailedPlaylist GetDetailedPlaylist(string playlist)
         {
             DetailedPlaylist t = new DetailedPlaylist();
             t.tags = getTagsOfPlaylist(playlist).ToArray();
             t.description = getSongPathsAsStrings(playlist).Count.ToString();
             t.name = new DirectoryInfo(playlist).Name;
-            t.date = getLastWriteDateOfPlaylists(playlist);
+            t.date = GetLastWriteDateOfPlaylists(playlist);
             return t;
         }
 
         public static class AutoPlaylists
         {
             public static List<FileInfo> recentsFI;
+            public static List<FileInfo> favouritesFI;
 
-            public static List<DetailedPlaylist> getSpecialPlaylists(SpecialPlaylists playlists = SpecialPlaylists.All)
+            public static List<FullPlaylist> getSpecialPlaylists(SpecialPlaylists playlists = SpecialPlaylists.All)
             {
-                List<DetailedPlaylist> list = new List<DetailedPlaylist>();
+                updateSpecialPlaylists();
+                List<FullPlaylist> list = new List<FullPlaylist>();
 
-                if (playlists == SpecialPlaylists.Recents || playlists == SpecialPlaylists.All)
+                if (playlists == SpecialPlaylists.Breaking || playlists == SpecialPlaylists.All)
                 {
-                    DetailedPlaylist t = new DetailedPlaylist();
+                    FullPlaylist t = new FullPlaylist();
                     t.tags = getTagsOfPlaylist(recentsFI.ToArray()).ToArray();
                     t.name = "Breaking";
                     t.description = "your 20 newest tracks";
                     t.date = DateTime.Now.ToString("d MMM yyyy");
+                    t.songs = MediaPlayer.GetPlaylist(recentsFI.Select(x => x.FullName).ToList(), logger).ToArray();
+                    list.Add(t);
+                }
+
+                if (playlists == SpecialPlaylists.Favourites || playlists == SpecialPlaylists.All)
+                {
+                    FullPlaylist t = new FullPlaylist();
+                    t.tags = getTagsOfPlaylist(favouritesFI.ToArray()).ToArray();
+                    t.name = "Favourites";
+                    t.description = "your 20 favourite tracks";
+                    t.date = DateTime.Now.ToString("d MMM yyyy");
+                    t.songs = MediaPlayer.GetPlaylist(favouritesFI.Select(x => x.FullName).ToList(), logger).ToArray();
                     list.Add(t);
                 }
 
@@ -196,7 +338,7 @@ namespace reAudioPlayerML
             {
                 var allPlaylists = getPlaylistPathsAsStrings();
 
-                if (playlists == SpecialPlaylists.Recents || playlists == SpecialPlaylists.All)
+                if (playlists == SpecialPlaylists.Breaking || playlists == SpecialPlaylists.All)
                 {
                     List<FileInfo> infos = new List<FileInfo>();
 
@@ -207,11 +349,24 @@ namespace reAudioPlayerML
 
                     recentsFI = new List<FileInfo>(infos.OrderByDescending(f => f.LastWriteTime).Take(20));
                 }
+
+                if (playlists == SpecialPlaylists.Favourites || playlists == SpecialPlaylists.All)
+                {
+                    var playCounts = Logger.GetPlayCountCache();
+
+                    var playlist = playCounts
+                        .OrderByDescending(x => x.Value)
+                        .Take(20)
+                        .Select(x => x.Key)
+                        .ToArray();
+
+                    favouritesFI = getSongPathsAsFileInfos(playlist);
+                }
             }
 
             public enum SpecialPlaylists
             {
-                Favourites, Recents, All
+                Favourites, Breaking, All
             }
         }
     }

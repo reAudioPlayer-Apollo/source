@@ -29,7 +29,7 @@ namespace reAudioPlayerML.HttpServer.Modules
             var sMessage = Encoding.GetString(rxBuffer);
             var jMessage = JsonConvert.DeserializeObject<MessageObject>(sMessage);
 
-            switch (jMessage.apiModule)
+            switch (jMessage.apiModule.ToLower())
             {
                 case "data":
                     new API.DataAPI().handleWebsocket(ref jMessage);
@@ -49,6 +49,10 @@ namespace reAudioPlayerML.HttpServer.Modules
 
                 case "youtube":
                     new API.YoutubeAPI().handleWebsocket(ref jMessage);
+                    break;
+
+                case "playlist":
+                    new API.PlaylistAPI().handleWebsocket(ref jMessage);
                     break;
 
                 default:
@@ -103,7 +107,7 @@ namespace reAudioPlayerML.HttpServer.Modules
 
         public void broadCastCover()
         {
-            SendToAll(new MessageObject("data", "cover", API.Static.GetStream(PlayerManager.cover)).ToString()).Wait();
+            SendToAll(new MessageObject("data", "cover", API.Static.GetAsBase64(PlayerManager.cover)).ToString()).Wait();
         }
 
         public void broadCastVolume(int value)

@@ -44,9 +44,9 @@
             this.btnPlayPause = new System.Windows.Forms.PictureBox();
             this.btnLast = new System.Windows.Forms.PictureBox();
             this.pnlRight = new System.Windows.Forms.Panel();
-            this.lblBackgroundTasks = new System.Windows.Forms.Label();
             this.tbControl = new MetroFramework.Controls.MetroTabControl();
             this.pgQuickAccess = new MetroFramework.Controls.MetroTabPage();
+            this.btnLoadIndependentAsPlaylist = new System.Windows.Forms.Button();
             this.btnManualAcrop = new System.Windows.Forms.Button();
             this.btnSync = new System.Windows.Forms.Button();
             this.imgQR = new System.Windows.Forms.PictureBox();
@@ -127,7 +127,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.btnLoadIndependentAsPlaylist = new System.Windows.Forms.Button();
             this.pnlHead.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -135,7 +134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLast)).BeginInit();
-            this.pnlRight.SuspendLayout();
             this.tbControl.SuspendLayout();
             this.pgQuickAccess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).BeginInit();
@@ -261,15 +259,8 @@
             // 
             // pnlRight
             // 
-            this.pnlRight.Controls.Add(this.lblBackgroundTasks);
             resources.ApplyResources(this.pnlRight, "pnlRight");
             this.pnlRight.Name = "pnlRight";
-            // 
-            // lblBackgroundTasks
-            // 
-            resources.ApplyResources(this.lblBackgroundTasks, "lblBackgroundTasks");
-            this.lblBackgroundTasks.ForeColor = System.Drawing.Color.White;
-            this.lblBackgroundTasks.Name = "lblBackgroundTasks";
             // 
             // tbControl
             // 
@@ -314,6 +305,15 @@
             this.pgQuickAccess.VerticalScrollbarBarColor = true;
             this.pgQuickAccess.VerticalScrollbarHighlightOnWheel = false;
             this.pgQuickAccess.VerticalScrollbarSize = 12;
+            // 
+            // btnLoadIndependentAsPlaylist
+            // 
+            this.btnLoadIndependentAsPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.btnLoadIndependentAsPlaylist, "btnLoadIndependentAsPlaylist");
+            this.btnLoadIndependentAsPlaylist.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLoadIndependentAsPlaylist.Name = "btnLoadIndependentAsPlaylist";
+            this.btnLoadIndependentAsPlaylist.UseVisualStyleBackColor = false;
+            this.btnLoadIndependentAsPlaylist.Click += new System.EventHandler(this.btnLoadIndependentAsPlaylist_Click);
             // 
             // btnManualAcrop
             // 
@@ -942,15 +942,6 @@
             resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
             // 
-            // btnLoadIndependentAsPlaylist
-            // 
-            this.btnLoadIndependentAsPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            resources.ApplyResources(this.btnLoadIndependentAsPlaylist, "btnLoadIndependentAsPlaylist");
-            this.btnLoadIndependentAsPlaylist.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLoadIndependentAsPlaylist.Name = "btnLoadIndependentAsPlaylist";
-            this.btnLoadIndependentAsPlaylist.UseVisualStyleBackColor = false;
-            this.btnLoadIndependentAsPlaylist.Click += new System.EventHandler(this.btnLoadIndependentAsPlaylist_Click);
-            // 
             // ml
             // 
             this.AllowDrop = true;
@@ -976,8 +967,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLast)).EndInit();
-            this.pnlRight.ResumeLayout(false);
-            this.pnlRight.PerformLayout();
             this.tbControl.ResumeLayout(false);
             this.pgQuickAccess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).EndInit();
@@ -1097,7 +1086,6 @@
         private System.Windows.Forms.Button btnSyncLocalToSpotify;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemChangeSpotify;
         private System.Windows.Forms.ToolStripTextBox link;
-        private System.Windows.Forms.Label lblBackgroundTasks;
         private System.Windows.Forms.TabPage pgLogs;
         private System.Windows.Forms.TextBox txtLogs;
         private System.Windows.Forms.Label label2;

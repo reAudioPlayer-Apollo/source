@@ -15,62 +15,56 @@ namespace reAudioPlayerML.HttpServer.API
 {
     class DataAPI : WebApiController
     {
-        [Route(HttpVerbs.Get, "/displayname")]
-        public async Task RGetDisplayname()
+        public struct ISearch
         {
-            await Static.SendStringAsync(HttpContext, displayname());
+            public string query;
+            public string scope;
+            public string type;
         }
 
+        public static List<MediaPlayer.BasicSong> globalPlaylistCache = new List<MediaPlayer.BasicSong>();
+
+        /// <summary>
+        /// Gets the displayname of the currently playing song
+        /// </summary>
         public string displayname()
         {
             return PlayerManager.displayName;
         }
 
-        [Route(HttpVerbs.Get, "/playlist")]
-        public async Task RGetPlaylist()
-        {
-            await Static.SendStringAsync(HttpContext, playlist());
-        }
-
+        /// <summary>
+        /// Gets the currently loaded playlist
+        /// </summary>
+        /// <returns>Serialised Playlist (FullPlaylist)</returns>
         public string playlist()
         {
             return JsonConvert.SerializeObject(PlayerManager.loadPlaylistVirtually(PlayerManager.mediaPlayer.playlist));
         }
 
-        [Route(HttpVerbs.Get, "/playlist/{index}")]
-        public async Task RGetPlaylist(int index)
-        {
-            await Static.SendStringAsync(HttpContext, playlist(index));
-        }
-
+        /// <summary>
+        /// Gets the playlist @ <paramref name="index"/>
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns>Serialised Playlist (FullPlaylist)</returns>
         public string playlist(int index)
         {
             return JsonConvert.SerializeObject(PlayerManager.loadPlaylistVirtually(index));
         }
 
-        [Route(HttpVerbs.Get, "/playlists")]
-        public async Task RGetPlaylists()
-        {
-            await Static.SendStringAsync(HttpContext, playlists());
-        }
-
+        /// <summary>
+        /// Gets few details of all playlists
+        /// </summary>
+        /// <returns>Serialised Playlist (AllDetailedPlaylists)</returns>
         public string playlists()
         {
             return JsonConvert.SerializeObject(PlaylistManager.getDetailedPlaylists());
         }
 
-        [Route(HttpVerbs.Get, "/search/{query}&{scope}")]
-        public async Task RSearch(string query, string scope = null)
-        {
-            await Static.SendStringAsync(HttpContext, search(query, scope));
-        }
 
         public string search(ISearch req)
         {
             return search(req.query, req.scope);
         }
-
-        public static List<MediaPlayer.Song> globalPlaylistCache = new List<MediaPlayer.Song>();
 
         public string search(string query, string scope = "playlist")
         {
@@ -84,7 +78,7 @@ namespace reAudioPlayerML.HttpServer.API
 
             if (scope is not null && scope.ToLower() == "global")
             {
-                globalPlaylistCache = new List<MediaPlayer.Song>(pl);
+                globalPlaylistCache = MediaPlayer.BasicSong.ConvertFromSongList(pl.ToArray()).ToList();
                 specialCoverUriSuffix = "&global";
             }
 
@@ -111,6 +105,79 @@ namespace reAudioPlayerML.HttpServer.API
             sw.Stop();
             Debug.WriteLine(sw.Elapsed.ToString());
             return ret;
+        }
+
+        public byte[] cover(int id, bool global = false)
+        {
+            var location = PlayerManager.logger.getSongLocationById(id);
+
+            MediaPlayer.Song song = global ?
+                new MediaPlayer.Song(globalPlaylistCache.Where(x => x.location == location).FirstOrDefault()) :
+                PlayerManager.mediaPlayer.playlist.Where(x => x.location == location).FirstOrDefault();
+
+            if (song is not null && (song.cover is not null || global))
+            {
+                return song.getCoverBytes(global);
+            }
+
+            return null;
+        }
+
+        public string volume()
+        {
+            return PlayerManager.volume.ToString();
+        }
+
+        public string position()
+        {
+            return PlayerManager.playerPosition.ToString();
+        }
+
+        public string cover()
+        {
+            return Static.GetAsBase64(PlayerManager.cover);
+        }
+
+        public string radioProgramme()
+        {
+            return PlayerManager.getRadioProgrammes();
+        }
+
+        public string accentColour()
+        {
+            return ColorTranslator.ToHtml(PlayerManager.accentColour);
+        }
+
+        /* ROUTES */
+
+        [Route(HttpVerbs.Get, "/displayname")]
+        public async Task RGetDisplayname()
+        {
+            await Static.SendStringAsync(HttpContext, displayname());
+        }
+
+        [Route(HttpVerbs.Get, "/playlist")]
+        public async Task RGetPlaylist()
+        {
+            await Static.SendStringAsync(HttpContext, playlist());
+        }
+
+        [Route(HttpVerbs.Get, "/playlist/{index}")]
+        public async Task RGetPlaylist(int index)
+        {
+            await Static.SendStringAsync(HttpContext, playlist(index));
+        }
+
+        [Route(HttpVerbs.Get, "/playlists")]
+        public async Task RGetPlaylists()
+        {
+            await Static.SendStringAsync(HttpContext, playlists());
+        }
+
+        [Route(HttpVerbs.Get, "/search/{query}&{scope}")]
+        public async Task RSearch(string query, string scope = null)
+        {
+            await Static.SendStringAsync(HttpContext, search(query, scope));
         }
 
         [Route(HttpVerbs.Get, "/cover/{id}&global")]
@@ -141,31 +208,10 @@ namespace reAudioPlayerML.HttpServer.API
             }
         }
 
-        public byte[] cover(int id, bool global = false)
-        {
-            var location = PlayerManager.logger.getSongLocationById(id);
-
-            MediaPlayer.Song song = global ?
-                globalPlaylistCache.Where(x => x.location == location).FirstOrDefault() : 
-                PlayerManager.mediaPlayer.playlist.Where(x => x.location == location).FirstOrDefault();
-            
-            if (song is not null && (song.cover is not null || global))
-            {
-                return song.getCoverBytes(global);
-            }
-
-            return null;
-        }
-
         [Route(HttpVerbs.Get, "/volume")]
         public async Task RGetVolume()
         {
             await Static.SendStringAsync(HttpContext, volume());
-        }
-
-        public string volume()
-        {
-            return PlayerManager.volume.ToString();
         }
 
         [Route(HttpVerbs.Get, "/position")]
@@ -174,47 +220,22 @@ namespace reAudioPlayerML.HttpServer.API
             await Static.SendStringAsync(HttpContext, position());
         }
 
-        public string position()
-        {
-            return PlayerManager.playerPosition.ToString();
-        }
-
         [Route(HttpVerbs.Get, "/cover")]
         public async Task RGetCover()
         {
             await Static.SendStringAsync(HttpContext, cover());
         }
-        public string cover()
-        {
-            return Static.GetStream(PlayerManager.cover);
-        }
-
+        
         [Route(HttpVerbs.Get, "/radioProgramme")]
         public async Task RGetProgramme()
         {
             await Static.SendStringAsync(HttpContext, radioProgramme());
         }
-        public string radioProgramme()
-        {
-            return PlayerManager.getRadioProgrammes();
-        }
-
+        
         [Route(HttpVerbs.Get, "/accentColour")]
         public async Task getAccentColour()
         {
             await Static.SendStringAsync(HttpContext, accentColour());
-        }
-
-        public string accentColour()
-        {
-            return ColorTranslator.ToHtml(PlayerManager.accentColour);
-        }
-
-        public struct ISearch
-        {
-            public string query;
-            public string scope;
-            public string type;
         }
 
         public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)

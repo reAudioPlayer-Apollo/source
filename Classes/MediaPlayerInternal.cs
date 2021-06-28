@@ -217,17 +217,31 @@ namespace reAudioPlayerML
             notifyIcon?.ShowBalloonTip(2000, "reAudioPlayer", "Playlist loaded!", ToolTipIcon.Info);
         }
 
-        private async Task updateAccentColours(Song[] songs)
+        private async Task updateAccentColours(Song[] songs, int startIndex = 0)
         {
+            /*Task t = null;
+
+            if (songs.Length > (startIndex + 10))
+            {
+                t = Task.Factory.StartNew(() => updateAccentColours(songs, startIndex + 10)).Unwrap();
+            }
+            else
+            {
+                t = Task.CompletedTask;
+            }*/
+
             var files = songs.Select(x => x.location).ToArray();
             var cache = accentColourCache;
 
-            for (int i = 0; i < songs.Length; i++)
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            for (int i = startIndex; i < songs.Length; i++)
             {
+                Color colour = await getAccentColour(songs[i].cover, 1);
                 int index = playlist.FindIndex(x => x.location == files[i]);
 
-                Color colour = await getAccentColour(songs[i].cover, 1);
-                cache[files[i]] = ColorTranslator.ToHtml(colour);
+                cache[files[index]] = ColorTranslator.ToHtml(colour);
                 accentColourCache = cache;
 
                 if (index >= 0)
@@ -236,11 +250,17 @@ namespace reAudioPlayerML
 
                     lock (playlist)
                     {
-                        playlist[i].accentColour = colour;
-                        playlist[i].background = bm;
+                        playlist[index].accentColour = colour;
+                        playlist[index].background = bm;
                     }
                 }
+
+                Logger.Log($"updating accent colours ({i + 1}/{songs.Length}) ({Math.Round((double)sw.ElapsedMilliseconds / 1000, 2)} s)", "MediaPlayer.updateAccentColours");
             }
+            sw.Stop();
+
+            //await t;
+            //Logger.Log($"{startIndex} finished", "startindex_temp");
         }
 
         private async Task loadBackgrounds()

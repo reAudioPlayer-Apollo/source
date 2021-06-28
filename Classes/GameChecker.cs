@@ -154,8 +154,6 @@ namespace reAudioPlayerML
         {
             List<string> _runningGames = new List<string>();
             
-            Process[] processlist = Process.GetProcesses();
-
             foreach (var game in knownGames)
             {
                 Process[] pname = Process.GetProcessesByName(game.Replace(".exe", ""));
