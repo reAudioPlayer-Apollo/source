@@ -148,10 +148,9 @@ namespace reAudioPlayerML
             }
         }
 
-        private int toTrackBarScale()
+        private int toTrackBarScale(double posMs)
         {
             double totMs = player.NaturalDuration.TimeSpan.TotalMilliseconds;
-            double posMs = player.Position.TotalMilliseconds;
 
             int r = (int)Math.Round((posMs * 1000.0) / totMs);
 
@@ -161,11 +160,26 @@ namespace reAudioPlayerML
             return r;
         }
 
-        private void loadNext()
+        private int toTrackBarScale()
+        {
+            return toTrackBarScale(player.Position.TotalMilliseconds);
+        }
+
+        private void loadNext(bool manually = true)
         {
             if (playlist is null)
             {
                 return;
+            }
+
+            if (Next is not null)
+            {
+                Next(new object(), manually);
+            }
+
+            if (Skip is not null)
+            {
+                Skip(new object(), manually);
             }
 
             loadSong(playlist[nextIndex].location);
@@ -173,7 +187,7 @@ namespace reAudioPlayerML
 
         private void Player_MediaEnded(object sender, EventArgs e)
         {
-            loadNext();
+            loadNext(false);
         }
 
         private async Task loadCovers()

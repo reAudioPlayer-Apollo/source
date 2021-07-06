@@ -183,9 +183,18 @@ namespace reAudioPlayerML
             mediaPlayer.playPause();
         }
 
+        private int prgTimeDoneValueCache = -1;
         private void prgTimeDone_Scroll(object sender, ScrollEventArgs e)
         {
-            mediaPlayer.jumpTo(prgTimeDone.Value);
+            if (prgTimeDoneValueCache == e.NewValue)
+            {
+                return;
+            }
+
+            Debug.WriteLine(e.NewValue + " and cached: " + prgTimeDoneValueCache);
+
+            mediaPlayer.jumpTo(e.NewValue);
+            prgTimeDoneValueCache = e.NewValue;
         }
 
         private void btnNext_Click(object sender, EventArgs e)

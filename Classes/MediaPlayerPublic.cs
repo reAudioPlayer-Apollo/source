@@ -76,6 +76,39 @@ namespace reAudioPlayerML
         public bool isPlaying
         { get; private set; }
 
+        /// <summary>
+        /// on play (either new song or resume)
+        /// </summary>
+        public event EventHandler Play;
+
+        /// <summary>
+        /// on pause
+        /// </summary>
+        public event EventHandler Pause;
+
+        /// <summary>
+        /// on next song in playlist loaded, manually or automatically
+        /// true: manually, false: automatically
+        /// </summary>
+        public event EventHandler<bool> Next;
+
+        /// <summary>
+        /// on last song in playlist loaded, can only happen manually
+        /// </summary>
+        public event EventHandler Last;
+
+        /// <summary>
+        /// on last OR next song loaded, manually or automatically
+        /// true: manually, false: automatically
+        /// </summary>
+        public event EventHandler<bool> Skip;
+
+        /// <summary>
+        /// position change
+        /// int: new position in 1/1000
+        /// </summary>
+        public event EventHandler<int> Jump;
+
         public class BasicSong
         {
             public string artist;
@@ -474,6 +507,11 @@ namespace reAudioPlayerML
             {
                 player.Position = new TimeSpan(0, 0, 0, 0, fromTrackBarScale(position));
             }));
+
+            if (Jump is not null)
+            {
+                Jump(new object(), position);
+            }
         }
 
         /// <inheritdoc cref="jumpTo(int)"/>
@@ -484,6 +522,11 @@ namespace reAudioPlayerML
             {
                 player.Position = position;
             }));
+
+            if (Jump is not null)
+            {
+                Jump(new object(), toTrackBarScale(position.TotalMilliseconds));
+            }
         }
 
         public void next()
@@ -498,6 +541,15 @@ namespace reAudioPlayerML
                 return;
             }
 
+            if (Last is not null)
+            {
+                Last(new object(), new EventArgs());
+            }
+
+            if (Skip is not null)
+            {
+                Skip(new object(), true);
+            }
             loadSong(lastIndex);
         }
 
@@ -508,6 +560,11 @@ namespace reAudioPlayerML
         /// <returns></returns>
         public int fromTrackBarScale(int position)
         {
+            if (playlist.Count <= 0)
+            {
+                return 0;
+            }
+
             double totMs = 0;
 
             try
@@ -651,6 +708,11 @@ namespace reAudioPlayerML
 
                 tmrSongPlayed.Resume();
             }));
+
+            if (Play is not null)
+            {
+                Play(new object(), new EventArgs());
+            }
         }
 
         public bool pause()
@@ -678,6 +740,11 @@ namespace reAudioPlayerML
 
                 ret = false;
             }));
+
+            if (Pause is not null)
+            {
+                Pause(new object(), new EventArgs());
+            }
 
             return ret;
         }
