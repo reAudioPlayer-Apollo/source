@@ -13,3 +13,4 @@
 ## Coming Features
 - asplit for custom files (requires yt link or plain-description as input)
 - File Converter
+- cache control
