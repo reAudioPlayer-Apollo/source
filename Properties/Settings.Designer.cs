@@ -50,18 +50,6 @@ namespace reAudioPlayerML.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string spotifyLinkCache {
-            get {
-                return ((string)(this["spotifyLinkCache"]));
-            }
-            set {
-                this["spotifyLinkCache"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string spotifyFeatureCache {
             get {
                 return ((string)(this["spotifyFeatureCache"]));

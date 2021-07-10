@@ -156,19 +156,6 @@ namespace reAudioPlayerML.Search.Spotify
             }
         }
 
-        private static Dictionary<string, object> spotifyCache
-        {
-            set
-            {
-                Properties.Settings.Default.spotifyCache = JsonConvert.SerializeObject(value);
-                Properties.Settings.Default.Save();
-            }
-            get
-            {
-                return JsonConvert.DeserializeObject<Dictionary<string, object>>(Properties.Settings.Default.spotifyCache);
-            }
-        }
-
         private static Dictionary<string, string> spotifyLinkCache
         {
             set
