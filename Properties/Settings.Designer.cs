@@ -38,12 +38,12 @@ namespace reAudioPlayerML.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string spotifyCache {
+        public string spotifyLinkCache {
             get {
-                return ((string)(this["spotifyCache"]));
+                return ((string)(this["spotifyLinkCache"]));
             }
             set {
-                this["spotifyCache"] = value;
+                this["spotifyLinkCache"] = value;
             }
         }
         

@@ -43,19 +43,6 @@ namespace reAudioPlayerML.Search.Obsolete
 
         List<FullTrack> localPlaylistOnSpotify = new List<FullTrack>();
 
-        private Dictionary<string, object> spotifyCache
-        {
-            set
-            {
-                Properties.Settings.Default.spotifyCache = JsonConvert.SerializeObject(value);
-                Properties.Settings.Default.Save();
-            }
-            get
-            {
-                return JsonConvert.DeserializeObject<Dictionary<string, object>>(Properties.Settings.Default.spotifyCache);
-            }
-        }
-
         private Dictionary<string, string> spotifyLinkCache
         {
             set

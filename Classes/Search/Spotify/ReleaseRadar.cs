@@ -132,7 +132,7 @@ namespace reAudioPlayerML.Search.Spotify
                 return;
             }
 
-            List<Release> notifications = currentReleases.Except(oldReleases).ToList();
+            List<Release> notifications = currentReleases.Where(x => oldReleases.Find(y => y.uri == x.uri) is null).ToList();
 
             if (notifications.Count <= 0)
             {
