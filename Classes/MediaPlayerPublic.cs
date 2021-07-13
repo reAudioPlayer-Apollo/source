@@ -560,7 +560,7 @@ namespace reAudioPlayerML
         /// <returns></returns>
         public int fromTrackBarScale(int position)
         {
-            if (playlist.Count <= 0)
+            if (playlist is not null && playlist.Count <= 0)
             {
                 return 0;
             }
