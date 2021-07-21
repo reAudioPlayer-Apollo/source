@@ -45,6 +45,12 @@ namespace reAudioPlayerML.HttpServer.API
             return JsonConvert.SerializeObject(t);
         }
 
+        public string createAuto(string descr)
+        {
+            PlaylistManager.AutoPlaylists.CreateAutoPlaylist(descr);
+            return null;
+        }
+
         [Route(HttpVerbs.Get, "/virtual/create/{songlist}")]
         public async Task RCreateVirtually(string songlist)
         {
@@ -63,6 +69,12 @@ namespace reAudioPlayerML.HttpServer.API
             await Static.SendStringAsync(HttpContext, getVirtual());
         }
 
+        [Route(HttpVerbs.Get, "/auto/create/{description}")]
+        public async Task RCreateAuto(string description)
+        {
+            await Static.SendStringAsync(HttpContext, createAuto(description));
+        }
+
         public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)
         {
             switch (msg.endpoint)
@@ -77,6 +89,10 @@ namespace reAudioPlayerML.HttpServer.API
 
                 case "virtual":
                     msg.data = getVirtual();
+                    break;
+
+                case "auto/create":
+                    msg.data = createAuto(msg.data);
                     break;
 
                 default:

@@ -50,6 +50,21 @@ namespace reAudioPlayerML
 
             //Classes.Localiser.SetCulture("de");
 
+            foreach (object item in ShareSong.Items)
+            {
+                Type type = item.GetType();
+
+                if (item.GetType() == typeof(ToolStripMenuItem))
+                {
+                    ToolStripMenuItem button = item as ToolStripMenuItem;
+
+                    if (button.Name == "addToPlaylist")
+                    {
+                        Search.Spotify.UIHandler.mainPlaylists = button.DropDownItems[0] as ToolStripComboBox;
+                    }
+                }
+            }
+
             tbControl.SelectTab(1);
 
             mediaPlayer.linkVolume(prgVolume);
@@ -491,6 +506,43 @@ namespace reAudioPlayerML
         private void btnLoadIndependentAsPlaylist_Click(object sender, EventArgs e)
         {
             mediaPlayer.loadFromIndependentSong();
+        }
+
+        private void openOnSpotify_Click(object sender, EventArgs e)
+        {
+            Search.Spotify.Wrapper.OpenOnSpotify(mediaPlayer.upNow.spotifyEqual);
+        }
+
+        private void copySpotify_Click(object sender, EventArgs e)
+        {
+            var link = mediaPlayer.upNow.spotifyEqual.Uri;
+            link = "https://open.spotify.com/" + link.Replace("spotify:", "").Replace(':', '/');
+            Clipboard.SetText(link);
+        }
+
+        private void copySpotifyPreview_Click(object sender, EventArgs e)
+        {
+            var link = mediaPlayer.upNow.spotifyEqual.PreviewUrl;
+            Clipboard.SetText(link);
+        }
+
+        private void searchOnYoutube_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo ps = new ProcessStartInfo()
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+
+            ps.FileName = $"https://music.youtube.com/search?q={mediaPlayer.upNow.oneLiner}";
+            Process.Start(ps);
+        }
+
+        private void addToPlaylist_Click(object sender, EventArgs e)
+        {            
+            var item = sender as ToolStripMenuItem;
+            var playlist = (item.DropDownItems[0] as ToolStripComboBox).Text;
+            Search.Spotify.Wrapper.AddToPlaylist(mediaPlayer.upNow.spotifyEqual.Uri, playlist);
         }
     }
 }

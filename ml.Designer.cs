@@ -31,6 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ml));
             this.pnlHead = new System.Windows.Forms.Panel();
+            this.ShareSong = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openOnSpotify = new System.Windows.Forms.ToolStripMenuItem();
+            this.copySpotify = new System.Windows.Forms.ToolStripMenuItem();
+            this.copySpotifyPreview = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToPlaylist = new System.Windows.Forms.ToolStripMenuItem();
+            this.playlists = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.searchOnYoutube = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUpNowArtist = new System.Windows.Forms.Label();
             this.lblUpNowTitle = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
@@ -127,7 +135,22 @@
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlHead.SuspendLayout();
+            this.ShareSong.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -151,11 +174,66 @@
             // 
             // pnlHead
             // 
+            this.pnlHead.ContextMenuStrip = this.ShareSong;
             this.pnlHead.Controls.Add(this.lblUpNowArtist);
             this.pnlHead.Controls.Add(this.lblUpNowTitle);
             resources.ApplyResources(this.pnlHead, "pnlHead");
             this.pnlHead.Name = "pnlHead";
             this.pnlHead.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHead_Paint);
+            // 
+            // ShareSong
+            // 
+            this.ShareSong.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openOnSpotify,
+            this.copySpotify,
+            this.copySpotifyPreview,
+            this.addToPlaylist,
+            this.toolStripSeparator10,
+            this.searchOnYoutube});
+            this.ShareSong.Name = "ShareSong";
+            resources.ApplyResources(this.ShareSong, "ShareSong");
+            // 
+            // openOnSpotify
+            // 
+            this.openOnSpotify.Name = "openOnSpotify";
+            resources.ApplyResources(this.openOnSpotify, "openOnSpotify");
+            this.openOnSpotify.Click += new System.EventHandler(this.openOnSpotify_Click);
+            // 
+            // copySpotify
+            // 
+            this.copySpotify.Name = "copySpotify";
+            resources.ApplyResources(this.copySpotify, "copySpotify");
+            this.copySpotify.Click += new System.EventHandler(this.copySpotify_Click);
+            // 
+            // copySpotifyPreview
+            // 
+            this.copySpotifyPreview.Name = "copySpotifyPreview";
+            resources.ApplyResources(this.copySpotifyPreview, "copySpotifyPreview");
+            this.copySpotifyPreview.Click += new System.EventHandler(this.copySpotifyPreview_Click);
+            // 
+            // addToPlaylist
+            // 
+            this.addToPlaylist.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playlists});
+            this.addToPlaylist.Name = "addToPlaylist";
+            resources.ApplyResources(this.addToPlaylist, "addToPlaylist");
+            this.addToPlaylist.Click += new System.EventHandler(this.addToPlaylist_Click);
+            // 
+            // playlists
+            // 
+            this.playlists.Name = "playlists";
+            resources.ApplyResources(this.playlists, "playlists");
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
+            // 
+            // searchOnYoutube
+            // 
+            this.searchOnYoutube.Name = "searchOnYoutube";
+            resources.ApplyResources(this.searchOnYoutube, "searchOnYoutube");
+            this.searchOnYoutube.Click += new System.EventHandler(this.searchOnYoutube_Click);
             // 
             // lblUpNowArtist
             // 
@@ -420,6 +498,7 @@
             // 
             this.imgCover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             resources.ApplyResources(this.imgCover, "imgCover");
+            this.imgCover.ContextMenuStrip = this.ShareSong;
             this.imgCover.Name = "imgCover";
             this.imgCover.TabStop = false;
             // 
@@ -942,6 +1021,82 @@
             resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox1});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            resources.ApplyResources(this.toolStripComboBox1, "toolStripComboBox1");
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox2});
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
+            // 
+            // toolStripComboBox2
+            // 
+            this.toolStripComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox2.Name = "toolStripComboBox2";
+            resources.ApplyResources(this.toolStripComboBox2, "toolStripComboBox2");
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            resources.ApplyResources(this.toolStripMenuItem8, "toolStripMenuItem8");
+            // 
             // ml
             // 
             this.AllowDrop = true;
@@ -960,6 +1115,7 @@
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.ml_DragEnter);
             this.pnlHead.ResumeLayout(false);
             this.pnlHead.PerformLayout();
+            this.ShareSong.ResumeLayout(false);
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1019,20 +1175,12 @@
         private System.Windows.Forms.ColumnHeader album;
         private System.Windows.Forms.ColumnHeader Datzm;
         private System.Windows.Forms.Label lblUpNowArtist;
-        private System.Windows.Forms.ContextMenuStrip spotifyContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem openOnSpotifyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchOnYoutubeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem btnAddToPlaylist;
-        private System.Windows.Forms.ToolStripComboBox addToPlaylistToolStripMenuItem;
         private System.Windows.Forms.Button btnRevealedRadio;
         private System.Windows.Forms.Button btnApolloOnAir;
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.Button btnAddGame;
         private System.Windows.Forms.PictureBox imgQR;
         private System.Windows.Forms.Button btnSync;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
         private System.Windows.Forms.TabPage pgSpotifySync;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView lviewSpotifySync;
@@ -1091,6 +1239,36 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtExportArtistDelimiter;
         private System.Windows.Forms.Button btnLoadIndependentAsPlaylist;
+        private System.Windows.Forms.ContextMenuStrip spotifyContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem openOnSpotifyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnAddToPlaylist;
+        private System.Windows.Forms.ToolStripComboBox addToPlaylistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem searchOnYoutubeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ContextMenuStrip ShareSong;
+        private System.Windows.Forms.ToolStripMenuItem openOnSpotify;
+        private System.Windows.Forms.ToolStripMenuItem copySpotify;
+        private System.Windows.Forms.ToolStripMenuItem copySpotifyPreview;
+        private System.Windows.Forms.ToolStripMenuItem addToPlaylist;
+        private System.Windows.Forms.ToolStripComboBox playlists;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem searchOnYoutube;
     }
 }
 

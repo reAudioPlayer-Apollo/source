@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +10,21 @@ namespace reAudioPlayerML
 {
     public class AutoRating
     {
-        public Stats stats = new Stats();
+        public Stats stats;
+        public string id;
+
+        public AutoRating(MediaPlayer mediaPlayer, System.Windows.Media.MediaPlayer duration, string id)
+        {
+            this.id = id;
+            stats = new Stats(mediaPlayer, duration, id);
+        }
 
         public int score
         {
             get
             {
                 int _score;
-                var playScore = stats.dailyPlayScore * 2 + stats.weeklyPlayScore / 3;
+                var playScore = (stats.dailyPlayScore * 2 + stats.weeklyPlayScore) / 3;
                 _score = playScore + stats.boost;
                 return _score > 100 ? 100 : _score;
             }
@@ -23,10 +32,98 @@ namespace reAudioPlayerML
 
         public class Stats
         {
-            internal static int maxDailyPlayCount = 0;
-            internal static int maxWeeklyPlayCount = 0;
+            internal static double maxDailyPlayCount = 0;
+            internal static double maxWeeklyPlayCount = 0;
+            MediaPlayer player;
+            Stopwatch sw = new Stopwatch();
+            TimeSpan duration
+            {
+                get
+                {
+                    return rPlayer is not null && rPlayer.NaturalDuration.HasTimeSpan ? rPlayer.NaturalDuration.TimeSpan : new TimeSpan();
+                }
+            }
+            public bool active = false;
+            private string id;
+            System.Windows.Media.MediaPlayer rPlayer;
 
-            public static int calculatePlayExperience(int percentage)
+            public static Dictionary<string, Dictionary<DateTime, int>> PlayCountCache
+            {
+                get
+                {
+                    var t = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<DateTime, int>>>(Properties.Settings.Default.autoRatingPlayCache);
+                    return t is null ? new Dictionary<string, Dictionary<DateTime, int>>() : t;
+                }
+                set
+                {
+                    Properties.Settings.Default.autoRatingPlayCache = JsonConvert.SerializeObject(value);
+                    Properties.Settings.Default.Save();
+                }
+            }
+
+
+            public Stats(MediaPlayer mediaPlayer, System.Windows.Media.MediaPlayer rPlayer, string id)
+            {
+                if (mediaPlayer is not null)
+                {
+                    player = mediaPlayer;
+                    player.Skip += Player_Skip;
+                    player.Pause += Player_Pause;
+                    player.Play += Player_Play;
+                }
+                this.rPlayer = rPlayer;
+                this.id = id;
+
+                var playCountCache = PlayCountCache;
+                plays = playCountCache.ContainsKey(id) ? playCountCache[id] : new Dictionary<DateTime, int>();
+            }
+
+            private void updateCache()
+            {
+                var playCountCache = PlayCountCache;
+                if (playCountCache.ContainsKey(id))
+                {
+                    playCountCache[id] = plays;
+                }
+                else
+                {
+                    playCountCache.Add(id, plays);
+                }
+                PlayCountCache = playCountCache;
+            }
+
+            private void Player_Play(object sender, EventArgs e)
+            {
+                if (active)
+                    sw.Start();
+            }
+
+            private void Player_Pause(object sender, EventArgs e)
+            {
+                if (active)
+                    sw.Stop();
+            }
+
+            private void Player_Skip(object sender, bool e)
+            {
+                if (active)
+                {
+                    active = false;
+                    sw.Stop();
+                    var t = sw.Elapsed;
+                    addPlay(Convert.ToInt32(t.TotalSeconds * 100 / duration.TotalSeconds));
+                    sw.Reset();
+                }
+            }
+
+            public void addPlay(int percentage)
+            {
+                int xp = CalculatePlayExperience(percentage);
+                plays.Add(DateTime.Now, xp);
+                updateCache();
+            }
+
+            private static int CalculatePlayExperience(int percentage)
             {
                 if (percentage >= 98)
                 {
@@ -35,7 +132,7 @@ namespace reAudioPlayerML
 
                 double y = (2.295238 * percentage)
                     - (0.03428571 * percentage * percentage)
-                    + (0002133333 * percentage * percentage);
+                    + (0.002133333 * percentage * percentage);
 
                 return (int)Math.Round(y);
             }
@@ -44,7 +141,7 @@ namespace reAudioPlayerML
             {
                 get
                 {
-                    return 100 * dailyPlayCount / maxDailyPlayCount;
+                    return (int)(maxDailyPlayCount == dailyPlayCount * 0 ? 0 : 100 * dailyPlayCount / maxDailyPlayCount);
                 }
             }
 
@@ -52,27 +149,28 @@ namespace reAudioPlayerML
             {
                 get
                 {
-                    return 100 * weeklyPlayCount / maxWeeklyPlayCount;
+                    return (int)(maxWeeklyPlayCount == weeklyPlayCount * 0 ? 0 : 100 * weeklyPlayCount / maxWeeklyPlayCount);
                 }
             }
 
-            private int dailyPlayCount
+            private double dailyPlayCount
             {
                 get
                 {
                     var maxAge = DateTime.Now.AddDays(-1);
-                    var t = plays.Where(x => x < maxAge).Count();
+                    double t = plays.Where(x => x.Key > maxAge).Select(x => x.Value).ToArray().Sum();
+                    t /= 100;
                     maxDailyPlayCount = Math.Max(t, maxDailyPlayCount);
                     return t;
                 }
             }
 
-            private int weeklyPlayCount
+            private double weeklyPlayCount
             {
                 get
                 {
                     var maxAge = DateTime.Now.AddDays(-7);
-                    var t = plays.Where(x => x < maxAge).Count();
+                    var t = plays.Select(x => x.Key).Where(x => x > maxAge).Count();
                     maxWeeklyPlayCount = Math.Max(t, maxWeeklyPlayCount);
                     return t;
                 }
@@ -80,7 +178,7 @@ namespace reAudioPlayerML
 
             public int boost = 0;
 
-            public List<DateTime> plays;
+            public Dictionary<DateTime, int> plays;
         }
     }
 }

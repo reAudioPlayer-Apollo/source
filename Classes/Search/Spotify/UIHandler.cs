@@ -11,6 +11,7 @@ namespace reAudioPlayerML.Search.Spotify
         public static ContextMenuStrip ctxSync;
 
         public static ToolStripComboBox ctxSyncPlaylists;
+        public static ToolStripComboBox mainPlaylists;
 
         public static TextBox txtArtistDelimiter;
         public static TextBox txtSyncIn;

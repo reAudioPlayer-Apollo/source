@@ -313,7 +313,7 @@ namespace reAudioPlayerML.Search.Spotify
             return ret;
         }
 
-        private static FullTrack getMatchingSpotifySong(string song)
+        public static FullTrack getMatchingSpotifySong(string song)
         {
             try
             {
@@ -606,10 +606,11 @@ namespace reAudioPlayerML.Search.Spotify
             var btnCopyApply = new TaskDialogCommandLinkButton("Copy & Apply", "adds spotify metadata to copies of your local files");
             var btnLoad = new TaskDialogCommandLinkButton("Load As Playlist", "loads all songs as a playlist");
             var btnVirtual = new TaskDialogCommandLinkButton("Create Virtual Playlist", "creates a virtual playlist, leaving your files untouched");
+            var btnCopy = new TaskDialogCommandLinkButton("Copy To Clipboard", "copies all files to your clipboard");
 
             td.Text = "How Do you want to export?";
             td.Expander.Text = "Fetches: Artist, Title, Album, BPM, Key, Popularity, Energy, Cover, Loudness, ...";
-            td.Buttons = new TaskDialogButtonCollection() { btnApply, btnRenameApply, btnCopyApply, btnLoad, btnVirtual, TaskDialogButton.Cancel };
+            td.Buttons = new TaskDialogButtonCollection() { btnApply, btnRenameApply, btnCopyApply, btnLoad, btnVirtual, btnCopy, TaskDialogButton.Cancel };
             td.Verification = new TaskDialogVerificationCheckBox("don't apply metadata");
             var mode = TaskDialog.ShowDialog(td);
 
@@ -626,6 +627,14 @@ namespace reAudioPlayerML.Search.Spotify
             if (mode == btnLoad)
             {
                 PlayerManager.loadPlaylist(files);
+                return;
+            }
+
+            if (mode == btnCopy)
+            {
+                var t = new System.Collections.Specialized.StringCollection();
+                t.AddRange(files);
+                Clipboard.SetFileDropList(t);
                 return;
             }
 

@@ -23,11 +23,6 @@ namespace reAudioPlayerML.Search.Spotify
             }
         }
 
-        public static void AddToPlaylist(string[] Uris, SimplePlaylist playlist)
-        {
-            SnapshotResponse tmp = Init.Client.Playlists.AddItems(playlist.Id, new PlaylistAddItemsRequest(Uris)).Result;
-        }
-
         public static void OpenOnSpotify(FullTrack track)
         {
             OpenOnSpotify(track.ExternalUrls.FirstOrDefault().Value);
@@ -46,6 +41,11 @@ namespace reAudioPlayerML.Search.Spotify
             };
 
             Process.Start(ps);
+        }
+
+        public static void AddToPlaylist(string[] Uris, SimplePlaylist playlist)
+        {
+            SnapshotResponse tmp = Init.Client.Playlists.AddItems(playlist.Id, new PlaylistAddItemsRequest(Uris)).Result;
         }
 
         public static void AddToPlaylist(string Uri, SimplePlaylist playlist)
@@ -126,6 +126,7 @@ namespace reAudioPlayerML.Search.Spotify
                 if (item.Owner.Id == Init.UserId)
                 {
                     UIHandler.ctxSyncPlaylists.Items.Add(item.Name);
+                    UIHandler.mainPlaylists.Items.Add(item.Name);
                     UIHandler.cmbSyncPlaylist.Invoke(new Action(() =>
                     {
                         UIHandler.cmbSyncPlaylist.Items.Add(item.Name);

@@ -118,5 +118,17 @@ namespace reAudioPlayerML.Properties {
                 this["virtualPlaylists"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string autoRatingPlayCache {
+            get {
+                return ((string)(this["autoRatingPlayCache"]));
+            }
+            set {
+                this["autoRatingPlayCache"] = value;
+            }
+        }
     }
 }

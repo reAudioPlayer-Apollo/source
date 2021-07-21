@@ -158,6 +158,14 @@ namespace reAudioPlayerML
                 }
             }
 
+            public DateTime creationTime
+            {
+                get
+                {
+                    return new FileInfo(location).CreationTime;
+                }
+            }
+
             public string keywords
             {
                 get
@@ -224,6 +232,21 @@ namespace reAudioPlayerML
         {
             public Image cover;
             public Image background;
+            public AutoRating autoRating;
+            private SpotifyAPI.Web.FullTrack _cachedSpotifyEqual;
+
+            public SpotifyAPI.Web.FullTrack spotifyEqual
+            {
+                get
+                {
+                    if (_cachedSpotifyEqual is null)
+                    {
+                        _cachedSpotifyEqual = Search.Spotify.Synchronise.getMatchingSpotifySong(location);
+                    }
+
+                    return _cachedSpotifyEqual;
+                }
+            }
 
             public Song() { }
 
@@ -353,7 +376,7 @@ namespace reAudioPlayerML
                     break;
 
                 case OrderBy.CreationDate:
-                    playlist = playlist.OrderByDescending(x => new FileInfo(x.location).CreationTime).ToList();
+                    playlist = playlist.OrderByDescending(x => x.creationTime).ToList();
                     break;
 
                 case OrderBy.Filename:
@@ -628,10 +651,17 @@ namespace reAudioPlayerML
                     playlistIndex = playlist.IndexOf(structResults.First());
                     independentSong = null;
                     player.Open(new Uri(filename));
-                    upNow = playlist.Find(x => x.location == filename);
+                    upNow = playlist[playlistIndex];
                     lblUpNowTitle.Text = upNow.title;
                     lblUpNowArtist.Text = $"{upNow.artist} - [{filename}]";
                     PlayerManager.webSocket?.broadCastDisplayname();
+
+                    if (playlist[playlistIndex].autoRating is null)
+                    {
+                        playlist[playlistIndex].autoRating = new AutoRating(this, player, upNow.location);
+                    }
+
+                    playlist[playlistIndex].autoRating.stats.active = true;
                 }));
 
                 _ = Task.Delay(30 * 1000).ContinueWith((t) =>
@@ -790,6 +820,7 @@ namespace reAudioPlayerML
             {
                 logger.addSongToDB(f);
                 t.Add(GetSong(f, getCover, getAccentColour));
+                //t[t.Count - 1].autoRating = new AutoRating();
                 t[t.Count - 1].index = pl.IndexOf(f);
             }
 

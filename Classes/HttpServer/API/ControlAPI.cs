@@ -82,13 +82,15 @@ namespace reAudioPlayerML.HttpServer.API
         {
             try
             {
-                PlaylistManager.AutoPlaylists.SpecialPlaylists playlist = (PlaylistManager.AutoPlaylists.SpecialPlaylists)Enum.Parse(typeof(PlaylistManager.AutoPlaylists.SpecialPlaylists), name, true);
+                return PlayerManager.loadPlaylist(PlaylistManager.AutoPlaylists.FetchAutoPlaylist(name));
+
+                /*PlaylistManager.AutoPlaylists.SpecialPlaylists playlist = (PlaylistManager.AutoPlaylists.SpecialPlaylists)Enum.Parse(typeof(PlaylistManager.AutoPlaylists.SpecialPlaylists), name, true);
                 return PlayerManager.loadPlaylist(
                     PlaylistManager.AutoPlaylists.getSpecialPlaylists(playlist)
                     .FirstOrDefault()
                     ?.songs
                     ?.Select(x => x.location)
-                    ?.ToArray());
+                    ?.ToArray());*/
             }
             catch
             {

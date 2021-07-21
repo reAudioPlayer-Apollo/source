@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq.Dynamic;
+using System.Linq.Dynamic.Core;
+using System.Globalization;
 
 namespace reAudioPlayerML
 {
@@ -301,33 +304,89 @@ namespace reAudioPlayerML
 
         public static class AutoPlaylists
         {
-            public static List<FileInfo> recentsFI;
-            public static List<FileInfo> favouritesFI;
+            public static Dictionary<string, string> AutoPlaylistsCache = new Dictionary<string, string>();
+
+            public static string[] FetchAutoPlaylist(string name)
+            {
+                name = name.ToLower();
+
+                if (!AutoPlaylistsCache.ContainsKey(name))
+                {
+                    return null;
+                }
+
+                var allPlaylists = getPlaylistPathsAsStrings();
+
+                List<FileInfo> infos = new List<FileInfo>();
+                foreach (string playlist in allPlaylists)
+                {
+                    infos.AddRange(getSongPathsAsFileInfos(playlist));
+                }
+
+                List<MediaPlayer.Song> mPlaylist = infos.AsParallel().Select(x => MediaPlayer.GetSong(x.FullName)).ToList();
+
+                return GenerateAutoPlaylist(mPlaylist.AsQueryable(), AutoPlaylistsCache[name])
+                    .AsParallel()
+                    .AsOrdered()
+                    .Select(x => x.location)
+                    .ToArray();
+            }
+
+            public static void CreateAutoPlaylist(string descr)
+            {
+                var allPlaylists = getPlaylistPathsAsStrings();
+
+                List<FileInfo> infos = new List<FileInfo>();
+                foreach (string playlist in allPlaylists)
+                {
+                    infos.AddRange(getSongPathsAsFileInfos(playlist));
+                }
+
+                List<MediaPlayer.Song> mPlaylist = infos.AsParallel().Select(x => MediaPlayer.GetSong(x.FullName)).ToList();
+
+                PlayerManager.loadPlaylist(GenerateAutoPlaylist(mPlaylist.AsQueryable(), descr)
+                    .AsParallel()
+                    .AsOrdered()
+                    .Select(x => x.location)
+                    .ToArray());
+            }
 
             public static List<FullPlaylist> getSpecialPlaylists(SpecialPlaylists playlists = SpecialPlaylists.All)
             {
-                updateSpecialPlaylists();
                 List<FullPlaylist> list = new List<FullPlaylist>();
+
+                foreach (var autoplaylist in AutoPlaylistsCache)
+                {
+                    FullPlaylist t = new FullPlaylist();
+                    //t.tags = getTagsOfPlaylist(GenerateAutoPlaylist()).ToArray();
+                    t.name = new CultureInfo("en-GB", false).TextInfo.ToTitleCase(autoplaylist.Key);
+                    t.description = autoplaylist.Value;
+                    t.date = DateTime.Now.ToString("d MMM yyyy");
+                    //t.songs = MediaPlayer.GetPlaylist(FetchAutoPlaylist("breaking").ToList(), logger).ToArray();
+                    list.Add(t);
+                }
+
+                return list;
 
                 if (playlists == SpecialPlaylists.Breaking || playlists == SpecialPlaylists.All)
                 {
                     FullPlaylist t = new FullPlaylist();
-                    t.tags = getTagsOfPlaylist(recentsFI.ToArray()).ToArray();
+                    //t.tags = getTagsOfPlaylist(GenerateAutoPlaylist()).ToArray();
                     t.name = "Breaking";
                     t.description = "your 20 newest tracks";
                     t.date = DateTime.Now.ToString("d MMM yyyy");
-                    t.songs = MediaPlayer.GetPlaylist(recentsFI.Select(x => x.FullName).ToList(), logger).ToArray();
+                    //t.songs = MediaPlayer.GetPlaylist(FetchAutoPlaylist("breaking").ToList(), logger).ToArray();
                     list.Add(t);
                 }
 
                 if (playlists == SpecialPlaylists.Favourites || playlists == SpecialPlaylists.All)
                 {
                     FullPlaylist t = new FullPlaylist();
-                    t.tags = getTagsOfPlaylist(favouritesFI.ToArray()).ToArray();
+                    //t.tags = getTagsOfPlaylist(favouritesFI.ToArray()).ToArray();
                     t.name = "Favourites";
                     t.description = "your 20 favourite tracks";
                     t.date = DateTime.Now.ToString("d MMM yyyy");
-                    t.songs = MediaPlayer.GetPlaylist(favouritesFI.Select(x => x.FullName).ToList(), logger).ToArray();
+                    //t.songs = MediaPlayer.GetPlaylist(FetchAutoPlaylist("favourites").ToList(), logger).ToArray();
                     list.Add(t);
                 }
 
@@ -336,34 +395,141 @@ namespace reAudioPlayerML
 
             public static void updateSpecialPlaylists(SpecialPlaylists playlists = SpecialPlaylists.All)
             {
-                var allPlaylists = getPlaylistPathsAsStrings();
-
-                if (playlists == SpecialPlaylists.Breaking || playlists == SpecialPlaylists.All)
+                if ((playlists == SpecialPlaylists.Breaking || playlists == SpecialPlaylists.All) && !AutoPlaylistsCache.ContainsKey("breaking"))
                 {
-                    List<FileInfo> infos = new List<FileInfo>();
 
-                    foreach (string playlist in allPlaylists)
-                    {
-                        infos.AddRange(getSongPathsAsFileInfos(playlist));
-                    }
+                    var breaking = AutoAction.ToString(new AutoAction("OrderByDescending", "creationTime"), new AutoAction("Take", "20"));
+                    AutoPlaylistsCache.Add("breaking", breaking);
 
-                    recentsFI = new List<FileInfo>(infos.OrderByDescending(f => f.LastWriteTime).Take(20));
+                    //List<FileInfo> infos = new List<FileInfo>();
+
+                    //foreach (string playlist in allPlaylists)
+                    //{
+                    //    infos.AddRange(getSongPathsAsFileInfos(playlist));
+                    //}
+
+                    //var mPlaylist = MediaPlayer.GetPlaylist(infos.AsParallel().Select(x => x.FullName).ToList(), logger, false, false);
+
+                    /*recentsFI = new List<FileInfo>(infos
+                        .OrderByDescending(f => f.LastWriteTime)
+                        .Take(20));*/
+
+                    /*recentsFI = GenerateAutoPlaylist(mPlaylist.AsQueryable(), str)
+                        .AsParallel()
+                        .AsOrdered()
+                        .Select(x => new FileInfo(x.location))
+                        .ToList();*/
                 }
 
-                if (playlists == SpecialPlaylists.Favourites || playlists == SpecialPlaylists.All)
+                if ((playlists == SpecialPlaylists.Favourites || playlists == SpecialPlaylists.All) && !AutoPlaylistsCache.ContainsKey("favourites"))
                 {
-                    var playCounts = Logger.GetPlayCountCache();
+                    var favourites = AutoAction.ToString(new AutoAction("OrderByDescending", "playCount"), new AutoAction("Take", "20"));
+                    AutoPlaylistsCache.Add("favourites", favourites);
 
-                    var playlist = playCounts
+                    //var playCounts = Logger.GetPlayCountCache();
+
+                    /*var playlist = playCounts
                         .OrderByDescending(x => x.Value)
                         .Take(20)
                         .Select(x => x.Key)
-                        .ToArray();
+                        .ToArray();*/
 
-                    favouritesFI = getSongPathsAsFileInfos(playlist);
+                    //var songs = File.ReadAllLines(logger.songLib);
+                    /*
+                    var playCounts = AutoRating.Stats.PlayCountCache;
+                    var ratings = playCounts.Select(x => new AutoRating(null, null, x.Key)).ToArray();
+                    var playlist = ratings
+                        .OrderByDescending(x => x.score)
+                        .Take(20)
+                        .Select(x => x.id)
+                        .ToArray();*/
+
+                    //favouritesFI = getSongPathsAsFileInfos(playlist);
                 }
             }
 
+            private static IQueryable<T> GenerateAutoPlaylist<T>(IQueryable<T> input, string actions)
+            {
+                return GenerateAutoPlaylist(input, AutoAction.FromString(actions));
+            }
+
+            private static IQueryable<T> GenerateAutoPlaylist<T>(IQueryable<T> input, params AutoAction[] actions)
+            {
+                foreach (var action in actions)
+                {
+                    input = Execute(input, action);
+                }
+
+                return input;
+            }
+
+            private static IQueryable<T> Execute<T>(IQueryable<T> input, AutoAction action)
+            {
+                switch (action.type.ToLower().Trim())
+                {
+                    case "where":
+                        return input.Where(action.expr);
+
+                    case "orderbyascending":
+                    case "orderby":
+                        return input.OrderBy(action.expr);
+
+                    case "orderbydescending":
+                        return input.OrderBy(action.expr + " descending");
+
+                    case "take":
+                        return input.Take(int.Parse(action.expr));
+
+                    case "skip":
+                        return input.Skip(int.Parse(action.expr));
+
+                    case "reverse":
+                        return input.Reverse();
+
+                    default:
+                        return input;
+                }
+            }
+
+            internal class AutoAction
+            {
+                public string type = "", expr = "";
+
+                public AutoAction() { }
+
+                public AutoAction(string type)
+                {
+                    this.type = type;
+                }
+
+                public AutoAction(string type, int expr)
+                {
+                    this.type = type;
+                    this.expr = expr.ToString();
+                }
+
+                public AutoAction(string type, string expr)
+                {
+                    this.type = type;
+                    this.expr = expr;
+                }
+
+                public string ToString()
+                {
+                    return JsonConvert.SerializeObject(this);
+                }
+
+                public static string ToString(params AutoAction[] actions)
+                {
+                    return JsonConvert.SerializeObject(actions);
+                }
+
+                public static AutoAction[] FromString(string str)
+                {
+                    return JsonConvert.DeserializeObject<AutoAction[]>(str);
+                }
+            }
+            
             public enum SpecialPlaylists
             {
                 Favourites, Breaking, All

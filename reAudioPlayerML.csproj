@@ -206,6 +206,7 @@
     <PackageReference Include="SpotifyAPI.Web.Auth" Version="6.1.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.10" />
     <PackageReference Include="taglib-sharp-netstandard2.0" Version="2.1.0" />
     <PackageReference Include="TMDbLib" Version="1.8.1" />
     <PackageReference Include="Unosquare.Swan.Lite" Version="3.0.0" />
