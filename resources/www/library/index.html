@@ -1,83 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang='en'>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-  <title>Library</title>
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="/library/style.css" rel="stylesheet" />
-
-  <script src="/src/theme.js"></script>
-  <script src="/library/library.js"></script>
-  <script src="/websocket/websocket.js"></script>
+    <meta charset='UTF-8'/>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+    <title>Library</title>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap' rel='stylesheet'/>
+    <link href='/library/style.css' rel='stylesheet'/>
+    
+    <script src='/src/theme.js'/></script>
+    <script src=/library/library.js></script>
+    <script src=/websocket/websocket.js></script>
 </head>
-
 <body>
-  <div id="loading" class="ring">Loading
+  <div class='row notgamerow'>
+      <header>
+              
+          <label class='forselect' for='sort'>Order by:</label>
+          <select id='sort' onchange="ws.control.sort(selectedOptions[0].getAttribute('tag'))">
+              <option tag='Artist'>Artist</option>
+              <option tag='Title'>Title</option>
+              <option tag='Album'>Album</option>
+              <option tag='ReleaseDate'>Release Date</option>
+              <option tag='CreationDate'>Creation Date</option>
+              <option tag='Filename'>Filename</option>
+              <option tag='Popularity'>Popularity</option>
+              <option tag='Energy'>Energy</option>
+          </select>
+              
+          <label class='forselect' for='scope'>Scope:</label>
+          <select id='scope' onchange="updateLib()">
+              <option tag='Playlist'>Playlist</option>
+              <option tag='Global'>Global</option>
+          </select>
+              
+          <label class='forselect' for='playlist'>Load Playlist:</label>
+          <select id='playlist' onchange="loadPlaylist(selectedIndex)">
+              <option tag='(none)'>(none)</option>
+          </select>
+              
+          <label class='forselect' for='viewselect'>View:</label>
+          <select id='viewselect' onchange="changeView(selectedIndex)">
+              <option tag='Large'>Large</option>
+              <option tag='Compact'>Compact</option>
+          </select>
+          
+          <span data-tooltip='refresh your view' onclick="updateLib()" style='cursor: pointer;' class='forselect material-icons'>refresh</span>
+          
+          <span data-tooltip='apply filter' onclick="updateBlock()" style='cursor: pointer;' class='forselect material-icons'>done</span>
+          
+          <span data-tooltip='export as playlist' onclick="createPlaylist()" style='cursor: pointer;' class='forselect material-icons'>file_download</span>
+          
+          <div class='form__group field'>
+              <input oninput="filterLib()" type='input' class='form__field' id='search' placeholder='-' required />
+              <label for='search' class='form__label'>Search...</label>
+          </div>
+          <br>
+      </header>
   </div>
-  <div class="row notgamerow">
-    <header>
-      <!--Order By-->
-      <label class="forselect" for="sort">Order by:</label>
-      <select id="sort" onchange="ws.control.sort(value.replace(' ', ''))">
-        <option>Artist</option>
-        <option>Title</option>
-        <option>Album</option>
-        <option>Release Date</option>
-        <option>Creation Date</option>
-        <option>Filename</option>
-        <option>Popularity</option>
-        <option>Energy</option>
-        <option>Danceability</option>
-        <option>Happiness</option>
-        <option>Loudness</option>
-        <option>Accousticness</option>
-        <option>Instrumentalness</option>
-        <option>Liveness</option>
-        <option>Speechiness</option>
-        <option>Key</option>
-        <option>Play Count</option>
-      </select>
-
-      <!--Scope-->
-      <label class="forselect" for="scope">Scope:</label>
-      <select onchange="updateLib()" id="scope">
-        <option>Playlist</option>
-        <option>Global</option>
-      </select>
-
-      <!--Load Playlist-->
-      <label class="forselect" for="playlist">Load Playlist:</label>
-      <select onchange="loadPlaylist(selectedIndex)" id="playlist">
-        <option>(none)</option>
-      </select>
-
-      <!--View-->
-      <label class="forselect" for="view">View:</label>
-      <select onchange="changeView(selectedIndex)" id="viewselect">
-        <option>Large</option>
-        <option>Compact</option>
-      </select>
-
-      <!--Buttons (Symbols)-->
-      <span data-tooltip="refresh your view" onclick="updateLib()" style="cursor: pointer;" class="forselect material-icons">refresh</span>
-      <span data-tooltip="apply filter" onclick="updateBlock()" style="cursor: pointer;" class="forselect material-icons">done</span>
-      <span data-tooltip="export as playlist" onclick="createPlaylist()" style="cursor: pointer;" class="forselect material-icons">file_download</span>
-
-      <!--Search-->
-      <div class="form__group field">
-        <input oninput="filterLib()" type="input" class="form__field" placeholder="Name" id='search' required />
-        <label for="name" class="form__label">Search...</label>
-      </div>
-      <br>
-    </header>
-  </div>
-
-  <div class="row" id="library"></div>
+    <div class='row' id='library'></div>
 </body>
 
 </html>

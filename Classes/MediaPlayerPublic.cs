@@ -865,7 +865,7 @@ namespace reAudioPlayerML
         /// to get the accentColour from a customisable cache.
         /// if null, static cache will be used.</param>
         /// <returns></returns>
-        public static Song GetSong(string filename, bool getCover = false, bool getAccentColour = false, Dictionary<string, string> accentColourCache = null)
+        public static Song GetSong(string filename, bool getCover = false, bool getAccentColour = false, Dictionary<string, string> accentColourCache = null, bool withAutoRating = false)
         {
             if (!File.Exists(filename))
             {
@@ -900,6 +900,11 @@ namespace reAudioPlayerML
                 {
                     song.accentColour = MediaPlayer.getAccentColour(song.cover, gap: 8).Result;
                 }
+            }
+
+            if (withAutoRating)
+            {
+                song.autoRating = new AutoRating(PlayerManager.mediaPlayer, null, song.location);
             }
 
             return song;

@@ -48,8 +48,6 @@ namespace reAudioPlayerML
             TaskbarManager.Instance.ThumbnailToolBars.AddButtons(Handle, buttonFirst, buttonMiddle, buttonLast);
             */
 
-            //Classes.Localiser.SetCulture("de");
-
             foreach (object item in ShareSong.Items)
             {
                 Type type = item.GetType();
@@ -191,6 +189,7 @@ namespace reAudioPlayerML
             Directory.CreateDirectory(AppContext.BaseDirectory + "spotify");
 
             Logger.Log("Loaded");
+            //Classes.Localiser.SetCulture("en", this);
         }
 
         private void btnPlayPause_Click(object sender, EventArgs e)

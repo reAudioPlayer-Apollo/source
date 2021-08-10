@@ -1,0 +1,264 @@
+{
+    "title": {
+        "en": "Library",
+        "de": "Mediathek",
+        "fr": "Bibliothèque",
+        "pt": "Biblioteca"
+    },
+    "scripts": [
+        "/library/library.js",
+        "/websocket/websocket.js"
+    ],
+    "template": "list",
+    "header": [
+        {
+            "type": "dropdown",
+            "text": {
+                "en": "Order by:",
+                "de": "Sortieren nach:",
+                "fr": "Trier par :",
+                "pt": "Ordenar por:"
+            },
+            "onchange": "ws.control.sort(selectedOptions[0].getAttribute('tag'))",
+            "id": "sort",
+            "items": [
+                {
+                    "en": "Artist",
+                    "de": "Künstler",
+                    "fr": "Artiste",
+                    "pt": "Artista"
+                },
+                {
+                    "en": "Title",
+                    "de": "Titel",
+                    "fr": "Titre",
+                    "pt": "Título"
+                },
+                {
+                    "en": "Album",
+                    "de": "Album",
+                    "fr": "Album",
+                    "pt": "Álbum"
+                },
+                {
+                    "en": "Release Date",
+                    "de": "Release Datum",
+                    "fr": "Date de publication",
+                    "pt": "Data de publicação"
+                },
+                {
+                    "en": "Creation Date",
+                    "de": "Erstell Datum",
+                    "fr": "Date de création",
+                    "pt": "Data de criação"
+                },
+                {
+                    "en": "Filename",
+                    "de": "Dateiname",
+                    "fr": "Nom de fichier",
+                    "pt": "Nome do ficheiro"
+                },
+                {
+                    "en": "Popularity",
+                    "de": "Popularität",
+                    "fr": "Popularité",
+                    "pt": "Popularidade"
+                },
+                {
+                    "en": "Energy",
+                    "de": "Energie",
+                    "fr": "Énergie",
+                    "pt": "Energia"
+                },
+                {
+                    "en": "Energy",
+                    "de": "Energie",
+                    "fr": "Énergie",
+                    "pt": "Energia"
+                },
+                {
+                    "en": "Danceability",
+                    "de": "Tanzbarkeit",
+                    "fr": "Danceability",
+                    "pt": "Dançabilidade"
+                },
+                {
+                    "en": "Happiness",
+                    "de": "Fröhlichkeit",
+                    "fr": "Bonheur",
+                    "pt": "Felicidade"
+                },
+                {
+                    "en": "Loudness",
+                    "de": "Lautstärke",
+                    "fr": "Volume",
+                    "pt": "Volume"
+                },
+                {
+                    "en": "Accousticness",
+                    "de": "Akustizität",
+                    "fr": "Acousticité",
+                    "pt": "Acústica"
+                },
+                {
+                    "en": "Instrumentalness",
+                    "de": "Instrumentalität",
+                    "fr": "Instrumentalité",
+                    "pt": "Instrumentalismo"
+                },
+                {
+                    "en": "Liveness",
+                    "de": "Lebendigkeit",
+                    "fr": "Vivacité",
+                    "pt": "Vivacidade"
+                },
+                {
+                    "en": "Speechiness",
+                    "de": "Sprachlichkeit",
+                    "fr": "Linguisticité",
+                    "pt": "Oralidade"
+                },
+                {
+                    "en": "Key",
+                    "de": "Tonart",
+                    "fr": "Ton",
+                    "pt": "Tom"
+                },
+                {
+                    "en": "Play Count",
+                    "de": "Anzahl Abspielungen",
+                    "fr": "Nombre d'écoutes",
+                    "pt": "Número de audições"
+                },
+                {
+                    "en": "Tempo (BPM)",
+                    "de": "Tempo (BPM)",
+                    "fr": "Tempo (BPM)",
+                    "pt": "Tempo (BPM)"
+                },
+                {
+                    "en": "Shuffle",
+                    "de": "Shuffle",
+                    "fr": "Shuffle",
+                    "pt": "Embaralhar"
+                }
+            ]
+        },
+        {
+            "type": "dropdown",
+            "text": {
+                "en": "Scope:",
+                "de": "Umfang:",
+                "fr": "Portée:",
+                "pt": "Extensão:"
+            },
+            "onchange": "updateLib()",
+            "id": "scope",
+            "items": [
+                {
+                    "en": "Playlist",
+                    "de": "Playlist",
+                    "fr": "Playlist",
+                    "pt": "Playlist"
+                },
+                {
+                    "en": "Global",
+                    "de": "Global",
+                    "fr": "Globale",
+                    "pt": "Global"
+                }
+            ]
+        },
+        {
+            "type": "dropdown",
+            "text": {
+                "en": "Load Playlist:",
+                "de": "Playlist laden:",
+                "fr": "Charger la playlist:",
+                "pt": "Carregar a Playlist:"
+            },
+            "onchange": "loadPlaylist(selectedIndex)",
+            "id": "playlist",
+            "items": [
+                {
+                    "en": "(none)",
+                    "de": "(keine)",
+                    "fr": "(aucune)",
+                    "pt": "(nenhuma)"
+                }
+            ]
+        },
+        {
+            "type": "dropdown",
+            "text": {
+                "en": "View:",
+                "de": "Ansicht:",
+                "fr": "Vue:",
+                "pt": "Vista:"
+            },
+            "onchange": "changeView(selectedIndex)",
+            "id": "viewselect",
+            "items": [
+                {
+                    "en": "Large",
+                    "de": "Gross",
+                    "fr": "Grande",
+                    "pt": "Grande"
+                },
+                {
+                    "en": "Compact",
+                    "de": "Kompakt",
+                    "fr": "Compacte",
+                    "pt": "Compacta"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "tooltip": {
+                "en": "refresh your view",
+                "de": "Ansicht aktualisieren",
+                "fr": "rafraîchissez votre vue",
+                "pt": "actualize a sua vista"
+            },
+            "onclick": "updateLib()",
+            "icon": "refresh"
+        },
+        {
+            "type": "button",
+            "tooltip": {
+                "en": "apply filter",
+                "de": "Filter anwenden",
+                "fr": "appliquer le filtre",
+                "pt": "aplicar filtro"
+            },
+            "onclick": "updateBlock()",
+            "icon": "done"
+        },
+        {
+            "type": "button",
+            "tooltip": {
+                "en": "export as playlist",
+                "de": "als Playlist exportieren",
+                "fr": "exporter en tant que playlist",
+                "pt": "exportar como playlist"
+            },
+            "onclick": "createPlaylist()",
+            "icon": "file_download"
+        },
+        {
+            "type": "search",
+            "id": "search",
+            "oninput": "filterLib()",
+            "text": {
+                "en": "Search...",
+                "de": "Suchen...",
+                "fr": "Chercher...",
+                "pt": "Procurar..."
+            }
+        }
+    ],
+    "body": {
+        "id": "library"
+    }
+}

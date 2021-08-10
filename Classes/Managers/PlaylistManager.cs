@@ -342,13 +342,20 @@ namespace reAudioPlayerML
                     infos.AddRange(getSongPathsAsFileInfos(playlist));
                 }
 
-                List<MediaPlayer.Song> mPlaylist = infos.AsParallel().Select(x => MediaPlayer.GetSong(x.FullName)).ToList();
+                List<MediaPlayer.Song> mPlaylist = infos.AsParallel().Select(x => MediaPlayer.GetSong(x.FullName, withAutoRating: true)).ToList();
 
-                PlayerManager.loadPlaylist(GenerateAutoPlaylist(mPlaylist.AsQueryable(), descr)
-                    .AsParallel()
-                    .AsOrdered()
-                    .Select(x => x.location)
-                    .ToArray());
+                try
+                {
+                    PlayerManager.loadPlaylist(GenerateAutoPlaylist(mPlaylist.AsQueryable(), descr)
+                        .AsParallel()
+                        .AsOrdered()
+                        .Select(x => x.location)
+                        .ToArray());
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
             }
 
             public static List<FullPlaylist> getSpecialPlaylists(SpecialPlaylists playlists = SpecialPlaylists.All)
