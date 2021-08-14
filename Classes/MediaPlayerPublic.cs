@@ -336,7 +336,9 @@ namespace reAudioPlayerML
             Liveness,
             Speechiness,
             Key,
-            PlayCount
+            PlayCount,
+            TempoBPM,
+            Shuffle
         }
 
         /// <summary>
@@ -421,6 +423,14 @@ namespace reAudioPlayerML
 
                 case OrderBy.PlayCount:
                     playlist = playlist.OrderByDescending(x => x.playCount).ToList();
+                    break;
+
+                case OrderBy.TempoBPM:
+                    playlist = playlist; // # TODO
+                    break;
+
+                case OrderBy.Shuffle:
+                    playlist = playlist.OrderBy(x => Guid.NewGuid()).ToList();
                     break;
             }
 

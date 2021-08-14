@@ -68,7 +68,7 @@ namespace Generators.TemplateFillers
             foreach (dynamic s in obj.items)
             {
                 sb += $@"
-    <option tag='{((string)s["en"]).Replace(" ", "")}'>{s[lang]}</option>";
+    <option tag='{((string)s["en"]).Replace(" ", "").Replace("(", "")}'>{s[lang]}</option>";
             }
 
             sb += @"

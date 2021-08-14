@@ -1,6 +1,7 @@
 ﻿using EmbedIO;
 using EmbedIO.Routing;
 using EmbedIO.WebApi;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace reAudioPlayerML.HttpServer.API
 {
@@ -74,9 +76,31 @@ namespace reAudioPlayerML.HttpServer.API
         }
 
         [Route(HttpVerbs.Get, "/version")]
-        public async Task RGetVersion(string user)
+        public async Task RGetVersion()
         {
             await Static.SendStringAsync(HttpContext, version());
+        }
+
+        [Route(HttpVerbs.Get, "/link&redirect={redirect}&data={data}")]
+        public async Task RGetVersion(string redirect, string data)
+        {
+            HttpContext.Redirect(redirect);
+
+            try
+            {
+                dynamic jdata = JsonConvert.DeserializeObject(data);
+                string spotifyApiId = jdata.spotifyApiId;
+                string spotifyApiSecret = jdata.spotifyApiSecret;
+
+                var diag = MessageBox.Show("Do you want to replace your cached keys with the new ones?", "Apollo Linked!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (diag == DialogResult.Yes)
+                {
+                    Settings.APIKeys.spotify.id = spotifyApiId;
+                    Settings.APIKeys.spotify.secret = spotifyApiSecret;
+                }
+            }
+            catch { }
         }
 
         public void handleWebsocket(ref Modules.WebSocket.MessageObject msg)

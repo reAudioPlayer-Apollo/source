@@ -8,6 +8,8 @@ This programme has been migrated from .NET Framework 4.7.2 to .NET 5 as .NET Fra
 Due to the fact that our first web server library does not support .NET Core and therefore .NET 5 Standard, we also decided to use EmbedIO as our new web server library.
 EmbedIO also provides an easy way to add websocket servers, which we did in one of our recent updates. Note that the http endpoints will still be available as a description in the wiki. The websocket servers only serve as a more convenient, reliable and smooth wrapper of our API.
 
+Check the [status page](https://status.reap.ml/) for our online services.
+
 In case you encounter bugs or issues or simply want to request a feature, check the [Known Issues page](Known-Issues.md) and if not already noted, create an issue (or even better: a pull request)
 
 ## Dependencies
@@ -56,5 +58,8 @@ reAudioPlayer collects and stores locally in "%localappdata%\reAudioPlayer":
 reAudioPlayer collects and stores anonymously on an external server, only accessible through the audio player:
 - [install directory]/resources/games.json is being synchronised to the [cloud](https://github.com/reAudioPlayer-Apollo/server)
 
-reAudioPlayer collects and temporary stores anonymously on an [on heroku hosted server](https://github.com/reAudioPlayer-Apollo/server), only accessible through the audio player with an automatically generated key:
+reAudioPlayer collects and temporarily stores anonymously on an [on heroku hosted server](https://github.com/reAudioPlayer-Apollo/server), only accessible through the audio player with an automatically generated key:
 - game library, used to share your games, generated key can be shared to friends, (TODO: expires one day after creation)
+
+reAudioPlayer collects and stores unanonymously on an [on heroku hosted server](https://github.com/reAudioPlayer-Apollo/server), only accessible through your login credentials:
+- your api keys (which you allows syncing between devices, and also the usage of our online [release radar](https://eu-apollo.herokuapp.com/spotify))
