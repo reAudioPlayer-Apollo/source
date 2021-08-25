@@ -136,6 +136,11 @@ namespace reAudioPlayerML.HttpServer.API
                 return loadSong(val);
             }
 
+            if (PlayerManager.mediaPlayer.playlist is null)
+            {
+                return "404";
+            }
+
             var index = PlayerManager.mediaPlayer.playlist
                 .FindIndex(x => query.Split(' ')
                     .Where(y => x.keywords

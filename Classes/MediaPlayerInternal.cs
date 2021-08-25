@@ -172,6 +172,8 @@ namespace reAudioPlayerML
                 return;
             }
 
+            loadSong(playlist[nextIndex].location);
+
             if (Next is not null)
             {
                 Next(new object(), manually);
@@ -181,8 +183,6 @@ namespace reAudioPlayerML
             {
                 Skip(new object(), manually);
             }
-
-            loadSong(playlist[nextIndex].location);
         }
 
         private void Player_MediaEnded(object sender, EventArgs e)

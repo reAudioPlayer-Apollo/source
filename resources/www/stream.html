@@ -1,0 +1,71 @@
+<script src="/websocket/websocket.js"></script>
+<script type="text/javascript" src="https://eu-apollo.herokuapp.com/socket.io/socket.io.js"></script>
+<script>window.socket = io("https://eu-apollo.herokuapp.com");</script>
+<script src="https://eu-apollo.herokuapp.com/share/share.js"></script>
+<script>
+    function onBlob(evt) {
+        window.player = document.getElementById("audio")
+        window.mp3Source = document.getElementById("mp3Source")
+        window.mp3Source.src = window.URL.createObjectURL(evt.data);
+        //window.player.src = window.mp3Source.src
+        console.log(window.mp3Source.src)
+        share(new File([evt.data], "file.mp3"), "1234")
+        window.player.load()
+        window.player.play();
+    }
+
+    function download(evt) {
+        var f = new File([window.blob], "test.mp3", {
+            lastModified: new Date().getTime(),
+            type: "audio/mp3"
+        });
+        downloadWithName(window.mp3Source.src, "test.mp3");
+    }
+
+    function downloadWithName(objectUrl, name) {
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = objectUrl;
+        a.download = name;
+        a.click();
+        a.remove()
+    };
+
+    function get()
+    {
+        ws.custom("streaming", "start");
+    }
+
+    function stop()
+    {
+        ws.custom("streaming", "stop");
+    }
+
+    function jump(evt)
+    {
+        const percentage = Number(evt.data.data)
+        sendToServer("1234", "jump", percentage / 10)
+        window.player.currentTime = window.player.duration / 1000 * percentage;
+    }
+
+    document.addEventListener("ws.streaming.blob", onBlob);
+    document.addEventListener("ws.streaming.play", () => {
+        window.player.play()
+        sendToServer("1234", "play")
+    });
+    document.addEventListener("ws.streaming.pause", () => {
+        window.player.pause()
+        sendToServer("1234", "pause")
+    });
+    document.addEventListener("ws.streaming.jump", jump);
+
+    function sendToServer(code, command, data = null)
+    {
+        window.socket.emit("web.fileMsg", {command, code, data})
+    }
+</script>
+<button onclick="get()">Start!</button>
+<button onclick="stop()">Stop!</button>
+<button onclick="download()">Download!</button>
+<audio controls id="audio"><source id="mp3Source" type="audio/mp3"></audio>

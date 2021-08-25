@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace reAudioPlayerML.HttpServer.Modules
         {
             PlayerManager.webSocket = this;
         }
+
+        API.StreamingAPI streamingAPI;
 
         /// <inheritdoc />
         protected override Task OnMessageReceivedAsync(
@@ -55,6 +58,19 @@ namespace reAudioPlayerML.HttpServer.Modules
                     new API.PlaylistAPI().handleWebsocket(ref jMessage);
                     break;
 
+                case "streaming":
+                    if (streamingAPI is null)
+                    {
+                        streamingAPI = new API.StreamingAPI();
+                        streamingAPI.init();
+                    }
+                    var buffer = streamingAPI.handleWebsocket(ref jMessage, context);
+                    if (buffer is not null)
+                    {
+                        return SendAsync(context, buffer);
+                    }
+                    break;
+
                 default:
                     jMessage.data = "404";
                     break;
@@ -81,6 +97,16 @@ namespace reAudioPlayerML.HttpServer.Modules
             public string apiModule;
             public string endpoint;
             public string data;
+        }
+
+        public void SendToSubscribers(byte[] data, IWebSocketContext[] subscribers)
+        {
+            BroadcastAsync(data, c => subscribers.Contains(c)).Wait();
+        }
+
+        public void SendToSubscribers(MessageObject data, IWebSocketContext[] subscribers)
+        {
+            BroadcastAsync(data.ToString(), c => subscribers.Contains(c)).Wait();
         }
 
         /// <inheritdoc />

@@ -40,7 +40,7 @@ namespace reAudioPlayerML
             {
                 get
                 {
-                    return rPlayer is not null && rPlayer.NaturalDuration.HasTimeSpan ? rPlayer.NaturalDuration.TimeSpan : new TimeSpan();
+                    return rPlayer.Dispatcher.Invoke(() => rPlayer is not null && rPlayer.NaturalDuration.HasTimeSpan ? rPlayer.NaturalDuration.TimeSpan : new TimeSpan());;
                 }
             }
             public bool active = false;
@@ -111,7 +111,11 @@ namespace reAudioPlayerML
                     active = false;
                     sw.Stop();
                     var t = sw.Elapsed;
-                    addPlay(Convert.ToInt32(t.TotalSeconds * 100 / duration.TotalSeconds));
+                    if (duration.TotalSeconds != 0)
+                    {
+                        var time = t.TotalSeconds * 100 / duration.TotalSeconds;
+                        addPlay(Convert.ToInt32(time));
+                    }
                     sw.Reset();
                 }
             }

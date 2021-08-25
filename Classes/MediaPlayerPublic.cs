@@ -574,6 +574,8 @@ namespace reAudioPlayerML
                 return;
             }
 
+            loadSong(lastIndex);
+
             if (Last is not null)
             {
                 Last(new object(), new EventArgs());
@@ -583,7 +585,6 @@ namespace reAudioPlayerML
             {
                 Skip(new object(), true);
             }
-            loadSong(lastIndex);
         }
 
         /// <summary>

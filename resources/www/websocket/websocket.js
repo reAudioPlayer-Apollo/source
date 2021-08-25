@@ -156,8 +156,15 @@ window.ws = new function () {
     this.general = new General();
     this.game = new Game();
     this.youtube = new Youtube();
+    this.playlist = new Playlist();
+
+    this.custom = function (apiModule, endpoint, data = null)
+    {
+        webSocket.send(createMessage(apiModule, endpoint, data))
+    }
 
     webSocket.onmessage = function (event) {
+        try {
         console.log("[websocket.js]", JSON.parse(event.data));
 
         const jdata = JSON.parse(event.data)
@@ -172,6 +179,25 @@ window.ws = new function () {
 
         //invoke
         document.dispatchEvent(evt);
+
+        }
+        catch {
+            console.error("could not be parsed")
+            console.log("[websocket.js]", event.data)
+
+            if (event.data instanceof Blob)
+            {
+                event.data.type = "audio/mp3"
+                window.blob = event.data
+
+                var evt = document.createEvent("Event");
+                const evtName = "ws.streaming.blob";
+                console.info(evtName);
+                evt.initEvent(evtName, true, true);
+                evt.data = event.data;
+                document.dispatchEvent(evt);
+            }
+        }
     }
 
     function createMessage(apiModule, endpoint, data = null) {
@@ -185,5 +211,4 @@ window.ws = new function () {
 
         return st;
     }
-
 }
