@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>Streamer</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/gh/reAudioPlayer-Apollo/server/public/index-src/master.css" type="text/css"
+        rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/gh/reAudioPlayer-Apollo/server/public/dist/dropzone.css" type="text/css"
+        rel="stylesheet" />
+
+    <script src="/websocket/websocket.js"></script>
+    <script type="text/javascript" src="https://eu-apollo.herokuapp.com/socket.io/socket.io.js"></script>
+    <script>
+        window.socket = io("https://eu-apollo.herokuapp.com");
+    </script>
+    <script src="https://eu-apollo.herokuapp.com/share/share.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar hidden">
+            <h2>Online Features</h2>
+        </div>
+        <div class="main">
+            <div class="header">
+                <div class="title">
+                    <h1>Streamer</h1>
+                </div>
+                <div class="user">
+                </div>
+            </div>
+            <div class="body" id="body">
+                <div class="function">
+                    <a href="/spotify" class="linked-title">Share</a>
+                    <div class="input">
+                        <br>
+                        <label for="shareLink">Share Link</label>
+                        <span contenteditable="false" onclick="toClipboard(innerText)" id="shareLink"
+                            class="text-input toclipboard"></span>
+                        <br>
+                        <button class="negative" onclick="get()">Start!</button>
+                        <button class="negative" onclick="stop()">Stop!</button>
+                        <button class="negative" onclick="download()">Download!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<style>
+    button.negative {
+        margin: 15px 15px 15px 0;
+    }
+</style>
+
+<script>
+    function onBlob(evt) {
+        share(new File([evt.data], "file.mp3"), window.id)
+    }
+
+    function download(evt) {
+        var f = new File([window.blob], "test.mp3", {
+            lastModified: new Date().getTime(),
+            type: "audio/mp3"
+        });
+        downloadWithName(window.mp3Source.src, "test.mp3");
+    }
+
+    function downloadWithName(objectUrl, name) {
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = objectUrl;
+        a.download = name;
+        a.click();
+        a.remove()
+    };
+
+    function get() {
+        ws.custom("streaming", "start");
+    }
+
+    function stop() {
+        ws.custom("streaming", "stop");
+    }
+
+    function jump(evt) {
+        const percentage = Number(evt.data.data)
+        sendToServer(window.id, "jump", percentage / 10)
+    }
+
+    document.addEventListener("ws.streaming.blob", onBlob);
+    document.addEventListener("ws.streaming.play", () => {
+        window.player.play()
+        sendToServer(window.id, "play")
+    });
+    document.addEventListener("ws.streaming.pause", () => {
+        window.player.pause()
+        sendToServer(window.id, "pause")
+    });
+    document.addEventListener("ws.streaming.jump", jump);
+
+    function sendToServer(code, command, data = null) {
+        window.socket.emit("web.fileMsg", {
+            command,
+            code,
+            data
+        })
+    }
+
+    function makeid(length) {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() *
+                charactersLength));
+        }
+        return result;
+    }
+
+    window.id = makeid(6);
+    document.getElementById("shareLink").innerText = `https://eu-apollo.herokuapp.com/visualiser/v2/?code=${window.id}`;
+
+    function toClipboard(content) {
+        navigator.clipboard.writeText(content).then(function () {
+            console.log(content + ': Copying to clipboard was successful!');
+        }, function (err) {
+            console.error(content + ': Could not copy text: ', err);
+        });
+    }
+</script>
