@@ -100,11 +100,9 @@
 
     document.addEventListener("ws.streaming.blob", onBlob);
     document.addEventListener("ws.streaming.play", () => {
-        window.player.play()
         sendToServer(window.id, "play")
     });
     document.addEventListener("ws.streaming.pause", () => {
-        window.player.pause()
         sendToServer(window.id, "pause")
     });
     document.addEventListener("ws.streaming.jump", jump);
