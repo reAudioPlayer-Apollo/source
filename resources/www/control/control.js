@@ -146,19 +146,36 @@ function compute(e) {
 /************************/
 
 function animPlayPause() {
-    document.getElementById("playPause").style.animation = null;
     document.getElementById("playPause").style.animation = "animBigFadeInOut 0.7s";
     document.getElementById("playPause").style.animationTimingFunction = "linear";
+
+    document.getElementById("playPause").addEventListener('webkitAnimationEnd', function() {
+        this.style.animation = null;
+        this.style.animationTimingFunction = null;
+        this.style.webkitAnimationPlayState = "paused";
+    });
 }
 
 function animSwipeL() {
-    document.getElementById("playPause").style.animation = null;
     document.getElementById('cover').style.animation = "animSwipeLeft 2s";
     document.getElementById('cover').style.animationFillMode = "forwards";
+
+    document.getElementById("cover").addEventListener('webkitAnimationEnd', function() {
+        this.style.animation = null;
+        this.style.animationTimingFunction = null;
+        this.style.webkitAnimationPlayState = "paused";
+    });
 }
 
 function animSwipeR() {
-    document.getElementById("playPause").style.animation = null;
     document.getElementById('cover').style.animation = "animSwipeRight 2s";
     document.getElementById('cover').style.animationFillMode = "forwards";
+
+    document.getElementById("cover").addEventListener('webkitAnimationEnd', function() {
+        this.style.animation = null;
+        this.style.animationTimingFunction = null;
+        this.style.webkitAnimationPlayState = "paused";
+    });
 }
+
+console.log("hello!")

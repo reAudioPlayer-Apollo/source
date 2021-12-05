@@ -1,11 +1,12 @@
 #playPause {
     position: absolute;
     z-index: 3;
-    top: 0%;
-    left: 0%;
+    top: 0;
+    left: 0;
     opacity: 0;
     pointer-events: none;
     animation-timing-function: linear;
+    width: 100%;
 }
 
 .slider {
@@ -48,6 +49,8 @@
     align-items: center;
     opacity: 1;
     margin: 0;
+    padding: 2%;
+    border-radius: 20px;
 }
 
 body,
@@ -96,6 +99,7 @@ html {
 #ccover {
     width: 30vw;
     max-width: 600px;
+    border-radius: 5%;
 }
 
 @media only screen and (min-device-width: 375px)

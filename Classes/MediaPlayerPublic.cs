@@ -171,7 +171,7 @@ namespace reAudioPlayerML
                 get
                 {
                     return $"{title} {artist} {album} pop:{info.popularity} nrg:{info.energy} dnc:{info.danceability} " +
-                        $"hap:{info.happiness} loud:{info.loudness} acc:{info.accousticness} inst:{info.instrumentalness} " +
+                        $"hap:{info.happiness} loud:{info.loudness} acc:{info.acousticness} inst:{info.instrumentalness} " +
                         $"live:{info.liveness} spe:{info.speechiness} key:{info.key} dat:{info.releaseDate}";
                 }
             }
@@ -406,7 +406,7 @@ namespace reAudioPlayerML
                     break;
 
                 case OrderBy.Accousticness:
-                    playlist = playlist.OrderByDescending(x => x.info.accousticness).ToList();
+                    playlist = playlist.OrderByDescending(x => x.info.acousticness).ToList();
                     break;
 
                 case OrderBy.Liveness:

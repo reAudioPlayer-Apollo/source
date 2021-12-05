@@ -803,7 +803,7 @@ namespace reAudioPlayerML.Search.Spotify
                 danceability = (int)Math.Round(features.Danceability * 100);
                 happiness = (int)Math.Round(features.Valence * 100);
                 loudness = (int)Math.Round(features.Loudness * 100);
-                accousticness = (int)Math.Round(features.Acousticness * 100);
+                acousticness = (int)Math.Round(features.Acousticness * 100);
                 instrumentalness = (int)Math.Round(features.Instrumentalness * 100);
                 liveness = (int)Math.Round(features.Liveness * 100);
                 speechiness = (int)Math.Round(features.Speechiness * 100);
@@ -829,7 +829,7 @@ namespace reAudioPlayerML.Search.Spotify
                 }
             }
 
-            public int popularity, energy, danceability, happiness, loudness, accousticness, instrumentalness, liveness, speechiness;
+            public int popularity, energy, danceability, happiness, loudness, acousticness, instrumentalness, liveness, speechiness;
             public string key, camelot, releaseDate;
         }
 
